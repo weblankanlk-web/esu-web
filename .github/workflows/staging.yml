@@ -3,38 +3,34 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches:
-      - staging 
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      deployments: write
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  
+          node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies (legacy mode)
+        run: npm install --legacy-peer-deps
 
-      - name: Build Next.js site
+      - name: Build project
         run: npm run build
 
-      - name: Export static site (if using static export)
+      - name: Export static site
         run: npm run export
 
-      - name: Publish to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: your-cloudflare-project-name
-          directory: .next  # or .next if using next-on-pages
+          directory: out
