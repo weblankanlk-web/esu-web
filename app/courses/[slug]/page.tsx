@@ -358,7 +358,6 @@ const page = () => {
 
   return (
     <>
-      <Header />
       <Breadrumb />
 
       <section className="simple-padding-bottom dark-lightmode dark-font-change">

@@ -8,6 +8,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 import { validate } from "graphql";
 import { Audio, FallingLines, ThreeDots } from "react-loader-spinner";
 import CourseItem from "@/components/CourseItem/CourseItem";
+import Breadrumb from "@/components/Breadcrumb/Breadcrumb";
 
 const COURSE_TYPES_QUERY = `
 query {
@@ -370,13 +371,7 @@ export default function CoursesPage() {
 
   return (
     <>
-      <Header />
-
-      <section className="braedcumb-section dark-lightmode dark-font-change">
-        <div className="small-middle-wrap">
-          <p>Breadcrumb → Page</p>
-        </div>
-      </section>
+      <Breadrumb />
 
       <section className="simple-padding-bottom dark-lightmode dark-font-change">
         <div className="small-middle-wrap">
@@ -648,7 +643,12 @@ export default function CoursesPage() {
                       course={{
                         ...course,
                         featuredImage: course.featuredImage
-                          ? { node: { mediaItemUrl: course.featuredImage.node.mediaItemUrl } }
+                          ? {
+                              node: {
+                                mediaItemUrl:
+                                  course.featuredImage.node.mediaItemUrl,
+                              },
+                            }
                           : undefined,
                         courses: {
                           ...course.courses,
