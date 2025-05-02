@@ -266,9 +266,7 @@ const page = () => {
         });
 
         // console.log("GraphQL Course Data:", response.course);
-        //setCourseDetails(response.course);
-        setCourseDetails(response.course.nodes);
-
+        setCourseDetails(response.course);
       } catch (error) {
         console.error("Error fetching course details:", error);
       }
