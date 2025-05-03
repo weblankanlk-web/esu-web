@@ -7,11 +7,12 @@ import { graphQLClient } from "@/lib/graphql-client";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import "./style.css";
+import "./style.scss";
 import CustomAccordion from "@/components/Accordion/Accordion";
 import Fees from "@/components/Fees/Fees";
 import Schedule from "@/components/Schedule/Schedule";
 import LecturePanel from "@/components/LecturePanel/LecturePanel";
+import CourseOutline from "@/components/CourseOutline/CourseOutline";
 
 const COURSE_QUERY = `
 query($id: ID!) {
@@ -227,7 +228,7 @@ const page = () => {
   } | null>(null);
   const [courseFees, setCourseFees] = useState([]);
   const [schedule, setSchedule] = useState([]);
-  const [courseDetails, setCourseDetails] = useState<Course[]>([]);
+  const [courseDetails, setCourseDetails] = useState<Course | null>(null);
   const [relatedCourses, setRelatedCourses] = useState<RelatedCourses[]>([]);
 
   // console.log("Course ID:", courseId);
@@ -260,7 +261,7 @@ const page = () => {
     const fetchCourseDetails = async () => {
       try {
         const response = await graphQLClient.request<{
-          course: { nodes: Course[] };
+          course: Course;
         }>(COURSE_QUERY, {
           id: wpCourseId,
         });
@@ -442,26 +443,22 @@ const page = () => {
                   <button className="nav-btn-in">Fees</button>
                 </li>
               </ul>
-              <div id="section1" className="related-coures-div course-title">
-                <h5>overview</h5>
-              </div>
-              <div>
-                <div
-                  className="the-content-div"
-                  dangerouslySetInnerHTML={{
-                    __html: course?.description || "",
-                  }}
-                />
-              </div>
-              <div id="section3">
-                <div className="related-coures-div course-title">
-                  <h5>course outline</h5>
-                </div>
 
-                <div className="course-outline-wrap">
-                  <CustomAccordion />
+              <div className="course-details-overview">
+                <div id="section1" className="related-coures-div course-title">
+                  <h5>Course Overview</h5>
+                </div>
+                <div>
+                  <div
+                    className="the-content-div"
+                    dangerouslySetInnerHTML={{
+                      __html: course?.description || "",
+                    }}
+                  />
                 </div>
               </div>
+
+              <CourseOutline />
 
               <Schedule schedule={schedule} />
               {/* ------------------------------------------------ */}
@@ -470,7 +467,11 @@ const page = () => {
               {/* ------------------------------------------------ */}
 
               {courseDetails?.courses?.lecturePanelDescription && (
-                <LecturePanel lecturePanelDescription={courseDetails?.courses?.lecturePanelDescription} />
+                <LecturePanel
+                  lecturePanelDescription={
+                    courseDetails?.courses?.lecturePanelDescription
+                  }
+                />
               )}
             </div>
           </div>

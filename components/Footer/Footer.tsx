@@ -2,157 +2,126 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaTwitter,
+  FaGooglePlusG,
+} from "react-icons/fa";
+import "./style.scss";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="footer">
-      <div className="main-wrap">
-        <div className="footer-menu-div simple-padding-top simple-padding-bottom">
-          <div className="footer-logo-div">
-            <Link className="footer-logo" href="/">
-              <Image
-                src="/images/logo.png"
-                width={150}
-                height={50}
-                alt="Logo"
-              />
-            </Link>
-
-            <div className="w-100 desktop-div">
-              <h6>follow us on</h6>
-              <ul className="social-ul">
-                {["facebook", "instagram", "linkedin", "tiktok", "youtube"].map(
-                  (platform) => (
-                    <li key={platform}>
-                      <a target="_blank" href={`/${platform}`}>
-                        <Image
-                          src={`/images/${
-                            platform === "linkedin" ? "in" : platform
-                          }.png`}
-                          width={24}
-                          height={24}
-                          alt={platform}
-                        />
-                      </a>
-                    </li>
-                  )
-                )}
-              </ul>
+    <footer className="footer ">
+      <div className="footer-border"></div>
+      <div className="footer-social">
+        <div className="social-banner small-middle-wrap">
+          <div className="hashtag">#ESULife</div>
+          <div className="social-icons">
+            <div className="icon">
+              <FaFacebookF />
             </div>
-
-            <div className="best-web-win">
-              <Image
-                className="w-100 best-web-img"
-                src="https://esoft.lk/wp-content/uploads/2024/09/65e00a48.png"
-                alt="Best Web"
-                width={300}
-                height={100}
-                style={{
-                  objectFit: "contain",
-                }}
-              />
+            <div className="icon">
+              <FaLinkedinIn />
             </div>
-          </div>
-
-          <div className="menu-col">
-            <h6>quick links</h6>
-            {/* Replace with dynamic menu */}
-            <ul className="navbar-nav navbardropdown" id="quick">
-              <li>
-                <Link href="/about">About</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="menu-col">
-            <h6>important links</h6>
-            {/* Replace with dynamic menu */}
-            <ul className="navbar-nav navbardropdown" id="important">
-              <li>
-                <Link href="/terms">Terms</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer-logo-div-con">
-            <h6>contact us</h6>
-            <ul className="contact-ul">
-              <li>
-                <Image
-                  src="/images/call.png"
-                  width={20}
-                  height={20}
-                  alt="call"
-                />
-                <a href="tel:+94112233445">+94 112 233 445</a>
-              </li>
-              <li>
-                <Image
-                  src="/images/email.png"
-                  width={20}
-                  height={20}
-                  alt="email"
-                />
-                <a href="mailto:info@esoft.lk">info@esoft.lk</a>
-              </li>
-              <li>
-                <Image
-                  src="/images/pin.png"
-                  width={20}
-                  height={20}
-                  alt="address"
-                />
-                <p>No. 123, Colombo 03, Sri Lanka</p>
-              </li>
-            </ul>
-          </div>
-
-          <div className="w-100 mobile-div footer-logo-div">
-            <h6>follow us on</h6>
-            <ul className="social-ul">
-              {["facebook", "instagram", "linkedin", "tiktok", "youtube"].map(
-                (platform) => (
-                  <li key={`mob-${platform}`}>
-                    <a target="_blank" href={`/${platform}`}>
-                      <Image
-                        src={`/images/${
-                          platform === "linkedin" ? "in" : platform
-                        }.png`}
-                        width={24}
-                        height={24}
-                        alt={platform}
-                      />
-                    </a>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-        </div>
-
-        <div className="footer-copy-div d-flex justify-content-center">
-          <div className="w-100 text-center">
-            <p>
-              Copyright @ {currentYear} ESOFT Metro Campus - All Right Reserved.
-              Concept, Design & Development by{" "}
-              <a target="_blank" href="https://www.weblankan.com/">
-                Web Lankan
-              </a>{" "}
-              in Collaboration with ESOFT Technologies.
-            </p>
+            <div className="icon">
+              <FaInstagram />
+            </div>
+            <div className="icon">
+              <FaTwitter />
+            </div>
+            <div className="icon">
+              <FaGooglePlusG />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="scroltopIcon topScroll">
-        <Image
-          src="/wp-content/uploads/2024/06/topBtn.png"
-          alt="Scroll to top"
-          width={40}
-          height={40}
-        />
+      <div className="footer-content-wrap">
+        <div className="footer-content small-middle-wrap">
+          <div className="column contact">
+            <h4>CONTACT DETAILS</h4>
+            <p>
+              Hotline Number <br />
+              <strong>+94 117 572 572</strong>
+            </p>
+            <p>
+              Email <br />
+              <a href="mailto:info@esoft.lk">
+                <strong>info@esoft.lk</strong>
+              </a>
+            </p>
+            <p>
+              Head Office (Block E) <br />
+              <strong>
+                ESOFT Metro Campus No.03,
+                <br />
+                De Fonseka Place,
+                <br />
+                Colombo 4, Sri Lanka.
+              </strong>
+            </p>
+            <div className="awards">
+              <h4>AWARDS</h4>
+              <Image
+                src={"/images/logo/awards.png"}
+                alt="Award Seal"
+                width={100}
+                height={100}
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+          </div>
+
+          <div className="column links">
+            <h4>QUICK LINKS</h4>
+            <ul>
+              <li>Home</li>
+              <li>Student Life</li>
+              <li>About Us</li>
+              <li>Contact Us</li>
+              <li>Careers</li>
+              <li>News & Events</li>
+              <li>Blogs</li>
+              <li>CSR</li>
+            </ul>
+          </div>
+
+          <div className="column links">
+            <h4>IMPORTANT LINKS</h4>
+            <ul>
+              <li>Courses</li>
+              <li>Faculties</li>
+              <li>Transfer Programmes</li>
+              <li>Privacy Policy</li>
+              <li>Payment Policy</li>
+              <li>Refund Policy</li>
+              <li>Quality Policy</li>
+              <li>Referrals</li>
+            </ul>
+          </div>
+
+          <div className="background-logo">
+            <Image
+              src={"/images/logo/esu.png"}
+              width={700}
+              height={400}
+              alt=""
+              style={{ objectFit: "cover", objectPosition: "bottom" }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>
+          Copyright © 2025 <strong>ESU METRO CAMPUS</strong> All rights
+          reserved. Website Designed And Developed By{" "}
+          <strong>Web Lankan</strong>
+        </p>
       </div>
     </footer>
   );
