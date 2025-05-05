@@ -2,17 +2,16 @@
 
 import Breadrumb from "@/components/Breadcrumb/Breadcrumb";
 import CourseItem from "@/components/CourseItem/CourseItem";
-import Header from "@/components/Header/Header";
 import { graphQLClient } from "@/lib/graphql-client";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import "./style.scss";
-import CustomAccordion from "@/components/Accordion/Accordion";
-import Fees from "@/components/Fees/Fees";
-import Schedule from "@/components/Schedule/Schedule";
 import LecturePanel from "@/components/LecturePanel/LecturePanel";
 import CourseOutline from "@/components/CourseOutline/CourseOutline";
+import CourseOverview from "@/components/CourseOverview/CourseOverview";
+import CourseSchedule from "@/components/CourseSchedule/CourseSchedule";
+import CourseFees from "@/components/CourseFees/CourseFees";
 
 const COURSE_QUERY = `
 query($id: ID!) {
@@ -324,7 +323,12 @@ const page = () => {
         );
 
         // setCourseFees(response.data.data);
-        setCourseFees({ fee_plans: response.data.data });
+        // setCourseFees({ fee_plans: response.data.data });
+        if (Array.isArray(response.data.data)) {
+          setCourseFees({ fee_plans: response.data.data });
+        } else {
+          setCourseFees(response.data.data);
+        }
       } catch (error) {
         console.error("Error fetching course fees:", error);
       }
@@ -385,11 +389,11 @@ const page = () => {
     fetchRelatedCourses();
   }, [courseId]);
 
-  // console.log("Course Data:", course);
+  console.log("Course Data:", course);
   // console.log("Course Fees Data:", courseFees);
   // console.log("Schedule Data:", schedule);
   // console.log("Filtered Related Courses:", relatedCourses);
-  // console.log("Course Details:", courseDetails);
+  console.log("Course Details:", courseDetails);
   // console.log(courseDetails?.featuredImage?.node?.mediaItemUrl)
 
   return (
@@ -491,26 +495,18 @@ const page = () => {
                 </li>
               </ul>
 
-              <div className="course-details-overview">
-                <div id="section1" className="related-coures-div course-title">
-                  <h5>Course Overview</h5>
-                </div>
-                <div>
-                  <div
-                    className="the-content-div"
-                    dangerouslySetInnerHTML={{
-                      __html: course?.description || "",
-                    }}
-                  />
-                </div>
-              </div>
+              <CourseOverview course={course || undefined} />
 
-              <CourseOutline />
+              {/* <CourseOutline course={courseDetails?.courses} /> */}
 
-              <Schedule schedule={schedule} />
+              {course?.course_content?.modules && (
+                <CourseOutline modules={course.course_content.modules} />
+              )}
+
+              <CourseSchedule schedule={schedule} />
               {/* ------------------------------------------------ */}
 
-              <Fees fees={courseFees} />
+              <CourseFees fees={courseFees} />
               {/* ------------------------------------------------ */}
 
               {courseDetails?.courses?.lecturePanelDescription && (

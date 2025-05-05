@@ -18,40 +18,60 @@ const Header = () => {
               {/* Replace with dynamic menu data */}
               <ul className="navbar-nav navbardropdown" id="top-menu">
                 <li>
-                  <Link href="/about">Home</Link>
+                  <Link href="https://esoft.lk/" target="_blank">
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about">About</Link>
+                  <Link href="https://esoft.lk/about-us/" target="_blank">
+                    About
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about">students life</Link>
+                  <Link href="https://esoft.lk/students-life/" target="_blank">
+                    students life
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about">careers</Link>
+                  <Link href="https://esoft.lk/careers/" target="_blank">
+                    careers
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about">news & events</Link>
+                  <Link href="https://esoft.lk/news/" target="_blank">
+                    news & events
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about">blogs</Link>
+                  <Link href="https://esoft.lk/blogs/" target="_blank">
+                    blogs
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about">Research</Link>
+                  <Link href="https://esoft.lk/research/" target="_blank">
+                    Research
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about">Scholarship</Link>
+                  <Link href="https://esoft.lk/student-loan/" target="_blank">
+                    Scholarship
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about">CSR</Link>
+                  <Link href="https://esoft.lk/csr/" target="_blank">
+                    CSR
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about">contact us</Link>
+                  <Link href="https://esoft.lk/contact-us/" target="_blank">
+                    contact us
+                  </Link>
                 </li>
               </ul>
             </nav>
             <ul className="top-bar-menu">
               <li>
-                <a target="_blank" href="/payments">
+                <Link target="_blank" href="https://payments.esoft.lk/">
                   <Image
                     src="/images/payment.png"
                     width={20}
@@ -60,10 +80,10 @@ const Header = () => {
                     style={{ objectFit: "contain" }}
                   />
                   <span>Payments</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a target="_blank" href="/students">
+                <Link target="_blank" href="https://learn.esoft.lk/login">
                   <Image
                     src="/images/user.png"
                     width={20}
@@ -72,10 +92,10 @@ const Header = () => {
                     style={{ objectFit: "contain" }}
                   />
                   <span>Students</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <Link href="/alumni">
+                <Link target="_blank" href="https://esoft.lk/alumni/">
                   <Image
                     src="/images/alumni.png"
                     width={20}

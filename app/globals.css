@@ -137,6 +137,8 @@
 } */
 body {
   font-family: var(--font-family-secondary);
+
+  background: #f4f4f6;
 }
 
 .max-wrap {
@@ -1548,7 +1550,7 @@ input:focus {
   content: "";
   height: 2px;
   width: 80px;
-  background: var(--red-color);
+  /* background: var(--red-color); */
   z-index: 1;
   margin-top: 10px;
 }
@@ -4339,9 +4341,9 @@ span.clickeStream#prefer-degree-id {
   #banner-carousel img {
     height: 90vh;
   }
-  body {
+  /* body {
     padding-top: 80px;
-  }
+  } */
   .top-bar-menu img {
     filter: invert(0%) sepia(147%) saturate(110%) hue-rotate(228deg)
       brightness(0) contrast(100%);
