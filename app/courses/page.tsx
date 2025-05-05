@@ -8,6 +8,8 @@ import { graphQLClient } from "@/lib/graphql-client";
 import { validate } from "graphql";
 import { Audio, FallingLines, ThreeDots } from "react-loader-spinner";
 import CourseItem from "@/components/CourseItem/CourseItem";
+import Breadrumb from "@/components/Breadcrumb/Breadcrumb";
+import "./style.scss";
 
 const COURSE_TYPES_QUERY = `
 query {
@@ -370,13 +372,7 @@ export default function CoursesPage() {
 
   return (
     <>
-      <Header />
-
-      <section className="braedcumb-section dark-lightmode dark-font-change">
-        <div className="small-middle-wrap">
-          <p>Breadcrumb → Page</p>
-        </div>
-      </section>
+      <Breadrumb />
 
       <section className="simple-padding-bottom dark-lightmode dark-font-change">
         <div className="small-middle-wrap">
@@ -386,26 +382,24 @@ export default function CoursesPage() {
 
           <div className="landing-wrap-top">
             <div className="landing-results landing-results-top">
-              <div>
-                <div className="search-form-ajax">
-                  <input
-                    type="text"
-                    name="search-keyword"
-                    className="type-check"
-                    placeholder="Search Courses"
-                    id="search-key"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
+              <div className="search-form-ajax">
+                <input
+                  type="text"
+                  name="search-keyword"
+                  className="type-check"
+                  placeholder="Search Courses"
+                  id="search-key"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <button id="search-form-ajax-submit" type="submit">
+                  <Image
+                    src="/images/search.png"
+                    width={20}
+                    height={20}
+                    alt="search"
                   />
-                  <button id="search-form-ajax-submit" type="submit">
-                    <Image
-                      src="/images/search.png"
-                      width={20}
-                      height={20}
-                      alt="search"
-                    />
-                  </button>
-                </div>
+                </button>
               </div>
             </div>
           </div>
@@ -648,7 +642,12 @@ export default function CoursesPage() {
                       course={{
                         ...course,
                         featuredImage: course.featuredImage
-                          ? { node: { mediaItemUrl: course.featuredImage.node.mediaItemUrl } }
+                          ? {
+                              node: {
+                                mediaItemUrl:
+                                  course.featuredImage.node.mediaItemUrl,
+                              },
+                            }
                           : undefined,
                         courses: {
                           ...course.courses,

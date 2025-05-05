@@ -92,7 +92,7 @@ const Header = () => {
 
         <div className="bottom-bar">
           <div className="main-wrap d-flex justify-content-between main-menu-wrap">
-            <div className="d-flex main-menu-inner-wrap">
+            <div className="d-flex main-menu-inner-wrap w-100 justify-content-between">
               <div>
                 <Link href="/">
                   <Image
@@ -101,6 +101,7 @@ const Header = () => {
                     height={50}
                     alt="Logo"
                     style={{
+                      width: "100%",
                       objectFit: "contain",
                     }}
                   />
@@ -127,6 +128,19 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
+              <div className="apply-now-wrap">
+                <a
+                  className="next-btn next-btn--blue"
+                  target="_blank"
+                  href={
+                    isCoursePage
+                      ? `/register?id=${"COURSE_ID_DYNAMIC"}`
+                      : "/register"
+                  }
+                >
+                  <span>Register Online</span>
+                </a>
+              </div>
             </div>
             <div className="mobile-div hamburger-wrap">
               <button
@@ -140,19 +154,6 @@ const Header = () => {
                 </div>
                 <span className="ham-title">MENU</span>
               </button>
-            </div>
-            <div className="apply-now-wrap">
-              <a
-                className="next-btn next-btn--blue"
-                target="_blank"
-                href={
-                  isCoursePage
-                    ? `/register?id=${"COURSE_ID_DYNAMIC"}`
-                    : "/register"
-                }
-              >
-                <span>Register Online</span>
-              </a>
             </div>
           </div>
         </div>

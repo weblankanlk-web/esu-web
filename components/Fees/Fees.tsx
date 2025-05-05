@@ -61,16 +61,16 @@ const Fees: React.FC<FeesProps> = ({ fees }) => {
               </h6>
               <ul>
                 <li>
-                  Registration Fee:{" "}
+                  Registration Fee:
                   <span>
-                    {plan.registration_fee.currency}{" "}
+                    {plan.registration_fee.currency}
                     {parseFloat(plan.registration_fee.price).toLocaleString()}
                   </span>
                 </li>
                 <li>
-                  Total Investment:{" "}
+                  Total Investment:
                   <span>
-                    {plan.approximate_total.currency}{" "}
+                    {plan.approximate_total.currency}
                     {plan.approximate_total.total.toLocaleString()}
                   </span>
                 </li>

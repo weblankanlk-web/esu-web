@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  Geist,
+  Geist_Mono,
+  Poppins,
+  Space_Grotesk,
+  Manrope,
+} from "next/font/google";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,6 +19,24 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  variable: "--font-poppins", // optional CSS variable name
+  weight: ["400", "500", "600", "700"], // choose weights you need
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["400", "500", "600", "700"], // include the weights you plan to use
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"], // choose the weights you need
+  variable: "--font-manrope", // optional, helpful for global CSS
 });
 
 export const metadata: Metadata = {
@@ -25,8 +51,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${spaceGrotesk.variable} ${manrope.variable}`}
+      >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

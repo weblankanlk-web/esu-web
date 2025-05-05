@@ -1,6 +1,10 @@
 import React from "react";
 
-const LecturePanel = ({ lecturePanelDescription }) => {
+interface LecturePanelProps {
+  lecturePanelDescription?: string;
+}
+
+const LecturePanel: React.FC<LecturePanelProps> = ({ lecturePanelDescription }) => {
   return (
     <>
       <div id="section7" className="related-coures-div course-title">
