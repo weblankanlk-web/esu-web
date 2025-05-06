@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import TitleSmall from "../TitleSmall/TitleSmall";
 import TestimonialItem from "./TestimonialItem";

@@ -1,3 +1,5 @@
+"use client";
+
 import { Fragment } from "react";
 import HomeBanner from "@/components/HomeBanner/HomeBanner";
 import HomeAbout from "@/components/HomeAbout/HomeAbout";

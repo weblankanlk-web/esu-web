@@ -509,7 +509,7 @@ const page = () => {
 
               {/* <CourseOutline course={courseDetails?.courses} /> */}
 
-              {course?.course_content?.modules && (
+              {/* {course?.course_content?.modules && (
                 <CourseOutline
                   modules={
                     course.course_content.modules.map((module, index) => ({
@@ -522,7 +522,7 @@ const page = () => {
                     }))
                   }
                 />
-              )}
+              )} */}
 
               <CourseSchedule schedule={schedule} />
               {/* ------------------------------------------------ */}

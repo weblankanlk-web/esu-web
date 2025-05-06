@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import CustomAccordion from "../Accordion/Accordion";
 import { useTheme } from "@/lib/ThemeContext";
