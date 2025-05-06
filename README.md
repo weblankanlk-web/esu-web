@@ -70,4 +70,13 @@ public            # Static assets
 * Make sure to add environment variables in a `.env.local` file if needed.
 * For theme color or global state, check `lib/ThemeContext.tsx`.
 
+## 🛠️ Project Specific Notes
+
+Faculty of Computing - #00AECD - Space Grotesk
+Faculty of life sciences - #BFD730 - Nunito
+Faculty of management & law - #FFCB05 - Merriweather
+Faculty of art & design - #F5833C - Lobster
+Faculty of engineering - #BFD730 - Orbitron
+Faculty of languages, sociology and education - #5B5B5B - Felipa
+
 ---
