@@ -54,6 +54,10 @@ query($id: ID!) {
     schoolTypes {
       nodes {
         slug
+        schoolTypesColorFontFields {
+          color
+          courseFontFamily
+        }
       }
     }
     courseTypes {
@@ -272,6 +276,20 @@ const page = () => {
   // console.log("Course ID:", courseId);
 
   useEffect(() => {
+    const school = courseDetails?.schoolTypes?.nodes?.[0];
+    const font = school?.schoolTypesColorFontFields?.courseFontFamily;
+    const color = school?.schoolTypesColorFontFields?.color;
+
+    if (font) {
+      document.body.style.fontFamily = font;
+    }
+
+    if (color) {
+      setColor(color); // this updates your ThemeContext and CSS variable
+    }
+  }, [courseDetails]);
+
+  useEffect(() => {
     if (!courseId) return;
 
     const fetchCourse = async () => {
@@ -398,7 +416,7 @@ const page = () => {
   // console.log("Course Fees Data:", courseFees);
   // console.log("Schedule Data:", schedule);
   // console.log("Filtered Related Courses:", relatedCourses);
-  // console.log("Course Details:", courseDetails);
+  console.log("Course Details:", courseDetails);
   // console.log(courseDetails?.featuredImage?.node?.mediaItemUrl)
 
   return (
