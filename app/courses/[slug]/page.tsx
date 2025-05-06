@@ -13,6 +13,7 @@ import CourseOverview from "@/components/CourseOverview/CourseOverview";
 import CourseSchedule from "@/components/CourseSchedule/CourseSchedule";
 import CourseFees from "@/components/CourseFees/CourseFees";
 import { useTheme } from "@/lib/ThemeContext";
+import "../../globals.css";
 
 const COURSE_QUERY = `
 query($id: ID!) {

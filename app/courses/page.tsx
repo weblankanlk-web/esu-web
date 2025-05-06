@@ -10,6 +10,7 @@ import { Audio, FallingLines, ThreeDots } from "react-loader-spinner";
 import CourseItem from "@/components/CourseItem/CourseItem";
 import Breadrumb from "@/components/Breadcrumb/Breadcrumb";
 import "./style.scss";
+import "../globals.css";
 
 const COURSE_TYPES_QUERY = `
 query {

@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import {
-  Poppins,
-  Space_Grotesk,
-  Manrope,
-} from "next/font/google";
+import { Poppins, Space_Grotesk, Manrope } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "./globals.css";
 import "../styles/global.scss";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
+import { ThemeProvider } from "@/lib/ThemeContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -41,9 +39,11 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${spaceGrotesk.variable} ${manrope.variable}`}
       >
-        {/* <Header /> */}
-        {children}
-        {/* <Footer /> */}
+        <ThemeProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
