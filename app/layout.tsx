@@ -5,6 +5,7 @@ import "../styles/global.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { ThemeProvider } from "@/lib/ThemeContext";
+import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],

@@ -10,7 +10,6 @@ import { Audio, FallingLines, ThreeDots } from "react-loader-spinner";
 import CourseItem from "@/components/CourseItem/CourseItem";
 import Breadrumb from "@/components/Breadcrumb/Breadcrumb";
 import "./style.scss";
-import "../globals.css";
 
 const COURSE_TYPES_QUERY = `
 query {
@@ -451,7 +450,7 @@ export default function CoursesPage() {
               <ul id="selected-checks"></ul>
               <div className="att-box-wrapper">
                 <div className="attribute-box">
-                  <h6>School</h6>
+                  <h6>Facilities</h6>
                   {loadingSchools ? (
                     <div
                       style={{
