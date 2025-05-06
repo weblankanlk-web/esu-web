@@ -1,3 +1,6 @@
+"use client";
+
+import { useTheme } from "@/lib/ThemeContext";
 import React from "react";
 
 interface CourseOverviewProps {
@@ -7,11 +10,23 @@ interface CourseOverviewProps {
 }
 
 const CourseOverview: React.FC<CourseOverviewProps> = ({ course }) => {
+  const { color, setColor } = useTheme();
+
+  // console.log("Active theme color:", color);
+
   return (
     <>
+      {/* <input
+        type="color"
+        value={color}
+        onChange={(e) => setColor(e.target.value)}
+      /> */}
+
       <div className="course-details-wrapper">
         <div id="section1" className="related-coures-div course-title">
-          <h5>Course Overview</h5>
+          <h5>
+            <span>Course <span style={{ color }}>Overview</span></span>
+          </h5>
         </div>
         <div>
           <div

@@ -1,3 +1,4 @@
+import { useTheme } from "@/lib/ThemeContext";
 import React from "react";
 
 interface Fee {
@@ -37,11 +38,17 @@ interface FeesProps {
 }
 
 const CourseFees: React.FC<FeesProps> = ({ fees }) => {
+  const { color } = useTheme();
+
   return (
     <>
       <div className="course-details-wrapper">
         <div id="section6" className="related-coures-div course-title">
-          <h5>Course Fees</h5>
+          <h5>
+            <span>
+              Course <span style={{ color }}>Fees</span>
+            </span>
+          </h5>
         </div>
         <div>
           <p className="con">

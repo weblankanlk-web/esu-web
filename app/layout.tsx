@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import { ThemeProvider } from "@/lib/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,9 +55,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${spaceGrotesk.variable} ${manrope.variable}`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

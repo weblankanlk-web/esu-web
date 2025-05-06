@@ -18,3 +18,9 @@
         letter-spacing: -6px;
     }
 }
+
+.accordion-button,
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    font-weight: bold;
+}

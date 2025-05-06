@@ -14,6 +14,7 @@
   --gray: #fafafa;
   --gray-light: #f0f0f0;
   --light-purple: #e5e8fa;
+  --bg-light: #fff;
   --font-14: 0.729vw;
   --font-15: 0.781vw;
   --font-16: 0.833vw;
@@ -1661,7 +1662,7 @@ input:focus {
   width: 100%;
 }
 .course-nav button {
-  background: var(--gray-light) !important;
+  background: var(--bg-light) !important;
   border: 0 !important;
   padding: 5px 30px;
   border-radius: 20px;
@@ -1682,7 +1683,7 @@ input:focus {
 }
 .accordion-button,
 .accordion-button:not(.collapsed) {
-  background: var(--light-purple) !important;
+  /* background: var(--light-purple) !important; */
   border-radius: 5px;
 }
 .the-content-div,

@@ -1,3 +1,4 @@
+import { useTheme } from "@/lib/ThemeContext";
 import { useState } from "react";
 
 interface Module {
@@ -14,6 +15,8 @@ const CustomAccordion = ({ modules }: { modules: Module[] }) => {
     setActiveIndex((prev) => (prev === index ? null : index));
   };
 
+  const { color } = useTheme();
+
   return (
     <div className="accordion" id="accordionExample">
       <div className="accordion-item">
@@ -26,6 +29,7 @@ const CustomAccordion = ({ modules }: { modules: Module[] }) => {
             onClick={() => toggleAccordion(0)}
             aria-expanded={activeIndex === 0}
             aria-controls="collapse1"
+            style={{ backgroundColor: color }}
           >
             Modules
           </button>

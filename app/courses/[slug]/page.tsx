@@ -12,6 +12,7 @@ import CourseOutline from "@/components/CourseOutline/CourseOutline";
 import CourseOverview from "@/components/CourseOverview/CourseOverview";
 import CourseSchedule from "@/components/CourseSchedule/CourseSchedule";
 import CourseFees from "@/components/CourseFees/CourseFees";
+import { useTheme } from "@/lib/ThemeContext";
 
 const COURSE_QUERY = `
 query($id: ID!) {
@@ -252,10 +253,14 @@ const page = () => {
   const searchParams = useSearchParams();
   const courseId = searchParams.get("id");
   const wpCourseId = searchParams.get("courseId");
+  const { color, setColor } = useTheme();
 
   const [course, setCourse] = useState<{
     description?: string;
     name?: string;
+    course_content?: {
+      modules?: string[];
+    };
   } | null>(null);
   // const [courseFees, setCourseFees] = useState([]);0
   const [courseFees, setCourseFees] = useState<{ fee_plans?: FeePlan[] }>({});
@@ -389,11 +394,11 @@ const page = () => {
     fetchRelatedCourses();
   }, [courseId]);
 
-  console.log("Course Data:", course);
+  // console.log("Course Data:", course);
   // console.log("Course Fees Data:", courseFees);
   // console.log("Schedule Data:", schedule);
   // console.log("Filtered Related Courses:", relatedCourses);
-  console.log("Course Details:", courseDetails);
+  // console.log("Course Details:", courseDetails);
   // console.log(courseDetails?.featuredImage?.node?.mediaItemUrl)
 
   return (
@@ -436,7 +441,11 @@ const page = () => {
             </div>
             <div className="desktop-div">
               <div className="related-coures-div">
-                <h5>related courses</h5>
+                <h5>
+                  <span>
+                    related <span style={{ color }}>courses</span>
+                  </span>
+                </h5>
               </div>
               {relatedCourses?.map((relatedCourse) => (
                 <CourseItem
@@ -500,7 +509,18 @@ const page = () => {
               {/* <CourseOutline course={courseDetails?.courses} /> */}
 
               {course?.course_content?.modules && (
-                <CourseOutline modules={course.course_content.modules} />
+                <CourseOutline
+                  modules={
+                    course.course_content.modules.map((module, index) => ({
+                      id: index,
+                      is_enabled: 1,
+                      is_mandatory: 1,
+                      code: `MOD-${index + 1}`,
+                      name: module,
+                      description: null,
+                    }))
+                  }
+                />
               )}
 
               <CourseSchedule schedule={schedule} />

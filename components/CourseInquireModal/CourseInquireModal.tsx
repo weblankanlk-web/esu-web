@@ -15,29 +15,29 @@ const CourseInquireModal = () => {
                 <form id="myForm">
                   <div className="con-form-row">
                     <div className="con-form-col">
-                      <label htmlFor>First Name *</label>
+                      <label htmlFor="">First Name *</label>
                       <input type="text" name="first-name" id="first-name" />
                     </div>
                     <div className="con-form-col">
-                      <label htmlFor>Last Name *</label>
+                      <label htmlFor="">Last Name *</label>
                       <input type="text" name="last-name" id="last-name" />
                     </div>
                   </div>
                   <div className="con-form-row">
                     <div className="con-form-col">
-                      <label htmlFor>Phone *</label>
+                      <label htmlFor="">Phone *</label>
                       <input type="tel" name="phone" id="phone" />
                     </div>
                     <div className="con-form-col">
-                      <label htmlFor>Email</label>
+                      <label htmlFor="">Email</label>
                       <input type="email" name="email" id="email" />
                     </div>
                   </div>
                   <div className="con-form-row">
                     <div className="con-form-col w-100">
-                      <label htmlFor>Nationality *</label>
+                      <label htmlFor="">Nationality *</label>
                       <select name="nationality" id="nationality" className="nationality">
-                        <option value>Select Nationality</option>
+                        <option value="">Select Nationality</option>
                         <option value="AF">Afghan</option>
                         <option value="Albanian" data-select2-id="select2-data-1214-q2xo">Albanian</option>
                         <option value="Algerian">Algerian</option>
@@ -283,7 +283,7 @@ const CourseInquireModal = () => {
                   </div>
                   <div className="con-form-row">
                     <div className="con-form-col w-100">
-                      <label htmlFor>NIC/Passport</label>
+                      <label htmlFor="">NIC/Passport</label>
                       <input type="text" name="nic" id="nic" />
                     </div>
                   </div>
@@ -339,7 +339,7 @@ const CourseInquireModal = () => {
                       <label htmlFor="branch">Branch</label>
                       {/* </?php var_dump($branch_list);?> */}
                       <select name="branch" id="branch" className="branch-select">
-                        <option value>Select Branch</option>
+                        <option value="">Select Branch</option>
                         {/* Branch Select Dropdown */}
                         {/* Output branch name and id as option */}
                         <option value="Colombo">Colombo</option>
@@ -352,11 +352,11 @@ const CourseInquireModal = () => {
                   </div>
                   <div className="con-form-row">
                     <div className="con-form-col w-100">
-                      <label htmlFor>Academic Programme *</label>
+                      <label htmlFor="">Academic Programme *</label>
                       <p className="paragraph paragraph--blue">BSc (Hons) in Data Science (TOP UP) – London Met University (UK)</p>
                       <select name="course-list" id="course-list" className="course-list
                            visible-hiddeb-select                           ">
-                        <option value>Select Course</option>
+                        <option value="">Select Course</option>
                         <option value="DIAE">Assured Diploma in Academic English</option>
                         <option value="DIBE">Assured Diploma in Business English</option>
                         <option value="LMU-T-BBA">BA (Hons) in Business Administration (TOP UP) – London Met University (UK)</option>
@@ -479,7 +479,7 @@ const CourseInquireModal = () => {
                   </div>
                   <div className="con-form-row">
                     <div className="con-form-col w-100">
-                      <label htmlFor>Message *</label>
+                      <label htmlFor="">Message *</label>
                       <input type="text" name="message" id="message" />
                     </div>
                   </div>

@@ -1,3 +1,4 @@
+import { useTheme } from "@/lib/ThemeContext";
 import React, { useEffect, useState } from "react";
 
 type Batch = {
@@ -21,6 +22,7 @@ type ScheduleProps = {
 const CourseSchedule: React.FC<ScheduleProps> = ({ schedule }) => {
   const [selectedBranch, setSelectedBranch] = useState("");
   const [filteredBatches, setFilteredBatches] = useState<Batch[]>([]);
+  const { color } = useTheme();
 
   useEffect(() => {
     if (schedule?.length > 0) {
@@ -41,7 +43,11 @@ const CourseSchedule: React.FC<ScheduleProps> = ({ schedule }) => {
     <>
       <div className="course-details-wrapper">
         <div id="section5" className="related-coures-div course-title">
-          <h5>Course Schedule</h5>
+          <h5>
+            <span>
+              Course <span style={{ color }}>Schedule</span>
+            </span>
+          </h5>
         </div>
         <div>
           <select
