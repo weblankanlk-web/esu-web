@@ -1,31 +1,17 @@
 import type { Metadata } from "next";
 import {
-  Geist,
-  Geist_Mono,
   Poppins,
   Space_Grotesk,
   Manrope,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./globals.css";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
-import { ThemeProvider } from "@/lib/ThemeContext";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// import "./globals.css";
+import "../styles/global.scss";
 
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins", // optional CSS variable name
-  weight: ["400", "500", "600", "700"], // choose weights you need
+  weight: ["400", "500", "600", "700", "900"], // choose weights you need
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -53,13 +39,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${spaceGrotesk.variable} ${manrope.variable}`}
+        className={`${poppins.variable} ${spaceGrotesk.variable} ${manrope.variable}`}
       >
-        <ThemeProvider>
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        {/* <Header /> */}
+        {children}
+        {/* <Footer /> */}
       </body>
     </html>
   );
