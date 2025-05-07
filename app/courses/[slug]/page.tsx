@@ -13,6 +13,7 @@ import CourseOverview from "@/components/CourseOverview/CourseOverview";
 import CourseSchedule from "@/components/CourseSchedule/CourseSchedule";
 import CourseFees from "@/components/CourseFees/CourseFees";
 import { useTheme } from "@/lib/ThemeContext";
+import Link from "next/link";
 
 const COURSE_QUERY = `
 query($id: ID!) {
@@ -114,6 +115,15 @@ type Course = {
     courseCode: string | null;
   };
   partner?: string;
+  schoolTypes?: {
+    nodes: {
+      slug: string;
+      schoolTypesColorFontFields?: {
+        color?: string;
+        courseFontFamily?: string;
+      };
+    }[];
+  };
 };
 
 const RELATED_COURSES_QUERY = `
@@ -440,13 +450,14 @@ const page = () => {
               </h2>
               <p className="paragraph paragraph--black" />
               <div className="d-flex justify-content-between course-btn-wrap">
-                <a
+                <Link
                   className="next-btn next-btn--red next-btn--titlecase"
                   target="_blank"
                   href={`https://register.esoft.lk?id=${courseId}`}
+                  style={{ backgroundColor: color }}
                 >
                   <span>Register Online</span>
-                </a>
+                </Link>
                 <button
                   type="button"
                   className="next-btn next-btn--gray inquiry-now-btn next-btn--titlecase"
@@ -483,7 +494,10 @@ const page = () => {
             </div>
           </div>
           <div className="right-course">
-            <div className="course-details-bar">
+            <div
+              className="course-details-bar"
+              style={{ backgroundColor: color }}
+            >
               <div className="d-flex course-details-bar-details">
                 {/* <div className="course-details-partner-logo">
                   <img src="" alt="" />

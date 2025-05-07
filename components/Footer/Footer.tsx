@@ -46,7 +46,9 @@ const Footer = () => {
             <h4>CONTACT DETAILS</h4>
             <p>
               Hotline Number <br />
-              <strong>+94 117 572 572</strong>
+              <strong>
+                <Link href="tel:+94117572572">+94 117 572 572</Link>
+              </strong>
             </p>
             <p>
               Email <br />
@@ -75,35 +77,76 @@ const Footer = () => {
               />
             </div>
           </div>
-
           <div className="column links">
             <h4>QUICK LINKS</h4>
             <ul>
-              <li>Home</li>
-              <li>Student Life</li>
-              <li>About Us</li>
-              <li>Contact Us</li>
-              <li>Careers</li>
-              <li>News & Events</li>
-              <li>Blogs</li>
-              <li>CSR</li>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/students-life/">Student Life</Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/about-us/">About Us</Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/contact-us/">Contact Us</Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/careers/">Careers</Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/news/">News & Events</Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/blogs/">Blogs</Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/csr/">CSR</Link>
+              </li>
             </ul>
           </div>
-
           <div className="column links">
             <h4>IMPORTANT LINKS</h4>
             <ul>
-              <li>Courses</li>
-              <li>Faculties</li>
-              <li>Transfer Programmes</li>
-              <li>Privacy Policy</li>
-              <li>Payment Policy</li>
-              <li>Refund Policy</li>
-              <li>Quality Policy</li>
-              <li>Referrals</li>
+              <li>
+                <Link href="/courses">Courses</Link>
+              </li>
+              <li>
+                <Link href="/facilities">Faculties</Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/transfer-programmes/">
+                  Transfer Programmes
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/privacy-policy/">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/payment-policy/">
+                  Payment Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/refund-policy/">
+                  Refund Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/cookie-policy/">
+                  Quality Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="https://referrals.esoft.lk/referrer/login">
+                  Referrals
+                </Link>
+              </li>
             </ul>
           </div>
-
           <div className="background-logo">
             <Image
               src={"/images/logo/esu.png"}
