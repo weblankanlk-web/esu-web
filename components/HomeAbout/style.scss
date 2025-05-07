@@ -106,6 +106,10 @@
                         font-size: get-vw(22px);
                         line-height: get-vw(30px);
                         text-align: left;
+                        span{
+                            font-size: get-vw(22px);
+                            line-height: get-vw(30px);
+                        }
                     }
                 }
             }

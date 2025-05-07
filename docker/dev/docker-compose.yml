@@ -1,13 +1,19 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  frontend:
+  web:
+    container_name: nextjs-esu
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ../../
+      dockerfile: docker/dev/Dockerfile
     ports:
-      - "3000:3000"         # Host:Container (you access via http://localhost:3000)
+      - "3000:3000"
     volumes:
-      - .:/app              # Mount your project into the container
-      - /app/node_modules   # Prevents overwriting container's node_modules
-    command: npm run dev    # Run development server (hot reload)
+      - ../../.:/app
+      - /app/node_modules   # Prevent host from overwriting node_modules
+    env_file:
+      - ../../docker/dev/dev.env
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run dev

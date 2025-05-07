@@ -1,0 +1,154 @@
+@import "../../styles/global.scss";
+
+.home-banner{
+    position: relative;
+    .full-wrap{
+        .tab-section{
+            position: relative;
+            .tab-content{
+                margin: 0 !important;
+                padding: 0 !important;
+                .tab-pane{
+                    .banner-item{
+                        .image-container{
+                            img{
+                                width: 100%;
+                                height: 824px;
+                                object-fit: cover;
+                            }
+                        }
+                        .detail-container{
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            z-index: 2;
+                            .detail-wrap{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                padding: 30px 40px;
+                                img{
+                                    width: auto;
+                                    height: 120px;
+                                    object-fit: cover;
+                                }
+                                .home-content{
+                                    color: #FFF;
+                                    font-family: var(--font-manrope);
+                                    font-size: 30px;
+                                    font-style: normal;
+                                    font-weight: 700;
+                                    line-height: 45px; /* 122.222% */
+                                    letter-spacing: -0.45px;
+                                    text-transform: capitalize;
+                                    padding-top: 15px;
+                                    padding-bottom: 30px;
+                                    text-align: center;
+                                }
+                                .search-wrapper{
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    gap: 20px;
+                                    .search-form-ajax input{
+                                        background: transparent;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .nav-tabs{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 30px 20px;
+                border: 1px solid rgba(0, 0, 0, 0.01);
+                background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.83) 42.62%, rgba(0, 0, 0, 0.83) 100%);
+                backdrop-filter: blur(6.599999904632568px);
+                .nav-item{
+                    width: auto;
+                    .nav-link {
+                        border-radius: 15px;
+                        background: rgba(186, 186, 186, 0.65);
+                        padding: 10px 30px;
+                        width: fit-content;
+                        color: #fff;
+                        font-family: var(--font-manrope);
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 800;
+                        line-height: normal;
+                        text-transform: capitalize;
+                        text-decoration: none;
+                        border: 2px solid #000;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+   
+    @media only screen and (min-width: 1200px) {
+        .full-wrap{
+            .tab-section{
+                .tab-content{
+                    .tab-pane{
+                        .banner-item{
+                            .image-container{
+                                img{
+                                    height: get-vw(824px);
+                                }
+                            }
+                            .detail-container{
+                                width: 100%;
+                                .detail-wrap{
+                                    align-items: flex-start;
+                                    padding: get-vw(108px) get-vw(100px) get-vw(90px);
+                                    img{
+                                        width: get-vw(217px);
+                                        height: get-vw(153px);
+                                    }
+                                    .home-content{
+                                        font-size: get-vw(45px);
+                                        line-height: get-vw(55px); /* 122.222% */
+                                        letter-spacing: get-vw(-0.9px);
+                                        padding-top: get-vw(15px);
+                                        padding-bottom: get-vw(52px);
+                                        width: get-vw(542px);
+                                        text-align: left;
+                                    }
+                                    .search-wrapper{
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        justify-content: flex-start;
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .nav-tabs{
+                    width: 100%;
+                    padding: get-vw(60px) get-vw(225px);
+                    border: get-vw(1px) solid rgba(0, 0, 0, 0.01);
+                    .nav-item{
+                        .nav-link {
+                            border-radius: get-vw(15px);
+                            padding: get-vw(17px) get-vw(60px);
+                            font-size: get-vw(20px);
+                            border: get-vw(2px) solid #000;
+                            margin-right: get-vw(5px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
