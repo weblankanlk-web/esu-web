@@ -138,10 +138,6 @@ docker network create esu-network
 
 ---
 
-Here’s the updated section to add to your README under a new heading **“🧑‍💻 Frontend Development Setup (Local Dev)”**:
-
----
-
 ## 🧑‍💻 Frontend Development Setup (Local Dev)
 
 For developers working on the **Next.js frontend** locally, follow these steps:
