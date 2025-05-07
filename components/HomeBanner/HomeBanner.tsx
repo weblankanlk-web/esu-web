@@ -87,58 +87,6 @@ const HomeBanner = () => {
   return (
     <section className="home-banner">
       <div className="full-wrap">
-        {/* <TabsWithImages
-          tabData={[
-            {
-              id: "tab1",
-              title: "Computing",
-              ImgDesk: "/images/home-banner-blue.png",
-              ImgMob: "/images/home-banner-blue.png",
-              ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.",
-            },
-            {
-              id: "tab2",
-              title: "Management &  Law",
-              ImgDesk: "/images/home-banner-blue.png",
-              ImgMob: "/images/home-banner-blue.png",
-              ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.",
-            },
-            {
-              id: "tab3",
-              title: "Art & Design",
-              ImgDesk: "/images/home-banner-blue.png",
-              ImgMob: "/images/home-banner-blue.png",
-              ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.",
-            },
-            {
-              id: "tab4",
-              title: "Life Science",
-              ImgDesk: "/images/home-banner-blue.png",
-              ImgMob: "/images/home-banner-blue.png",
-              ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.",
-            },
-            {
-              id: "tab5",
-              title: "Engineering",
-              ImgDesk: "/images/home-banner-blue.png",
-              ImgMob: "/images/home-banner-blue.png",
-              ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.",
-            },
-            {
-              id: "tab6",
-              title: "Language, Sociology & Education",
-              ImgDesk: "/images/home-banner-blue.png",
-              ImgMob: "/images/home-banner-blue.png",
-              ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.",
-            },
-          ]}
-        /> */}
         <TabsWithImages
           tabData={homeBanners.map((item, index) => ({
             id: `tab${index + 1}`,
@@ -151,12 +99,10 @@ const HomeBanner = () => {
               "/images/home-banner-blue.png",
             ImgLogo: item.logo?.node?.sourceUrl || "/images/logo-esu.png",
             text: item.bannerText || "Default description",
-            color: item?.button?.nodes?.[0]?.schoolTypesColorFontFields?.color,
-            buttonName: item?.button?.nodes?.[0]?.name
+            color: item?.button?.nodes?.[0]?.schoolTypesColorFontFields?.color || "#000000",
+            buttonName: item?.button?.nodes?.[0]?.name || "Default Button Name",
           }))}
         />
-
-        {/* <TabsWithImages tabData={homeBanners} /> */}
       </div>
     </section>
   );

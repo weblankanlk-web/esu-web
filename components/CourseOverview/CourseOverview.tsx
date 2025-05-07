@@ -16,16 +16,17 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ course }) => {
 
   return (
     <>
-      <input
+      {/* <input
         type="color"
         value={color}
         onChange={(e) => setColor(e.target.value)}
-      />
-
+      /> */}
       <div className="course-details-wrapper">
         <div id="section1" className="related-coures-div course-title">
           <h5>
-            <span>Course <span style={{ color }}>Overview</span></span>
+            <span>
+              Course <span style={{ color }}>Overview</span>
+            </span>
           </h5>
         </div>
         <div>

@@ -156,16 +156,16 @@
                     width: 100%;
                     border-bottom: get-vw(1px) solid rgba(255, 255, 255, 0.30);
                     border-top: get-vw(1px) solid rgba(255, 255, 255, 0.30);
-                    padding: 0 get-vw(100px);
+                    padding: 0 get-vw(80px);
                     .nav-tabs{
-                        padding: get-vw(60px) get-vw(125px);
+                        padding: get-vw(60px) get-vw(20px);
                         border-left: get-vw(1px) solid rgba(255, 255, 255, 0.30);
                         border-right: get-vw(1px) solid rgba(255, 255, 255, 0.30);
                         .nav-item{
                             .nav-link {
                                 border-radius: get-vw(15px);
-                                padding: get-vw(17px) get-vw(40px);
-                                font-size: get-vw(16px);
+                                padding: get-vw(17px) get-vw(25px);
+                                font-size: get-vw(14px);
                                 border: get-vw(2px) solid #000;
                                 margin-right: get-vw(5px);
                             }
