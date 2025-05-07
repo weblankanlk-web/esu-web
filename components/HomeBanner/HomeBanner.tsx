@@ -1,156 +1,197 @@
-// import React from "react";
-// import "./style.scss";
-// import Banner from "./Banner";
+"use client";
 
-// const banners= [
-//   {
-//     ImgDesk: "/images/home-banner-blue.png",
-//     ImgMob: "/images/home-banner-blue.png",
-//     ImgLogo: "/images/logo-esu.png",
-//     title: 'We are Committed to education and excellence beyond boundaries.',
-//   },
-//   {
-//     ImgDesk: "/images/home-banner-blue.png",
-//     ImgMob: "/images/home-banner-blue.png",
-//     ImgLogo: "/images/logo-esu.png",
-//     title: 'We are Committed to education and excellence beyond boundaries.',
-//   },
-//   {
-//     ImgDesk: "/images/home-banner-blue.png",
-//     ImgMob: "/images/home-banner-blue.png",
-//     ImgLogo: "/images/logo-esu.png",
-//     title: 'We are Committed to education and excellence beyond boundaries.',
-//   },
-//   {
-//     ImgDesk: "/images/home-banner-blue.png",
-//     ImgMob: "/images/home-banner-blue.png",
-//     ImgLogo: "/images/logo-esu.png",
-//     title: 'We are Committed to education and excellence beyond boundaries.',
-//   },
-//   {
-//     ImgDesk: "/images/home-banner-blue.png",
-//     ImgMob: "/images/home-banner-blue.png",
-//     ImgLogo: "/images/logo-esu.png",
-//     title: 'We are Committed to education and excellence beyond boundaries.',
-//   },
-//   {
-//     ImgDesk: "/images/home-banner-blue.png",
-//     ImgMob: "/images/home-banner-blue.png",
-//     ImgLogo: "/images/logo-esu.png",
-//     title: 'We are Committed to education and excellence beyond boundaries.',
-//   },
-// ];
-
-// const buttons = [
-//   {
-//     buttonUrl: "#",
-//     buttonName: "Computing",
-//     buttonColor: "#02AEC9",
-//   },
-//   {
-//     buttonUrl: "#",
-//     buttonName: "Management &  Law",
-//     buttonColor: "#02AEC9",
-//   },
-//   {
-//     buttonUrl: "#",
-//     buttonName: "Art & Design",
-//     buttonColor: "#02AEC9",
-//   },
-//   {
-//     buttonUrl: "#",
-//     buttonName: "Life Science",
-//     buttonColor: "#02AEC9",
-//   },
-//   {
-//     buttonUrl: "#",
-//     buttonName: "Engineering",
-//     buttonColor: "#02AEC9",
-//   },
-//   {
-//     buttonUrl: "#",
-//     buttonName: "Language, Sociology & Education",
-//     buttonColor: "#02AEC9",
-//   },
-// ];
-
-// const HomeBanner = () => {
-//   return (
-//       <>
-//           <section className='home-banner'>
-//             <div className='full-wrap'>
-//               <div className="banner-slider">
-//                   {banners.map((banner, index) => (
-//                     <Banner key={index} bannerData={banner} />
-//                 ))}
-//               </div>
-//             </div>
-//           </section>
-//       </>
-//   );
-// };
-
-// export default HomeBanner;
-
-"use client"
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import TabsWithImages from "./Tabs";
+import { graphQLClient } from "@/lib/graphql-client";
+
+const HOME_BANNER_QUERY = `
+{
+  page(id: "home", idType: URI) {
+    id
+    title
+    homeBanner {
+      bannerImages {
+        desktopImage {
+          node {
+            sourceUrl
+            altText
+            mediaDetails {
+              width
+              height
+            }
+          }
+        }
+        mobileImage {
+          node {
+            sourceUrl
+            altText
+            mediaDetails {
+              width
+              height
+            }
+          }
+        }
+        bannerText
+        logo {
+          node {
+            sourceUrl
+            altText
+            mediaDetails {
+              width
+              height
+            }
+          }
+        }
+        button {
+          nodes {
+            slug
+            name
+            id
+            description
+            ... on WithAcfSchoolTypesColorFontFields {
+              schoolTypesColorFontFields {
+                homeBannerButtonText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
+
+export type HomeBannerTypes = {
+  page: {
+    id: string;
+    title: string;
+    homeBanner: {
+      bannerImages: {
+        desktopImage?: {
+          node?: MediaItem;
+        };
+        mobileImage?: {
+          node?: MediaItem;
+        };
+        bannerText?: string;
+        logo?: {
+          node?: MediaItem;
+        };
+        button?: {
+          nodes?: ButtonNode[];
+        };
+      }[];
+    };
+  };
+};
+
+type MediaItem = {
+  sourceUrl?: string;
+  altText?: string;
+  mediaDetails?: {
+    width?: number;
+    height?: number;
+  };
+};
+
+type ButtonNode = {
+  id: string;
+  slug: string;
+  name: string;
+  description?: string;
+  schoolTypesColorFontFields?: {
+    homeBannerButtonText?: string;
+  };
+};
 
 const HomeBanner = () => {
   const settings = {
-    dots: false, 
-    infinite: true, 
-    speed: 500, 
+    dots: false,
+    infinite: true,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000, 
-    arrows: false, 
+    autoplaySpeed: 4000,
+    arrows: false,
   };
+
+  const [homeBanners, sethomeBanners] = useState<HomeBannerTypes["page"]["homeBanner"]["bannerImages"]>([]);
+
+  useEffect(() => {
+    async function fetchHomeBanners() {
+      try {
+        const response = await graphQLClient.request<HomeBannerTypes>(
+          HOME_BANNER_QUERY
+        );
+        const banners = response.page?.homeBanner?.bannerImages || [];
+        sethomeBanners(banners);
+      } catch (error) {
+        console.error("Error fetching home banners:", error);
+      }
+    }
+
+    fetchHomeBanners();
+  }, []);
+
+
+  console.log(homeBanners)
 
   return (
     <section className="home-banner">
       <div className="full-wrap">
-       <TabsWithImages tabData={[
-         { id: 'tab1', title: 'Computing', 
-          ImgDesk: "/images/home-banner-blue.png",
-          ImgMob: "/images/home-banner-blue.png",
-          ImgLogo: "/images/logo-esu.png",
-          text: "We are Committed to education and excellence beyond boundaries.", 
-          },
-          { id: 'tab2', title: 'Management &  Law',
+        <TabsWithImages
+          tabData={[
+            {
+              id: "tab1",
+              title: "Computing",
               ImgDesk: "/images/home-banner-blue.png",
               ImgMob: "/images/home-banner-blue.png",
               ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.", 
-          },
-          { id: 'tab3', title: 'Art & Design', 
+              text: "We are Committed to education and excellence beyond boundaries.",
+            },
+            {
+              id: "tab2",
+              title: "Management &  Law",
               ImgDesk: "/images/home-banner-blue.png",
               ImgMob: "/images/home-banner-blue.png",
               ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.", 
-          },
-          { id: 'tab4', title: 'Life Science', 
+              text: "We are Committed to education and excellence beyond boundaries.",
+            },
+            {
+              id: "tab3",
+              title: "Art & Design",
               ImgDesk: "/images/home-banner-blue.png",
               ImgMob: "/images/home-banner-blue.png",
               ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.", 
-          },
-          { id: 'tab5', title: 'Engineering', 
+              text: "We are Committed to education and excellence beyond boundaries.",
+            },
+            {
+              id: "tab4",
+              title: "Life Science",
               ImgDesk: "/images/home-banner-blue.png",
               ImgMob: "/images/home-banner-blue.png",
               ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.", 
-          },
-          { id: 'tab6', title: 'Language, Sociology & Education', 
+              text: "We are Committed to education and excellence beyond boundaries.",
+            },
+            {
+              id: "tab5",
+              title: "Engineering",
               ImgDesk: "/images/home-banner-blue.png",
               ImgMob: "/images/home-banner-blue.png",
               ImgLogo: "/images/logo-esu.png",
-              text: "We are Committed to education and excellence beyond boundaries.", 
-          },
-       ]}/>
+              text: "We are Committed to education and excellence beyond boundaries.",
+            },
+            {
+              id: "tab6",
+              title: "Language, Sociology & Education",
+              ImgDesk: "/images/home-banner-blue.png",
+              ImgMob: "/images/home-banner-blue.png",
+              ImgLogo: "/images/logo-esu.png",
+              text: "We are Committed to education and excellence beyond boundaries.",
+            },
+          ]}
+        />
       </div>
     </section>
   );
