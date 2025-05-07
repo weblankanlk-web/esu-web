@@ -42,13 +42,17 @@ const FaculityCard: React.FC<faculityCardProps> = ({
             </div>
             <div
               className="single-faculity-card-content"
-              style={{
-                fontFamily: fontFamily || "inherit",
-                color: fontColor || "inherit"
-              }}
+             
             >
-              <div className="faculity-title">
-                <h1 dangerouslySetInnerHTML={{ __html: faculityName }}></h1>
+              <div className="faculity-title" >
+                <h2>
+                  Faculty of&nbsp;<br></br>
+                  <span
+                  style={{
+                    fontFamily: fontFamily || "inherit",
+                    color: fontColor || "inherit"
+                  }}>{faculityName}</span>
+                </h2>
               </div>
               <div className="faculity-intro" dangerouslySetInnerHTML={{ __html: faculityIntro }}>
               </div>

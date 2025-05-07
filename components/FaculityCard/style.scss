@@ -4,7 +4,7 @@
     padding: 40px 0;
 }
 .single-faculity-card {
-   padding: 0 20px 10px;
+    padding: 0 20px 40px;
    margin: 0;   
   
     .single-faculity-card-wrap {
@@ -35,15 +35,20 @@
                }
         }
         .single-faculity-card-content {
-            h1 {
+            h2 {
                padding: 20px 0 10px;
                span{
                 // color: #013d7c;
                }
+               br{
+                display: none;
+            }  
             }
             .faculity-intro {
+                font-family: "Space Grotesk";
               span{
                 font-weight: 700;
+                font-family: "Space Grotesk";
 
               }
             }
@@ -69,7 +74,7 @@
              }
      
              .single-faculity-card-content {
-                 h1 {
+                 h2 {
                     padding: 20px 0px 10px;           
                 }
                  p {
@@ -102,24 +107,30 @@
                 z-index: 2;
                 padding-bottom: get-vw(60px);
                 .faculity-title{
-                    width: get-vw(580px);
-                    h1 {
-                        padding: 0 get-vw(60px) 0 get-vw(60px);  
-                        font-size: get-vw(100px);
+                    width: get-vw(600px);
+                    padding: 0 0 0 get-vw(60px); 
+                    h2 {
+                        font-size: get-vw(80px);
                         font-weight: 700;
-                        line-height: get-vw(80px);
-                        letter-spacing: get-vw(-8px);               
+                        line-height: get-vw(70px);
+                        letter-spacing: get-vw(-6px);    
+                        padding-top: 0;    
+                           br{
+                            display: block;
+                           }
                         }
                 }
                 .faculity-intro{
-                    width: calc(100% - get-vw(600px));
+                    width: calc(100% - get-vw(640px));
                     padding-right: get-vw(128px);
+                    font-size: get-vw(20px);
                     p {
                         font-size: get-vw(2px);
                         font-style: normal;
                         font-weight: 700;
                         line-height: get-vw(26px); 
                         letter-spacing: get-vw(-0.4px);
+                        font-size: get-vw(20px);
                     }
                 }
                 
