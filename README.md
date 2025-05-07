@@ -138,6 +138,53 @@ docker network create esu-network
 
 ---
 
+Here’s the updated section to add to your README under a new heading **“🧑‍💻 Frontend Development Setup (Local Dev)”**:
+
+---
+
+## 🧑‍💻 Frontend Development Setup (Local Dev)
+
+For developers working on the **Next.js frontend** locally, follow these steps:
+
+### 📁 Path to Dev Environment
+
+Navigate to the development Docker setup:
+
+```bash
+cd docker/dev
+```
+
+### ▶️ Run the Dev Environment
+
+Build and start the containers:
+
+```bash
+docker-compose up --build
+```
+
+This will:
+
+* Build the Next.js frontend using the local development config
+* Start the application in development mode
+* Expose it on **`localhost:3000`**
+
+### 🌍 Access Frontend Locally
+
+Once running, you can visit:
+
+```
+http://localhost:3000
+```
+
+### 🛠 Notes
+
+* Any changes to frontend code will auto-reload if hot reloading is enabled.
+* Ensure your `.env` file is correctly configured for local development (you can use `docker\dev\dev.env` in the root of your frontend project).
+
+---
+
+
+
 ## 📦 Additional Tools
 
 * **Portainer**: Installed for container management GUI → [https://portainer.hostweblankan.in/](https://portainer.hostweblankan.in/)
