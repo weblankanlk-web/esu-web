@@ -1,0 +1,75 @@
+services:
+  wordpress:
+    image: wordpress:php8.3
+    container_name: wordpress
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wl-wordpress-user
+      WORDPRESS_DB_PASSWORD: wladmin@123
+      WORDPRESS_DB_NAME: wlwordpressdb
+    volumes:
+      - /opt/esu-cms/www/wordpress:/var/www/html
+      - /opt/esu-cms/www/conf/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+    networks:
+      - esu-network
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+          cpus: "0.5"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/wp-admin"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+    restart: always
+
+  db:
+    image: mysql:8.0
+    container_name: wordpress_db
+    environment:
+      MYSQL_ROOT_PASSWORD: wladmin@123+
+      MYSQL_DATABASE: wlwordpressdb
+      MYSQL_USER: wl-wordpress-user
+      MYSQL_PASSWORD: wladmin@123
+    volumes:
+      - /opt/www/mysql:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+          cpus: "0.5"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: wladmin@123+
+      UPLOAD_LIMIT: 100M
+      MEMORY_LIMIT: 512M
+      MAX_EXECUTION_TIME: 600 
+    depends_on:
+      - db
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 32M
+          cpus: "0.1"
+
+networks:
+  esu-network:
+    external: true
