@@ -13,6 +13,9 @@
           .t-item-inner{
             padding: 30px;
             margin: 0 5px;
+            background: #fff;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.18);
+            border-radius: 10px;
             .detail-wrapper {
               display: flex;
               flex-direction: column;
@@ -133,7 +136,7 @@
               padding: get-vw(50px) get-vw(36px) get-vw(80px);
               border-radius: get-vw(10px);
               background: #fff;
-              box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.18);
+              box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.18);
               margin: 0 get-vw(5px);
               min-height: get-vw(455px);
               .detail-wrapper {
