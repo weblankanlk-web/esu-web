@@ -12,6 +12,7 @@
         #testimonial-item {
           .t-item-inner{
             padding: 30px;
+            margin: 0 5px;
             .detail-wrapper {
               display: flex;
               flex-direction: column;
@@ -94,6 +95,7 @@
               border-radius: get-vw(10px);
               background: #fff;
               box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.18);
+              margin: 0 get-vw(5px);
               .detail-wrapper {
                 flex-direction: row;
                 align-items: flex-start;
