@@ -51,8 +51,15 @@
                                     flex-direction: column;
                                     align-items: center;
                                     gap: 20px;
-                                    .search-form-ajax input{
+                                    .search-form-ajax{
                                         background: transparent;
+                                        input{
+                                            background: transparent;
+                                            color: #fff;
+                                        }
+                                    }
+                                    .button{
+                                        display: none;
                                     }
                                 }
                             }
@@ -142,8 +149,8 @@
                     .nav-item{
                         .nav-link {
                             border-radius: get-vw(15px);
-                            padding: get-vw(17px) get-vw(60px);
-                            font-size: get-vw(20px);
+                            padding: get-vw(17px) get-vw(40px);
+                            font-size: get-vw(16px);
                             border: get-vw(2px) solid #000;
                             margin-right: get-vw(5px);
                         }

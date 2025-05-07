@@ -376,7 +376,7 @@ export default function CoursesPage() {
 
       <section className="simple-padding-bottom dark-lightmode dark-font-change">
         <div className="small-middle-wrap">
-          <h2 className="section-heading section-heading--black section-heading--underline section-heading--underline--center">
+          <h2 className="section-heading section-heading--black">
             our <span>courses</span>
           </h2>
 

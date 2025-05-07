@@ -10,14 +10,16 @@ import {
   FaGooglePlusG,
 } from "react-icons/fa";
 import "./style.scss";
+import { useTheme } from "@/lib/ThemeContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { color } = useTheme();
 
   return (
     <footer className="footer ">
-      <div className="footer-border"></div>
-      <div className="footer-social">
+      {/* <div className="footer-border"></div> */}
+      <div className="footer-social" style={{ backgroundColor: color }}>
         <div className="social-banner small-middle-wrap">
           <div className="hashtag">#ESULife</div>
           <div className="social-icons">
@@ -159,7 +161,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer-bottom">
+      <div className="footer-bottom" style={{ backgroundColor: color }}>
         <p>
           Copyright © 2025 <strong>ESU METRO CAMPUS</strong> All rights
           reserved. Website Designed And Developed By{" "}

@@ -54,6 +54,12 @@ const TestimonialItem: React.FC<{ testimonialData: Testimonial }> = ({
             ) : (
               <div className="message">
                 <p>{testimonialData.text}</p>
+                <Image
+                    src="/images/plus.png"
+                    width={20}
+                    height={20}
+                    alt=""
+                  />
               </div>
             )}
           </div>

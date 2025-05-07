@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
+import { useState } from "react";
 
 const Header = () => {
   const pathname = usePathname();
@@ -12,6 +13,12 @@ const Header = () => {
     pathname.includes("/esoft-courses") || pathname.includes("/esoft-transfer");
 
   const { color } = useTheme();
+
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen((prev) => !prev);
+  };
 
   return (
     <>
@@ -120,7 +127,7 @@ const Header = () => {
               <div className="m-auto">
                 <Link href="/">
                   <Image
-                    src="/images/logo/esu-logo.png"
+                    src="/images/logo/esu-dark-logo.png"
                     width={150}
                     height={50}
                     alt="Logo"
@@ -156,6 +163,7 @@ const Header = () => {
                 <button
                   className="navnavbar-toggler hamburger classic navoffcanvas-header d-flex flex-wrap"
                   type="button"
+                  onClick={toggleMobileMenu}
                 >
                   <div className="hamburger" id="hamburger-1">
                     <span className="linee line-one"></span>
@@ -202,15 +210,63 @@ const Header = () => {
 
       <nav
         id="navbar_main_nav"
-        className="navmobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary"
+        className={`navmobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary ${
+          isMobileMenuOpen ? "show-mobile-menu" : "hide-mobile-menu"
+        }`}
       >
         <div className="main-wrap">
           <nav className="navbar navbar-expand-lg nav-menu">
             <ul className="navbar-nav navbardropdown" id="mobile">
               <li>
-                <Link href="/home">Home</Link>
+                <Link href="https://esoft.lk/" target="_blank">
+                  Home
+                </Link>
               </li>
-              {/* Add mobile-specific menu items */}
+              <li>
+                <Link href="https://esoft.lk/about-us/" target="_blank">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/students-life/" target="_blank">
+                  students life
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/careers/" target="_blank">
+                  careers
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/news/" target="_blank">
+                  news & events
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/blogs/" target="_blank">
+                  blogs
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/research/" target="_blank">
+                  Research
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/student-loan/" target="_blank">
+                  Scholarship
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/csr/" target="_blank">
+                  CSR
+                </Link>
+              </li>
+              <li>
+                <Link href="https://esoft.lk/contact-us/" target="_blank">
+                  contact us
+                </Link>
+              </li>
             </ul>
           </nav>
           <ul className="top-bar-menu">
