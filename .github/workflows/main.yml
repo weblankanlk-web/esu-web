@@ -32,7 +32,7 @@ jobs:
     - name: Build Docker image
       run: |
         PROJECT_NAME=$(basename ${{ github.repository }})
-        docker build -f docker/live/Dockerfile -t ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:main . 
+        docker build -f docker/live/web/Dockerfile -t ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:main . 
       # docker build -t ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:main .
 
     # Push the Docker image
