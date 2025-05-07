@@ -33,7 +33,7 @@ const Header = () => {
                     Home
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="https://esoft.lk/about-us/" target="_blank">
                     About
                   </Link>
@@ -72,7 +72,7 @@ const Header = () => {
                   <Link href="https://esoft.lk/csr/" target="_blank">
                     CSR
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="https://esoft.lk/contact-us/" target="_blank">
                     contact us
@@ -81,7 +81,7 @@ const Header = () => {
               </ul>
             </nav>
             <ul className="top-bar-menu">
-              <li>
+              {/* <li>
                 <Link target="_blank" href="https://payments.esoft.lk/">
                   <Image
                     src="/images/payment.png"
@@ -104,8 +104,8 @@ const Header = () => {
                   />
                   <span>Students</span>
                 </Link>
-              </li>
-              <li>
+              </li> 
+               <li>
                 <Link target="_blank" href="https://esoft.lk/alumni/">
                   <Image
                     src="/images/alumni.png"
@@ -116,7 +116,7 @@ const Header = () => {
                   />
                   <span>Alumni</span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

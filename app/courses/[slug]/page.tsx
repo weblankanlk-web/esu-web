@@ -14,70 +14,7 @@ import CourseSchedule from "@/components/CourseSchedule/CourseSchedule";
 import CourseFees from "@/components/CourseFees/CourseFees";
 import { useTheme } from "@/lib/ThemeContext";
 import Link from "next/link";
-
-const COURSE_QUERY = `
-query($id: ID!) {
-  course(id: $id, idType: ID) {
-    id
-    title
-    content
-    slug
-    featuredImage {
-      node {
-        id
-        slug
-        uri
-        mediaItemUrl
-      }
-    }
-    courses {
-      courseId
-      courseCode
-      hideCount
-      studentsCount
-      partnerUniversity {
-        node {
-          id
-        }
-      }
-      title
-      subTitle
-      description
-      overview
-      yearTitle {
-        fieldGroupName
-        modules
-      }
-      entryRequirements
-      documents
-      lecturePanelDescription
-    }
-    schoolTypes {
-      nodes {
-        slug
-        schoolTypesColorFontFields {
-          color
-          courseFontFamily
-        }
-      }
-    }
-    courseTypes {
-      nodes {
-        slug
-      }
-    }
-    deliveryModeTypes {
-      nodes {
-        slug
-      }
-    }
-    branchTypes {
-      nodes {
-        slug
-      }
-    }
-  }
-}`;
+import { COURSE_QUERY, RELATED_COURSES_QUERY } from "@/queries/queries";
 
 type Course = {
   id: string;
@@ -115,9 +52,11 @@ type Course = {
     courseCode: string | null;
   };
   partner?: string;
+  courseTypes?: { nodes: { slug: string; name: string }[] };
   schoolTypes?: {
     nodes: {
       slug: string;
+      name: string;
       schoolTypesColorFontFields?: {
         color?: string;
         courseFontFamily?: string;
@@ -125,70 +64,6 @@ type Course = {
     }[];
   };
 };
-
-const RELATED_COURSES_QUERY = `
-query {
-  courses (first: 100) {
-    nodes {
-      id
-      title
-      content
-      slug
-      featuredImage {
-        node {
-          id
-          slug
-          uri
-          mediaItemUrl
-        }
-      }
-      courses {
-        courseId
-        courseCode
-        hideCount
-        studentsCount
-        partnerUniversity {
-          node {
-            id
-          }
-        }
-        title
-        subTitle
-        description
-        overview
-        yearTitle {
-          fieldGroupName
-          modules
-        }
-        entryRequirements
-        documents
-        lecturePanelDescription
-      }
-    
-      schoolTypes {
-        nodes {
-          slug
-        }
-      }
-      courseTypes {
-        nodes {
-          slug
-        }
-      }
-      deliveryModeTypes {
-        nodes {
-          slug
-        }
-      }
-      branchTypes {
-        nodes {
-          slug
-        }
-      }
-    }
-  }
-}
-`;
 
 type RelatedCourses = {
   id: string;
@@ -225,8 +100,8 @@ type RelatedCourses = {
     documents: string | null;
     lecturePanelDescription: string | null;
   };
-  schoolTypes?: { nodes: { slug: string }[] };
-  courseTypes?: { nodes: { slug: string }[] };
+  schoolTypes?: { nodes: { slug: string; name: string }[] };
+  courseTypes?: { nodes: { slug: string; name: string }[] };
   deliveryModeTypes?: { nodes: { slug: string }[] };
   branchTypes?: { nodes: { slug: string }[] };
 };
@@ -426,7 +301,7 @@ const page = () => {
   // console.log("Course Fees Data:", courseFees);
   // console.log("Schedule Data:", schedule);
   // console.log("Filtered Related Courses:", relatedCourses);
-  console.log("Course Details:", courseDetails);
+  // console.log("Course Details:", courseDetails);
   // console.log(courseDetails?.featuredImage?.node?.mediaItemUrl)
 
   return (

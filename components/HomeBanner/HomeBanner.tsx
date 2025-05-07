@@ -4,64 +4,9 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 import TabsWithImages from "./Tabs";
 import { graphQLClient } from "@/lib/graphql-client";
+import { HOME_BANNER_QUERY } from "@/queries/queries";
 
-const HOME_BANNER_QUERY = `
-{
-  page(id: "home", idType: URI) {
-    id
-    title
-    homeBanner {
-      bannerImages {
-        desktopImage {
-          node {
-            sourceUrl
-            altText
-            mediaDetails {
-              width
-              height
-            }
-          }
-        }
-        mobileImage {
-          node {
-            sourceUrl
-            altText
-            mediaDetails {
-              width
-              height
-            }
-          }
-        }
-        bannerText
-        logo {
-          node {
-            sourceUrl
-            altText
-            mediaDetails {
-              width
-              height
-            }
-          }
-        }
-        button {
-          nodes {
-            slug
-            name
-            id
-            description
-            ... on WithAcfSchoolTypesColorFontFields {
-              schoolTypesColorFontFields {
-                homeBannerButtonText
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}`;
-
-export type HomeBannerTypes = {
+type HomeBannerTypes = {
   page: {
     id: string;
     title: string;
@@ -101,6 +46,7 @@ type ButtonNode = {
   description?: string;
   schoolTypesColorFontFields?: {
     homeBannerButtonText?: string;
+    color?: string;
   };
 };
 
@@ -116,7 +62,9 @@ const HomeBanner = () => {
     arrows: false,
   };
 
-  const [homeBanners, sethomeBanners] = useState<HomeBannerTypes["page"]["homeBanner"]["bannerImages"]>([]);
+  const [homeBanners, sethomeBanners] = useState<
+    HomeBannerTypes["page"]["homeBanner"]["bannerImages"]
+  >([]);
 
   useEffect(() => {
     async function fetchHomeBanners() {
@@ -134,13 +82,12 @@ const HomeBanner = () => {
     fetchHomeBanners();
   }, []);
 
-
-  console.log(homeBanners)
+  console.log(homeBanners);
 
   return (
     <section className="home-banner">
       <div className="full-wrap">
-        <TabsWithImages
+        {/* <TabsWithImages
           tabData={[
             {
               id: "tab1",
@@ -191,7 +138,25 @@ const HomeBanner = () => {
               text: "We are Committed to education and excellence beyond boundaries.",
             },
           ]}
+        /> */}
+        <TabsWithImages
+          tabData={homeBanners.map((item, index) => ({
+            id: `tab${index + 1}`,
+            title: item.bannerText || `Tab ${index + 1}`,
+            ImgDesk:
+              item.desktopImage?.node?.sourceUrl ||
+              "/images/home-banner-blue.png",
+            ImgMob:
+              item.mobileImage?.node?.sourceUrl ||
+              "/images/home-banner-blue.png",
+            ImgLogo: item.logo?.node?.sourceUrl || "/images/logo-esu.png",
+            text: item.bannerText || "Default description",
+            color: item?.button?.nodes?.[0]?.schoolTypesColorFontFields?.color,
+            buttonName: item?.button?.nodes?.[0]?.name
+          }))}
         />
+
+        {/* <TabsWithImages tabData={homeBanners} /> */}
       </div>
     </section>
   );

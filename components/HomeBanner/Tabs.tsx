@@ -1,26 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Image from "next/image";
 import Button from "../Button/Button";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 
 interface Tabs {
-    ImgDesk: string;
-    ImgMob: string;
-    ImgLogo: string;
-    title: string;
-    id:string;
-    text:string;
+  ImgDesk: string;
+  ImgMob: string;
+  ImgLogo: string;
+  title: string;
+  id: string;
+  text: string;
+  color: string;
+  buttonName: string;
 }
 
 interface TabsWithImagesProps {
-    tabData: Tabs[];   
+  tabData: Tabs[];
 }
 
 const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
-    const [activeTab, setActiveTab] = useState(tabData[0]?.id || '');
-    const [search, setSearch] = useState("");
-    const { color } = useTheme();
+  const [activeTab, setActiveTab] = useState(tabData[0]?.id || "");
+  const [search, setSearch] = useState("");
+  const { color } = useTheme();
+
+  console.log("tabData", tabData);
 
   return (
     <div className="tab-section">
@@ -28,27 +32,29 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
         {tabData.map((tab) => (
           <div
             key={tab.id}
-            className={`tab-pane fade ${activeTab === tab.id ? 'show active' : ''}`}
+            className={`tab-pane fade ${
+              activeTab === tab.id ? "show active" : ""
+            }`}
           >
-             <div className="banner-item">
-        <div className="image-container">
-          <picture>
-            <source srcSet={tab?.ImgDesk} media="(min-width: 992px)" />
-            <source srcSet={tab?.ImgMob} media="(max-width: 991px)" />
-            <img
-              src={tab?.ImgDesk || tab?.ImgMob}
-              className="d-block w-100"
-              alt="Image"
-            />
-          </picture>
-        </div>
-        <div className="detail-container">
-          <div className="detail-wrap">
-            <Image src={tab?.ImgLogo} width={900} height={850} alt="" />
-            <div className="home-content">
-              <p>{tab?.text}</p>
-            </div>
-            <div className="search-wrapper">
+            <div className="banner-item">
+              <div className="image-container">
+                <picture>
+                  <source srcSet={tab?.ImgDesk} media="(min-width: 992px)" />
+                  <source srcSet={tab?.ImgMob} media="(max-width: 991px)" />
+                  <img
+                    src={tab?.ImgDesk || tab?.ImgMob}
+                    className="d-block w-100"
+                    alt="Image"
+                  />
+                </picture>
+              </div>
+              <div className="detail-container">
+                <div className="detail-wrap">
+                  <Image src={tab?.ImgLogo} width={900} height={850} alt="" />
+                  <div className="home-content">
+                    <p>{tab?.text}</p>
+                  </div>
+                  {/* <div className="search-wrapper">
               <div className="search-form-ajax">
                 <input
                   type="text"
@@ -74,10 +80,10 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
                   buttonUrl="#"
                 />
               </div>
+            </div> */}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
           </div>
         ))}
       </div>
@@ -86,17 +92,19 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
         {tabData.map((tab) => (
           <li className="nav-item" key={tab.id}>
             <button
-                className={`nav-link ${activeTab === tab.id ? 'active' : ''}`}
-                onClick={() => setActiveTab(tab.id)}
-                style={{
-                backgroundColor: activeTab === tab.id ? color : 'rgba(186, 186, 186, 0.65)',
-                }}
-                dangerouslySetInnerHTML={{ __html: tab.title }}
+              className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
+              onClick={() => setActiveTab(tab.id)}
+              style={{
+                backgroundColor:
+                  activeTab === tab.id
+                    ? tab.color
+                    : "rgba(186, 186, 186, 0.65)",
+              }}
+              dangerouslySetInnerHTML={{ __html: tab.buttonName }}
             />
           </li>
         ))}
       </ul>
-
     </div>
   );
 };

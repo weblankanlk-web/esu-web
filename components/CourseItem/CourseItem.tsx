@@ -17,6 +17,8 @@ interface Course {
   school?: string;
   type?: string;
   duration?: string;
+  schoolTypes?: { nodes: { slug: string; name: string }[] };
+  courseTypes?: { nodes: { slug: string; name: string }[] };
   courses: {
     courseId: string;
     studentsCount?: number;
@@ -25,6 +27,8 @@ interface Course {
 }
 
 const CourseItem: React.FC<{ course: Course }> = ({ course }) => {
+  // console.log("course items", course);
+
   return (
     <div className="course-box-wrap" key={course.id}>
       <Link
@@ -45,35 +49,16 @@ const CourseItem: React.FC<{ course: Course }> = ({ course }) => {
           <div className="course-box-img-content">
             <div className="course-box-img-content-inner">
               <p>
-                {course.school && <span>{course.school}</span>}
-                {course.type && <span> | {course.type}</span>}
+                {course.courseTypes?.nodes?.[0]?.name &&
+                  course.courseTypes?.nodes?.[0]?.name}
+                &nbsp;|&nbsp;
+                {course.schoolTypes?.nodes?.[0]?.name &&
+                  course.schoolTypes?.nodes?.[0]?.name}
               </p>
               <h6>{course.title}</h6>
             </div>
           </div>
         </div>
-        {/* <div className="d-flex course-box-details">
-          {course.duration && (
-            <div className="d-flex course-box-details-left">
-              <Image
-                src="/assets/img/calendar.png"
-                width={16}
-                height={16}
-                alt=""
-              />
-              <span>{course.duration}</span>
-            </div>
-          )}
-          {Number(course.courses.studentsCount ?? 0) > 100 && (
-            <div className="d-flex course-box-details-right">
-              <Image src="/assets/img/stu.png" width={16} height={16} alt="" />
-              <span>{course.courses.studentsCount}+</span>
-            </div>
-          )}
-        </div> */}
-        {/* {course.partner && (
-          <p className="course-box-details-partner">{course.partner}</p>
-        )} */}
       </Link>
     </div>
   );

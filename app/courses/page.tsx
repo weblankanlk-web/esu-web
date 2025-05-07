@@ -8,17 +8,8 @@ import CourseItem from "@/components/CourseItem/CourseItem";
 import Breadrumb from "@/components/Breadcrumb/Breadcrumb";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
+import { ALL_COURSE_QUERY, BRANCH_TYPES_QUERY, COURSE_TYPES_QUERY, DELIVERY_MODE_QUERY, SCHOOL_TYPES_QUERY } from "@/queries/queries";
 
-const COURSE_TYPES_QUERY = `
-query {
-    courseTypes  {
-      nodes {
-        id
-        name
-        slug
-      }
-    }
-}`;
 
 type CourseType = {
   id: string;
@@ -26,35 +17,11 @@ type CourseType = {
   slug: string;
 };
 
-const BRANCH_TYPES_QUERY = `
-query {
-  branchTypes (first: 100) {
-    nodes {
-      id
-      name
-      slug
-    }
-  }
-}
-`;
-
 type BranchType = {
   id: string;
   name: string;
   slug: string;
 };
-
-const SCHOOL_TYPES_QUERY = `
-query{
-  schoolTypes (first: 100) {
-    nodes {
-      id
-      name
-      slug
-    }
-  }
-}
-`;
 
 type SchoolType = {
   id: string;
@@ -62,87 +29,11 @@ type SchoolType = {
   slug: string;
 };
 
-const DELIVERY_MODE_QUERY = `
-query {
-  deliveryModeTypes(first: 100) {
-    nodes {
-      id
-      name
-      slug
-    }
-  }
-}
-`;
-
 type DeliveryModeTypes = {
   id: string;
   name: string;
   slug: string;
 };
-
-const COURSE_QUERY = `
-query {
-  courses (first: 100) {
-    nodes {
-      id
-      title
-      content
-      slug
-      featuredImage {
-        node {
-          id
-          slug
-          uri
-          mediaItemUrl
-        }
-      }
-      courses {
-        courseId
-        courseCode
-        hideCount
-        studentsCount
-        partnerUniversity {
-          node {
-            id
-          }
-        }
-        title
-        subTitle
-        description
-        overview
-        yearTitle {
-          fieldGroupName
-          modules
-        }
-        entryRequirements
-        documents
-        lecturePanelDescription
-      }
-    
-      schoolTypes {
-        nodes {
-          slug
-        }
-      }
-      courseTypes {
-        nodes {
-          slug
-        }
-      }
-      deliveryModeTypes {
-        nodes {
-          slug
-        }
-      }
-      branchTypes {
-        nodes {
-          slug
-        }
-      }
-    }
-  }
-}
-`;
 
 type Courses = {
   id: string;
@@ -179,8 +70,8 @@ type Courses = {
     documents: string | null;
     lecturePanelDescription: string | null;
   };
-  schoolTypes?: { nodes: { slug: string }[] };
-  courseTypes?: { nodes: { slug: string }[] };
+  schoolTypes?: { nodes: { slug: string; name: string }[] };
+  courseTypes?: { nodes: { slug: string; name: string }[] };
   deliveryModeTypes?: { nodes: { slug: string }[] };
   branchTypes?: { nodes: { slug: string }[] };
 };
@@ -290,7 +181,7 @@ export default function CoursesPage() {
       try {
         const data = await graphQLClient.request<{
           courses: { nodes: Courses[] };
-        }>(COURSE_QUERY);
+        }>(ALL_COURSE_QUERY);
 
         setAllCourses(data.courses.nodes);
       } catch (error) {
