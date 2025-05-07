@@ -33,7 +33,7 @@ const testimonials = [
     },
     {
         name: "ashani ranatunga",
-        imageUrl: "/images/person5.png",
+        imageUrl: "/images/person3.png",
         position: "BSC (Hons) Computer Science",
         videoUrl: "https://www.youtube.com/embed/K4TOrB7at0Y?si=5VVVAKkY4HoAnEwB",
     },
