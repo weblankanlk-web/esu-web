@@ -3,21 +3,11 @@ FROM node:18-alpine
 # Set working directory
 WORKDIR /app
 
-# Install dependencies
+# Install dependencies (will be cached)
 COPY package.json package-lock.json ./
 RUN npm install --legacy-peer-deps
 
-# Copy all project files
-COPY . .
+COPY docker/dev/dev.env .env
 
-# Set environment variables if needed
-RUN cp sample.env .env
-
-# Build the Next.js app for production
-RUN npm run build
-
-# Expose the port
-EXPOSE 3000
-
-# Start the application
-CMD ["npm", "start"]
+# Set default command (can be overridden in docker-compose)
+CMD ["npm", "run", "dev"]
