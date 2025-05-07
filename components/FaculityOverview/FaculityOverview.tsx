@@ -23,7 +23,7 @@ const FaculityOverview: React.FC<FaculityOverviewProps> = ({
         <section className="course-overview position-relative">
             <div className="course-wrap d-flex flex-wrap">
                 <div className="course-overview-title">
-                    <h2 className="">{OverviewTitle}</h2>
+                    <h2 className="" dangerouslySetInnerHTML={{ __html: OverviewTitle }} ></h2>
                 </div>
                 <div className="course-overview-image">
                     <Image 
@@ -33,7 +33,7 @@ const FaculityOverview: React.FC<FaculityOverviewProps> = ({
                         height={400} 
                     />
                 </div>
-                <div className="course-overview">{Overview}</div>
+                <div className="course-overview" dangerouslySetInnerHTML={{ __html: Overview }}></div>
             </div>
         </section>  
                  

@@ -38,7 +38,7 @@
             h1 {
                padding: 20px 0 10px;
                span{
-                color: #013d7c;
+                // color: #013d7c;
                }
             }
             .faculity-intro {
@@ -104,7 +104,7 @@
                 .faculity-title{
                     width: get-vw(580px);
                     h1 {
-                        padding: 0 0 0 get-vw(60px);  
+                        padding: 0 get-vw(60px) 0 get-vw(60px);  
                         font-size: get-vw(100px);
                         font-weight: 700;
                         line-height: get-vw(80px);

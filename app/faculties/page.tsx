@@ -16,6 +16,13 @@ query {
       schoolTypesColorFontFields {
         color
         courseFontFamily
+        facultyName
+        facultyDesktop {
+          node {
+            sourceUrl
+            altText
+          }
+        }
       }
     }
   }
@@ -28,7 +35,14 @@ type Faculty = {
   description: string;
   schoolTypesColorFontFields: {
     color: string;
-    courseFontFamily: string;
+    courseFontFamily: string[]; // It's an array as there are 6 values in cms
+    facultyName: string; // we need to get this as only the faculty should change color
+    facultyDesktop?: {
+      node: {
+        sourceUrl: string;
+        altText?: string;
+      };
+    } | null; // default assign null
   };
 };
 
@@ -41,7 +55,6 @@ const Page = () => {
         const data = await graphQLClient.request<{
           schoolTypes: { nodes: Faculty[] };
         }>(FACULTY_TYPES_QUERY);
-
         console.log("Fetched faculties:", data.schoolTypes.nodes); // console log
         setFaculty(data.schoolTypes.nodes);
       } catch (error) {
@@ -63,20 +76,33 @@ const Page = () => {
       />
 
       <div className="faculty-wrap">
-        {(faculty?.length ? faculty.slice(0, faculty.length) : []).map(
-          (faculity) => (
+        {faculty.map((faculity, index) => {
+          console.log(`Rendering faculty #${index + 1}:`, faculity);
+
+          const imageUrl =
+            faculity.schoolTypesColorFontFields?.facultyDesktop?.node
+              ?.sourceUrl || "/images/faculity-desk.png";
+
+          const fontFamily =
+            faculity.schoolTypesColorFontFields?.courseFontFamily?.[0] ||
+            "inherit";
+
+          const fontColor =
+            faculity.schoolTypesColorFontFields?.color || "inherit";
+
+          return (
             <FaculityCard
               key={faculity.id}
-              faculityImgDesk="/images/faculity-desk.png"
-              faculityImgMobi="/images/faculity-desk.png"
-              faculityName={`Faculty of <span>${faculity.name}</span>`}
+              faculityImgDesk={imageUrl}
+              faculityImgMobi={imageUrl}
+              faculityName={`<span>${faculity.schoolTypesColorFontFields.facultyName}</span>`} // we take from the array
               faculityIntro={`<span>${faculity.description}</span>`}
               facilityLink={`/faculty/${faculity.slug}`}
-              fontFamily={faculity.schoolTypesColorFontFields?.courseFontFamily}
-              fontColor={faculity.schoolTypesColorFontFields?.color}
+              fontFamily={fontFamily}
+              fontColor={fontColor}
             />
-          )
-        )}
+          );
+        })}
       </div>
     </>
   );

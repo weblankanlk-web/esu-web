@@ -56,6 +56,8 @@ const FaculityCard: React.FC<faculityCardProps> = ({
           </a>
         </div>
       </section>
+  
+
     </>
   );
 };
