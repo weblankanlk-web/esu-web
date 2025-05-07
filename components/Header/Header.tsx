@@ -175,7 +175,7 @@ const Header = () => {
               </div>
               {/* desktop */}
               <div className="apply-now-wrap desktop-only-view">
-                <a
+                <Link
                   className="next-btn next-btn--blue"
                   target="_blank"
                   href={
@@ -186,13 +186,13 @@ const Header = () => {
                   style={{ backgroundColor: color }}
                 >
                   <span>Register Online</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
           {/* mobile */}
           <div className="apply-now-wrap mobile-only-view">
-            <a
+            <Link
               className="next-btn next-btn--blue"
               target="_blank"
               href={
@@ -203,15 +203,16 @@ const Header = () => {
               style={{ backgroundColor: color }}
             >
               <span>Register Online</span>
-            </a>
+            </Link>
           </div>
         </div>
       </header>
 
       <nav
         id="navbar_main_nav"
-        className={`navmobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary ${isMobileMenuOpen ? "show-mobile-menu" : "hide-mobile-menu"
-          }`}
+        className={`navmobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary ${
+          isMobileMenuOpen ? "show-mobile-menu" : "hide-mobile-menu"
+        }`}
       >
         <div className="main-wrap">
           <nav className="navbar navbar-expand-lg nav-menu">
@@ -276,7 +277,8 @@ const Header = () => {
                   width={20}
                   height={20}
                   alt="Payments"
-                  style={{ objectFit: "contain" }} />
+                  style={{ objectFit: "contain" }}
+                />
                 <span>Payments</span>
               </Link>
             </li>

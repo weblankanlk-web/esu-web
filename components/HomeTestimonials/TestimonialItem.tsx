@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface Testimonial {
@@ -33,15 +34,15 @@ const TestimonialItem: React.FC<{ testimonialData: Testimonial }> = ({
           <div className="video-wrapper">
             {testimonialData.videoUrl ? (
               <div className="video-contain">
-                <a href={testimonialData.videoUrl} target="_blank">
+                <Link href={testimonialData.videoUrl} target="_blank">
                   <iframe
-                      width="100%"
-                      height="315"
-                      src={testimonialData.videoUrl}
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
+                    width="100%"
+                    height="315"
+                    src={testimonialData.videoUrl}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
                   />
                   <Image
                     src="/images/play-button.png"
@@ -49,17 +50,12 @@ const TestimonialItem: React.FC<{ testimonialData: Testimonial }> = ({
                     height={50}
                     alt=""
                   />
-                </a>
+                </Link>
               </div>
             ) : (
               <div className="message">
                 <p>{testimonialData.text}</p>
-                <Image
-                    src="/images/plus.png"
-                    width={20}
-                    height={20}
-                    alt=""
-                  />
+                <Image src="/images/plus.png" width={20} height={20} alt="" />
               </div>
             )}
           </div>

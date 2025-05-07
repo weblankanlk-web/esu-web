@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import Link from "next/link";
 
 interface Button {
     buttonUrl: string;
@@ -10,9 +11,9 @@ interface Button {
 const ButtonOutline: React.FC<{buttonData:Button}> = ({ buttonData, }) => {
   return (
     <>
-      <a href={buttonData.buttonUrl} className="home-button" style={{ background: buttonData.buttonColor }}>
+      <Link href={buttonData.buttonUrl} className="home-button" style={{ background: buttonData.buttonColor }}>
         {buttonData.buttonName}
-      </a>
+      </Link>
     </>
   );
 };

@@ -47,16 +47,24 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
                   <picture>
                     <source srcSet={tab?.ImgDesk} media="(min-width: 992px)" />
                     <source srcSet={tab?.ImgMob} media="(max-width: 991px)" />
-                    <img
+                    <Image
                       src={tab?.ImgDesk || tab?.ImgMob}
                       className="d-block w-100"
-                      alt="Image"
+                      alt={tab?.text}
+                      width={1920}
+                      height={1080}
+                      layout="responsive"
                     />
                   </picture>
                 </div>
                 <div className="detail-container">
                   <div className="detail-wrap">
-                    <Image src={tab?.ImgLogo} width={900} height={850} alt="" />
+                    <Image
+                      src={tab?.ImgLogo}
+                      width={900}
+                      height={850}
+                      alt={tab?.text}
+                    />
                     <div className="home-content">
                       <p>{tab?.text}</p>
                     </div>

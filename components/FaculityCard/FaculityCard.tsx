@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.scss";
 import Image from "next/image";
+import Link from "next/link";
 
-interface faculityCardProps {
-}
+interface faculityCardProps {}
 
 interface faculityCardProps {
   faculityImgDesk: string;
@@ -22,13 +22,16 @@ const FaculityCard: React.FC<faculityCardProps> = ({
   faculityIntro,
   facilityLink,
   fontFamily, // dynamically from CMS
-  fontColor   // dynamically from CMS
+  fontColor, // dynamically from CMS
 }) => {
   return (
     <>
       <section className="single-faculity-card position-relative">
         <div className="single-faculity-card-wrap">
-          <a href={`faculties/${facilityLink}`} className="single-faculity-link">
+          <Link
+            href={`faculties/${facilityLink}`}
+            className="single-faculity-link"
+          >
             <div className="single-faculity-card-image">
               <picture>
                 <source srcSet={faculityImgDesk} media="(min-width: 992px)" />
@@ -40,27 +43,25 @@ const FaculityCard: React.FC<faculityCardProps> = ({
                 />
               </picture>
             </div>
-            <div
-              className="single-faculity-card-content"
-             
-            >
-              <div className="faculity-title" >
+            <div className="single-faculity-card-content">
+              <div className="faculity-title">
                 <h2>
                   Faculty of&nbsp;<br></br>
                   <span
-                  style={{
-                    fontFamily: fontFamily || "inherit",
-                    color: fontColor || "inherit"
-                  }}>{faculityName}</span>
+                    style={{
+                      fontFamily: fontFamily || "inherit",
+                      color: fontColor || "inherit",
+                    }}
+                  >
+                    {faculityName}
+                  </span>
                 </h2>
               </div>
-              <div className="faculity-intro" > {faculityIntro }</div>
+              <div className="faculity-intro"> {faculityIntro}</div>
             </div>
-          </a>
+          </Link>
         </div>
       </section>
-  
-
     </>
   );
 };

@@ -3,6 +3,7 @@
 import React from "react";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
+import Link from "next/link";
 
 interface Button {
   buttonUrl: string;
@@ -14,13 +15,13 @@ const Button: React.FC<Button> = ({ buttonUrl, buttonName }) => {
 
   return (
     <>
-      <a
+      <Link
         href={buttonUrl}
         className="general-button"
         style={{ background: color }}
       >
         {buttonName}
-      </a>
+      </Link>
     </>
   );
 };

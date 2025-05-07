@@ -54,9 +54,9 @@ const Footer = () => {
             </p>
             <p>
               Email <br />
-              <a href="mailto:info@esoft.lk">
+              <Link href="mailto:info@esoft.lk">
                 <strong>info@esoft.lk</strong>
-              </a>
+              </Link>
             </p>
             <p>
               Head Office (Block E) <br />
@@ -69,7 +69,7 @@ const Footer = () => {
               </strong>
             </p>
             <div className="awards">
-              <h4>AWARDS</h4>
+              <h4>OUR AWARDS</h4>
               <Image
                 src={"/images/logo/awards.png"}
                 alt="Award Seal"
