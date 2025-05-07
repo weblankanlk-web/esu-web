@@ -74,7 +74,7 @@ export default function HomeCourses() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
-    arrows: false,
+    arrows: true,
     responsive: [
       {
         breakpoint: 1200,
