@@ -6,23 +6,30 @@ interface DeanMessageProps {
 
 }
 interface DeanMessageProps {
-  faculityImgDesk: string;
+  DeanName: string;
 
 }
 
 const DeanMessage: React.FC<DeanMessageProps> = ({
-  faculityImgDesk,
+  DeanName,
 
 }) => {
   return (
     <>
       <section className="dean-massage">
         <div className="dean-massage-wrap">
-            <h3 className="dean-title">
-                                
-            </h3>
+            <h3 className="dean-title" dangerouslySetInnerHTML={{ __html: DeanName }}></h3>
             <div className="massage-wrap">
+              <div className="single-massage-card d-flex">
+                <div className="single-image-wrap">
+                  <div className="member-details">  
 
+                  </div>
+                </div>
+                <div className="single-massage">
+                  
+                </div>
+              </div>
             </div>
         </div>
       </section>
