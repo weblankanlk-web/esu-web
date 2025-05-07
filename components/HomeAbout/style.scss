@@ -86,7 +86,7 @@
                 display: flex;
                 flex-direction: row;
                 .left{
-                    padding: 0 get-vw(68px) 0 0;
+                    padding: 0 get-vw(68px) 0 get-vw(20px);
                     width: 50%;
                     img{
                         height: get-vw(739.197px);
