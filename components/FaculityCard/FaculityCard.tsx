@@ -3,22 +3,26 @@ import "./style.scss";
 import Image from "next/image";
 
 interface faculityCardProps {
-
 }
+
 interface faculityCardProps {
   faculityImgDesk: string;
   faculityImgMobi: string;
   faculityName: string;
   faculityIntro: string;
   facilityLink: string;
+  fontFamily: string; // dynamically from CMS
+  fontColor: string; // dynamically from CMS
 }
 
-const faculityCard: React.FC<faculityCardProps> = ({
+const FaculityCard: React.FC<faculityCardProps> = ({
   faculityImgDesk,
   faculityImgMobi,
   faculityName,
   faculityIntro,
   facilityLink,
+  fontFamily, // dynamically from CMS
+  fontColor   // dynamically from CMS
 }) => {
   return (
     <>
@@ -36,21 +40,24 @@ const faculityCard: React.FC<faculityCardProps> = ({
                 />
               </picture>
             </div>
-            <div className="single-faculity-card-content">
+            <div
+              className="single-faculity-card-content"
+              style={{
+                fontFamily: fontFamily || "inherit",
+                color: fontColor || "inherit"
+              }}
+            >
               <div className="faculity-title">
                 <h1 dangerouslySetInnerHTML={{ __html: faculityName }}></h1>
               </div>
-              <div className="faculity-intro" dangerouslySetInnerHTML={{ __html: faculityIntro }} >
+              <div className="faculity-intro" dangerouslySetInnerHTML={{ __html: faculityIntro }}>
               </div>
             </div>
           </a>
         </div>
       </section>
-    
-
     </>
-
   );
 };
 
-export default faculityCard;
+export default FaculityCard;
