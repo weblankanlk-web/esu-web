@@ -54,8 +54,7 @@ const FaculityCard: React.FC<faculityCardProps> = ({
                   }}>{faculityName}</span>
                 </h2>
               </div>
-              <div className="faculity-intro" dangerouslySetInnerHTML={{ __html: faculityIntro }}>
-              </div>
+              <div className="faculity-intro" > {faculityIntro }</div>
             </div>
           </a>
         </div>
