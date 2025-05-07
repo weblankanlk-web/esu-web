@@ -138,7 +138,7 @@ const Header = () => {
                       <Link href="/courses">Courses</Link>
                     </li>
                     <li>
-                      <Link href="/facilities">Facilities</Link>
+                      <Link href="/faculties">Faculties</Link>
                     </li>
                     <li>
                       <Link href="/courses">Transfer Programmes</Link>

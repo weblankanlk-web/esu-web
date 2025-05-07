@@ -115,6 +115,15 @@ type Course = {
     courseCode: string | null;
   };
   partner?: string;
+  schoolTypes?: {
+    nodes: {
+      slug: string;
+      schoolTypesColorFontFields?: {
+        color?: string;
+        courseFontFamily?: string;
+      };
+    }[];
+  };
 };
 
 const RELATED_COURSES_QUERY = `

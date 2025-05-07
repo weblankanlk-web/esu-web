@@ -21,6 +21,7 @@ const page = () => {
           faculityName="Faculty of <span>Science</span>"
           faculityIntro="<span>Where we breathe life into technology! 
           Our comprehensive array of courses is designed to empower students to fearlessly navigate the rapidly evolving world of computing and beyond.</span>. Our highly qualified academic staff ensures a unique learning experience that stands out. We're not just a school; we're your gateway to transformative learning!"
+          facilityLink="/faculty1"
         />
       </div>
     </>
