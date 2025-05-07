@@ -1,21 +1,14 @@
 .section-heading {
-    span {
-        color: #383636;
-        font-family: Poppins;
-        font-size: 100px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 80px;
-        /* 80% */
-        letter-spacing: -6px;
+    color: #383636;
+    font-family: var(--font-poppins);
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: -8px;
 
+    span {
         color: #02AEC9;
-        font-family: Poppins;
-        font-size: 100px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 80px;
-        letter-spacing: -6px;
     }
 }
 
@@ -27,4 +20,11 @@
 
 .section-heading--underline {
     text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+    .section-heading {
+        font-size: 100px;
+        line-height: 90px;
+    }
 }
