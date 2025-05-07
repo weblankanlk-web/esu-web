@@ -14,7 +14,7 @@ const HomeCourses = () => {
                 <TitleSmall title='Explore' subtitle='Our Courses'/>
             </div>
             <div className="button-wrap">
-                <Button buttonName="Explore More" buttonUrl="#" buttonColor="#02AEC9"/>
+                <Button buttonName="Explore More" buttonUrl="#" />
             </div>
         </div>
       </section>
