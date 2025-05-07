@@ -1,0 +1,105 @@
+@import "../../styles/global.scss";
+
+.home-counters{
+    margin-bottom: 60px;
+    .image-wrap{
+        img{
+            width: 100%;
+            height: 230px;
+            object-fit: contain;
+        }
+    }
+    .slider-wrap{
+        .counter-slide{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            column-gap: 10px;
+            row-gap: 20px;
+            padding: 0 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            #counter-item{
+                width: 47.5%;
+                .c-item-inner{
+                    .counter-number{
+                        color: #02AEC9;
+                        font-family: var(--font-manrope);
+                        font-size: 30px;
+                        font-style: normal;
+                        font-weight: 800;
+                        line-height: 30px; /* 92.857% */
+                        letter-spacing: -2.5px;
+                        text-transform: capitalize;
+                        text-align: center;
+                    }
+                    .counter-name{
+                        color: #4F4F4F;
+                        font-family: var(--font-manrope);
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 800;
+                        line-height: 20px; /* 100% */
+                        letter-spacing: -0.54px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        .image-wrap{
+            img{
+                height: 276px;
+            }
+        }
+        .slider-wrap{
+            .counter-slide{
+                padding: 30px 30px 30px;
+                #counter-item{
+                    width: 23.5%;
+                }
+            }
+        }
+    }
+    @media only screen and (min-width: 1200px) {
+        margin-bottom: get-vw(140px);
+        .image-wrap{
+            img{
+                height: get-vw(543.063px);
+                object-fit: cover;
+            }
+        }
+        .slider-wrap{
+            .counter-slide{
+                column-gap: get-vw(78px);
+                row-gap: get-vw(78px);
+                padding: get-vw(37px) get-vw(120px) get-vw(37px);
+                #counter-item{
+                    width: fit-content;
+                    .c-item-inner{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: get-vw(21.5px);
+                        .counter-number{
+                            font-size: get-vw(75.963px);
+                            line-height: get-vw(70.537px); /* 92.857% */
+                            letter-spacing: get-vw(-5.317px);
+                            text-align: left;
+                            margin: 0;
+                        }
+                        .counter-name{
+                            font-size: get-vw(27.13px);;
+                            line-height: get-vw(27.13px); /* 100% */
+                            letter-spacing:get-vw( -1.085px);
+                            text-align: left;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

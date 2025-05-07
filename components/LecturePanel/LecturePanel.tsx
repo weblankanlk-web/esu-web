@@ -1,18 +1,28 @@
+"use client";
+
 import React from "react";
 
-const LecturePanel = ({ lecturePanelDescription }) => {
+interface LecturePanelProps {
+  lecturePanelDescription?: string;
+}
+
+const LecturePanel: React.FC<LecturePanelProps> = ({
+  lecturePanelDescription,
+}) => {
   return (
     <>
-      <div id="section7" className="related-coures-div course-title">
-        <h5>Our Lecture Panel</h5>
-      </div>
-      <div>
-        <div className="the-content-div">
-          <p
-            dangerouslySetInnerHTML={{
-              __html: lecturePanelDescription || "",
-            }}
-          />
+      <div className="course-details-wrapper">
+        <div id="section7" className="related-coures-div course-title">
+          <h5>Our Lecture Panel</h5>
+        </div>
+        <div>
+          <div className="the-content-div">
+            <p
+              dangerouslySetInnerHTML={{
+                __html: lecturePanelDescription || "",
+              }}
+            />
+          </div>
         </div>
       </div>
     </>

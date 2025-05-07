@@ -1,0 +1,44 @@
+@import "../../styles/global.scss";
+
+.home-courses{
+    .main-wrap-title{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px 40px;
+        .title-wrap{
+            padding-bottom: 30px;
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        .main-wrap-title{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            .title-wrap{
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 0;
+                .title-wrapper{
+                    .main-title-small{
+                        justify-content: flex-start;
+                    }
+                }
+            }
+            .button-wrap{
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: flex-end;
+            }
+        }
+    }
+    @media only screen and (min-width: 1200px) {
+        .main-wrap-title{
+            padding: 0 get-vw(120px) get-vw(50px);
+        }
+    }
+}

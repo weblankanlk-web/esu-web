@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -50,7 +52,7 @@ const CourseItem: React.FC<{ course: Course }> = ({ course }) => {
             </div>
           </div>
         </div>
-        <div className="d-flex course-box-details">
+        {/* <div className="d-flex course-box-details">
           {course.duration && (
             <div className="d-flex course-box-details-left">
               <Image
@@ -68,10 +70,10 @@ const CourseItem: React.FC<{ course: Course }> = ({ course }) => {
               <span>{course.courses.studentsCount}+</span>
             </div>
           )}
-        </div>
-        {course.partner && (
+        </div> */}
+        {/* {course.partner && (
           <p className="course-box-details-partner">{course.partner}</p>
-        )}
+        )} */}
       </Link>
     </div>
   );
