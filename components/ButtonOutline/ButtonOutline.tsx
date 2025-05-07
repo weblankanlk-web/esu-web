@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import "./style.scss";
 
@@ -7,7 +5,7 @@ interface Button {
     buttonUrl: string;
     buttonName: string;
     buttonColor: string;
-}
+}0
 
 const ButtonOutline: React.FC<{buttonData:Button}> = ({ buttonData, }) => {
   return (

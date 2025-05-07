@@ -2,17 +2,23 @@
 
 import React from "react";
 import "./style.scss";
+import { useTheme } from "@/lib/ThemeContext";
 
 interface Button {
-    buttonUrl: string;
-    buttonName: string;
-    buttonColor: string;
+  buttonUrl: string;
+  buttonName: string;
 }
 
-const Button: React.FC<Button> = ({ buttonUrl, buttonName, buttonColor }) => {
+const Button: React.FC<Button> = ({ buttonUrl, buttonName }) => {
+  const { color } = useTheme();
+
   return (
     <>
-      <a href={buttonUrl} className="general-button" style={{ background: buttonColor }}>
+      <a
+        href={buttonUrl}
+        className="general-button"
+        style={{ background: color }}
+      >
         {buttonName}
       </a>
     </>

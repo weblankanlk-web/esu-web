@@ -1,11 +1,12 @@
-"use client";
-
 import React from 'react';
 import Logo from './Logo';
 import Image from 'next/image';
 import "./style.scss";
 import TitleLarge from '../TitleLarge/TitleLarge';
 import Button from '../Button/Button';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const logos = [
   {
@@ -33,6 +34,42 @@ const content= [
 ];
 
 const HomeAbout = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+    ],
+  };
   return (
     <>
       <section className='home-about'>
@@ -51,7 +88,7 @@ const HomeAbout = () => {
                 <TitleLarge title1='Infinite You,' subtitle='Infinite' title2='Possibilities'/>
               </div>
               <div className="button-wrap">
-                <Button buttonName='About Us' buttonUrl='#' buttonColor='#02AEC9'/>
+                <Button buttonName='About Us' buttonUrl='#'/>
               </div>
               <div
                     className="the-content-div"
@@ -62,11 +99,13 @@ const HomeAbout = () => {
             </div>
           </div>
           <div className="slider-wrap">
-              <div className="logo-slider">
-                {logos.map((logo, index) => (
-                    <Logo key={index} logoData={logo} />
-                ))}
-              </div>
+          <Slider {...settings} className="logo-slider">
+             {logos.map((logo, index) => (
+            <div key={index}>
+              <Logo logoData={logo} />
+            </div>
+            ))}
+            </Slider>
           </div>
         </div>
       </section>

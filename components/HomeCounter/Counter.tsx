@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useTheme } from "@/lib/ThemeContext";
 
 interface Counter {
   number?: number;
@@ -10,11 +11,12 @@ interface Counter {
 const Counter: React.FC<{ counterData: Counter }> = ({
     counterData,
 }) => {
+  const { color } = useTheme();
   return (
     <>
       <div id="counter-item">
         <div className="c-item-inner">
-            <p className="counter-number">{counterData.number} +</p>
+            <p className="counter-number" style={{ color: color }}>{counterData.number} +</p>
             <h6 className="counter-name" dangerouslySetInnerHTML={{ __html: counterData.name }} />
         </div>
       </div>

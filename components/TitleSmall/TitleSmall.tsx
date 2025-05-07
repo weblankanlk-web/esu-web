@@ -2,6 +2,7 @@
 
 import React from "react";
 import "./style.scss";
+import { useTheme } from "@/lib/ThemeContext";
 
 interface Title {
   title: string;
@@ -9,12 +10,13 @@ interface Title {
 }
 
 const TitleSmall: React.FC<Title> = ({ title, subtitle }) => {
+  const { color } = useTheme();
   return (
     <>
       <div className="title-wrapper">
         <div className="main-title-small">
-          <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
-          <span dangerouslySetInnerHTML={{ __html: subtitle }}></span>
+          <h2> { title }</h2>
+          <span style={{ color: color }}> {subtitle }</span>
         </div>
       </div>
     </>
