@@ -5,8 +5,9 @@
     .image-wrap{
         img{
             width: 100%;
-            height: 230px;
+            height: auto;
             object-fit: contain;
+            object-position: bottom;
         }
     }
     .slider-wrap{
@@ -17,7 +18,7 @@
             align-items: center;
             column-gap: 10px;
             row-gap: 20px;
-            padding: 0 20px;
+            padding: 0 20px 20px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             background: #dbdfea;
             #counter-item{
@@ -69,6 +70,7 @@
             img{
                 height: get-vw(543.063px);
                 object-fit: cover;
+                object-position: center;
             }
         }
         .slider-wrap{
