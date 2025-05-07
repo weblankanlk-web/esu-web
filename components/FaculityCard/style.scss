@@ -9,6 +9,10 @@
   
     .single-faculity-card-wrap {
         position: relative;
+        a{
+            color: #333;
+            text-decoration: none;
+        }
         .single-faculity-card-image {      
             position: relative;  
             img {
