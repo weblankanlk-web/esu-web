@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
-import { Poppins, Space_Grotesk, Manrope } from "next/font/google";
+import {
+  Space_Grotesk,
+  Nunito,
+  Merriweather,
+  Lobster,
+  Orbitron,
+  Felipa,
+} from "next/font/google";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.scss";
 import Header from "@/components/Header/Header";
@@ -7,22 +15,40 @@ import Footer from "@/components/Footer/Footer";
 import { ThemeProvider } from "@/lib/ThemeContext";
 import "./globals.css";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  variable: "--font-poppins", // optional CSS variable name
-  weight: ["400", "500", "600", "700", "900"], // choose weights you need
-});
-
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-space-grotesk",
-  weight: ["400", "500", "600", "700"], // include the weights you plan to use
 });
 
-const manrope = Manrope({
+const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"], // choose the weights you need
-  variable: "--font-manrope", // optional, helpful for global CSS
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-nunito",
+});
+
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--font-merriweather",
+});
+
+const lobster = Lobster({
+  subsets: ["latin"],
+  weight: ["400"], // only 400 available
+  variable: "--font-lobster",
+});
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "800"],
+  variable: "--font-orbitron",
+});
+
+const felipa = Felipa({
+  subsets: ["latin"],
+  weight: ["400"], // only 400 available
+  variable: "--font-felipa",
 });
 
 export const metadata: Metadata = {
@@ -38,7 +64,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${spaceGrotesk.variable} ${manrope.variable}`}
+        className={`
+          ${spaceGrotesk.variable}
+          ${nunito.variable}
+          ${merriweather.variable}
+          ${lobster.variable}
+          ${orbitron.variable}
+          ${felipa.variable}
+        `}
       >
         <ThemeProvider>
           <Header />

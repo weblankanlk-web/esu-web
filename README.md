@@ -192,4 +192,15 @@ For any changes in infrastructure, update this README and notify the DevOps team
 
 ---
 
+## 🛠️ Project Specific Notes
+
+Faculty of Computing - #00AECD - Space Grotesk
+Faculty of life sciences - #BFD730 - Nunito
+Faculty of management & law - #FFCB05 - Merriweather
+Faculty of art & design - #F5833C - Lobster
+Faculty of engineering - #BFD730 - Orbitron
+Faculty of languages, sociology and education - #5B5B5B - Felipa
+
+---
+
 **Maintained by:** Web Lankan DevOps Team

@@ -59,7 +59,6 @@ const Banner: React.FC<{ bannerData: BannerProps }> = ({ bannerData }) => {
                 <Button
                   buttonName="Register Online"
                   buttonUrl="#"
-                  buttonColor="#02AEC9"
                 />
               </div>
             </div>

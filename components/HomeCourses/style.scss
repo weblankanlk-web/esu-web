@@ -1,6 +1,7 @@
 @import "../../styles/global.scss";
 
 .home-courses{
+    margin-bottom: 40px;
     .main-wrap-title{
         display: flex;
         flex-direction: column;
@@ -8,6 +9,13 @@
         padding: 0 20px 40px;
         .title-wrap{
             padding-bottom: 30px;
+        }
+    }
+    .slider-wrap{
+        .courses-slider{
+            .slick-slide{
+                padding: 0 5px;
+            }
         }
     }
     @media only screen and (min-width: 768px) {
@@ -37,8 +45,32 @@
         }
     }
     @media only screen and (min-width: 1200px) {
+        margin-bottom: get-vw(100px);
         .main-wrap-title{
             padding: 0 get-vw(120px) get-vw(50px);
+        }
+        .slider-wrap{
+            .courses-slider{
+                .slick-list{
+                    padding: 0 0 0 10%;
+                }
+                .slick-slide{
+                    padding: 0 get-vw(5px);
+                    .item{
+                        .course-box-wrap{
+                            width: 100%;
+                            padding: 0;
+                            .course-box{
+                                .course-box-img{
+                                    img{
+                                        height: get-vw(736px);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
