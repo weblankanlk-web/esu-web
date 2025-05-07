@@ -11,6 +11,7 @@ This README is intended for DevOps and developers to easily understand and manag
 * **Nginx Proxy Manager** (Reverse Proxy)
 * **Watchtower** (Auto-updater)
 * **Docker + Docker Compose**
+* **SonarQube** (Code Quality Analysis)
 
 ---
 
@@ -108,6 +109,8 @@ NEXT_PUBLIC_GRAPHQL_ENDPOINT=...
   [https://esu.lk/](https://esu.lk/)
 * **Portainer Dashboard:**
   [https://portainer.hostweblankan.in/](https://portainer.hostweblankan.in/)
+* **SonarQube Dashboard:**
+  View code analysis at [https://sonarqube.hostweblankan.in/dashboard?id=esu-web](https://sonarqube.hostweblankan.in/dashboard?id=esu-web)
 * **Domain Mapping:**
   Managed through Nginx Proxy Manager (port 81).
 
@@ -138,6 +141,7 @@ docker network create esu-network
 ## 📦 Additional Tools
 
 * **Portainer**: Installed for container management GUI → [https://portainer.hostweblankan.in/](https://portainer.hostweblankan.in/)
+* **SonarQube**: Available at → [https://sonarqube.hostweblankan.in/dashboard?id=esu-web](https://sonarqube.hostweblankan.in/dashboard?id=esu-web)
 
 ---
 
