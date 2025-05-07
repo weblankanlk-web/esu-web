@@ -1,10 +1,10 @@
 @import "../../styles/global.scss";
 
 .home-banner{
-    position: relative;
+    // position: relative;
     .full-wrap{
         .tab-section{
-            position: relative;
+            // position: relative;
             .tab-content{
                 margin: 0 !important;
                 padding: 0 !important;
@@ -87,8 +87,9 @@
                     border-bottom: 0;
                     .nav-item{
                         width: auto;
+                        margin: 5px;
                         .nav-link {
-                            border-radius: 15px;
+                            border-radius: 5px;
                             background: rgba(186, 186, 186, 0.65);
                             padding: 10px 30px;
                             width: fit-content;
@@ -100,8 +101,9 @@
                             line-height: normal;
                             text-transform: capitalize;
                             text-decoration: none;
-                            border: 2px solid #000;
-                            margin-right: 5px;
+                            // border: 2px solid #000;
+                            // margin-right: 5px;
+                            border: none;
                         }
                     }
                 }
@@ -163,10 +165,10 @@
                         border-right: get-vw(1px) solid rgba(255, 255, 255, 0.30);
                         .nav-item{
                             .nav-link {
-                                border-radius: get-vw(15px);
+                                // border-radius: get-vw(15px);
                                 padding: get-vw(17px) get-vw(25px);
                                 font-size: get-vw(14px);
-                                border: get-vw(2px) solid #000;
+                                // border: get-vw(2px) solid #000;
                                 margin-right: get-vw(5px);
                             }
                         }
