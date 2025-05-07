@@ -1,66 +1,4 @@
-:root {
-  --font-family-secondary: "Manrope", sans-serif;
-  --font-family-main: "Poppins", sans-serif;
-  --black-color: Black;
-  --light-black: #191919;
-  --dark-blck: #0e072a;
-  --btn-blue: #2278fb;
-  --darkblue: #19459d;
-  --red-color: #ff002e;
-  --orange-red: #ff005c;
-  --darkred: #b61532;
-  --light-ash-color: #f8f9ff;
-  --dark-gray: #808080;
-  --gray: #fafafa;
-  --gray-light: #f0f0f0;
-  --light-purple: #e5e8fa;
-  --bg-light: #fff;
-  --font-14: 0.729vw;
-  --font-15: 0.781vw;
-  --font-16: 0.833vw;
-  --font-18: 0.938vw;
-  --font-20: 1.042vw;
-  --font-22: 1.146vw;
-  --font-24: 1.25vw;
-  --font-25: 1.302vw;
-  --font-30: 1.563vw;
-  --font-32: 1.667vw;
-  --font-34: 1.771vw;
-  --font-38: 1.979vw;
-  --font-40: 2.083vw;
-  --font-50: 2.604vw;
-  --font-55: 2.865vw;
-  --font-62: 3.229vw;
-  --font-75: 3.906vw;
-  --font-80: 4.167vw;
-  --font-83: 4.323vw;
-  --font-90: 4.688vw;
-  --font-100: 5.208vw;
-}
-@media only screen and (max-width: 991px) {
-  :root {
-    --font-14: 14px;
-    --font-15: 15px;
-    --font-16: 16px;
-    --font-18: 18px;
-    --font-20: 20px;
-    --font-22: 22px;
-    --font-24: 20px;
-    --font-25: 25px;
-    --font-30: 30px;
-    --font-32: 32px;
-    --font-34: 34px;
-    --font-38: 38px;
-    --font-40: 40px;
-    --font-50: 50px;
-    --font-55: 55px;
-    --font-62: 62px;
-    --font-75: 75px;
-    --font-80: 80px;
-    --font-83: 83px;
-    --font-100: 100px;
-  }
-}
+
 /* @media (min-width: 991px) and (max-width: 1300px) {
     :root {
         --font-14: 1.077vw;
@@ -1162,6 +1100,7 @@ input[type="checkbox"]:checked:after {
   align-items: center;
   max-width: 500px;
   width: 100%;
+  background: #fff;
 }
 .search-form-ajax input {
   height: 50px;
@@ -3875,7 +3814,7 @@ span.clickeStream#prefer-degree-id {
     text-align: center;
   }
   .braedcumb-section {
-    padding-top: 115px;
+    /* padding-top: 115px; */
     padding-bottom: 10px;
   }
   .small-wrap {
@@ -4446,7 +4385,8 @@ span.clickeStream#prefer-degree-id {
   .next-btn {
     height: 45px;
     padding: 0 25px;
-    font-size: 15px;
+    font-size: 12px;
+    font-weight: bold;
   }
   .creative-heading {
     font-size: 25px;
@@ -5500,7 +5440,7 @@ span.clickeStream#prefer-degree-id {
 /* .ifarme-pdf .iframe {
   height: 700px;
 } */
-/* @media (min-width: 991px) and (max-width: 1300px) {
+@media (min-width: 991px) and (max-width: 1300px) {
     .counter-box h6{
         font-size: var(--font-30);
         line-height: var(--font-40);
@@ -5534,7 +5474,7 @@ span.clickeStream#prefer-degree-id {
     .course-box-img-content-inner p {
         font-size: 12px;
     }
-} */
+}
 @media (min-width: 991px) and (max-width: 1100px) {
   .main-wrap,
   .middle-wrap,

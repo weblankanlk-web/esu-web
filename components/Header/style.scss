@@ -289,3 +289,27 @@ ul#primary li:last-child {
 }
 
 /******************************Header end*********************************/
+
+.desktop-only-view {
+    display: none;
+}
+
+.mobile-only-view {
+    display: block;
+}
+
+@media(min-width: 991px) {
+    .desktop-only-view {
+        display: block;
+    }
+
+    .mobile-only-view {
+        display: none;
+    }
+}
+
+@media (max-width:992px) {
+    .main-menu-inner-wrap {
+        background: var(--light-black) !important;
+    }
+}
