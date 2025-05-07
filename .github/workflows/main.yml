@@ -1,4 +1,4 @@
-name: Deploy to Live
+name: Deploy to
 
 on:
   push:
@@ -32,7 +32,8 @@ jobs:
     - name: Build Docker image
       run: |
         PROJECT_NAME=$(basename ${{ github.repository }})
-        docker build -t ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:main .
+        docker build -f docker/live/web/Dockerfile -t ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:main . 
+      # docker build -t ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:main .
 
     # Push the Docker image
     - name: Push Docker image
@@ -41,11 +42,29 @@ jobs:
         docker push ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:main
 
 
-  # deploy-to-live:
-  #   runs-on: ubuntu-latest
-  #   needs: build-and-push 
-  #   steps:
-  #     - name: Trigger Watchtower via Webhook
-  #       run: |
-  #           curl -X POST "http://52.220.188.135:8090/v1/update?container=microchem" \
-  #           -H "Authorization: Bearer wt_secret_4aP9tKx7rQm2"
+  deploy-to-live:
+    runs-on: ubuntu-latest
+    needs: build-and-push 
+    steps:
+      - name: Trigger Watchtower via Webhook
+        run: |
+            curl -X POST "http://165.22.54.114:8090/v1/update?container=esu-web" \
+            -H "Authorization: Bearer wt_secret_4aP9tKx7rQm2"
+
+
+  sonarqube-scan:
+    name: sonarqube-scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 
+      - uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+      - uses: sonarsource/sonarqube-quality-gate-action@master
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

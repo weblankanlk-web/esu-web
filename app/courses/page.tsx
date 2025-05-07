@@ -2,14 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import Header from "@/components/Header/Header";
 import { graphQLClient } from "@/lib/graphql-client";
-import { validate } from "graphql";
-import { Audio, FallingLines, ThreeDots } from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
 import CourseItem from "@/components/CourseItem/CourseItem";
 import Breadrumb from "@/components/Breadcrumb/Breadcrumb";
 import "./style.scss";
+import { useTheme } from "@/lib/ThemeContext";
 
 const COURSE_TYPES_QUERY = `
 query {
@@ -370,6 +368,8 @@ export default function CoursesPage() {
   const paginatedCourses =
     filteredCourses.length > 0 ? filteredCourses : allCourses;
 
+  const { color } = useTheme();
+
   return (
     <>
       <Breadrumb />
@@ -377,7 +377,7 @@ export default function CoursesPage() {
       <section className="simple-padding-bottom dark-lightmode dark-font-change">
         <div className="small-middle-wrap">
           <h2 className="section-heading section-heading--black section-heading--underline section-heading--underline--center">
-            <span>our courses</span>
+            our <span>courses</span>
           </h2>
 
           <div className="landing-wrap-top">
@@ -435,7 +435,11 @@ export default function CoursesPage() {
 
               <div className="d-flex filter-clear-wrap justify-content-between align-items-center">
                 <h5 className="desktop-div">filter by</h5>
-                <button id="filter-toggle" className="mobile-div">
+                <button
+                  id="filter-toggle"
+                  className="mobile-div"
+                  style={{ backgroundColor: color }}
+                >
                   Select Filter
                 </button>
                 <button

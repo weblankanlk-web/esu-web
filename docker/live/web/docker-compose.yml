@@ -1,0 +1,12 @@
+services:
+  web:
+    image: ghcr.io/weblankanlk-web/esu-web:main
+    container_name: esu-web
+    ports:
+      - "3000:3000" 
+    networks:
+      - esu-network
+
+networks:
+  esu-network:
+    external: true

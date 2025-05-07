@@ -4,11 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import "./style.scss";
+import { useTheme } from "@/lib/ThemeContext";
 
 const Header = () => {
   const pathname = usePathname();
   const isCoursePage =
     pathname.includes("/esoft-courses") || pathname.includes("/esoft-transfer");
+
+  const { color } = useTheme();
 
   return (
     <>
@@ -114,7 +117,7 @@ const Header = () => {
         <div className="bottom-bar">
           <div className="main-wrap d-flex justify-content-between main-menu-wrap">
             <div className="d-flex main-menu-inner-wrap w-100 justify-content-between">
-              <div>
+              <div className="m-auto">
                 <Link href="/">
                   <Image
                     src="/images/logo/esu-logo.png"
@@ -135,7 +138,7 @@ const Header = () => {
                       <Link href="/courses">Courses</Link>
                     </li>
                     <li>
-                      <Link href="/facilities">Facilities</Link>
+                      <Link href="/faculties">Faculties</Link>
                     </li>
                     <li>
                       <Link href="/courses">Transfer Programmes</Link>
@@ -149,7 +152,21 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="apply-now-wrap">
+              <div className="mobile-div hamburger-wrap">
+                <button
+                  className="navnavbar-toggler hamburger classic navoffcanvas-header d-flex flex-wrap"
+                  type="button"
+                >
+                  <div className="hamburger" id="hamburger-1">
+                    <span className="linee line-one"></span>
+                    <span className="linee line-two"></span>
+                    <span className="linee line-three"></span>
+                  </div>
+                  <span className="ham-title">MENU</span>
+                </button>
+              </div>
+              {/* desktop */}
+              <div className="apply-now-wrap desktop-only-view">
                 <a
                   className="next-btn next-btn--blue"
                   target="_blank"
@@ -158,24 +175,27 @@ const Header = () => {
                       ? `/register?id=${"COURSE_ID_DYNAMIC"}`
                       : "/register"
                   }
+                  style={{ backgroundColor: color }}
                 >
                   <span>Register Online</span>
                 </a>
               </div>
             </div>
-            <div className="mobile-div hamburger-wrap">
-              <button
-                className="navnavbar-toggler hamburger classic navoffcanvas-header d-flex flex-wrap"
-                type="button"
-              >
-                <div className="hamburger" id="hamburger-1">
-                  <span className="linee line-one"></span>
-                  <span className="linee line-two"></span>
-                  <span className="linee line-three"></span>
-                </div>
-                <span className="ham-title">MENU</span>
-              </button>
-            </div>
+          </div>
+          {/* mobile */}
+          <div className="apply-now-wrap mobile-only-view">
+            <a
+              className="next-btn next-btn--blue"
+              target="_blank"
+              href={
+                isCoursePage
+                  ? `/register?id=${"COURSE_ID_DYNAMIC"}`
+                  : "/register"
+              }
+              style={{ backgroundColor: color }}
+            >
+              <span>Register Online</span>
+            </a>
           </div>
         </div>
       </header>
@@ -195,7 +215,7 @@ const Header = () => {
           </nav>
           <ul className="top-bar-menu">
             <li>
-              <a target="_blank" href="/payments">
+              <Link target="_blank" href="https://register.esoft.lk/">
                 <Image
                   src="/assets/img/payment.png"
                   width={20}
@@ -203,10 +223,10 @@ const Header = () => {
                   alt=""
                 />
                 <span>Payments</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a target="_blank" href="/students">
+              <Link target="_blank" href="/students">
                 <Image
                   src="/assets/img/user.png"
                   width={20}
@@ -214,7 +234,7 @@ const Header = () => {
                   alt=""
                 />
                 <span>Students</span>
-              </a>
+              </Link>
             </li>
             <li>
               <Link href="/alumni">
