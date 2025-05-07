@@ -95,9 +95,9 @@ const Page = () => {
               key={faculity.id}
               faculityImgDesk={imageUrl}
               faculityImgMobi={imageUrl}
-              faculityName={`<span>${faculity.schoolTypesColorFontFields.facultyName}</span>`} // we take from the array
-              faculityIntro={`<span>${faculity.description}</span>`}
-              facilityLink={`/faculty/${faculity.slug}`}
+              faculityName={`${faculity.schoolTypesColorFontFields.facultyName}`} // we take from the array
+              faculityIntro={`${faculity.description}`}
+              facilityLink={`${faculity.slug}`}
               fontFamily={fontFamily}
               fontColor={fontColor}
             />

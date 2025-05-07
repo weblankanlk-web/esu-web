@@ -87,24 +87,25 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
           </div>
         ))}
       </div>
-
-      <ul className="nav nav-tabs">
-        {tabData.map((tab) => (
-          <li className="nav-item" key={tab.id}>
-            <button
-              className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
-              onClick={() => setActiveTab(tab.id)}
-              style={{
-                backgroundColor:
-                  activeTab === tab.id
-                    ? tab.color
-                    : "rgba(186, 186, 186, 0.65)",
-              }}
-              dangerouslySetInnerHTML={{ __html: tab.buttonName }}
-            />
-          </li>
-        ))}
-      </ul>
+      <div className="button-sec">
+        <ul className="nav nav-tabs">
+          {tabData.map((tab) => (
+            <li className="nav-item" key={tab.id}>
+              <button
+                className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
+                onClick={() => setActiveTab(tab.id)}
+                style={{
+                  backgroundColor:
+                    activeTab === tab.id
+                      ? tab.color
+                      : "rgba(186, 186, 186, 0.65)",
+                }}
+                dangerouslySetInnerHTML={{ __html: tab.buttonName }}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
