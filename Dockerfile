@@ -1,14 +1,23 @@
 FROM node:18-alpine
 
+# Set working directory
 WORKDIR /app
 
+# Install dependencies
 COPY package.json package-lock.json ./
-
-# Use legacy-peer-deps to avoid peer dependency conflicts
 RUN npm install --legacy-peer-deps
 
+# Copy all project files
 COPY . .
 
+# Set environment variables if needed
+RUN cp sample.env .env
+
+# Build the Next.js app for production
+RUN npm run build
+
+# Expose the port
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+# Start the application
+CMD ["npm", "start"]
