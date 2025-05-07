@@ -210,9 +210,8 @@ const Header = () => {
 
       <nav
         id="navbar_main_nav"
-        className={`navmobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary ${
-          isMobileMenuOpen ? "show-mobile-menu" : "hide-mobile-menu"
-        }`}
+        className={`navmobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary ${isMobileMenuOpen ? "show-mobile-menu" : "hide-mobile-menu"
+          }`}
       >
         <div className="main-wrap">
           <nav className="navbar navbar-expand-lg nav-menu">
@@ -276,8 +275,8 @@ const Header = () => {
                   src="/assets/img/payment.png"
                   width={20}
                   height={20}
-                  alt=""
-                />
+                  alt="Payments"
+                  style={{ objectFit: "contain" }} />
                 <span>Payments</span>
               </Link>
             </li>

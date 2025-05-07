@@ -96,8 +96,8 @@ const Page = () => {
               faculityImgDesk={imageUrl}
               faculityImgMobi={imageUrl}
               faculityName={`${faculity.schoolTypesColorFontFields.facultyName}`} // we take from the array
-              faculityIntro={`<span>${faculity.description}</span>`}
-              facilityLink={`/faculty/${faculity.slug}`}
+              faculityIntro={`${faculity.description}`}
+              facilityLink={`${faculity.slug}`}
               fontFamily={fontFamily}
               fontColor={fontColor}
             />
