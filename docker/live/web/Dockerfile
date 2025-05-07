@@ -11,7 +11,7 @@ RUN npm install --legacy-peer-deps
 COPY . .
 
 # Set environment variables if needed
-RUN cp sample.env .env
+RUN cp docker/live/web/live.env .env
 
 # Build the Next.js app for production
 RUN npm run build

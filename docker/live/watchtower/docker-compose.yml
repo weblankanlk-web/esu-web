@@ -1,0 +1,15 @@
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8090:8080
+    command: >
+      --interval 86400
+      --cleanup
+      --debug
+      --http-api-token wt_secret_4aP9tKx7rQm2
+      --http-api-update
