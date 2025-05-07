@@ -14,14 +14,14 @@
                         .image-container{
                             img{
                                 width: 100%;
-                                height: 824px;
+                                height: 745px;
                                 object-fit: cover;
                             }
                         }
                         .detail-container{
                             position: absolute;
                             left: 0;
-                            top: 0;
+                            top: 90px;
                             z-index: 2;
                             .detail-wrap{
                                 display: flex;
@@ -115,9 +115,10 @@
                             }
                             .detail-container{
                                 width: 100%;
+                                top: get-vw(90px);
                                 .detail-wrap{
                                     align-items: flex-start;
-                                    padding: get-vw(108px) get-vw(100px) get-vw(90px);
+                                    padding: get-vw(108px) get-vw(100px) get-vw(10px);
                                     img{
                                         width: get-vw(217px);
                                         height: get-vw(153px);
