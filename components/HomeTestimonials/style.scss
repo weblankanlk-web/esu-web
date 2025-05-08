@@ -13,9 +13,6 @@
           .t-item-inner{
             padding: 30px;
             margin: 0 5px;
-            background: #fff;
-            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.18);
-            border-radius: 10px;
             .detail-wrapper {
               display: flex;
               flex-direction: column;
@@ -74,7 +71,6 @@
                   height: auto;
                   object-fit: contain;
                   padding-top: 10px;
-                  display: none;
                 }
               }
               .video-contain {
@@ -107,36 +103,29 @@
               &.slick-prev{
                   left: get-vw(30px);
                   top: get-vw(200px);
-                  z-index: 5;
                   &::before{
-                      font-size: get-vw(50px);
-                      color: rgba(173, 173, 173, 0.85);
-                      opacity: 1;
-                      // backdrop-filter: blur(45px);
-                      // border: get-vw(2px) solid rgba(255, 255, 255, 0.10);
+                      font-size: get-vw(40px);
+                      color: rgba(173, 173, 173, 0.45);
                   }
               }
               &.slick-next{
                   right:get-vw( 60px);
                   top: get-vw(200px);
-                  // border: get-vw(2px) solid rgba(255, 255, 255, 0.10);
                   &::before{
-                      font-size: get-vw(50px);
-                      color: rgba(173, 173, 173, 0.85);
-                      opacity: 1;
-                      // backdrop-filter: blur(45px);
+                      font-size: get-vw(40px);
+                      color: rgba(173, 173, 173, 0.45);
                   }
               }
           }
-        }
+      }
         .item{
           margin: 0 get-vw(5px);
           #testimonial-item {
             .t-item-inner{
-              padding: get-vw(50px) get-vw(36px) get-vw(80px);
+              padding: get-vw(50px) get-vw(36px) get-vw(50px);
               border-radius: get-vw(10px);
               background: #fff;
-              box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.18);
+              box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.18);
               margin: 0 get-vw(5px);
               min-height: get-vw(455px);
               .detail-wrapper {
@@ -201,4 +190,14 @@
       }
     }
   }
+}
+
+
+.testimonial-content {
+  font-size: 12px;
+}
+
+button.read-more-btn {
+    background: transparent;
+    border: none;
 }

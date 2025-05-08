@@ -1,47 +1,90 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import TitleSmall from "../TitleSmall/TitleSmall";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TestimonialItem from "./TestimonialItem";
 import "./style.scss";
+import { graphQLClient } from "@/lib/graphql-client";
 
-const testimonials = [
-  {
-    text: "I embarked on the Master of Science in Network & Information Security program with high expectations, and I can confidently say that it exceeded them in every way possible. This course has been nothing short of exceptional",
-    name: "niromi perera",
-    position: "BSC (Hons) Computer Science",
-    imageUrl: "/images/person1.png",
-  },
-  {
-    text: "One highlight of this program is the emphasis on ethics and the importance of responsible cybersecurity practices. The university's commitment to producing ethical professionals is commendable and aligns perfectly the principles I hold dear",
-    name: "gayan chamara",
-    position: "BSC (Hons) Computer Science",
-    imageUrl: "/images/person2.png",
-  },
-  {
-    text: " I embarked on the Master of Science in Network & Information Security program with high expectations, and I can confidently say that it exceeded them in every way possible. This course has been nothing short of exceptional ",
-    name: "ashani ranatunga",
-    imageUrl: "/images/person3.png",
-    position: "BSC (Hons) Computer Science",
-    // videoUrl: "https://www.youtube.com/embed/K4TOrB7at0Y?si=5VVVAKkY4HoAnEwB",
-  },
-  {
-    text: " I embarked on the Master of Science in Network & Information Security program with high expectations, and I can confidently say that it exceeded them in every way possible. This course has been nothing short of exceptional ",
-    name: "Shehan Dilshan",
-    position: "BSC (Hons) Computer Science",
-    imageUrl: "/images/person4.png",
-  },
-  {
-    text: " I embarked on the Master of Science in Network & Information Security program with high expectations, and I can confidently say that it exceeded them in every way possible. This course has been nothing short of exceptional ",
-    name: "ashani ranatunga",
-    imageUrl: "/images/person3.png",
-    position: "BSC (Hons) Computer Science",
-    // videoUrl: "https://www.youtube.com/embed/K4TOrB7at0Y?si=5VVVAKkY4HoAnEwB",
-  },
-];
+// ✅ Fixed GraphQL syntax
+const TESTIMONIALS_QUERY = `
+query {
+    testimonials(last: 10) {
+      nodes {
+        id
+        title
+        slug
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        testimonials {
+          testimonialType
+          testimonialVideo
+          thumbnailImage {
+            node {
+              sourceUrl
+            }
+          }
+          testimonialText
+        }
+      }
+    }
+}
+`;
 
-const HomeTestimonials = () => {
+type Testimonial = {
+  id: string;
+  title: string;
+  slug: string;
+  featuredImage: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+    }
+  }
+  testimonials: {
+    testimonialType: string[];
+    testimonialVideo?: string;
+    thumbnailImage?: {
+      node: {
+        sourceUrl: string;
+      };
+    };
+    testimonialText?: string;
+  };
+};
+
+const HomeTestimonials: React.FC = () => {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const data = await graphQLClient.request<{
+          testimonials: { nodes: Testimonial[] };
+        }>(TESTIMONIALS_QUERY);
+
+        const filtered = data.testimonials.nodes.filter(
+          (item) => item.testimonials !== null
+        );
+
+        console.log("✅ Testimonials fetched:", filtered); // ← log here
+
+        setTestimonials(filtered);
+      } catch (error) {
+        console.error("❌ Error fetching testimonials:", error);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -80,22 +123,20 @@ const HomeTestimonials = () => {
   };
 
   return (
-    <>
-      <section className="home-testimonials">
-        <div className="title-wrap">
-          <TitleSmall title="Student" subtitle="Testimonials" />
-        </div>
-        <div className="slider-wrap">
-          <Slider {...settings} className="testimonial-slider">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="item">
-                <TestimonialItem testimonialData={testimonial} />
-              </div>
-            ))}
-          </Slider>
-        </div>
-      </section>
-    </>
+    <section className="home-testimonials">
+      <div className="title-wrap">
+        <TitleSmall title="Home" subtitle="Testimonials" />
+      </div>
+      <div className="slider-wrap">
+        <Slider {...settings} className="testimonial-slider">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="item">
+              <TestimonialItem testimonialData={testimonial} />
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </section>
   );
 };
 

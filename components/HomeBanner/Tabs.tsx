@@ -24,7 +24,7 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
   const [search, setSearch] = useState("");
   const { color, setColor } = useTheme();
 
-  console.log("tabData", tabData);
+  // console.log("tabData", tabData);
 
   // Set default active tab when tabData is available
   useEffect(() => {
@@ -33,7 +33,7 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
     }
   }, [tabData, activeTab]);
 
-  console.log("activeTab", activeTab);
+  // console.log("activeTab", activeTab);
 
   return (
     <div className="tab-section">
