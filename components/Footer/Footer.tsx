@@ -24,17 +24,37 @@ const Footer = () => {
           <div className="hashtag">#ESULife</div>
           <div className="social-icons">
             <div className="icon">
-              <FaFacebookF />
+              <Link
+                href="https://www.facebook.com/ESOFTMetroCampus/"
+                target="_blank"
+              >
+                <FaFacebookF />
+              </Link>
             </div>
             <div className="icon">
-              <FaLinkedinIn />
+              <Link
+                href="https://lk.linkedin.com/school/esoftmetrocampus/"
+                target="_blank"
+              >
+                <FaLinkedinIn />
+              </Link>
             </div>
             <div className="icon">
-              <FaInstagram />
+              <Link
+                href="https://www.instagram.com/esoftmetrocampus/?hl=en"
+                target="_blank"
+              >
+                <FaInstagram />
+              </Link>
             </div>
-            <div className="icon">
-              <FaTwitter />
-            </div>
+            {/* <div className="icon">
+              <Link
+                href="https://www.instagram.com/esoftmetrocampus/?hl=en"
+                target="_blank"
+              >
+                <FaTwitter />
+              </Link>
+            </div> */}
             <div className="icon">
               <FaGooglePlusG />
             </div>
@@ -85,16 +105,16 @@ const Footer = () => {
               <li>
                 <Link href="/">Home</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="https://esoft.lk/students-life/">Student Life</Link>
               </li>
               <li>
                 <Link href="https://esoft.lk/about-us/">About Us</Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="https://esoft.lk/contact-us/">Contact Us</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="https://esoft.lk/careers/">Careers</Link>
               </li>
               <li>
@@ -105,12 +125,12 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="https://esoft.lk/csr/">CSR</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="column links">
             <h4>IMPORTANT LINKS</h4>
-            <ul>
+            {/* <ul>
               <li>
                 <Link href="/courses">Courses</Link>
               </li>
@@ -147,11 +167,11 @@ const Footer = () => {
                   Referrals
                 </Link>
               </li>
-            </ul>
+            </ul> */}
           </div>
           <div className="background-logo">
             <Image
-              src={"/images/logo/esu.png"}
+              src={"/images/logo/esu-home-banner-logo"}
               width={700}
               height={400}
               alt=""
@@ -165,7 +185,9 @@ const Footer = () => {
         <p>
           Copyright © 2025 <strong>ESU METRO CAMPUS</strong> All rights
           reserved. Website Designed And Developed By{" "}
-          <strong>Web Lankan</strong>
+          <Link href="https://www.weblankan.com/" target="_blank">
+            <strong>Web Lankan</strong>
+          </Link>
         </p>
       </div>
     </footer>

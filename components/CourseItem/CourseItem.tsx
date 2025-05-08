@@ -48,6 +48,7 @@ const CourseItem: React.FC<{ course: Course }> = ({ course }) => {
           )}
           <div className="course-box-img-content">
             <div className="course-box-img-content-inner">
+              <h6>{course.title}</h6>
               <p>
                 {course.courseTypes?.nodes?.[0]?.name &&
                   course.courseTypes?.nodes?.[0]?.name}
@@ -55,7 +56,6 @@ const CourseItem: React.FC<{ course: Course }> = ({ course }) => {
                 {course.schoolTypes?.nodes?.[0]?.name &&
                   course.schoolTypes?.nodes?.[0]?.name}
               </p>
-              <h6>{course.title}</h6>
             </div>
           </div>
         </div>

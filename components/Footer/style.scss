@@ -23,9 +23,9 @@
             gap: 8px;
 
             .hashtag {
-                font-size: 24px;
+                font-size: 45px;
                 font-weight: bold;
-                font-family: var(--font-poppins);
+                font-family: var(--font-manrope);
             }
 
             .social-icons {
@@ -35,7 +35,7 @@
                 overflow: hidden;
 
                 .icon {
-                    padding: 12px;
+                    padding: 20px;
                     border-left: 1px solid rgba(255, 255, 255, 0.1);
                     display: flex;
                     align-items: center;
@@ -47,7 +47,7 @@
 
                     svg {
                         color: white;
-                        font-size: 18px;
+                        font-size: 25px;
                     }
                 }
             }
