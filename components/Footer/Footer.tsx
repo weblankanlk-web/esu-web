@@ -8,6 +8,8 @@ import {
   FaInstagram,
   FaTwitter,
   FaGooglePlusG,
+  FaTiktok,
+  FaYoutube,
 } from "react-icons/fa";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
@@ -33,6 +35,14 @@ const Footer = () => {
             </div>
             <div className="icon">
               <Link
+                href="https://www.instagram.com/esoftmetrocampus/?hl=en"
+                target="_blank"
+              >
+                <FaInstagram />
+              </Link>
+            </div>
+            <div className="icon">
+              <Link
                 href="https://lk.linkedin.com/school/esoftmetrocampus/"
                 target="_blank"
               >
@@ -40,11 +50,16 @@ const Footer = () => {
               </Link>
             </div>
             <div className="icon">
+              <Link href="https://www.tiktok.com/@emccolombo" target="_blank">
+                <FaTiktok />
+              </Link>
+            </div>
+            <div className="icon">
               <Link
-                href="https://www.instagram.com/esoftmetrocampus/?hl=en"
+                href="https://www.youtube.com/channel/UCrVBMxBtZy7iVHecsUUycew"
                 target="_blank"
               >
-                <FaInstagram />
+                <FaYoutube />
               </Link>
             </div>
             {/* <div className="icon">
@@ -55,9 +70,9 @@ const Footer = () => {
                 <FaTwitter />
               </Link>
             </div> */}
-            <div className="icon">
+            {/* <div className="icon">
               <FaGooglePlusG />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -171,11 +186,11 @@ const Footer = () => {
           </div>
           <div className="background-logo">
             <Image
-              src={"/images/logo/esu-home-banner-logo"}
+              src={"/images/logo/esu-footer.png"}
               width={700}
               height={400}
               alt=""
-              style={{ objectFit: "cover", objectPosition: "bottom" }}
+              style={{ objectFit: "contain", objectPosition: "right bottom" }}
             />
           </div>
         </div>
