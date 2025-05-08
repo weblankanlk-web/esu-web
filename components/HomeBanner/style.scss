@@ -71,7 +71,7 @@
             .button-sec{
                 border-bottom: 1px solid rgba(255, 255, 255, 0.30);
                 border-top: 1px solid rgba(255, 255, 255, 0.30);
-                background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.83) 42.62%, rgba(0, 0, 0, 0.83) 100%);
+                // background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.83) 42.62%, rgba(0, 0, 0, 0.83) 100%);
                 backdrop-filter: blur(6.599999904632568px);
                 padding: 0 12px;
                 position: absolute;
@@ -82,8 +82,8 @@
                     flex-wrap: wrap;
                     justify-content: center;
                     padding: 30px 5px;
-                    border-left: 1px solid rgba(255, 255, 255, 0.30);
-                    border-right: 1px solid rgba(255, 255, 255, 0.30);
+                    // border-left: 1px solid rgba(255, 255, 255, 0.30);
+                    // border-right: 1px solid rgba(255, 255, 255, 0.30);
                     border-bottom: 0;
                     .nav-item{
                         width: auto;
@@ -158,11 +158,11 @@
                     width: 100%;
                     border-bottom: get-vw(1px) solid rgba(255, 255, 255, 0.30);
                     border-top: get-vw(1px) solid rgba(255, 255, 255, 0.30);
-                    padding: 0 get-vw(80px);
+                    // padding: 0 get-vw(80px);
                     .nav-tabs{
                         padding: get-vw(60px) get-vw(20px);
-                        border-left: get-vw(1px) solid rgba(255, 255, 255, 0.30);
-                        border-right: get-vw(1px) solid rgba(255, 255, 255, 0.30);
+                        // border-left: get-vw(1px) solid rgba(255, 255, 255, 0.30);
+                        // border-right: get-vw(1px) solid rgba(255, 255, 255, 0.30);
                         .nav-item{
                             .nav-link {
                                 // border-radius: get-vw(15px);

@@ -36,7 +36,7 @@ const TestimonialItem: React.FC<Props> = ({ testimonialData }) => {
   const [expanded, setExpanded] = useState(false);
   const text = testimonials.testimonialText?.trim() || "";
 
-  const MAX_CHARACTERS = 250;
+  const MAX_CHARACTERS = 220;
 
   const shouldTruncate = text.length > MAX_CHARACTERS;
   const visibleText = expanded ? text : text.slice(0, MAX_CHARACTERS);

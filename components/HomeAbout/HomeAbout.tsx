@@ -77,7 +77,7 @@ const HomeAbout = () => {
           <div className="image-detail-wrap">
             <div className="left">
               <Image
-                src="/images/about-home.png"
+                src="/images/all-made-of-future.png"
                 width={900}
                 height={850}
                 alt=""

@@ -135,6 +135,18 @@ const Header = () => {
                       width: "100%",
                       objectFit: "contain",
                     }}
+                    className="desktop-esu-logo"
+                  />
+                  <Image
+                    src="/images/logo/esu-logo.png"
+                    width={150}
+                    height={50}
+                    alt="Logo"
+                    style={{
+                      width: "100%",
+                      objectFit: "contain",
+                    }}
+                    className="mobile-esu-logo"
                   />
                 </Link>
               </div>
@@ -222,7 +234,7 @@ const Header = () => {
                   Home
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="https://esoft.lk/about-us/" target="_blank">
                   About
                 </Link>
@@ -261,7 +273,7 @@ const Header = () => {
                 <Link href="https://esoft.lk/csr/" target="_blank">
                   CSR
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="https://esoft.lk/contact-us/" target="_blank">
                   contact us
@@ -269,11 +281,11 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <ul className="top-bar-menu">
+          {/* <ul className="top-bar-menu">
             <li>
               <Link target="_blank" href="https://register.esoft.lk/">
                 <Image
-                  src="/assets/img/payment.png"
+                  src="/images/payment.png"
                   width={20}
                   height={20}
                   alt="Payments"
@@ -285,7 +297,7 @@ const Header = () => {
             <li>
               <Link target="_blank" href="/students">
                 <Image
-                  src="/assets/img/user.png"
+                  src="/images/user.png"
                   width={20}
                   height={20}
                   alt=""
@@ -296,7 +308,7 @@ const Header = () => {
             <li>
               <Link href="/alumni">
                 <Image
-                  src="/assets/img/alumni.png"
+                  src="/images/alumni.png"
                   width={20}
                   height={20}
                   alt=""
@@ -304,7 +316,7 @@ const Header = () => {
                 <span>Alumni</span>
               </Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </nav>
     </>

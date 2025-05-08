@@ -82,7 +82,7 @@ const HomeBanner = () => {
     fetchHomeBanners();
   }, []);
 
-  // console.log(homeBanners);
+  console.log(homeBanners);
 
   return (
     <section className="home-banner">

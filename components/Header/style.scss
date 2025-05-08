@@ -299,7 +299,15 @@ ul#primary li:last-child {
     display: none;
 }
 
+.desktop-esu-logo {
+    display: none;
+}
+
 .mobile-only-view {
+    display: block;
+}
+
+.mobile-esu-logo {
     display: block;
 }
 
@@ -308,7 +316,15 @@ ul#primary li:last-child {
         display: block;
     }
 
+    .desktop-esu-logo {
+        display: block;
+    }
+
     .mobile-only-view {
+        display: none;
+    }
+
+    .mobile-esu-logo {
         display: none;
     }
 }

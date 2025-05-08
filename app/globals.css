@@ -4035,6 +4035,8 @@ span.clickeStream#prefer-degree-id {
   ul#mobile a {
     font-size: 16px;
     font-weight: 600;
+    text-decoration: none;
+    color: #000;
   }
   ul#mobile .active a {
     color: var(--btn-blue);
@@ -4140,14 +4142,14 @@ span.clickeStream#prefer-degree-id {
     border-radius: 0;
     display: block;
     position: fixed;
-    top: 0;
+    top: 80px;
     left: 0;
     overflow: auto;
     height: 100vh;
     z-index: 993;
     width: 100%;
     transition: visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
-    padding-top: 90px;
+    /* padding-top: 90px; */
     background: #fff !important;
     padding-bottom: 100px;
   }
