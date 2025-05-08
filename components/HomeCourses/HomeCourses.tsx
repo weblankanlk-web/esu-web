@@ -27,6 +27,18 @@ query {
         courseCode
         studentsCount
       }
+      schoolTypes {
+        nodes {
+          slug
+          name
+        }
+      }
+      courseTypes {
+        nodes {
+          slug
+          name
+        }
+      }
     }
   }
 }
@@ -46,6 +58,8 @@ type Course = {
     courseCode: string;
     studentsCount: string | null;
   };
+  schoolTypes?: { nodes: { slug: string; name: string }[] };
+  courseTypes?: { nodes: { slug: string; name: string }[] };
 };
 
 export default function HomeCourses() {
@@ -54,9 +68,9 @@ export default function HomeCourses() {
   useEffect(() => {
     async function fetchCourses() {
       try {
-        const data = await graphQLClient.request<{ courses: { nodes: Course[] } }>(
-          COURSE_QUERY
-        );
+        const data = await graphQLClient.request<{
+          courses: { nodes: Course[] };
+        }>(COURSE_QUERY);
         setCourses(data.courses.nodes);
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -113,7 +127,11 @@ export default function HomeCourses() {
                 course={{
                   ...course,
                   featuredImage: course.featuredImage
-                    ? { node: { mediaItemUrl: course.featuredImage.node.mediaItemUrl } }
+                    ? {
+                        node: {
+                          mediaItemUrl: course.featuredImage.node.mediaItemUrl,
+                        },
+                      }
                     : undefined,
                   courses: {
                     ...course.courses,

@@ -402,7 +402,7 @@ const page = () => {
               </div>
             </div>
             <div className="course-inner-details-box">
-              <ul className="course-nav">
+            {/*<ul className="course-nav">
                 <li>
                   <button className="active-btn nav-btn-in">overview</button>
                 </li>
@@ -415,7 +415,7 @@ const page = () => {
                 <li>
                   <button className="nav-btn-in">Fees</button>
                 </li>
-              </ul>
+              </ul> */}
 
               <CourseOverview course={course || undefined} />
 
