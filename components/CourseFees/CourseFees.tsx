@@ -65,7 +65,7 @@ const CourseFees: React.FC<FeesProps> = ({ fees }) => {
           {fees?.fee_plans?.map((plan) => (
             <div key={plan.id} className="fee-box">
               <div className="fee-box-inner">
-                <h6>
+                <h6 style={{ background: color }}>
                   {plan.origin === "local"
                     ? "Sri Lankan Students"
                     : "Foreign Students"}
