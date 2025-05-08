@@ -6,13 +6,13 @@ interface FaculityOverviewProps {
 
 }
 interface FaculityOverviewProps {
-    OverviewTitle: string;
+    schoolOverviewTitle: string;
     OverviewImage: string;
     Overview: string;
 }
 
 const FaculityOverview: React.FC<FaculityOverviewProps> = ({
-    OverviewTitle,
+    schoolOverviewTitle,
     OverviewImage,
     Overview,
     
@@ -20,17 +20,17 @@ const FaculityOverview: React.FC<FaculityOverviewProps> = ({
 }) => {
   return (
     <>
-        <section className="course-overview position-relative">
-            <div className="course-wrap d-flex flex-wrap">
+        <section className="course-overview-section position-relative">
+            <div className="course-overview-wrap d-flex flex-wrap">
                 <div className="course-overview-title">
-                    <h2 className="" dangerouslySetInnerHTML={{ __html: OverviewTitle }} ></h2>
+                    <h2 className="" dangerouslySetInnerHTML={{ __html: schoolOverviewTitle }}></h2>
                 </div>
                 <div className="course-overview-image">
                     <Image 
                         src={OverviewImage} 
-                        alt={`${OverviewTitle} Image`} 
-                        width={600} 
-                        height={400} 
+                        alt={`${schoolOverviewTitle} Image`} 
+                        width={1219} 
+                        height={8860} 
                     />
                 </div>
                 <div className="course-overview" dangerouslySetInnerHTML={{ __html: Overview }}></div>

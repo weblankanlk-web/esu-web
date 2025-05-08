@@ -1,87 +1,139 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import InnerBanner from "@/components/InnerBanner/InnerBanner";
 import FaculityOverview from "@/components/FaculityOverview/FaculityOverview";
 import { graphQLClient } from "@/lib/graphql-client";
-import { useRouter } from 'next/router';
 
-const SCHOOL_INNER_QUERY = `
-query ($slug: [String]) {
-  schoolTypes(where: {slug: $slug}) {
-    nodes {
-      schoolTypesColorFontFields {
-        schoolOverview
-        schoolOverviewImage {
-          node {
-            id
-            link
-            altText
+// ✅ GraphQL query to fetch faculty details
+const FACULTY_INNER_QUERY = `
+  query ($slug: [String]) {
+    schoolTypes(where: { slug: $slug }) {
+      nodes {
+        schoolTypesColorFontFields {
+          schoolOverview
+          schoolOverviewTitle
+          color
+          courseFontFamily
+          facultyName
+          schoolOverviewImage {
+            node {
+              id
+              link
+              altText
+              title
+            }
+          }
+          facultyDesktop {
+            node {
+              id
+              link
+              altText
+              title
+            }
+          }
+          facultyMobile {
+            node {
+              id
+              link
+              altText
+              title
+            }
           }
         }
-        facultyName
       }
     }
   }
-}`;
+`;
+
+// ✅ TypeScript interface for faculty data
 type FacultyInner = {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
   schoolTypesColorFontFields: {
     schoolOverview: string;
+    schoolOverviewTitle: string;
+    color: string;
+    courseFontFamily: string;
+    facultyName: string;
     schoolOverviewImage: {
       node: {
         id: string;
         link: string;
         altText: string;
+        title: string;
       };
     };
-    facultyName: string;
+    facultyDesktop: {
+      node: {
+        id: string;
+        link: string;
+        altText: string;
+        title: string;
+      };
+    };
+    facultyMobile: {
+      node: {
+        id: string;
+        link: string;
+        altText: string;
+        title: string;
+      };
+    };
   };
 };
 
-const page = () => {
-  const path = window.location.pathname; // e.g., "/faculties/school-of-art-design"
-  const slug = path.split("/").pop();    // "school-of-art-design"
+const FacultyInnerPage = () => {
+  const pathname = usePathname();
+  const slug = pathname?.split("/").pop(); // Extract slug from URL
 
-  const [faculty, setSchoolInner] = useState<FacultyInner[]>([]);
+  const [faculty, setFaculty] = useState<FacultyInner | null>(null);
 
   useEffect(() => {
-    const fetchFaculties = async () => {
+    if (!slug) return;
+
+    const fetchFacultyDetails = async () => {
       try {
         const data = await graphQLClient.request<{
           schoolTypes: { nodes: FacultyInner[] };
-        }>(SCHOOL_INNER_QUERY, {
-          slug: slug
-        });
-        console.log("Fetched school:", data.schoolTypes.nodes); // console log
-        setSchoolInner(data.schoolTypes.nodes);
+        }>(FACULTY_INNER_QUERY, { slug });
+
+        if (data.schoolTypes.nodes.length > 0) {
+          setFaculty(data.schoolTypes.nodes[0]);
+        }
       } catch (error) {
-        console.error("Error fetching school data:", error);
+        console.error("❌ Error fetching faculty data:", error);
       }
     };
 
-    fetchFaculties();
-  }, []);
+    fetchFacultyDetails();
+  }, [slug]);
 
   return (
     <>
-      <InnerBanner
-        innerPageTitle={`Our <span>Faculties</span>`}
-        innerPageDescription="Where we breathe life into technology! Welcome to ESOFT Metro Campus, where seven dynamic schools shape your educational journey. Join us in this diverse academic landscape for unparalleled excellence!"
-        innerBgDesk="/images/faculity-lan.png"
-        innerBgMobi="/images/faculity-lan.png"
-      />
-      <FaculityOverview
-        OverviewTitle={`Art & Design`}
-        OverviewImage="/images/artanddesign.png"
-        Overview="Welcome to the ESOFT School of Computing, where we breathe life into technology! Our comprehensive array of courses is designed to empower students to fearlessly navigate the rapidly evolving world of computing and beyond. Our highly qualified academic staff ensures a unique learning experience that stands out. We’re not just a school; we’re your gateway to transformative learning!
+      {faculty && (
+        <>
+          <InnerBanner
+            innerPageTitle={`Faculty of <span style="color: ${faculty.schoolTypesColorFontFields.color}; font-family: ${faculty.schoolTypesColorFontFields.courseFontFamily}"> ${faculty.schoolTypesColorFontFields.facultyName} </span>`}
+            innerPageDescription={`Welcome to the Faculty of ${faculty.schoolTypesColorFontFields.facultyName}.`}
+            innerBgDesk={
+              faculty.schoolTypesColorFontFields.facultyDesktop?.node?.link || ""
+            }
+            innerBgMobi={
+              faculty.schoolTypesColorFontFields.facultyMobile?.node?.link || ""
+            }
+          />
 
-        Qualifications offered at the ESOFT School of Computing are not only endorsed by the UGC but also hold recognition from esteemed international entities. This affords students the flexibility to choose a pathway that aligns perfectly with their aspirations."
-      />
+          <FaculityOverview
+            schoolOverviewTitle={`<span style="font-family: ${faculty.schoolTypesColorFontFields.courseFontFamily}; background: linear-gradient(90deg, ${faculty.schoolTypesColorFontFields.color} 0%, rgba(124, 124, 124, 0.70) 100%);">${faculty.schoolTypesColorFontFields.schoolOverviewTitle}</span>`}
+            OverviewImage={
+              faculty.schoolTypesColorFontFields.schoolOverviewImage?.node?.link || ""
+            }
+            Overview={faculty.schoolTypesColorFontFields.schoolOverview}
+          />
+        </>
+      )}
     </>
   );
-}
-export default page;
+};
+
+export default FacultyInnerPage;

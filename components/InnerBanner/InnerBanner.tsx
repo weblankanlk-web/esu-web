@@ -20,11 +20,11 @@ const InnerBanner: React.FC<InnerBannerProps> = ({
     <section className="inner-banner position-relative">
       <div className="full-wrap">
         <div className="inner-banner-image">
-          <picture>
+            <picture>
             <source srcSet={innerBgDesk} media="(min-width: 992px)" />
             <source srcSet={innerBgMobi} media="(max-width: 991px)" />
-            <img src={innerBgMobi} className="d-block w-100" alt={innerPageTitle} />
-          </picture>
+              <img src={innerBgMobi} className="d-block w-100" alt={innerPageTitle.replace(/<\/?[^>]+(>|$)/g, "")} />
+            </picture>
           
         </div>
         <div className="inner-banner-content">
