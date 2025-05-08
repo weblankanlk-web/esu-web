@@ -8,18 +8,19 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import "./style.scss";
 import LecturePanel from "@/components/LecturePanel/LecturePanel";
-import CourseOutline from "@/components/CourseOutline/CourseOutline";
 import CourseOverview from "@/components/CourseOverview/CourseOverview";
 import CourseSchedule from "@/components/CourseSchedule/CourseSchedule";
 import CourseFees from "@/components/CourseFees/CourseFees";
 import { useTheme } from "@/lib/ThemeContext";
 import Link from "next/link";
 import { COURSE_QUERY, RELATED_COURSES_QUERY } from "@/queries/queries";
+import CourseOutline from "@/components/CourseOutline/CourseOutline";
 
 type Course = {
   id: string;
   slug: string;
   tag?: string;
+  image?: string;
   featuredImage?: {
     node?: {
       mediaItemUrl?: string;
@@ -147,8 +148,9 @@ const page = () => {
   const [course, setCourse] = useState<{
     description?: string;
     name?: string;
+    image?: string;
     course_content?: {
-      modules?: string[];
+      modules?: [];
     };
   } | null>(null);
   // const [courseFees, setCourseFees] = useState([]);0
@@ -297,11 +299,11 @@ const page = () => {
     fetchRelatedCourses();
   }, [courseId]);
 
-  // console.log("Course Data:", course);
+  console.log("Course Data:", course);
   // console.log("Course Fees Data:", courseFees);
   // console.log("Schedule Data:", schedule);
   // console.log("Filtered Related Courses:", relatedCourses);
-  // console.log("Course Details:", courseDetails);
+  console.log("Course Details:", courseDetails);
   // console.log(courseDetails?.featuredImage?.node?.mediaItemUrl)
 
   return (
@@ -374,13 +376,17 @@ const page = () => {
               style={{ backgroundColor: color }}
             >
               <div className="d-flex course-details-bar-details">
-                {/* <div className="course-details-partner-logo">
-                  <img src="" alt="" />
-                </div> */}
+                <div className="course-details-partner-logo">
+                  {course?.image && (
+                    <img src={course?.image || ""} alt={course?.name || ""} />
+                  )}
+                </div>
                 <div>
                   <p>
-                    <span>School of Computing </span>
-                    <span>| Certificate Level</span>
+                    <span>{courseDetails?.schoolTypes?.nodes?.[0]?.name} </span>
+                    <span>
+                      | {courseDetails?.courseTypes?.nodes?.[0]?.name}
+                    </span>
                   </p>
                   <h1>{course?.name || ""}</h1>
                   <div className="d-flex course-box-details">
@@ -413,22 +419,8 @@ const page = () => {
 
               <CourseOverview course={course || undefined} />
 
-              {/* <CourseOutline course={courseDetails?.courses} /> */}
-
-              {/* {course?.course_content?.modules && (
-                <CourseOutline
-                  modules={
-                    course.course_content.modules.map((module, index) => ({
-                      id: index,
-                      is_enabled: 1,
-                      is_mandatory: 1,
-                      code: `MOD-${index + 1}`,
-                      name: module,
-                      description: null,
-                    }))
-                  }
-                />
-              )} */}
+              {/* <CourseOutline modules={course?.course_content?.modules || undefined} /> */}
+              <CourseOutline modules={course?.course_content?.modules || []} />
 
               <CourseSchedule schedule={schedule} />
               {/* ------------------------------------------------ */}

@@ -1018,7 +1018,7 @@ body {
 input[type="checkbox"] {
   position: relative;
   visibility: hidden;
-  -moz-appearance: initial;
+  /* -moz-appearance: initial; */
   display: inline-block;
   width: 15px;
   height: 15px;
@@ -1119,9 +1119,9 @@ input:focus {
   outline: 0 !important;
   box-shadow: none !important;
 }
-#search-breif {
-  /* display: none; */
-}
+/* #search-breif {
+  display: none;
+} */
 .show-result {
   display: block !important;
 }
@@ -1627,7 +1627,7 @@ select:focus {
 .banner-con h2 {
   font-size: var(--font-100);
   background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
   text-transform: capitalize;
   font-weight: bold;
@@ -3839,9 +3839,9 @@ span.clickeStream#prefer-degree-id {
   .tax-publication-type .school-box-single .feature-img-school {
     height: 200px;
   }
-  .course-box-img img {
-    /* height: 350px; */
-  }
+  /* .course-box-img img {
+    height: 350px;
+  } */
   .news-slider-box-wrap img {
     height: 400px;
   }
@@ -3906,9 +3906,9 @@ span.clickeStream#prefer-degree-id {
   .school-box-inner-details {
     margin-top: -25px;
   }
-  .course-box-img img {
-    /* height: 350px; */
-  }
+  /* .course-box-img img {
+    height: 350px;
+  } */
   .news-slider-box-wrap img {
     height: 350px;
   }
@@ -4870,9 +4870,9 @@ span.clickeStream#prefer-degree-id {
   .course-box-wrap {
     width: 100%;
   }
-  .course-box-img img {
-    /* height: 350px; */
-  }
+  /* .course-box-img img {
+    height: 350px;
+  } */
   .attribute-box .attribute-box-check label {
     font-size: 15px;
   }
@@ -5493,9 +5493,9 @@ span.clickeStream#prefer-degree-id {
   .canvas-section {
     height: 40vh;
   }
-  .course-box-img img {
-    /* height: 350px; */
-  }
+  /* .course-box-img img {
+    height: 350px;
+  } */
   .school-box h6 {
     font-size: 15px;
     line-height: 28px;
