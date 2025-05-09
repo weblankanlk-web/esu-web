@@ -15,8 +15,10 @@ const TitleSmall: React.FC<Title> = ({ title, subtitle }) => {
     <>
       <div className="title-wrapper">
         <div className="main-title-small">
-          <h2> { title }</h2>
+          <h2> { title } </h2>
+          <h2>
           <span style={{ color: color }}> {subtitle }</span>
+          </h2>
         </div>
       </div>
     </>

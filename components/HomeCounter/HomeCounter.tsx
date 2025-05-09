@@ -37,13 +37,13 @@ const HomeCounter = () => {
                 alt=""
             />
         </div>
-        <div className="slider-wrap">
+     {/*    <div className="slider-wrap">
             <div className="counter-slide">
                 {counters.map((counter, index) => (
                     <Counter key={index} counterData={counter}/>
                 ))}
             </div>
-        </div>
+        </div> */}
       </section>
       </>
     );
