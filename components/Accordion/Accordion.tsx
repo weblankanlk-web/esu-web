@@ -2,6 +2,7 @@
 
 import { useTheme } from "@/lib/ThemeContext";
 import { useState } from "react";
+import './style.scss'
 
 interface Module {
   id: number;

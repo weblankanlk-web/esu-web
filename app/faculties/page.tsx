@@ -7,7 +7,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 
 const FACULTY_TYPES_QUERY = `
 query {
-  schoolTypes {
+  schoolTypes(where: { parent: null }) {
     nodes {
       id
       name
