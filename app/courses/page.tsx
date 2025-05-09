@@ -498,7 +498,7 @@ export default function CoursesPage() {
                   )}
                 </div> */}
                 <div className="attribute-box">
-                  <h6>Branch</h6>
+                  <h6>Campus</h6>
                   {loadingBranches ? (
                     <div
                       style={{
