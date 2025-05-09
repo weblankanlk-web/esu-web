@@ -28,9 +28,6 @@ jobs:
       - name: Build Next.js site
         run: npm run build
 
-      - name: Export static site (if using static export)
-        run: npm run export
-
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
