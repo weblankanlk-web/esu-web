@@ -34,4 +34,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: esu-web
-          directory: .next  # or .next if using next-on-pages
+          directory: .build  # or .next if using next-on-pages
