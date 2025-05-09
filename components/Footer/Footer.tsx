@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="footer-social" style={{ backgroundColor: color }}>
         <div className="social-banner small-middle-wrap">
           <div className="hashtag">#ESULife</div>
-          <div className="social-icons">
+          {/* <div className="social-icons">
             <div className="icon">
               <Link
                 href="https://www.facebook.com/ESOFTMetroCampus/"
@@ -62,18 +62,7 @@ const Footer = () => {
                 <FaYoutube />
               </Link>
             </div>
-            {/* <div className="icon">
-              <Link
-                href="https://www.instagram.com/esoftmetrocampus/?hl=en"
-                target="_blank"
-              >
-                <FaTwitter />
-              </Link>
-            </div> */}
-            {/* <div className="icon">
-              <FaGooglePlusG />
-            </div> */}
-          </div>
+          </div> */}
         </div>
       </div>
 

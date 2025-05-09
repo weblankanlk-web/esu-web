@@ -2,6 +2,7 @@
 
 .home-about {
     margin-bottom: 60px;
+    padding-top: 10px;
 
     .full-wrap {
         width: 100%;
@@ -99,6 +100,7 @@
 
     @media only screen and (min-width: 1200px) {
         margin-bottom: get-vw(120px);
+        padding-top: 0px;
 
         .full-wrap {
             .image-detail-wrap {

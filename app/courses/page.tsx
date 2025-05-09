@@ -8,8 +8,14 @@ import CourseItem from "@/components/CourseItem/CourseItem";
 import Breadrumb from "@/components/Breadcrumb/Breadcrumb";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
-import { ALL_COURSE_QUERY, BRANCH_TYPES_QUERY, COURSE_TYPES_QUERY, DELIVERY_MODE_QUERY, SCHOOL_TYPES_QUERY } from "@/queries/queries";
-
+import {
+  ALL_COURSE_QUERY,
+  BRANCH_TYPES_QUERY,
+  COURSE_TYPES_QUERY,
+  DELIVERY_MODE_QUERY,
+  SCHOOL_TYPES_QUERY,
+} from "@/queries/queries";
+import { FaTimes } from "react-icons/fa";
 
 type CourseType = {
   id: string;
@@ -102,6 +108,8 @@ export default function CoursesPage() {
   const [loadingPrograms, setLoadingPrograms] = useState(true);
   const [loadingModes, setLoadingModes] = useState(true);
   const [loadingBranches, setLoadingBranches] = useState(true);
+
+  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
   const handleCheckboxChange = (
     value: string,
@@ -261,6 +269,10 @@ export default function CoursesPage() {
 
   const { color } = useTheme();
 
+  const toggleMobileFilter = () => {
+    setMobileFilterOpen((prev) => !prev);
+  };
+
   return (
     <>
       <Breadrumb />
@@ -330,6 +342,7 @@ export default function CoursesPage() {
                   id="filter-toggle"
                   className="mobile-div"
                   style={{ backgroundColor: color }}
+                  onClick={toggleMobileFilter}
                 >
                   Select Filter
                 </button>
@@ -343,7 +356,14 @@ export default function CoursesPage() {
               </div>
 
               <ul id="selected-checks"></ul>
-              <div className="att-box-wrapper">
+              <div
+                className={`att-box-wrapper ${
+                  mobileFilterOpen ? "show-mobile-filter" : "hide-mobile-filter"
+                }`}
+              >
+                <button className="mobile-filter-btn" onClick={toggleMobileFilter}>
+                  <FaTimes />
+                </button>
                 <div className="attribute-box">
                   <h6>Facilities</h6>
                   {loadingSchools ? (
@@ -433,7 +453,7 @@ export default function CoursesPage() {
                     ))
                   )}
                 </div>
-                <div className="attribute-box">
+                {/* <div className="attribute-box">
                   <h6>delivery mode</h6>
                   {loadingModes ? (
                     <div
@@ -476,7 +496,7 @@ export default function CoursesPage() {
                       </div>
                     ))
                   )}
-                </div>
+                </div> */}
                 <div className="attribute-box">
                   <h6>Branch</h6>
                   {loadingBranches ? (

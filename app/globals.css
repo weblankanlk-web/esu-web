@@ -195,6 +195,7 @@ body {
 .next-btn span {
   z-index: 1;
   position: relative;
+  text-align: center;
 }
 .next-btn--titlecase {
   text-transform: capitalize;
@@ -975,7 +976,7 @@ body {
   margin: 0 -15px;
 }
 .course-box-wrap {
-  padding: 0 15px 40px;
+  padding: 5px;
 }
 .landing-results-top {
   display: flex;
@@ -4965,7 +4966,7 @@ span.clickeStream#prefer-degree-id {
     justify-content: center;
   }
   .course-box-wrap {
-    padding: 0 5px 30px;
+    padding: 5px;
   }
   .counter-box h6 {
     font-size: 38px;
@@ -5393,7 +5394,7 @@ span.clickeStream#prefer-degree-id {
     min-width: 100%;
   }
   .course-box-wrap {
-    padding: 0 0 30px;
+    padding: 5px;
   }
 
   .search-form-ajax input {
