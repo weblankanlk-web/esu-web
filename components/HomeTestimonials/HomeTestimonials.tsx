@@ -125,7 +125,7 @@ const HomeTestimonials: React.FC = () => {
   return (
     <section className="home-testimonials">
       <div className="title-wrap">
-        <TitleSmall title="Home" subtitle="Testimonials" />
+        <TitleSmall title="Student" subtitle="Testimonials" />
       </div>
       <div className="slider-wrap">
         <Slider {...settings} className="testimonial-slider">
