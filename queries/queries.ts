@@ -297,3 +297,58 @@ export const HOME_BANNER_QUERY = `
     }
   }
 }`;
+
+export const ACADEMIC_STAFF = `
+query($slug: ID!){
+  staff(idType: SLUG, id: $slug) {
+    title
+    staffAcf {
+      academicQualifications
+      careerSummary
+      designation
+      myPublications
+      qualifications
+    }
+    featuredImage {
+      node {
+        altText
+        sourceUrl
+      }
+    }
+    schoolTypes {
+      nodes {
+        name
+        slug
+      }
+    }
+  }
+}
+`;
+
+export const TESTIMONIALS_QUERY = `
+query {
+    testimonials(last: 10) {
+      nodes {
+        id
+        title
+        slug
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        testimonials {
+          testimonialType
+          testimonialVideo
+          thumbnailImage {
+            node {
+              sourceUrl
+            }
+          }
+          testimonialText
+        }
+      }
+    }
+}
+`;

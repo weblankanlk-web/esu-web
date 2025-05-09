@@ -333,4 +333,13 @@ ul#primary li:last-child {
     .main-menu-inner-wrap {
         background: var(--light-black) !important;
     }
+
+    .navbar {
+        justify-content: center;
+        ul {
+            li{
+                text-align: center;
+            }
+        }
+    }
 }

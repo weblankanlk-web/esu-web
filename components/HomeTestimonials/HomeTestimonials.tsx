@@ -8,35 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import TestimonialItem from "./TestimonialItem";
 import "./style.scss";
 import { graphQLClient } from "@/lib/graphql-client";
-
-// ✅ Fixed GraphQL syntax
-const TESTIMONIALS_QUERY = `
-query {
-    testimonials(last: 10) {
-      nodes {
-        id
-        title
-        slug
-        featuredImage {
-          node {
-            sourceUrl
-            altText
-          }
-        }
-        testimonials {
-          testimonialType
-          testimonialVideo
-          thumbnailImage {
-            node {
-              sourceUrl
-            }
-          }
-          testimonialText
-        }
-      }
-    }
-}
-`;
+import { TESTIMONIALS_QUERY } from "@/queries/queries";
 
 type Testimonial = {
   id: string;

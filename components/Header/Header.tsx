@@ -192,8 +192,8 @@ const Header = () => {
                   target="_blank"
                   href={
                     isCoursePage
-                      ? `/register?id=${"COURSE_ID_DYNAMIC"}`
-                      : "/register"
+                      ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`
+                      : "https://register.esoft.lk/"
                   }
                   style={{ backgroundColor: color }}
                 >
@@ -209,8 +209,8 @@ const Header = () => {
               target="_blank"
               href={
                 isCoursePage
-                  ? `/register?id=${"COURSE_ID_DYNAMIC"}`
-                  : "/register"
+                  ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`
+                  : "https://register.esoft.lk/"
               }
               style={{ backgroundColor: color }}
             >
@@ -275,7 +275,13 @@ const Header = () => {
                 </Link>
               </li> */}
               <li>
-                <Link href="https://esoft.lk/contact-us/" target="_blank">
+                <Link href="/courses">Courses</Link>
+              </li>
+              <li>
+                <Link href="/faculties">Faculties</Link>
+              </li>
+              <li>
+                <Link href="/contact-us" target="_blank">
                   contact us
                 </Link>
               </li>
