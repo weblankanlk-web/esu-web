@@ -3,9 +3,6 @@ import "./style.scss";
 import Image from "next/image";
 
 interface FaculityOverviewProps {
-
-}
-interface FaculityOverviewProps {
     schoolOverviewTitle: string;
     OverviewImage: string;
     Overview: string;
