@@ -1,37 +1,51 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to test 
 
 on:
   push:
     branches:
-      - staging 
+      - staging  # Trigger on push to main branch
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: read
+  packages: write # Needed to push to GitHub Container Registry
+  id-token: write
 
 jobs:
-  deploy:
+  build-and-push:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      deployments: write
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+    # Checkout the code
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'  
+    # Log in to GitHub Container Registry
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
+    # Build the Docker image
+    - name: Build Docker image
+      run: |
+        PROJECT_NAME=$(basename ${{ github.repository }})
+        docker build -f docker/live/web/Dockerfile -t ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:test . 
+      # docker build -t ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:main .
 
-      - name: Build Next.js site
-        run: npm run build
+    # Push the Docker image
+    - name: Push Docker image
+      run: |
+        PROJECT_NAME=$(basename ${{ github.repository }})
+        docker push ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:test
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: esu-web
-          directory: .build  # or .next if using next-on-pages
+  deploy-to-test:
+    runs-on: ubuntu-latest
+    needs: build-and-push 
+    steps:
+      - name: Trigger Watchtower via Webhook
+        run: |
+            curl -X POST "http://165.22.54.114:8090/v1/update?container=esu-web-test" \
+            -H "Authorization: Bearer wt_secret_4aP9tKx7rQm2"
