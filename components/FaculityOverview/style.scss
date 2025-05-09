@@ -73,7 +73,7 @@
 }
 @media screen and (min-width: 1200px) {
     .course-overview-section {
-        padding: get-vw(140px) 0;
+        padding: get-vw(140px) 0 get-vw(75px);
         .course-overview-wrap {
             position: relative;
             justify-content: space-between;
