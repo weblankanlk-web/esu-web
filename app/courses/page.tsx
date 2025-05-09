@@ -337,7 +337,7 @@ export default function CoursesPage() {
               ) : null}
 
               <div className="d-flex filter-clear-wrap justify-content-between align-items-center">
-                <h5 className="desktop-div">filter by</h5>
+                <h5 className="desktop-div">Filter</h5>
                 <button
                   id="filter-toggle"
                   className="mobile-div"
@@ -365,7 +365,7 @@ export default function CoursesPage() {
                   <FaTimes />
                 </button>
                 <div className="attribute-box">
-                  <h6>Facilities</h6>
+                  <h6>Faculty</h6>
                   {loadingSchools ? (
                     <div
                       style={{
@@ -409,7 +409,7 @@ export default function CoursesPage() {
                   )}
                 </div>
                 <div className="attribute-box">
-                  <h6>program</h6>
+                  <h6>Qualification Level</h6>
 
                   {loadingPrograms ? (
                     <div
@@ -554,6 +554,7 @@ export default function CoursesPage() {
                   )
                   .map((course) => (
                     <CourseItem
+                      key={course.id || course.slug} 
                       course={{
                         ...course,
                         featuredImage: course.featuredImage
