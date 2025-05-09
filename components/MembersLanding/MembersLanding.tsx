@@ -2,28 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import "./style.scss";
-import MemberCardItem from "./MemberCard/MemberCard"; 
+import MemberCardItem from "./MemberCard/MemberCard";
 import { graphQLClient } from "@/lib/graphql-client";
-
-interface StaffMember {
-  title: string;
-  staffAcf: {
-    designation: string;
-    message: string;
-  };
-  featuredImage?: {
-    node?: {
-      sourceUrl?: string;
-      altText?: string;
-    };
-  };
-  staffType: {
-    nodes: {
-      name: string;
-      slug: string;
-    }[];
-  };
-}
+import { MEMBERS_QUERY } from "@/queries/queries";
+import { StaffMember } from "@/types/data";
 
 interface MembersLandingProps {
   slug: string;
@@ -33,31 +15,24 @@ interface MembersLandingProps {
   fontColor: string;
 }
 
-const MEMBERS_QUERY = `
-  query GetStaffsByType($slug: [String]) {
-    staffs(where: { staffTypeSlug: $slug }) {
-      nodes {
-        title
-        staffAcf {
-          designation
-          message
-        }
-        featuredImage {
-          node {
-            sourceUrl
-            altText
-          }
-        }
-        staffType {
-          nodes {
-            name
-            slug
-          }
-        }
-      }
-    }
-  }
-`;
+// type StaffMember = {
+//   title: string;
+//   slug: string;
+//   staffAcf?: {
+//     academicQualifications: string;
+//     careerSummary: string;
+//     designation: string;
+//     message: string;
+//     myPublications: string;
+//     qualifications: string;
+//   };
+//   featuredImage?: {
+//     node?: {
+//       sourceUrl?: string;
+//       altText?: string;
+//     };
+//   };
+// }
 
 const MembersLanding: React.FC<MembersLandingProps> = ({
   slug,
@@ -71,18 +46,24 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
   useEffect(() => {
     const fetchFacultyMembers = async () => {
       try {
-        const data = await graphQLClient.request<{ staffs: { nodes: StaffMember[] } }>(
-          MEMBERS_QUERY,
-          { slug: [slug] } // Filter by the selected faculty type
+        const data = await graphQLClient.request<{
+          schoolType: {
+            staffs: {
+              nodes: StaffMember[];
+            }
+          }
+        }>(MEMBERS_QUERY, { slug });
+
+        const allMembers = data.schoolType?.staffs?.nodes || [];
+
+        const filteredMembers = allMembers.filter(
+          (member) =>
+            !member.slug.toLowerCase().includes("dean") &&
+            member.title.toLowerCase() !== "dean"
         );
 
-        // Filter out members with staffType 'dean'
-        const filtered = data.staffs.nodes.filter(
-          (staff) =>
-            !staff.staffType.nodes.some((type) => type.slug === "dean")
-        );
-
-        setFacultyMembers(filtered);
+        // console.log(filteredMembers);
+        setFacultyMembers(filteredMembers);
       } catch (err) {
         console.error("❌ Error fetching staff members:", err);
       }
@@ -94,30 +75,28 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
   return (
 
     <>
- 
-    <section className="faculty-member-section">
-      <div className="faculty-member-wrap">
-        <h2 className="dean-message-title" style={{ fontFamily }}>
-          {sectinTitle1} <span style={{ color: fontColor }}>{sectinTitle2}</span>
-        </h2>
+      <section className="faculty-member-section">
+        <div className="faculty-member-wrap">
+          <h2 className="dean-message-title" style={{ fontFamily }}>
+            {sectinTitle1} <span style={{ color: fontColor }}>{sectinTitle2}</span>
+          </h2>
+          <div className="members-wrap d-flex flex-wrap">
+              {facultyMembers.length === 0 ? (
+                <p>No staff members found for this department.</p>
+              ) : (
+                facultyMembers.map((member, index) => (
+                  <MemberCardItem
+                    key={index}
+                    memberData={member}
+                  />
+                ))
+              )}
+          </div>
 
-        {facultyMembers.length === 0 ? (
-          <p>No staff members found for this department.</p>
-        ) : (
-          facultyMembers.map((member, index) => (
-            <MemberCardItem
-              key={index}
-              MemberName={member.title}
-              MemberDesignation={member.staffAcf.designation}
-              MemberQualifications={member.staffAcf.message}
-              MemberFeaturedImage={member.featuredImage?.node}
-            />
-          ))
-        )}
-      </div>
-    </section>
+        </div>
+      </section>
     </>
- 
+
   );
 };
 

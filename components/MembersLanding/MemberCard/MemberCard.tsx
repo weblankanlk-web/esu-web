@@ -1,26 +1,21 @@
 import React from "react";
 import "./style.scss";
 import Image from "next/image";
+import { StaffMember } from "@/types/data";
 
-interface MemberCardItemProps {
-  MemberName: string;
-  MemberDesignation: string;
-  MemberQualifications: string;
-  MemberFeaturedImage?: {
-    sourceUrl?: string;
-    altText?: string;
-  };
+interface Props {
+  memberData: StaffMember
 }
 
-const MemberCardItem: React.FC<MemberCardItemProps> = ({
-  MemberName,
-  MemberDesignation,
-  MemberQualifications,
-  MemberFeaturedImage,
-}) => {
+const MemberCardItem: React.FC<Props> = ({ memberData }) => {
+  const MemberName = memberData?.title;
+  const MemberDesignation = memberData?.staffAcf?.designation || "";
+  const MemberQualifications = memberData?.staffAcf?.qualifications || "";
+  const MemberFeaturedImage = memberData?.featuredImage?.node;
+
   return (
-    <div className="single-massage-card d-flex">
-      <div className="single-image-wrap">
+    <div className="single-massage-card d-flex member-card">
+      <a href={`/academics/${MemberName.toLowerCase().replace(/\s+/g, "-")}`} className="single-image-wrap">
         <div className="member-details">
           <h3 className="name">{MemberName}</h3>
           <h4 className="position">{MemberDesignation}</h4>
@@ -34,8 +29,9 @@ const MemberCardItem: React.FC<MemberCardItemProps> = ({
             height={352}
           />
         </div>
-      </div>
+      </a>
     </div>
+
   );
 };
 
