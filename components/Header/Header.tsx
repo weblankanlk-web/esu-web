@@ -28,11 +28,11 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg nav-menu">
               {/* Replace with dynamic menu data */}
               <ul className="navbar-nav navbardropdown" id="top-menu">
-                <li>
+{/*                 <li>
                   <Link href="https://esoft.lk/" target="_blank">
                     Home
                   </Link>
-                </li>
+                </li> */}
                 {/* <li>
                   <Link href="https://esoft.lk/about-us/" target="_blank">
                     About
@@ -73,11 +73,11 @@ const Header = () => {
                     CSR
                   </Link>
                 </li> */}
-                <li>
+{/*                 <li>
                   <Link href="https://esoft.lk/contact-us/" target="_blank">
                     contact us
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </nav>
             <ul className="top-bar-menu">
@@ -159,6 +159,9 @@ const Header = () => {
                     <li>
                       <Link href="/faculties">Faculties</Link>
                     </li>
+                    <li>
+                      <Link href="/contact-us">Contact Us</Link>
+                    </li>                        
                     <li>
                       <Link href=""><span className="hidden-text">Transfer Programmes</span></Link>
                     </li>
