@@ -203,4 +203,22 @@ Faculty of languages, sociology and education - #5B5B5B - Felipa
 
 ---
 
+## Git Merging Branches
+
+1. Switch to staging branch
+git checkout staging
+
+2. Make sure it's up to date
+git pull origin staging
+
+3. Merge main into staging
+git merge origin/main --no-ff -m "Merge main into staging for latest updates"
+
+4. Resolve conflicts if any, then commit
+
+5. Push the updated staging branch
+git push origin staging
+
+---
+
 **Maintained by:** Web Lankan DevOps Team
