@@ -1,3 +1,5 @@
+
+// componenets/MembersLanding
 export type StaffMember = {
   title: string;
   slug: string;
@@ -17,6 +19,7 @@ export type StaffMember = {
   };
 };
 
+// app/faculties
 export type Faculty = {
   id: string;
   name: string;
@@ -35,6 +38,7 @@ export type Faculty = {
   };
 };
 
+// app/faculties/[slug]
 export type FacultyInner = {
   schoolTypesColorFontFields: {
     schoolOverview: string;
@@ -69,6 +73,7 @@ export type FacultyInner = {
   };
 };
 
+// app/faculties/[slug]
 export type DeanDetails = {
   title: string;
   staffAcf: {
