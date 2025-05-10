@@ -4,47 +4,8 @@ import { useEffect, useState } from "react";
 import FaculityCard from "@/components/FaculityCard/FaculityCard";
 import InnerBanner from "@/components/InnerBanner/InnerBanner";
 import { graphQLClient } from "@/lib/graphql-client";
-
-const FACULTY_TYPES_QUERY = `
-query {
-  schoolTypes(where: { parent: null }) {
-    nodes {
-      id
-      name
-      slug
-      description
-      schoolTypesColorFontFields {
-        color
-        courseFontFamily
-        facultyName
-        facultyDesktop {
-          node {
-            sourceUrl
-            altText
-          }
-        }
-      }
-    }
-  }
-}`;
-
-type Faculty = {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  schoolTypesColorFontFields: {
-    color: string;
-    courseFontFamily: string[]; // It's an array as there are 6 values in cms
-    facultyName: string; // we need to get this as only the faculty should change color
-    facultyDesktop?: {
-      node: {
-        sourceUrl: string;
-        altText?: string;
-      };
-    } | null; // default assign null
-  };
-};
+import { FACULTY_TYPES_QUERY } from "@/queries/queries";
+import { Faculty } from "@/types/data";
 
 const Page = () => {
   const [faculty, setFaculty] = useState<Faculty[]>([]);
