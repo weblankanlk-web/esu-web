@@ -6,6 +6,7 @@ import InnerBanner from "@/components/InnerBanner/InnerBanner";
 import FaculityOverview from "@/components/FaculityOverview/FaculityOverview";
 import DeanMessage from "@/components/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
+import MembersLanding from "@/components/MembersLanding/MembersLanding";
 
 // ✅ GraphQL query to fetch faculty + dean data
 const FACULTY_INNER_QUERY = `
@@ -183,6 +184,16 @@ const FacultyInnerPage = () => {
               fontColor={faculty.schoolTypesColorFontFields.color}
             />
           )}
+
+          <MembersLanding
+            slug={slug || ""}
+            sectinTitle1="Faculty" 
+            sectinTitle2="Members" 
+            fontFamily={faculty.schoolTypesColorFontFields.courseFontFamily}
+            fontColor={faculty.schoolTypesColorFontFields.color}
+          />
+
+
         </>
       )}
     </>
