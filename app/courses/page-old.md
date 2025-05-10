@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { graphQLClient } from "@/lib/graphql-client";
+import { ThreeDots } from "react-loader-spinner";
+import CourseItem from "@/components/CourseItem/CourseItem";
 import Breadrumb from "@/components/Breadcrumb/Breadcrumb";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
@@ -97,6 +100,7 @@ export default function CoursesPage() {
 
   const [allCourses, setAllCourses] = useState<Courses[]>([]);
   const [filteredCourses, setFilteredCourses] = useState<Courses[]>([]);
+  // console.log("allCourses", allCourses);
 
   const [selectedSchools, setSelectedSchools] = useState<string[]>([]);
   const [selectedPrograms, setSelectedPrograms] = useState<string[]>([]);
@@ -106,7 +110,24 @@ export default function CoursesPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 12;
 
+  // const [loadingSchools, setLoadingSchools] = useState(true);
+  // const [loadingPrograms, setLoadingPrograms] = useState(true);
+  // const [loadingModes, setLoadingModes] = useState(true);
+  // const [loadingBranches, setLoadingBranches] = useState(true);
+
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+
+  // const handleCheckboxChange = (
+  //   value: string,
+  //   selected: string[],
+  //   setSelected: React.Dispatch<React.SetStateAction<string[]>>
+  // ) => {
+  //   if (selected.includes(value)) {
+  //     setSelected(selected.filter((item) => item !== value));
+  //   } else {
+  //     setSelected([...selected, value]);
+  //   }
+  // };
 
   const handleClearFilters = () => {
     setSelectedSchools([]);
@@ -115,6 +136,11 @@ export default function CoursesPage() {
     setSelectedBranches([]);
     setSearch("");
   };
+
+  // console.log("selectedSchools", selectedSchools);
+  // console.log("selectedPrograms", selectedPrograms);
+  // console.log("selectedModes", selectedModes);
+  // console.log("selectedBranches", selectedBranches);
 
   useEffect(() => {
     let results = [...allCourses];
@@ -162,7 +188,6 @@ export default function CoursesPage() {
     selectedPrograms,
     selectedModes,
     selectedBranches,
-    allCourses
   ]);
 
   useEffect(() => {
@@ -179,7 +204,7 @@ export default function CoursesPage() {
     }
 
     fetchCourses();
-  }, []);
+  }, [allCourses]);
 
   useEffect(() => {
     async function fetchCourseTypes() {
@@ -243,6 +268,11 @@ export default function CoursesPage() {
     fetchDeliveryModeTypes();
   }, []);
 
+  // console.log("filteredCourses", filteredCourses);
+
+  // const paginatedCourses =
+  //   filteredCourses.length > 0 ? filteredCourses : allCourses;
+
   const { color } = useTheme();
 
   const toggleMobileFilter = () => {
@@ -281,52 +311,16 @@ export default function CoursesPage() {
                     {search && <span id="result-keyword">"{search}"</span>}
                     Search Results for:
                     {selectedSchools.length > 0 && (
-                      <span>
-                        {" "}
-                        | Facultie(s):{" "}
-                        {selectedSchools.map((slug) => {
-                          const school = schoolTypes.find(
-                            (s) => s.slug === slug
-                          );
-                          return school ? school.name : slug;
-                        })}
-                      </span>
+                      <span> | Facultie(s): {selectedSchools.join(", ")}</span>
                     )}
                     {selectedPrograms.length > 0 && (
-                      <span>
-                        {" "}
-                        | Program(s):{" "}
-                        {selectedPrograms.map((slug) => {
-                          const program = courseTypes.find(
-                            (c) => c.slug === slug
-                          );
-                          return program ? program.name : slug;
-                        })}
-                      </span>
+                      <span> | Program(s): {selectedPrograms.join(", ")}</span>
                     )}
                     {selectedModes.length > 0 && (
-                      <span>
-                        {" "}
-                        | Mode(s):{" "}
-                        {selectedModes.map((slug) => {
-                          const modes = deliveryModeTypes.find(
-                            (c) => c.slug === slug
-                          );
-                          return modes ? modes.name : slug;
-                        })}
-                      </span>
+                      <span> | Mode(s): {selectedModes.join(", ")}</span>
                     )}
                     {selectedBranches.length > 0 && (
-                      <span>
-                        {" "}
-                        | Branche(s):{" "}
-                        {selectedBranches.map((slug) => {
-                          const branches = branchTypes.find(
-                            (c) => c.slug === slug
-                          );
-                          return branches ? branches.name : slug;
-                        })}
-                      </span>
+                      <span> | Branche(s): {selectedBranches.join(", ")}</span>
                     )}
                   </p>
                 </div>
@@ -403,11 +397,78 @@ export default function CoursesPage() {
                   coursesPerPage={coursesPerPage}
                 />
 
+                {/* {paginatedCourses
+                  .slice(
+                    (currentPage - 1) * coursesPerPage,
+                    currentPage * coursesPerPage
+                  )
+                  .map((course) => (
+                    <CourseItem
+                      course={{
+                        ...course,
+                        featuredImage: course.featuredImage
+                          ? {
+                              node: {
+                                mediaItemUrl:
+                                  course.featuredImage.node.mediaItemUrl,
+                              },
+                            }
+                          : undefined,
+                        courses: {
+                          ...course.courses,
+                          studentsCount: course.courses.studentsCount
+                            ? parseInt(course.courses.studentsCount, 10)
+                            : undefined,
+                        },
+                      }}
+                    />
+                  ))} */}
+
                 <Pagination
                   currentPage={currentPage}
                   totalPages={totalPages}
                   setCurrentPage={setCurrentPage}
                 />
+
+                {/* <div className="pagination-div">
+                  {currentPage > 1 && (
+                    <button
+                      className="page-numbers"
+                      onClick={() => setCurrentPage(currentPage - 1)}
+                    >
+                      &lt;&lt;
+                    </button>
+                  )}
+
+                  {Array.from(
+                    {
+                      length: Math.ceil(
+                        filteredCourses.length / coursesPerPage
+                      ),
+                    },
+                    (_, index) => (
+                      <button
+                        key={index + 1}
+                        className={`page-numbers ${
+                          currentPage === index + 1 ? "current" : ""
+                        }`}
+                        onClick={() => setCurrentPage(index + 1)}
+                      >
+                        {index + 1}
+                      </button>
+                    )
+                  )}
+
+                  {currentPage <
+                    Math.ceil(filteredCourses.length / coursesPerPage) && (
+                    <button
+                      className="page-numbers next"
+                      onClick={() => setCurrentPage(currentPage + 1)}
+                    >
+                      &gt;&gt;
+                    </button>
+                  )}
+                </div> */}
               </div>
             </div>
           </div>
