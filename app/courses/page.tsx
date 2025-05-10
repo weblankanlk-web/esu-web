@@ -8,6 +8,7 @@ import CourseItem from "@/components/CourseItem/CourseItem";
 import Breadrumb from "@/components/Breadcrumb/Breadcrumb";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
+import { FaTimes } from "react-icons/fa";
 import {
   ALL_COURSE_QUERY,
   BRANCH_TYPES_QUERY,
@@ -15,72 +16,13 @@ import {
   DELIVERY_MODE_QUERY,
   SCHOOL_TYPES_QUERY,
 } from "@/queries/queries";
-import { FaTimes } from "react-icons/fa";
-
-type CourseType = {
-  id: string;
-  name: string;
-  slug: string;
-};
-
-type BranchType = {
-  id: string;
-  name: string;
-  slug: string;
-};
-
-type SchoolType = {
-  id: string;
-  name: string;
-  slug: string;
-};
-
-type DeliveryModeTypes = {
-  id: string;
-  name: string;
-  slug: string;
-};
-
-type Courses = {
-  id: string;
-  title: string;
-  slug: string;
-  content: string;
-  featuredImage: {
-    node: {
-      id: string;
-      slug: string;
-      uri: string;
-      mediaItemUrl: string;
-    };
-  } | null;
-  courses: {
-    courseId: string;
-    courseCode: string;
-    hideCount: boolean;
-    studentsCount: string | null;
-    partnerUniversity: {
-      node: {
-        id: string;
-      };
-    } | null;
-    title: string | null;
-    subTitle: string | null;
-    description: string | null;
-    overview: string | null;
-    yearTitle: {
-      fieldGroupName: string;
-      modules: string;
-    } | null;
-    entryRequirements: string | null;
-    documents: string | null;
-    lecturePanelDescription: string | null;
-  };
-  schoolTypes?: { nodes: { slug: string; name: string }[] };
-  courseTypes?: { nodes: { slug: string; name: string }[] };
-  deliveryModeTypes?: { nodes: { slug: string }[] };
-  branchTypes?: { nodes: { slug: string }[] };
-};
+import { 
+  CourseType,
+  BranchType,
+  SchoolType,
+  DeliveryModeTypes,
+  Courses  
+} from "@/types/data";
 
 export default function CoursesPage() {
   const [search, setSearch] = useState("");
@@ -561,14 +503,14 @@ export default function CoursesPage() {
                           ? {
                               node: {
                                 mediaItemUrl:
-                                  course.featuredImage.node.mediaItemUrl,
+                                  course.featuredImage?.node?.mediaItemUrl || "/images/placeholder.jpg",
                               },
                             }
                           : undefined,
                         courses: {
                           ...course.courses,
                           studentsCount: course.courses.studentsCount
-                            ? parseInt(course.courses.studentsCount, 10)
+                            ? parseInt(String(course.courses.studentsCount), 10)
                             : undefined,
                         },
                       }}

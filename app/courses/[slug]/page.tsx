@@ -15,97 +15,7 @@ import { useTheme } from "@/lib/ThemeContext";
 import Link from "next/link";
 import { COURSE_QUERY, RELATED_COURSES_QUERY } from "@/queries/queries";
 import CourseOutline from "@/components/CourseOutline/CourseOutline";
-
-type Course = {
-  id: string;
-  slug: string;
-  tag?: string;
-  image?: string;
-  featuredImage?: {
-    node?: {
-      mediaItemUrl?: string;
-    };
-  };
-  title: string;
-  school?: string;
-  type?: string;
-  duration?: string;
-  courses: {
-    courseId: string;
-    studentsCount?: number;
-    lecturePanelDescription: string | null;
-    entryRequirements: string | null;
-    documents: string | null;
-    overview: string | null;
-    description: string | null;
-    yearTitle: {
-      fieldGroupName: string;
-      modules: string;
-    } | null;
-    hideCount: boolean;
-    partnerUniversity: {
-      node: {
-        id: string;
-      };
-    } | null;
-    title: string | null;
-    subTitle: string | null;
-    courseCode: string | null;
-  };
-  partner?: string;
-  courseTypes?: { nodes: { slug: string; name: string }[] };
-  schoolTypes?: {
-    nodes: {
-      slug: string;
-      name: string;
-      schoolTypesColorFontFields?: {
-        color?: string;
-        courseFontFamily?: string;
-      };
-    }[];
-  };
-};
-
-type RelatedCourses = {
-  id: string;
-  title: string;
-  slug: string;
-  content: string;
-  featuredImage: {
-    node?: {
-      id?: string;
-      slug?: string;
-      uri?: string;
-      mediaItemUrl?: string;
-    };
-  } | null;
-  courses: {
-    courseId: string;
-    courseCode: string;
-    hideCount: boolean;
-    studentsCount: string | null;
-    partnerUniversity: {
-      node: {
-        id: string;
-      };
-    } | null;
-    title: string | null;
-    subTitle: string | null;
-    description: string | null;
-    overview: string | null;
-    yearTitle: {
-      fieldGroupName: string;
-      modules: string;
-    } | null;
-    entryRequirements: string | null;
-    documents: string | null;
-    lecturePanelDescription: string | null;
-  };
-  schoolTypes?: { nodes: { slug: string; name: string }[] };
-  courseTypes?: { nodes: { slug: string; name: string }[] };
-  deliveryModeTypes?: { nodes: { slug: string }[] };
-  branchTypes?: { nodes: { slug: string }[] };
-};
+import { Courses, RelatedCourses } from "@/types/data";
 
 interface Fee {
   currency: string;
@@ -157,7 +67,7 @@ const page = () => {
   const [courseFees, setCourseFees] = useState<{ fee_plans?: FeePlan[] }>({});
 
   const [schedule, setSchedule] = useState([]);
-  const [courseDetails, setCourseDetails] = useState<Course | null>(null);
+  const [courseDetails, setCourseDetails] = useState<Courses | null>(null);
   const [relatedCourses, setRelatedCourses] = useState<RelatedCourses[]>([]);
 
   // console.log("Course ID:", courseId);
@@ -204,7 +114,7 @@ const page = () => {
     const fetchCourseDetails = async () => {
       try {
         const response = await graphQLClient.request<{
-          course: Course;
+          course: Courses;
         }>(COURSE_QUERY, {
           id: wpCourseId,
         });
