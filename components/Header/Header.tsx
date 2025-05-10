@@ -160,13 +160,13 @@ const Header = () => {
                       <Link href="/faculties">Faculties</Link>
                     </li>
                     <li>
-                      <Link href="/courses">Transfer Programmes</Link>
+                      <Link href=""><span className="hidden-text">Transfer Programmes</span></Link>
                     </li>
                     <li>
-                      <Link href="/courses">Branch Network</Link>
+                      <Link href=""><span className="hidden-text">Branch Network</span></Link>
                     </li>
                     <li>
-                      <Link href="/courses">International Placements</Link>
+                      <Link href=""><span className="hidden-text">International Placements</span></Link>
                     </li>
                   </ul>
                 </nav>
