@@ -126,12 +126,21 @@ export default function CoursesPage() {
   useEffect(() => {
     async function fetchCourseTypes() {
       try {
-        // setLoadingPrograms(true);
         const data = await graphQLClient.request<{
           courseTypes: { nodes: CourseType[] };
         }>(COURSE_TYPES_QUERY);
-        setCourseTypes(data.courseTypes.nodes);
-        // setLoadingPrograms(false);
+
+        // Filter out undesired course types
+        const excludedNames = [
+          "Certificate Level",
+          "Diploma Level",
+          "Higher National Certificate",
+        ];
+        const filteredTypes = data.courseTypes.nodes.filter(
+          (type) => !excludedNames.includes(type.name)
+        );
+
+        setCourseTypes(filteredTypes);
       } catch (error) {
         console.error("Error fetching course types:", error);
       }
@@ -318,15 +327,15 @@ export default function CoursesPage() {
                   setSelected={setSelectedPrograms}
                   loading={false}
                 />
-                <FilterPanel
+{/*                 <FilterPanel
                   title="Modes"
                   options={deliveryModeTypes}
                   selected={selectedModes}
                   setSelected={setSelectedModes}
                   loading={false}
-                />
+                /> */}
                 <FilterPanel
-                  title="Branches"
+                  title="Campuses"
                   options={branchTypes}
                   selected={selectedBranches}
                   setSelected={setSelectedBranches}
