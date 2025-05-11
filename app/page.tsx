@@ -6,6 +6,7 @@ import HomeAbout from "@/components/HomeAbout/HomeAbout";
 import HomeTestimonials from "@/components/HomeTestimonials/HomeTestimonials";
 import HomeCounter from "@/components/HomeCounter/HomeCounter";
 import HomeCourses from "@/components/HomeCourses/HomeCourses";
+import HomeUniversities from "@/components/HomeUniversities/HomeUniversities";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
       <HomeBanner />
       <HomeAbout />
       <HomeCourses/>
-      <HomeCounter/>
+      {/* <HomeCounter/> */}
+      <HomeUniversities />
       <HomeTestimonials/>
     </Fragment>
   );

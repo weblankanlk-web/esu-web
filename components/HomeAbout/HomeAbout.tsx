@@ -104,15 +104,7 @@ const HomeAbout = () => {
               />
             </div>
           </div>
-          <div className="slider-wrap">
-            <Slider {...settings} className="logo-slider">
-              {logos.map((logo, index) => (
-                <div key={index}>
-                  <Logo logoData={logo} />
-                </div>
-              ))}
-            </Slider>
-          </div>
+          
         </div>
       </section>
     </>
