@@ -5,6 +5,7 @@ import HomeAbout from "@/components/pages/HomePage/HomeAbout/HomeAbout";
 import HomeBanner from "@/components/pages/HomePage/HomeBanner/HomeBanner";
 import HomeCourses from "@/components/pages/HomePage/HomeCourses/HomeCourses";
 import HomeTestimonials from "@/components/pages/HomePage/HomeTestimonials/HomeTestimonials";
+import HomeDifference from "@/components/pages/HomePage/HomeDifference/HomeDifference";
 import { Fragment } from "react";
 
 export default function Home() {
@@ -12,10 +13,10 @@ export default function Home() {
     <Fragment>
       <HomeBanner />
       <HomeAbout />
-      <HomeCourses/>
-      {/* <HomeCounter/> */}
+      <HomeDifference />
+      <HomeCourses />
       <HomeUniversities />
-      <HomeTestimonials/>
+      <HomeTestimonials />
     </Fragment>
   );
 }
