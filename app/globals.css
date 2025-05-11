@@ -903,18 +903,27 @@ input:focus {
 .child-row:nth-child(2n) {
   background: #f9faff;
 }
+
 .branch-select {
   height: 55px;
-  background: #f4f4f4;
-  border: 0;
-  padding: 0 20px;
   min-width: 300px;
+  padding: 0 20px;
   margin-bottom: 20px;
-  border-radius: 5px;
+
+  background-color: #f4f4f4;
   background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
   border: 1px solid var(--gray-light);
   border-radius: 30px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
+
 select:focus {
   outline: 0 !important;
   box-shadow: none !important;
