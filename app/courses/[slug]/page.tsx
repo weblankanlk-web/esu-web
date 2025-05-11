@@ -179,27 +179,24 @@ const page = () => {
 
     const fetchRelatedCourses = async () => {
       try {
-        // const response = await graphQLClient.request<{
-        //   relatedCourses: { nodes: RelatedCourses[] };
-        // }>(RELATED_COURSES_QUERY);
-
         const response = await graphQLClient.request<{
           courses: { nodes: RelatedCourses[] };
         }>(RELATED_COURSES_QUERY);
 
-        // console.log("GraphQL Related Courses Data:", response.courses.nodes);
+        console.log("✅ GraphQL Related Courses Data:", response.courses.nodes);
 
         const filteredCourses = response.courses.nodes
-          .filter((course) =>
-            course.schoolTypes?.nodes.some(
-              (type) => type.slug === "school-of-engineering"
-            )
-          )
-          .slice(0, 3);
+          .filter((course) => course.id !== wpCourseId) // remove current course
+          .slice(0, 3); // pick top 4 after filtering
+
+        console.log(
+          "✅ Filtered Related Courses (excluding current):",
+          filteredCourses
+        );
 
         setRelatedCourses(filteredCourses);
       } catch (error) {
-        console.error("Error fetching related courses:", error);
+        console.error("❌ Error fetching related courses:", error);
       }
     };
 
@@ -210,11 +207,11 @@ const page = () => {
     fetchRelatedCourses();
   }, [courseId]);
 
-  console.log("Course Data:", course);
+  // console.log("Course Data:", course);
   // console.log("Course Fees Data:", courseFees);
   // console.log("Schedule Data:", schedule);
   // console.log("Filtered Related Courses:", relatedCourses);
-  console.log("Course Details:", courseDetails);
+  // console.log("Course Details:", courseDetails);
   // console.log(courseDetails?.featuredImage?.node?.mediaItemUrl)
 
   return (
@@ -247,19 +244,19 @@ const page = () => {
                   <span>Register Online</span>
                 </Link> */}
 
-                <Button
+                {/*    <Button
                   buttonUrl={`https://register.esoft.lk?id=${courseId}`}
                   buttonName={"Register Online"}
-                />
+                /> */}
 
-                <button
+                {/*   <button
                   type="button"
                   className="next-btn next-btn--gray inquiry-now-btn next-btn--titlecase"
                   data-bs-toggle="modal"
                   data-bs-target="#inquiryModal"
                 >
                   <span>Inquire Now</span>
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="desktop-div">
@@ -270,21 +267,28 @@ const page = () => {
                   </span>
                 </h5>
               </div>
-              {relatedCourses?.map((relatedCourse) => (
-                <CourseItem
-                  key={relatedCourse.id}
-                  course={{
-                    ...relatedCourse,
-                    featuredImage: relatedCourse.featuredImage ?? undefined,
-                    courses: {
-                      ...relatedCourse.courses,
-                      studentsCount: relatedCourse.courses.studentsCount
-                        ? parseInt(relatedCourse.courses.studentsCount, 10)
-                        : undefined,
-                    },
-                  }}
-                />
-              ))}
+              {relatedCourses?.map((relatedCourse, index) => {
+                console.log(
+                  `🔍 Rendering related course #${index + 1}:`,
+                  relatedCourse
+                );
+
+                return (
+                  <CourseItem
+                    key={relatedCourse.id}
+                    course={{
+                      ...relatedCourse,
+                      featuredImage: relatedCourse.featuredImage ?? undefined,
+                      courses: {
+                        ...relatedCourse.courses,
+                        studentsCount: relatedCourse.courses.studentsCount
+                          ? parseInt(relatedCourse.courses.studentsCount, 10)
+                          : undefined,
+                      },
+                    }}
+                  />
+                );
+              })}
             </div>
           </div>
           <div className="right-course">
