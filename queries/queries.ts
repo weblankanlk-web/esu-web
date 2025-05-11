@@ -461,3 +461,37 @@ export const FACULTY_INNER_QUERY = `
     }
   }
 `;
+
+export const COURSE_LIST_QUERY = `
+query {
+  courses (first: 8) {
+    nodes {
+      id
+      title
+      slug
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
+      courses {
+        courseId
+        courseCode
+        studentsCount
+      }
+      schoolTypes {
+        nodes {
+          slug
+          name
+        }
+      }
+      courseTypes {
+        nodes {
+          slug
+          name
+        }
+      }
+    }
+  }
+}
+`;
