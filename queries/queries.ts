@@ -301,7 +301,7 @@ export const HOME_BANNER_QUERY = `
 export const ACADEMIC_STAFF = `
 query($slug: ID!){
   staff(idType: SLUG, id: $slug) {
-    title
+     title
     staffAcf {
       academicQualifications
       careerSummary
@@ -319,6 +319,16 @@ query($slug: ID!){
       nodes {
         name
         slug
+        schoolTypesColorFontFields {
+          color
+          courseFontFamily
+        }
+        children {
+          nodes {
+            name
+            slug
+          }
+        }
       }
     }
   }

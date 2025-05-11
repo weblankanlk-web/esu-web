@@ -28,12 +28,22 @@ type AcademicStaff = {
     nodes: {
       name?: string;
       slug?: string;
+      schoolTypesColorFontFields?: {
+        color?: string;
+        courseFontFamily?: string;
+      };
+      children?: {
+        nodes?: {
+          name?: string;
+          slug?: string;
+        }[];
+      };
     }[];
   };
 };
 
 const page = () => {
-  const { color } = useTheme();
+  const { color, setColor } = useTheme();
   const pathname = usePathname();
   const slug = pathname?.split("/").pop();
 
@@ -60,6 +70,18 @@ const page = () => {
 
     fetchAcademicStaff();
   }, [slug]);
+
+  // console.log(
+  //   academicStaff?.schoolTypes?.nodes?.[0]?.schoolTypesColorFontFields?.color
+  // );
+
+  setColor(
+    academicStaff?.schoolTypes?.nodes?.[0]?.schoolTypesColorFontFields?.color
+  );
+
+  console.log(
+    academicStaff?.schoolTypes?.nodes?.[0]?.children?.nodes?.[0]?.name
+  );
 
   if (!academicStaff)
     return (
@@ -98,13 +120,13 @@ const page = () => {
             height={100}
             style={{ background: color }}
           />
-          <div className="profile__contact">
+          {/* <div className="profile__contact">
             <p className="contact-number">Contact Us Number</p>
             <a href="tel:+94714120934">+94 71 412 0934</a>
             <br />
             <p className="email-address">Email Address</p>
             <a href="mailto:Dayan@esoft.lk">Dayan@esoft.lk</a>
-          </div>
+          </div> */}
         </div>
 
         <div className="profile__content">
@@ -117,7 +139,8 @@ const page = () => {
             <a href="#" className="faculty">
               {academicStaff.schoolTypes?.nodes
                 .map((node) => node.name)
-                .join(" | ")}
+                .join(" | ")}&nbsp;|&nbsp;
+              {academicStaff?.schoolTypes?.nodes?.[0]?.children?.nodes?.[0]?.name}
             </a>
           </div>
 
