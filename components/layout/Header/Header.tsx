@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 import { useState } from "react";
+import Button from "@/components/common/Button/Button";
 
 const Header = () => {
   const pathname = usePathname();
@@ -160,10 +161,10 @@ const Header = () => {
                       <Link href="/faculties">Faculties</Link>
                     </li>
                     <li>
-                      <Link href="/contact-us">Contact Us</Link>
+                      <Link href="/academics">Academics</Link>
                     </li>
                     <li>
-                      <Link href="/academics">Academics</Link>
+                      <Link href="/contact-us">Contact Us</Link>
                     </li>
                     {/* <li>
                       <Link href="">
@@ -201,7 +202,7 @@ const Header = () => {
               </div>
               {/* desktop */}
               <div className="apply-now-wrap desktop-only-view">
-                <Link
+                {/* <Link
                   className="next-btn next-btn--blue"
                   target="_blank"
                   href={
@@ -212,7 +213,15 @@ const Header = () => {
                   style={{ backgroundColor: color }}
                 >
                   <span>Register Online</span>
-                </Link>
+                </Link> */}
+                <Button
+                  buttonUrl={
+                    isCoursePage
+                      ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`
+                      : "https://register.esoft.lk/"
+                  }
+                  buttonName={"Register Online"}
+                />
               </div>
             </div>
           </div>

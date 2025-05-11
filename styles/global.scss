@@ -74,20 +74,25 @@
     }
 }
 
+body {
+    font-family: var(--font-family-secondary
+    );
+background: #f4f4f6;
+}
+
 .section-heading {
     color: #383636;
-    font-family: var(--font-poppins
-    );
-font-size: 80px;
-font-style: normal;
-font-weight: 700;
-line-height: 60px;
-letter-spacing: -8px;
-text-align: center;
+    font-family: var(--font-poppins);
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: -8px;
+    text-align: center;
 
-span {
-    color: #02AEC9;
-}
+    span {
+        color: #02AEC9;
+    }
 }
 
 @media screen and (min-width: 1024px) {

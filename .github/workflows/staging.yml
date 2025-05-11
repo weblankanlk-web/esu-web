@@ -1,51 +1,39 @@
-name: Deploy to test 
+name: Deploy to Cloudflare Pages
 
 on:
   push:
     branches:
-      - staging  # Trigger on push to main branch
-  workflow_dispatch: # Allow manual trigger
-
-permissions:
-  contents: read
-  packages: write # Needed to push to GitHub Container Registry
-  id-token: write
+      - staging
 
 jobs:
-  build-and-push:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout the code
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    # Log in to GitHub Container Registry
-    - name: Log in to GitHub Container Registry
-      uses: docker/login-action@v3
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
 
-    # Build the Docker image
-    - name: Build Docker image
-      run: |
-        PROJECT_NAME=$(basename ${{ github.repository }})
-        docker build -f docker/live/web/Dockerfile -t ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:test . 
-      # docker build -t ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:main .
+      - name: Install dependencies (legacy mode)
+        run: npm install --legacy-peer-deps
 
-    # Push the Docker image
-    - name: Push Docker image
-      run: |
-        PROJECT_NAME=$(basename ${{ github.repository }})
-        docker push ghcr.io/${{ github.repository_owner }}/${PROJECT_NAME}:test
+      - name: Use sample.env as environment file
+        run: cp sample.env .env
 
-  deploy-to-test:
-    runs-on: ubuntu-latest
-    needs: build-and-push 
-    steps:
-      - name: Trigger Watchtower via Webhook
-        run: |
-            curl -X POST "http://165.22.54.114:8090/v1/update?container=esu-web-test" \
-            -H "Authorization: Bearer wt_secret_4aP9tKx7rQm2"
+      - name: Build project
+        run: npm run build
+
+      - name: Export static site
+        run: npm run export
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: your-cloudflare-project-name
+          directory: out

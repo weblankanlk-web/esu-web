@@ -1,0 +1,23 @@
+.braedcumb-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  
+  .braedcumb-section p {
+    text-align: right;
+  }
+  
+  .breadcrumbs {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .braedcumb-section,
+  .braedcumb-section a {
+    color: #000;
+    font-size: var(--font-14);
+    text-decoration: none;
+  }
+  .braedcumb-section img {
+    padding: 0 5px;
+  }

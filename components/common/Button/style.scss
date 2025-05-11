@@ -1,6 +1,6 @@
 @import "@/styles/global.scss";
 
-.general-button{
+.general-button {
     border-radius: 15px;
     background: #02AEC9;
     padding: 10px 30px;
@@ -13,10 +13,14 @@
     line-height: normal;
     text-transform: capitalize;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 @media only screen and (min-width: 1200px) {
-    .general-button{
+    .general-button {
         border-radius: get-vw(15px);
         padding: get-vw(17px) get-vw(60px);
         font-size: get-vw(20px);

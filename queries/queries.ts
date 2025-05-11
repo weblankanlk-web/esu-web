@@ -503,3 +503,31 @@ query {
   }
 }
 `;
+
+export const COURSE_LIST_QUERY = `
+query {
+  courses (first: 8) {
+    nodes {
+      id
+      title
+      slug
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
+      courses {
+        courseId
+        courseCode
+        studentsCount
+      }
+      schoolTypes {
+        nodes {
+          slug
+          name
+        }
+      }
+    }
+  }
+}
+`;

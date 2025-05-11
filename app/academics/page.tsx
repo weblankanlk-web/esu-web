@@ -64,7 +64,7 @@ export default function CoursesPage() {
     <>
       <Breadrumb />
 
-      <section className="simple-padding-bottom dark-lightmode dark-font-change">
+      <section className="simple-padding-bottom academics-page-section">
         <div className="small-middle-wrap">
           <h2 className="section-heading section-heading--black">
             our <span>academics</span>
@@ -94,7 +94,7 @@ export default function CoursesPage() {
 
             {/* Course List */}
             <div className="landing-results">
-              <div className="landing-results-inner">
+              <div className="landing-results-inner academics-mamber-group">
                 {filteredAcademics.length > 0 &&
                   filteredAcademics.map((academicsItem, index) => (
                     <MemberCardItem memberData={academicsItem} key={index} />

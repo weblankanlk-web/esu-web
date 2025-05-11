@@ -5,7 +5,6 @@ import { graphQLClient } from "@/lib/graphql-client";
 import Breadrumb from "@/components/common/Breadcrumb/Breadcrumb";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
-import { FaTimes } from "react-icons/fa";
 import {
   ALL_COURSE_QUERY,
   BRANCH_TYPES_QUERY,
@@ -13,14 +12,20 @@ import {
   DELIVERY_MODE_QUERY,
   SCHOOL_TYPES_QUERY,
 } from "@/queries/queries";
-import { 
+import {
   CourseType,
   BranchType,
   SchoolType,
   DeliveryModeTypes,
-  Courses  
+  Courses,
 } from "@/types/data";
-import { CourseList, FilterPanel, Pagination, SearchBar } from "@/components/pages/Courses";
+import {
+  CourseList,
+  FilterPanel,
+  Pagination,
+  SearchBar,
+} from "@/components/pages/Courses";
+import { FaTimes } from "react-icons/fa";
 
 export default function CoursesPage() {
   const [search, setSearch] = useState("");
@@ -99,7 +104,7 @@ export default function CoursesPage() {
     selectedPrograms,
     selectedModes,
     selectedBranches,
-    allCourses
+    allCourses,
   ]);
 
   useEffect(() => {
@@ -270,7 +275,7 @@ export default function CoursesPage() {
               ) : null}
 
               <div className="d-flex filter-clear-wrap justify-content-between align-items-center">
-                <h5 className="desktop-div">Filter</h5>
+                <h5 className="desktop-div">filter by</h5>
                 <button
                   id="filter-toggle"
                   className="mobile-div"

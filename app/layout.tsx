@@ -67,9 +67,9 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title:
-    "Education Institute in Sri Lanka | Sri Lanka Private University | ESOFT Metro University",
+    "Education Institute in Sri Lanka | Sri Lanka Private University | ESOFT Uni",
   description:
-    "At ESOFT, we&#039;re committed to providing a transformative learning experience. With programs in ICT and other degree courses, our education institutes in Sri Lanka are widespread.",
+    "At ESOFT Uni, we&#039;re committed to providing a transformative learning experience. With programs in ICT and other degree courses, our education institutes in Sri Lanka are widespread.",
 };
 
 export default function RootLayout({

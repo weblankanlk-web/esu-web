@@ -8,8 +8,6 @@
             margin-bottom: 0;
             padding: 0 20px 30px;
             font-size: 35px;
-            span {
-            }
         }
         .members-wrap{
             justify-content: space-around;
@@ -20,11 +18,6 @@
 @media only screen and (min-width: 600px) {
     .faculty-member-section {
         .faculty-member-wrap {
-            .dean-message-title {
-               
-                span {
-                }
-            }
             .members-wrap{
                 width: 95%;
                 margin: auto;
@@ -43,8 +36,6 @@
                 line-height: get-vw(90px);
                 letter-spacing: get-vw(-4px);
                 padding-bottom: get-vw(75px);
-                span {
-                }
             }
             .members-wrap {
                 width: 100%;

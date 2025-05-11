@@ -16,6 +16,7 @@ import Link from "next/link";
 import { COURSE_QUERY, RELATED_COURSES_QUERY } from "@/queries/queries";
 import CourseOutline from "@/components/pages/CoursesInner/CourseOutline/CourseOutline";
 import { Courses, RelatedCourses } from "@/types/data";
+import Button from "@/components/common/Button/Button";
 
 interface Fee {
   currency: string;
@@ -237,14 +238,20 @@ const page = () => {
               </h2>
               <p className="paragraph paragraph--black" />
               <div className="d-flex justify-content-between course-btn-wrap">
-                <Link
+                {/* <Link
                   className="next-btn next-btn--red next-btn--titlecase"
                   target="_blank"
                   href={`https://register.esoft.lk?id=${courseId}`}
                   style={{ backgroundColor: color }}
                 >
                   <span>Register Online</span>
-                </Link>
+                </Link> */}
+
+                <Button
+                  buttonUrl={`https://register.esoft.lk?id=${courseId}`}
+                  buttonName={"Register Online"}
+                />
+
                 <button
                   type="button"
                   className="next-btn next-btn--gray inquiry-now-btn next-btn--titlecase"
@@ -312,7 +319,7 @@ const page = () => {
               </div>
             </div>
             <div className="course-inner-details-box">
-            {/*<ul className="course-nav">
+              {/*<ul className="course-nav">
                 <li>
                   <button className="active-btn nav-btn-in">overview</button>
                 </li>

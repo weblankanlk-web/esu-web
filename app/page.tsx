@@ -1,11 +1,11 @@
 "use client";
 
-import { Fragment } from "react";
-import HomeBanner from "@/components/pages/HomePage/HomeBanner/HomeBanner";
+import HomeUniversities from "@/components/pages/HomePage/HomeUniversities/HomeUniversities";
 import HomeAbout from "@/components/pages/HomePage/HomeAbout/HomeAbout";
-import HomeTestimonials from "@/components/pages/HomePage/HomeTestimonials/HomeTestimonials";
-import HomeCounter from "@/components/pages/HomePage/HomeCounter/HomeCounter";
+import HomeBanner from "@/components/pages/HomePage/HomeBanner/HomeBanner";
 import HomeCourses from "@/components/pages/HomePage/HomeCourses/HomeCourses";
+import HomeTestimonials from "@/components/pages/HomePage/HomeTestimonials/HomeTestimonials";
+import { Fragment } from "react";
 
 export default function Home() {
   return (
@@ -13,7 +13,8 @@ export default function Home() {
       <HomeBanner />
       <HomeAbout />
       <HomeCourses/>
-      <HomeCounter/>
+      {/* <HomeCounter/> */}
+      <HomeUniversities />
       <HomeTestimonials/>
     </Fragment>
   );
