@@ -363,7 +363,6 @@ query {
 }
 `;
 
-
 export const MEMBERS_QUERY = `
   query($slug: ID!) {
     schoolType(id: $slug, idType: SLUG) {
@@ -389,4 +388,118 @@ export const MEMBERS_QUERY = `
       }
     }
   }
+`;
+
+export const FACULTY_TYPES_QUERY = `
+query {
+  schoolTypes(where: { parent: null }) {
+    nodes {
+      id
+      name
+      slug
+      description
+      schoolTypesColorFontFields {
+        color
+        courseFontFamily
+        facultyName
+        facultyDesktop {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+      }
+    }
+  }
+}`;
+
+export const FACULTY_INNER_QUERY = `
+  query ($slug: [String]) {
+    schoolTypes(where: { slug: $slug }) {
+      nodes {
+        schoolTypesColorFontFields {
+          schoolOverview
+          schoolOverviewTitle
+          color
+          courseFontFamily
+          facultyName
+          schoolOverviewImage {
+            node {
+              id
+              link
+              altText
+              title
+            }
+          }
+          facultyDesktop {
+            node {
+              id
+              link
+              altText
+              title
+            }
+          }
+          facultyMobile {
+            node {
+              id
+              link
+              altText
+              title
+            }
+          }
+        }
+      }
+    }
+    staffType(id: "dean", idType: SLUG) {
+      staffs {
+        nodes {
+          staffAcf {
+            designation
+            message
+            qualifications
+          }
+          title
+          featuredImage {
+            node {
+              sourceUrl
+              altText
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_ALL_ACADEMIC_STAFF = `
+query {
+  staffs(first: 100) {
+    nodes {
+      id
+      title
+      content
+      slug
+      staffAcf {
+        academicQualifications
+        careerSummary
+        designation
+        message
+        myPublications
+        qualifications
+      }
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      schoolTypes {
+        nodes {
+          slug
+          name
+        }
+      }
+    }
+  }
+}
 `;

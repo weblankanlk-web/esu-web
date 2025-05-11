@@ -1,0 +1,24 @@
+@import "@/styles/global.scss";
+
+.general-button{
+    border-radius: 15px;
+    background: #02AEC9;
+    padding: 10px 30px;
+    width: fit-content;
+    color: #fff;
+    font-family: var(--font-manrope);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 1200px) {
+    .general-button{
+        border-radius: get-vw(15px);
+        padding: get-vw(17px) get-vw(60px);
+        font-size: get-vw(20px);
+    }
+}

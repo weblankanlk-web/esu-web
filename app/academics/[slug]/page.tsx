@@ -139,43 +139,53 @@ const page = () => {
             <a href="#" className="faculty">
               {academicStaff.schoolTypes?.nodes
                 .map((node) => node.name)
-                .join(" | ")}&nbsp;|&nbsp;
-              {academicStaff?.schoolTypes?.nodes?.[0]?.children?.nodes?.[0]?.name}
+                .join(" | ")}
+              &nbsp;|&nbsp;
+              {
+                academicStaff?.schoolTypes?.nodes?.[0]?.children?.nodes?.[0]
+                  ?.name
+              }
             </a>
           </div>
 
-          <section className="profile__section">
-            <h3>
-              ACADEMIC <span style={{ color: color }}>QUALIFICATIONS</span>
-            </h3>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: academicStaff.staffAcf?.academicQualifications || "",
-              }}
-            />
-          </section>
+          {academicStaff.staffAcf?.academicQualifications && (
+            <section className="profile__section">
+              <h3>
+                ACADEMIC <span style={{ color: color }}>QUALIFICATIONS</span>
+              </h3>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: academicStaff.staffAcf?.academicQualifications || "",
+                }}
+              />
+            </section>
+          )}
 
-          <section className="profile__section">
-            <h3>
-              CAREER <span style={{ color: color }}>SUMMARY</span>
-            </h3>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: academicStaff.staffAcf?.careerSummary || "",
-              }}
-            />
-          </section>
+          {academicStaff.staffAcf?.careerSummary && (
+            <section className="profile__section">
+              <h3>
+                CAREER <span style={{ color: color }}>SUMMARY</span>
+              </h3>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: academicStaff.staffAcf?.careerSummary || "",
+                }}
+              />
+            </section>
+          )}
 
-          <section className="profile__section">
-            <h3>
-              MY <span style={{ color: color }}>PUBLICATIONS</span>
-            </h3>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: academicStaff.staffAcf?.myPublications || "",
-              }}
-            />
-          </section>
+          {academicStaff.staffAcf?.myPublications && (
+            <section className="profile__section">
+              <h3>
+                MY <span style={{ color: color }}>PUBLICATIONS</span>
+              </h3>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: academicStaff.staffAcf?.myPublications || "",
+                }}
+              />
+            </section>
+          )}
         </div>
       </div>
     </>

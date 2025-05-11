@@ -1,17 +1,4 @@
-.section-heading {
-    color: #383636;
-    font-family: var(--font-poppins);
-    font-size: 80px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 60px;
-    letter-spacing: -8px;
-    text-align: center;
-
-    span {
-        color: #02AEC9;
-    }
-}
+@import "@/styles/global.scss";
 
 .accordion-button,
 .accordion-button:not(.collapsed) {
@@ -50,9 +37,3 @@
     }
 }
 
-@media screen and (min-width: 1024px) {
-    .section-heading {
-        font-size: 100px;
-        line-height: 90px;
-    }
-}

@@ -1,4 +1,4 @@
-@import "../../styles/global.scss";
+@import "@/styles/global.scss";
 
 .course-overview-section {
     padding: 40px 0;
@@ -50,19 +50,10 @@
         .course-overview-wrap {
             .course-overview-title {
                 padding: 0 40px;
-                h2 {
-                   
-                    
-                    span{
-                      
-                    }             
-                }
             }
     
             .course-overview-image {
                 width: 100%;
-                img {
-                }
             }
     
             .course-overview {

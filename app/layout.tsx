@@ -12,8 +12,8 @@ import {
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.scss";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
+import Header from "@/components/layout/Header/Header";
+import Footer from "@/components/layout/Footer/Footer";
 import { ThemeProvider } from "@/lib/ThemeContext";
 import "./globals.css";
 

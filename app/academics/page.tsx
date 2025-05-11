@@ -1,36 +1,115 @@
-// "use client";
+"use client";
 
-// import { graphQLClient } from "@/lib/graphql-client";
-// import {
-//   ALL_COURSE_QUERY,
-//   COURSE_TYPES_QUERY,
-//   SCHOOL_TYPES_QUERY,
-//   BRANCH_TYPES_QUERY,
-//   DELIVERY_MODE_QUERY,
-// } from "@/queries/queries";
-// import CourseItem from "@/components/CourseItem/CourseItem";
-// import CatalogPage from "@/components/CatalogModule/CatalogPage";
-// import { Course } from "@/types/data";
+import React, { useState, useEffect } from "react";
+import { graphQLClient } from "@/lib/graphql-client";
+import Breadrumb from "@/components/common/Breadcrumb/Breadcrumb";
+import "./style.scss";
+import { GET_ALL_ACADEMIC_STAFF } from "@/queries/queries";
+import { Courses, Staffs } from "@/types/data";
+import { CourseList, Pagination, SearchBar } from "@/components/pages/Courses";
+import Filter from "@/components/pages/Courses/Filter/Filter";
+import FaculityCard from "@/components/FaculityCard/FaculityCard";
+import MemberCardItem from "@/components/MembersLanding/MemberCard/MemberCard";
 
-// const page = async () => {
-//   const [coursesData, schoolTypes] = await Promise.all([
-//     graphQLClient.request(ALL_COURSE_QUERY) as Promise<{
-//       courses: { nodes: any[] };
-//     }>,
-//     graphQLClient.request(SCHOOL_TYPES_QUERY) as Promise<{
-//       schoolTypes: { nodes: any[] };
-//     }>,
-//   ]);
+export default function CoursesPage() {
+  const [search, setSearch] = useState("");
 
-//   return (
-//     <CatalogPage
-//       heading="courses"
-//       items={coursesData.courses.nodes}
-//       filters={{
-//         schoolTypes: schoolTypes.schoolTypes.nodes,
-//       }}
-//     />
-//   );
-// };
+  const [allAcademics, setAllAcademics] = useState<Staffs[]>([]);
+  const [filteredAcademics, setFilteredAcademics] = useState<Staffs[]>([]);
 
-// export default page;
+  const [selectedSchools, setSelectedSchools] = useState<string[]>([]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const coursesPerPage = 12;
+
+  useEffect(() => {
+    let results = [...allAcademics];
+
+    if (search) {
+      results = results.filter((course) =>
+        course.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    if (selectedSchools.length > 0) {
+      results = results.filter((course) =>
+        course.schoolTypes?.nodes?.some((s) => selectedSchools.includes(s.slug))
+      );
+    }
+
+    setFilteredAcademics(results);
+  }, [search, selectedSchools, allAcademics]);
+
+  useEffect(() => {
+    async function fetchAcademics() {
+      try {
+        const data = await graphQLClient.request<{
+          staffs: { nodes: Staffs[] };
+        }>(GET_ALL_ACADEMIC_STAFF);
+
+        setAllAcademics(data.staffs.nodes); // ✅ correct key: data.staffs.nodes
+      } catch (error) {
+        console.error("Error fetching academics:", error);
+      }
+    }
+
+    fetchAcademics();
+  }, []); // 🔁 Do not use [allAcademics] — that causes an infinite loop
+
+  console.log("Academics", allAcademics);
+
+  const totalPages = Math.ceil(filteredAcademics.length / coursesPerPage);
+
+  return (
+    <>
+      <Breadrumb />
+
+      <section className="simple-padding-bottom dark-lightmode dark-font-change">
+        <div className="small-middle-wrap">
+          <h2 className="section-heading section-heading--black">
+            our <span>academics</span>
+          </h2>
+
+          <div className="landing-wrap-top">
+            <div className="landing-results landing-results-top">
+              <SearchBar search={search} setSearch={setSearch} />
+            </div>
+          </div>
+
+          <div className="landing-wrap">
+            {/* Filter Section */}
+            <Filter
+              setSelectedSchools={setSelectedSchools}
+              setSelectedPrograms={null}
+              setSelectedModes={null}
+              setSelectedBranches={null}
+              setSearch={setSearch}
+              search={search}
+              selectedSchools={selectedSchools}
+              selectedPrograms={null}
+              selectedModes={null}
+              selectedBranches={null}
+              filteredCourses={filteredAcademics}
+            />
+
+            {/* Course List */}
+            <div className="landing-results">
+              <div className="landing-results-inner">
+                {filteredAcademics.length > 0 &&
+                  filteredAcademics.map((academicsItem, index) => (
+                    <MemberCardItem memberData={academicsItem} key={index} />
+                  ))}
+
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  setCurrentPage={setCurrentPage}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
