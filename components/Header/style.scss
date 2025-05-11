@@ -6,6 +6,13 @@
     background: #fff;
 }
 
+#header .hidden-text {
+  visibility: hidden;
+  height: 1px;
+  overflow: hidden;
+  display: inline-block;
+}
+
 #header .bottom-bar::after {
     content: "";
     position: absolute;

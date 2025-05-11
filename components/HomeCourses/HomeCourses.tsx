@@ -9,40 +9,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 import "./style.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-const COURSE_QUERY = `
-query {
-  courses (first: 8) {
-    nodes {
-      id
-      title
-      slug
-      featuredImage {
-        node {
-          mediaItemUrl
-        }
-      }
-      courses {
-        courseId
-        courseCode
-        studentsCount
-      }
-      schoolTypes {
-        nodes {
-          slug
-          name
-        }
-      }
-      courseTypes {
-        nodes {
-          slug
-          name
-        }
-      }
-    }
-  }
-}
-`;
+import { COURSE_LIST_QUERY } from "@/queries/queries";
 
 type Course = {
   id: string;
@@ -70,7 +37,7 @@ export default function HomeCourses() {
       try {
         const data = await graphQLClient.request<{
           courses: { nodes: Course[] };
-        }>(COURSE_QUERY);
+        }>(COURSE_LIST_QUERY);
         setCourses(data.courses.nodes);
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -116,7 +83,7 @@ export default function HomeCourses() {
           <TitleSmall title="Explore" subtitle="Our Courses" />
         </div>
         <div className="button-wrap">
-          <Button buttonName="Explore More" buttonUrl="/courses" />
+          <Button buttonName="Explore" buttonUrl="/courses" />
         </div>
       </div>
       <div className="slider-wrap">
