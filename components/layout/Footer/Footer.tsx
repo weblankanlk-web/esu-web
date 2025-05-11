@@ -2,15 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaInstagram,
-  FaTwitter,
-  FaGooglePlusG,
-  FaTiktok,
-  FaYoutube,
-} from "react-icons/fa";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 
@@ -97,10 +88,22 @@ const Footer = () => {
               <Image
                 src={"/images/logo/awards.png"}
                 alt="Award Seal"
-                width={100}
-                height={100}
+                width={75}
+                height={75}
                 style={{ objectFit: "contain" }}
               />
+            </div>
+            <div className="copyright">
+              <p>
+                Copyright © 2025 <strong>ESOFT UNI</strong> - All Rights
+                Reserved.
+                <br />
+                <br />
+                Designed & Developed By{" "}
+                <Link href="https://www.weblankan.com/" target="_blank">
+                  <strong>Web Lankan</strong>
+                </Link>
+              </p>
             </div>
           </div>
           <div className="column links">
@@ -133,7 +136,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="column links">
-            <h4>IMPORTANT LINKS</h4>
+            {/*   <h4>IMPORTANT LINKS</h4> */}
             {/* <ul>
               <li>
                 <Link href="/courses">Courses</Link>
@@ -186,13 +189,13 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom" style={{ backgroundColor: color }}>
-        <p>
+        {/*         <p>
           Copyright © 2025 <strong>ESU METRO CAMPUS</strong> All rights
           reserved. Website Designed And Developed By{" "}
           <Link href="https://www.weblankan.com/" target="_blank">
             <strong>Web Lankan</strong>
           </Link>
-        </p>
+        </p> */}
       </div>
     </footer>
   );
