@@ -130,7 +130,7 @@ const page = () => {
     const fetchCourseFees = async () => {
       try {
         const response = await axios.get(
-          `https://publicapi.esoft.lk/api/v1/courses/${courseId}/fees`,
+          `https://publicapi.esoft.lk/api/v1/courses/${courseId}/fees?for_entity=esu ⁠`,
           {
             headers: {
               "Content-Type": "application/json",
