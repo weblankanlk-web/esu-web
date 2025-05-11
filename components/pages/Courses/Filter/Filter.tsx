@@ -142,11 +142,10 @@ const Filter: React.FC<FilterProps> = ({
           <p id="search-breif">
             <span id="result-count">{filteredCourses.length} </span>
             {search && <span id="result-keyword">"{search}"</span>}
-            Search Results for:
+            Search Results Found for
             {selectedSchools && selectedSchools.length > 0 && (
               <span>
                 {" "}
-                | Facultie(s):{" "}
                 {selectedSchools.map((slug: string) => {
                   const school = schoolTypes.find((s) => s.slug === slug);
                   return school ? school.name : slug;

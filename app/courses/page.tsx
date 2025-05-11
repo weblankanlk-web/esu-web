@@ -221,11 +221,10 @@ export default function CoursesPage() {
                   <p id="search-breif">
                     <span id="result-count">{filteredCourses.length} </span>
                     {search && <span id="result-keyword">"{search}"</span>}
-                    Search Results for:
+                    Search Results Found for
                     {selectedSchools.length > 0 && (
                       <span>
                         {" "}
-                        | Facultie(s):{" "}
                         {selectedSchools.map((slug) => {
                           const school = schoolTypes.find(
                             (s) => s.slug === slug
