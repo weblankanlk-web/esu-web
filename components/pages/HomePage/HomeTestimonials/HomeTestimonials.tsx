@@ -9,28 +9,7 @@ import TestimonialItem from "./TestimonialItem";
 import "./style.scss";
 import { graphQLClient } from "@/lib/graphql-client";
 import { TESTIMONIALS_QUERY } from "@/queries/queries";
-
-type Testimonial = {
-  id: string;
-  title: string;
-  slug: string;
-  featuredImage: {
-    node: {
-      sourceUrl: string;
-      altText: string;
-    }
-  }
-  testimonials: {
-    testimonialType: string[];
-    testimonialVideo?: string;
-    thumbnailImage?: {
-      node: {
-        sourceUrl: string;
-      };
-    };
-    testimonialText?: string;
-  };
-};
+import { Testimonial } from "@/types/data";
 
 const HomeTestimonials: React.FC = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -45,9 +24,7 @@ const HomeTestimonials: React.FC = () => {
         const filtered = data.testimonials.nodes.filter(
           (item) => item.testimonials !== null
         );
-
-        console.log("✅ Testimonials fetched:", filtered); // ← log here
-
+        console.log("✅ Testimonials fetched:", filtered);
         setTestimonials(filtered);
       } catch (error) {
         console.error("❌ Error fetching testimonials:", error);

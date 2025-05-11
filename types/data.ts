@@ -245,3 +245,25 @@ export type Staffs = {
     }[];
   };
 };
+
+export type Testimonial = {
+  id: string;
+  title: string;
+  slug: string;
+  featuredImage: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+    }
+  }
+  testimonials: {
+    testimonialType: string[];
+    testimonialVideo?: string;
+    thumbnailImage?: {
+      node: {
+        sourceUrl: string;
+      };
+    };
+    testimonialText?: string;
+  };
+};
