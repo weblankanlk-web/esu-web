@@ -88,6 +88,21 @@ export type DeanDetails = {
   };
 };
 
+export type ViceChancellor = {
+  title: string;
+  staffAcf: {
+    designation: string;
+    message: string;
+    qualifications: string;
+  };
+  featuredImage: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+    };
+  };
+};
+
 // app/courses/page.tsx
 export type CourseType = {
   id: string;
@@ -254,8 +269,8 @@ export type Testimonial = {
     node: {
       sourceUrl: string;
       altText: string;
-    }
-  }
+    };
+  };
   testimonials: {
     testimonialType: string[];
     testimonialVideo?: string;

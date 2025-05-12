@@ -1,8 +1,11 @@
+"use client";
+
 import React from "react";
 import "./style.scss";
 import Image from "next/image";
 
 interface DeanMessageProps {
+  title: string; // This is for the dynamic heading
   DeanName: string;
   designation: string;
   qualifications: string;
@@ -16,6 +19,7 @@ interface DeanMessageProps {
 }
 
 const DeanMessage: React.FC<DeanMessageProps> = ({
+  title,
   DeanName,
   designation,
   qualifications,
@@ -27,9 +31,15 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
   return (
     <section className="dean-massage">
       <div className="dean-massage-wrap">
-  
         <div className="massage-wrap">
-          <h2 className="dean-message-title" style={{ fontFamily }}>Dean <span style={{ color: fontColor }}>Message</span></h2>
+          {/* <h2 className="dean-message-title" style={{ fontFamily }}>
+            Vice Chancellor's <span style={{ color: fontColor }}>Message</span>
+          </h2> */}
+
+          <h2 className="dean-message-title" style={{ fontFamily }}>
+            {title || "Dean"} <span style={{ color: fontColor }}>Message</span>
+          </h2>
+
           <div className="single-massage-card d-flex">
             <div className="single-image-wrap">
               <div className="member-details">
@@ -46,8 +56,10 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
                 />
               </div>
             </div>
-            <div className="single-massage " dangerouslySetInnerHTML={{ __html: message }}></div>
-
+            <div
+              className="single-massage"
+              dangerouslySetInnerHTML={{ __html: message }}
+            ></div>
           </div>
         </div>
       </div>
@@ -56,4 +68,3 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
 };
 
 export default DeanMessage;
-

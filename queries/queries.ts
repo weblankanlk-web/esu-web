@@ -471,6 +471,29 @@ export const FACULTY_INNER_QUERY = `
   }
 `;
 
+export const VICE_CHANCELLOR_QUERY =`
+ query  {
+    staffType(id: "vice-chancellor", idType: SLUG) {
+      staffs {
+        nodes {
+          staffAcf {
+            designation
+            message
+            qualifications
+          }
+          title
+          featuredImage {
+            node {
+              sourceUrl
+              altText
+            }
+          }
+        }
+      }
+    }
+}
+`;
+
 export const GET_ALL_ACADEMIC_STAFF = `
 query {
   staffs(first: 100) {
