@@ -126,7 +126,8 @@ query($id: ID!) {
       }
     }
   }
-}`;
+}
+`;
 
 export const COURSE_TYPES_QUERY = `
 query {
@@ -137,7 +138,8 @@ query {
         slug
       }
     }
-}`;
+}
+    `;
 
 export const BRANCH_TYPES_QUERY = `
 query {
@@ -296,7 +298,8 @@ export const HOME_BANNER_QUERY = `
       }
     }
   }
-}`;
+}
+    `;
 
 export const ACADEMIC_STAFF = `
 query($slug: ID!){
@@ -411,7 +414,8 @@ query {
       }
     }
   }
-}`;
+}
+    `;
 
 export const FACULTY_INNER_QUERY = `
   query ($slug: [String]) {
@@ -471,7 +475,7 @@ export const FACULTY_INNER_QUERY = `
   }
 `;
 
-export const VICE_CHANCELLOR_QUERY =`
+export const VICE_CHANCELLOR_QUERY = `
  query  {
     staffType(id: "vice-chancellor", idType: SLUG) {
       staffs {
