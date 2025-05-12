@@ -5,7 +5,7 @@ import "./style.scss";
 import Image from "next/image";
 
 interface DeanMessageProps {
-  title: string; // This is for the dynamic heading
+  title: string;
   DeanName: string;
   designation: string;
   qualifications: string;
@@ -14,8 +14,8 @@ interface DeanMessageProps {
     sourceUrl: string;
     altText: string;
   };
-  fontFamily: string; // dynamically from CMS
-  fontColor: string; // dynamically from CMS
+  fontFamily: string;
+  fontColor: string;
 }
 
 const DeanMessage: React.FC<DeanMessageProps> = ({
@@ -25,21 +25,16 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
   qualifications,
   message,
   featuredImage,
-  fontFamily, // dynamically from CMS
-  fontColor, // dynamically from CMS
+  fontFamily,
+  fontColor,
 }) => {
   return (
     <section className="dean-massage">
       <div className="dean-massage-wrap">
         <div className="massage-wrap">
-          {/* <h2 className="dean-message-title" style={{ fontFamily }}>
-            Vice Chancellor's <span style={{ color: fontColor }}>Message</span>
-          </h2> */}
-
           <h2 className="dean-message-title" style={{ fontFamily }}>
-            {title || "Dean"} <span style={{ color: fontColor }}>Message</span>
+            {title} <span style={{ color: fontColor }}>Message</span>
           </h2>
-
           <div className="single-massage-card d-flex">
             <div className="single-image-wrap">
               <div className="member-details">
@@ -51,8 +46,8 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
                 <Image
                   src={featuredImage.sourceUrl}
                   alt={featuredImage.altText}
-                  width={352}
-                  height={352}
+                  width={240}
+                  height={240}
                 />
               </div>
             </div>

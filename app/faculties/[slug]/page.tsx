@@ -50,7 +50,8 @@ const FacultyInnerPage = () => {
             innerPageTitle={`Faculty of <span style="color: ${faculty.schoolTypesColorFontFields.color}; font-family: ${faculty.schoolTypesColorFontFields.courseFontFamily}">${faculty.schoolTypesColorFontFields.facultyName}</span>`}
             innerPageDescription={`Welcome to the Faculty of ${faculty.schoolTypesColorFontFields.facultyName}.`}
             innerBgDesk={
-              faculty.schoolTypesColorFontFields.facultyDesktop?.node?.link || ""
+              faculty.schoolTypesColorFontFields.facultyDesktop?.node?.link ||
+              ""
             }
             innerBgMobi={
               faculty.schoolTypesColorFontFields.facultyMobile?.node?.link || ""
@@ -60,14 +61,15 @@ const FacultyInnerPage = () => {
           <FaculityOverview
             schoolOverviewTitle={`<span style="font-family: ${faculty.schoolTypesColorFontFields.courseFontFamily}; background: linear-gradient(90deg, ${faculty.schoolTypesColorFontFields.color} 0%, rgba(124, 124, 124, 0.70) 100%);">${faculty.schoolTypesColorFontFields.schoolOverviewTitle}</span>`}
             OverviewImage={
-              faculty.schoolTypesColorFontFields.schoolOverviewImage?.node?.link ||
-              ""
+              faculty.schoolTypesColorFontFields.schoolOverviewImage?.node
+                ?.link || ""
             }
             Overview={faculty.schoolTypesColorFontFields.schoolOverview}
           />
 
           {dean && (
             <DeanMessage
+              title="Dean"
               DeanName={dean.title}
               designation={dean.staffAcf.designation}
               qualifications={dean.staffAcf.qualifications}
@@ -80,13 +82,11 @@ const FacultyInnerPage = () => {
 
           <MembersLanding
             slug={slug || ""}
-            sectinTitle1="Faculty" 
-            sectinTitle2="Members" 
+            sectinTitle1="Faculty"
+            sectinTitle2="Members"
             fontFamily={faculty.schoolTypesColorFontFields.courseFontFamily}
             fontColor={faculty.schoolTypesColorFontFields.color}
           />
-
-
         </>
       )}
     </>
