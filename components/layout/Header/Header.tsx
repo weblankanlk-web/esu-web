@@ -220,7 +220,7 @@ const Header = () => {
                       ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`
                       : "https://register.esoft.lk/"
                   }
-                  buttonName={"Register Online"}
+                  buttonName={"Inquire Now"}
                 />
               </div>
             </div>
