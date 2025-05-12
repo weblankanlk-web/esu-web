@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import "./style.scss";
-import TitleLarge from '../../../common/TitleLarge/TitleLarge';
-import Button from '../../../common/Button/Button';
+import TitleLarge from "../../../common/TitleLarge/TitleLarge";
+import Button from "../../../common/Button/Button";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -88,11 +88,7 @@ const HomeAbout = () => {
             </div>
             <div className="right">
               <div className="title-wrap">
-                <TitleLarge
-                  title1="Welcome to"
-                  subtitle="ESOFT Uni"
-                  title2=""
-                />
+                <TitleLarge title="Welcome to" subtitle="ESOFT Uni" />
               </div>
               <div className="button-wrap">
                 {/* <Button buttonName="About Us" buttonUrl="#" /> */}
@@ -103,7 +99,6 @@ const HomeAbout = () => {
               />
             </div>
           </div>
-          
         </div>
       </section>
     </>

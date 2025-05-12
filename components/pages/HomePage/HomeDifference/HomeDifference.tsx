@@ -2,21 +2,23 @@
 
 import React from "react";
 import Image from "next/image";
-import TitleSmall from "../../../common/TitleSmall/TitleSmall";
+import TitleExtraSmall from "../../../common/TitleExtraSmall/TitleExtraSmall";
 import "./style.scss";
 
 const HomeDifference: React.FC = () => {
   return (
     <section className="home-difference">
       <div className="container">
-                  <div className="title-wrap">
-            <TitleSmall title="Shaping" subtitle="Futures" />
-          </div>
         <div className="difference-grid">
           {/* Box 1 */}
           <div className="difference-row">
             <div className="text-block">
-              <h3>A Space To Grow, Lead, and Belong</h3>
+              <div className="title-wrap">
+                <TitleExtraSmall
+                  title="A Space To "
+                  subtitle="Grow, Lead, and Belong"
+                />
+              </div>
               <p>
                 From meaningful friendships to memorable moments, our
                 environment is built for connection and discovery. Students find
@@ -38,7 +40,12 @@ const HomeDifference: React.FC = () => {
           {/* Box 2 - Reversed */}
           <div className="difference-row reverse">
             <div className="text-block">
-              <h3>Turning Ambition Into Direction</h3>
+              <div className="title-wrap">
+                <TitleExtraSmall
+                  title="Turning "
+                  subtitle="Ambition Into Direction"
+                />
+              </div>
               <p>
                 We don’t just talk about goals; we help shape them. With
                 personalised support and real-world exposure, students gain the
@@ -60,7 +67,12 @@ const HomeDifference: React.FC = () => {
           {/* Box 3 */}
           <div className="difference-row">
             <div className="text-block">
-              <h3>Learning That Reaches Beyond The Classroom</h3>
+              <div className="title-wrap">
+                <TitleExtraSmall
+                  title="Learning  "
+                  subtitle="Beyond The Classroom"
+                />
+              </div>
               <p>
                 We bring the real world to our students through collaboration
                 with professionals, exposure to current challenges, and hands-on

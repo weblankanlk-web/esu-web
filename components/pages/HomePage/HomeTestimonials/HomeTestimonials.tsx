@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import TitleSmall from "../../../common/TitleSmall/TitleSmall";
+import TitleLarge from "../../../common/TitleLarge/TitleLarge";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TestimonialItem from "./TestimonialItem";
@@ -74,7 +74,7 @@ const HomeTestimonials: React.FC = () => {
   return (
     <section className="home-testimonials">
       <div className="title-wrap">
-        <TitleSmall title="Student" subtitle="Testimonials" />
+        <TitleLarge title="Student" subtitle="Testimonials" />
       </div>
       <div className="slider-wrap">
         <Slider {...settings} className="testimonial-slider">

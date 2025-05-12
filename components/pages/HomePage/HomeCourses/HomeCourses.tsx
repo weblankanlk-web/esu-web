@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import TitleSmall from "../../../common/TitleSmall/TitleSmall";
+import TitleLarge from "../../../common/TitleLarge/TitleLarge";
 import Button from "../../../common/Button/Button";
 import CourseItem from "../../Courses/CourseItem/CourseItem";
 import { graphQLClient } from "@/lib/graphql-client";
@@ -80,7 +80,7 @@ export default function HomeCourses() {
     <section className="home-courses">
       <div className="main-wrap-title">
         <div className="title-wrap">
-          <TitleSmall title="Explore" subtitle="Our Courses" />
+          <TitleLarge title="Explore" subtitle="Our Courses" />
         </div>
         <div className="button-wrap">
           <Button buttonName="Explore" buttonUrl="/courses" />

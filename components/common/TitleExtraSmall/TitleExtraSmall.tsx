@@ -9,21 +9,20 @@ interface Title {
   subtitle: string;
 }
 
-const TitleLarge: React.FC<Title> = ({ title, subtitle }) => {
+const TitleExtraSmall: React.FC<Title> = ({ title, subtitle }) => {
   const { color } = useTheme();
-
-  console.log(color);
-
   return (
     <>
       <div className="title-wrapper">
-        <div className="main-title-large">
-          <h2 style={{ margin: "0px" }}>{title}</h2>
-          <span style={{ color: color }}>{subtitle}</span>
+        <div className="main-title-small">
+          <h2> {title} </h2>
+          <h2>
+            <span style={{ color: color }}> {subtitle}</span>
+          </h2>
         </div>
       </div>
     </>
   );
 };
 
-export default TitleLarge;
+export default TitleExtraSmall;
