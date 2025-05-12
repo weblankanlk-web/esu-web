@@ -128,7 +128,7 @@ const Header = () => {
               <div className="ml-auto">
                 <Link href="/">
                   <Image
-                    src="/images/logo/esu-dark-logo.png"
+                    src="/images/logo/esu-header.png"
                     width={150}
                     height={50}
                     alt="Logo"
@@ -139,7 +139,7 @@ const Header = () => {
                     className="desktop-esu-logo"
                   />
                   <Image
-                    src="/images/logo/esu-logo.png"
+                    src="/images/logo/esu-header.png"
                     width={150}
                     height={50}
                     alt="Logo"
