@@ -17,7 +17,7 @@ import { COURSE_QUERY, RELATED_COURSES_QUERY } from "@/queries/queries";
 import CourseOutline from "@/components/pages/CoursesInner/CourseOutline/CourseOutline";
 import { Courses, RelatedCourses } from "@/types/data";
 import Button from "@/components/common/Button/Button";
-import { FeePlan } from "@/queries/interfaces";
+import { FeePlan } from "@/common/interfaces/interface";
 
 const page = () => {
   const searchParams = useSearchParams();

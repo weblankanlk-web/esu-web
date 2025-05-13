@@ -29,3 +29,8 @@ export interface FeePlan {
   fees: Fee[];
   installment_plans: InstallmentPlan[];
 }
+
+export interface Title {
+  title: string;
+  subtitle: string;
+}
