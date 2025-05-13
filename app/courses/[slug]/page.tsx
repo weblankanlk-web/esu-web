@@ -15,7 +15,7 @@ import { useTheme } from "@/lib/ThemeContext";
 import Link from "next/link";
 import { COURSE_QUERY, RELATED_COURSES_QUERY } from "@/queries/queries";
 import CourseOutline from "@/components/pages/CoursesInner/CourseOutline/CourseOutline";
-import { Courses, RelatedCourses } from "@/types/data";
+import { Courses, RelatedCourses } from "@/common/types/type";
 import Button from "@/components/common/Button/Button";
 import { FeePlanInterface } from "@/common/interfaces/interface";
 

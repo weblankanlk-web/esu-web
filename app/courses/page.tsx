@@ -18,7 +18,7 @@ import {
   SchoolType,
   DeliveryModeTypes,
   Courses,
-} from "@/types/data";
+} from "@/common/types/type";
 import {
   CourseList,
   FilterPanel,

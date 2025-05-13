@@ -8,7 +8,7 @@ import DeanMessage from "@/components/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
 import MembersLanding from "@/components/MembersLanding/MembersLanding";
 import { FACULTY_INNER_QUERY } from "@/queries/queries";
-import { FacultyInner, DeanDetails } from "@/types/data";
+import { FacultyInner, DeanDetails } from "@/common/types/type";
 
 const FacultyInnerPage = () => {
   const pathname = usePathname();

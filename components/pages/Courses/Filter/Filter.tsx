@@ -5,7 +5,7 @@ import {
   CourseType,
   DeliveryModeTypes,
   SchoolType,
-} from "@/types/data";
+} from "@/common/types/type";
 import { useTheme } from "@/lib/ThemeContext";
 import { graphQLClient } from "@/lib/graphql-client";
 import {

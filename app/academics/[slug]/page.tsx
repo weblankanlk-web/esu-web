@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { graphQLClient } from "@/lib/graphql-client";
 import { ACADEMIC_STAFF } from "@/queries/queries";
 import { ThreeDots } from "react-loader-spinner";
-import { AcademicStaff } from "@/types/data";
+import { AcademicStaff } from "@/common/types/type";
 
 const page = () => {
   const { color, setColor } = useTheme();

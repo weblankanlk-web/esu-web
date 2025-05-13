@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import Image from "next/image";
-import { StaffMember } from "@/types/data";
+import { StaffMember } from "@/common/types/type";
 
 interface Props {
   memberData: StaffMember

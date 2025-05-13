@@ -5,7 +5,7 @@ import "./style.scss";
 import MemberCardItem from "./MemberCard/MemberCard";
 import { graphQLClient } from "@/lib/graphql-client";
 import { MEMBERS_QUERY } from "@/queries/queries";
-import { StaffMember } from "@/types/data";
+import { StaffMember } from "@/common/types/type";
 
 interface MembersLandingProps {
   slug: string;

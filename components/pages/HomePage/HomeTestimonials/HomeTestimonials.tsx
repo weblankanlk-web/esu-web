@@ -9,7 +9,7 @@ import TestimonialItem from "./TestimonialItem";
 import "./style.scss";
 import { graphQLClient } from "@/lib/graphql-client";
 import { TESTIMONIALS_QUERY } from "@/queries/queries";
-import { Testimonial } from "@/types/data";
+import { Testimonial } from "@/common/types/type";
 
 const HomeTestimonials: React.FC = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);

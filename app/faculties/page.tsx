@@ -6,7 +6,7 @@ import FaculityCard from "@/components/FaculityCard/FaculityCard";
 import DeanMessage from "@/components/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
 import { FACULTY_TYPES_QUERY, VICE_CHANCELLOR_QUERY } from "@/queries/queries";
-import { Faculty, ViceChancellor } from "@/types/data";
+import { Faculty, ViceChancellor } from "@/common/types/type";
 import { title } from "process";
 
 const Page = () => {
