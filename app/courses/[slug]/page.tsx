@@ -17,38 +17,7 @@ import { COURSE_QUERY, RELATED_COURSES_QUERY } from "@/queries/queries";
 import CourseOutline from "@/components/pages/CoursesInner/CourseOutline/CourseOutline";
 import { Courses, RelatedCourses } from "@/types/data";
 import Button from "@/components/common/Button/Button";
-
-interface Fee {
-  currency: string;
-  price: string;
-  fee_name: string;
-}
-
-interface Installment {
-  installment_id: number;
-  fee_type_id: number;
-  fee_name: string;
-  currency: string;
-  price: string;
-}
-
-interface InstallmentPlan {
-  id: number;
-  name: string;
-  installment_count: number;
-  installments: Installment[][];
-}
-
-interface FeePlan {
-  id: number;
-  origin: string;
-  name: string;
-  delivery_mode: { id: number; name: string };
-  registration_fee: { currency: string; price: string };
-  approximate_total: { currency: string; total: number };
-  fees: Fee[];
-  installment_plans: InstallmentPlan[];
-}
+import { FeePlan } from "@/queries/interfaces";
 
 const page = () => {
   const searchParams = useSearchParams();
