@@ -8,39 +8,7 @@ import { usePathname } from "next/navigation";
 import { graphQLClient } from "@/lib/graphql-client";
 import { ACADEMIC_STAFF } from "@/queries/queries";
 import { ThreeDots } from "react-loader-spinner";
-
-type AcademicStaff = {
-  title?: string;
-  staffAcf: {
-    academicQualifications?: string;
-    careerSummary?: string;
-    designation?: string;
-    myPublications?: string;
-    qualifications?: string;
-  };
-  featuredImage?: {
-    node?: {
-      altText?: string;
-      sourceUrl?: string;
-    };
-  };
-  schoolTypes?: {
-    nodes: {
-      name?: string;
-      slug?: string;
-      schoolTypesColorFontFields?: {
-        color?: string;
-        courseFontFamily?: string;
-      };
-      children?: {
-        nodes?: {
-          name?: string;
-          slug?: string;
-        }[];
-      };
-    }[];
-  };
-};
+import { AcademicStaff } from "@/types/data";
 
 const page = () => {
   const { color, setColor } = useTheme();

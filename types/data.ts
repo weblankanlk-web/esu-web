@@ -282,3 +282,36 @@ export type Testimonial = {
     testimonialText?: string;
   };
 };
+
+export type AcademicStaff = {
+  title?: string;
+  staffAcf: {
+    academicQualifications?: string;
+    careerSummary?: string;
+    designation?: string;
+    myPublications?: string;
+    qualifications?: string;
+  };
+  featuredImage?: {
+    node?: {
+      altText?: string;
+      sourceUrl?: string;
+    };
+  };
+  schoolTypes?: {
+    nodes: {
+      name?: string;
+      slug?: string;
+      schoolTypesColorFontFields?: {
+        color?: string;
+        courseFontFamily?: string;
+      };
+      children?: {
+        nodes?: {
+          name?: string;
+          slug?: string;
+        }[];
+      };
+    }[];
+  };
+};
