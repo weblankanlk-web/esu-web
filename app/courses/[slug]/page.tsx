@@ -13,7 +13,7 @@ import CourseSchedule from "@/components/pages/CoursesInner/CourseSchedule/Cours
 import CourseFees from "@/components/pages/CoursesInner/CourseFees/CourseFees";
 import { useTheme } from "@/lib/ThemeContext";
 import Link from "next/link";
-import { COURSE_QUERY, RELATED_COURSES_QUERY } from "@/queries/queries";
+import { COURSE_QUERY, RELATED_COURSES_QUERY } from "@/common/queries/query";
 import CourseOutline from "@/components/pages/CoursesInner/CourseOutline/CourseOutline";
 import { Courses, RelatedCourses } from "@/common/types/type";
 import Button from "@/components/common/Button/Button";

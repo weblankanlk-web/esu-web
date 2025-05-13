@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 import MemberCardItem from "./MemberCard/MemberCard";
 import { graphQLClient } from "@/lib/graphql-client";
-import { MEMBERS_QUERY } from "@/queries/queries";
+import { MEMBERS_QUERY } from "@/common/queries/query";
 import { StaffMember } from "@/common/types/type";
 
 interface MembersLandingProps {

@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import TestimonialItem from "./TestimonialItem";
 import "./style.scss";
 import { graphQLClient } from "@/lib/graphql-client";
-import { TESTIMONIALS_QUERY } from "@/queries/queries";
+import { TESTIMONIALS_QUERY } from "@/common/queries/query";
 import { Testimonial } from "@/common/types/type";
 
 const HomeTestimonials: React.FC = () => {

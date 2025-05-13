@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useTheme } from "@/lib/ThemeContext";
 import { usePathname } from "next/navigation";
 import { graphQLClient } from "@/lib/graphql-client";
-import { ACADEMIC_STAFF } from "@/queries/queries";
+import { ACADEMIC_STAFF } from "@/common/queries/query";
 import { ThreeDots } from "react-loader-spinner";
 import { AcademicStaff } from "@/common/types/type";
 

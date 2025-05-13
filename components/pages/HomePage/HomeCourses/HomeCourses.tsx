@@ -9,7 +9,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 import "./style.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { COURSE_LIST_QUERY } from "@/queries/queries";
+import { COURSE_LIST_QUERY } from "@/common/queries/query";
 
 type Course = {
   id: string;

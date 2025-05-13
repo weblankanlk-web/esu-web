@@ -5,7 +5,7 @@ import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import FaculityCard from "@/components/FaculityCard/FaculityCard";
 import DeanMessage from "@/components/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
-import { FACULTY_TYPES_QUERY, VICE_CHANCELLOR_QUERY } from "@/queries/queries";
+import { FACULTY_TYPES_QUERY, VICE_CHANCELLOR_QUERY } from "@/common/queries/query";
 import { Faculty, ViceChancellor } from "@/common/types/type";
 import { title } from "process";
 

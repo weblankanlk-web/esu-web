@@ -11,7 +11,7 @@ import {
   COURSE_TYPES_QUERY,
   DELIVERY_MODE_QUERY,
   SCHOOL_TYPES_QUERY,
-} from "@/queries/queries";
+} from "@/common/queries/query";
 import {
   CourseType,
   BranchType,

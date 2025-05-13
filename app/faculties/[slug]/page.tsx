@@ -7,7 +7,7 @@ import FaculityOverview from "@/components/FaculityOverview/FaculityOverview";
 import DeanMessage from "@/components/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
 import MembersLanding from "@/components/MembersLanding/MembersLanding";
-import { FACULTY_INNER_QUERY } from "@/queries/queries";
+import { FACULTY_INNER_QUERY } from "@/common/queries/query";
 import { FacultyInner, DeanDetails } from "@/common/types/type";
 
 const FacultyInnerPage = () => {
