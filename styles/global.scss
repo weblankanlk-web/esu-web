@@ -4,135 +4,130 @@
   @return $res;
 }
 
-
 :root {
-    --font-family-secondary: "Manrope",
-        sans-serif;
-    --font-family-main: "Poppins",
-        sans-serif;
-    --black-color: Black;
-    --light-black: #191919;
-    --dark-blck: #0e072a;
-    --btn-blue: #2278fb;
-    --darkblue: #19459d;
-    --red-color: #ff002e;
-    --orange-red: #ff005c;
-    --darkred: #b61532;
-    --light-ash-color: #f8f9ff;
-    --dark-gray: #808080;
-    --gray: #fafafa;
-    --gray-light: #f0f0f0;
-    --light-purple: #e5e8fa;
-    --bg-light: #fff;
-    --font-14: 0.729vw;
-    --font-15: 0.781vw;
-    --font-16: 0.833vw;
-    --font-18: 0.938vw;
-    --font-20: 1.042vw;
-    --font-22: 1.146vw;
-    --font-24: 1.25vw;
-    --font-25: 1.302vw;
-    --font-30: 1.563vw;
-    --font-32: 1.667vw;
-    --font-34: 1.771vw;
-    --font-38: 1.979vw;
-    --font-40: 2.083vw;
-    --font-50: 2.604vw;
-    --font-55: 2.865vw;
-    --font-62: 3.229vw;
-    --font-75: 3.906vw;
-    --font-80: 4.167vw;
-    --font-83: 4.323vw;
-    --font-90: 4.688vw;
-    --font-100: 5.208vw;
+  --font-family-secondary: "Manrope", sans-serif;
+  --font-family-main: "Poppins", sans-serif;
+  --black-color: Black;
+  --light-black: #191919;
+  --dark-blck: #0e072a;
+  --btn-blue: #2278fb;
+  --darkblue: #19459d;
+  --red-color: #ff002e;
+  --orange-red: #ff005c;
+  --darkred: #b61532;
+  --light-ash-color: #f8f9ff;
+  --dark-gray: #808080;
+  --gray: #fafafa;
+  --gray-light: #f0f0f0;
+  --light-purple: #e5e8fa;
+  --bg-light: #fff;
+  --font-14: 0.729vw;
+  --font-15: 0.781vw;
+  --font-16: 0.833vw;
+  --font-18: 0.938vw;
+  --font-20: 1.042vw;
+  --font-22: 1.146vw;
+  --font-24: 1.25vw;
+  --font-25: 1.302vw;
+  --font-30: 1.563vw;
+  --font-32: 1.667vw;
+  --font-34: 1.771vw;
+  --font-38: 1.979vw;
+  --font-40: 2.083vw;
+  --font-50: 2.604vw;
+  --font-55: 2.865vw;
+  --font-62: 3.229vw;
+  --font-75: 3.906vw;
+  --font-80: 4.167vw;
+  --font-83: 4.323vw;
+  --font-90: 4.688vw;
+  --font-100: 5.208vw;
 }
 
 @media only screen and (max-width: 991px) {
-    :root {
-        --font-14: 14px;
-        --font-15: 15px;
-        --font-16: 16px;
-        --font-18: 18px;
-        --font-20: 20px;
-        --font-22: 22px;
-        --font-24: 20px;
-        --font-25: 25px;
-        --font-30: 30px;
-        --font-32: 32px;
-        --font-34: 34px;
-        --font-38: 38px;
-        --font-40: 40px;
-        --font-50: 50px;
-        --font-55: 55px;
-        --font-62: 62px;
-        --font-75: 75px;
-        --font-80: 80px;
-        --font-83: 83px;
-        --font-100: 100px;
-    }
+  :root {
+    --font-14: 14px;
+    --font-15: 15px;
+    --font-16: 16px;
+    --font-18: 18px;
+    --font-20: 20px;
+    --font-22: 22px;
+    --font-24: 20px;
+    --font-25: 25px;
+    --font-30: 30px;
+    --font-32: 32px;
+    --font-34: 34px;
+    --font-38: 38px;
+    --font-40: 40px;
+    --font-50: 50px;
+    --font-55: 55px;
+    --font-62: 62px;
+    --font-75: 75px;
+    --font-80: 80px;
+    --font-83: 83px;
+    --font-100: 100px;
+  }
 }
 
 body {
-    font-family: var(--font-family-secondary
-    );
-background: #f4f4f6;
+  font-family: var(--font-family-secondary);
+  background: #f4f4f6;
 }
 
 .section-heading {
-    color: #383636;
-    font-family: var(--font-poppins);
-    font-size: 80px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 60px;
-    letter-spacing: -8px;
-    text-align: center;
+  color: #383636;
+  font-family: var(--font-poppins);
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 60px;
+  letter-spacing: -8px;
+  text-align: center;
 
-    span {
-        color: #02AEC9;
-    }
+  span {
+    color: #02aec9;
+  }
 }
 
 @media screen and (min-width: 1024px) {
-    .section-heading {
-        font-size: 100px;
-        line-height: 90px;
-    }
+  .section-heading {
+    font-size: 100px;
+    line-height: 90px;
+  }
 }
-
 
 .accordion-button,
 .accordion-button:not(.collapsed) {
-    color: #fff;
-    font-weight: bold;
+  color: #fff;
+  font-weight: bold;
 }
 
 .section-heading--underline {
-    text-align: center;
+  text-align: center;
 }
 
 .show-mobile-filter {
-    transform: translateX(0);
-    visibility: visible;
+  transform: translateX(0);
+  visibility: visible;
 }
 
 .mobile-filter-btn {
-    display: none;
+  display: none;
 }
 
-@media only screen and (max-width:992px) {
-    .mobile-filter-btn {
-        background-color: red;
-        color: #fff;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: 20px;
-        top: 15px;
-        border: none;
-    }
+@media only screen and (max-width: 992px) {
+  .mobile-filter-btn {
+    background-color: red;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    border: none;
+  }
 }
