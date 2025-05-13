@@ -1,137 +1,134 @@
 @import "../../../styles/global.scss";
 
 .member-card {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    .single-image-wrap {
-        border-radius: 19.938px;
-        border: 0.997px solid #D9D9D9;
-        background: #FFF;
-        margin: 0 auto 20px;
-        width: 95%;
-        color: #4D4D4D;
-        text-decoration: none;
-        .member-details {
-            text-align: center;
-            padding: 20px 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  .single-image-wrap {
+    border-radius: 19.938px;
+    border: 0.997px solid #d9d9d9;
+    background: #fff;
+    margin: 0 auto 20px;
+    width: 95%;
+    color: #4d4d4d;
+    text-decoration: none;
+    .member-details {
+      text-align: center;
+      padding: 20px 10px;
 
-            .name {
-                font-family: "Space Grotesk";
-                font-weight: 500;
-                font-size: 18px;
-
-            }
-            .position{
-                font-style: normal;
-                font-weight: 700;
-                line-height: normal;
-                font-size: 16px;
-            }
-            .qualification {
-                font-family: "Space Grotesk";
-                font-style: normal;
-                font-weight: 400;
-                font-size: 16px;
-            }
-        }
-        .member-image {
-            img{
-                width: 100%;
-                object-fit: cover;
-                object-position: top;
-                border-radius: 19.938px;
-                height: 300px;
-            }
-        }
-    }
-    .single-massage {
+      .name {
+        font-family: var(--font-space-grotesk);
+        font-weight: 500;
+        font-size: 18px;
+      }
+      .position {
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        font-size: 16px;
+      }
+      .qualification {
+        font-family: var(--font-space-grotesk);
         font-style: normal;
         font-weight: 400;
-        padding: 0 20px;
+        font-size: 16px;
+      }
     }
+    .member-image {
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 19.938px;
+        height: 300px;
+      }
+    }
+  }
+  .single-massage {
+    font-style: normal;
+    font-weight: 400;
+    padding: 0 20px;
+  }
 }
 
-
 @media only screen and (min-width: 600px) {
-    .member-card {
-        width: 49%;
-    }
-}    
+  .member-card {
+    width: 49%;
+  }
+}
 @media only screen and (min-width: 992px) {
-    .member-card {
-        border-radius: get-vw(19.938px);
-        border: get-vw(0.997px) solid #D9D9D9;
-        width: 48%;
-        margin-bottom: get-vw(40px);
-        .single-image-wrap {
-            border: 0 solid #d9d9d9;
-            margin: 0;
-            // padding-top: get-vw(87px);
-            width: 100%;
-            
-            .member-details {
-                text-align: left;
-                padding: 40px 20px 30px 60px;
+  .member-card {
+    border-radius: get-vw(19.938px);
+    border: get-vw(0.997px) solid #d9d9d9;
+    width: 48%;
+    margin-bottom: get-vw(40px);
+    .single-image-wrap {
+      border: 0 solid #d9d9d9;
+      margin: 0;
+      // padding-top: get-vw(87px);
+      width: 100%;
 
-                .name {
-                    font-size: get-vw(25px);
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: get-vw(28px); 
-                    letter-spacing: get-vw(-0.997px);
-                }
+      .member-details {
+        text-align: left;
+        padding: 40px 20px 30px 60px;
 
-                .position{
-                    font-size: get-vw(16px);
-                    font-style: normal;
-                    font-weight: 700;
-                    line-height: normal;
-                    letter-spacing: get-vw(-0.32px);
-                }
-                .qualification {
-                    font-size: get-vw(16px);
-                    font-style: normal;
-                    line-height: normal;
-                    letter-spacing: get-vw(-0.32px);
-                    font-weight: 400;
-                    line-height: normal;
-                }
-            }
-
-            .member-image {
-                img{
-                    height: 350px;
-                }
-            }
+        .name {
+          font-size: get-vw(25px);
+          font-style: normal;
+          font-weight: 500;
+          line-height: get-vw(28px);
+          letter-spacing: get-vw(-0.997px);
         }
-        .single-massage {
-            width: calc(100% - get-vw(500px));
-            font-size: get-vw(18px);
-            font-style: normal;
-            font-weight: 400;
-            line-height: get-vw(25px); 
-            padding: get-vw(90px) get-vw(151px);
+
+        .position {
+          font-size: get-vw(16px);
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          letter-spacing: get-vw(-0.32px);
         }
+        .qualification {
+          font-size: get-vw(16px);
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: get-vw(-0.32px);
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+
+      .member-image {
+        img {
+          height: 350px;
+        }
+      }
     }
+    .single-massage {
+      width: calc(100% - get-vw(500px));
+      font-size: get-vw(18px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: get-vw(25px);
+      padding: get-vw(90px) get-vw(151px);
+    }
+  }
 }
 
 @media only screen and (min-width: 1200px) {
-    .member-card {
-        width: 24%;
-       .single-image-wrap{
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: left;
-        .member-details{
-            padding: get-vw(50px) get-vw(50px) get-vw(50px) get-vw(50px) !important;
-
+  .member-card {
+    width: 24%;
+    .single-image-wrap {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: left;
+      .member-details {
+        padding: get-vw(50px) get-vw(50px) get-vw(50px) get-vw(50px) !important;
+      }
+      .member-image {
+        img {
+          height: get-vw(350px);
         }
-        .member-image{
-            img{
-                height: get-vw(350px);
-            }
-        }
-       } 
+      }
     }
+  }
 }
