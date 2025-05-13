@@ -18,10 +18,8 @@
 
 .mobile-filter-btn {
   display: none;
-}
 
-@media only screen and (max-width: 992px) {
-  .mobile-filter-btn {
+  @media only screen and (max-width: 992px) {
     background-color: red;
     color: #fff;
     width: 30px;
