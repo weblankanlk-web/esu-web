@@ -1,9 +1,7 @@
 @function get-vw($target) {
-    $vw-context: (
-        1920*.01) * 1px;
-    $res: (
-        calc($target/$vw-context)) * 1vw;
-    @return $res;
+  $vw-context: 1920 * 0.01 * 1px;
+  $res: ($target / $vw-context) * 1vw;
+  @return $res;
 }
 
 
@@ -124,7 +122,6 @@ background: #f4f4f6;
 
 @media only screen and (max-width:992px) {
     .mobile-filter-btn {
-        display: block;
         background-color: red;
         color: #fff;
         width: 30px;
