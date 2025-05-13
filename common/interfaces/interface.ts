@@ -1,0 +1,36 @@
+export interface FeeInterface {
+  currency: string;
+  price: string;
+  fee_name: string;
+}
+
+export interface InstallmentInterface {
+  installment_id: number;
+  fee_type_id: number;
+  fee_name: string;
+  currency: string;
+  price: string;
+}
+
+export interface InstallmentPlanInterface {
+  id: number;
+  name: string;
+  installment_count: number;
+  installments: InstallmentInterface[][];
+}
+
+export interface FeePlanInterface {
+  id: number;
+  origin: string;
+  name: string;
+  delivery_mode: { id: number; name: string };
+  registration_fee: { currency: string; price: string };
+  approximate_total: { currency: string; total: number };
+  fees: FeeInterface[];
+  installment_plans: InstallmentPlanInterface[];
+}
+
+export interface TitleInterface {
+  title: string;
+  subtitle: string;
+}

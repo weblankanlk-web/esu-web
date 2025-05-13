@@ -24,16 +24,12 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
   const [search, setSearch] = useState("");
   const { color, setColor } = useTheme();
 
-  // console.log("tabData", tabData);
-
   // Set default active tab when tabData is available
   useEffect(() => {
     if (tabData.length > 0 && !activeTab) {
       setActiveTab(tabData[0].id);
     }
   }, [tabData, activeTab]);
-
-  // console.log("activeTab", activeTab);
 
   return (
     <div className="tab-section">

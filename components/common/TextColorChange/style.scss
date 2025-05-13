@@ -1,0 +1,47 @@
+@import "@/styles/global.scss";
+
+.title-wrapper {
+  .main-title-small {
+    font-family: var(--font-poppins);
+    color: #383636;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 45px;
+    letter-spacing: -2px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      color: #14549F;
+    }
+
+    h2 {
+      font-size: 14px;
+      text-transform: capitalize;
+      letter-spacing: -1px;
+    }
+  }
+
+  @media only screen and (min-width: 1360px) {
+    .main-title-small {
+      font-size: get-vw(100px);
+      line-height: get-vw(50px);
+      letter-spacing: get-vw(-4px);
+      text-align: left;
+      justify-content: flex-start;
+
+      span {
+        color: #14549F;
+      }
+
+      h2 {
+        font-size: 14px;
+        text-transform: capitalize;
+        letter-spacing: -1px;
+      }
+    }
+  }
+}

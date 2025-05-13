@@ -6,41 +6,9 @@ import Image from "next/image";
 import { useTheme } from "@/lib/ThemeContext";
 import { usePathname } from "next/navigation";
 import { graphQLClient } from "@/lib/graphql-client";
-import { ACADEMIC_STAFF } from "@/queries/queries";
+import { ACADEMIC_STAFF } from "@/common/queries/query";
 import { ThreeDots } from "react-loader-spinner";
-
-type AcademicStaff = {
-  title?: string;
-  staffAcf: {
-    academicQualifications?: string;
-    careerSummary?: string;
-    designation?: string;
-    myPublications?: string;
-    qualifications?: string;
-  };
-  featuredImage?: {
-    node?: {
-      altText?: string;
-      sourceUrl?: string;
-    };
-  };
-  schoolTypes?: {
-    nodes: {
-      name?: string;
-      slug?: string;
-      schoolTypesColorFontFields?: {
-        color?: string;
-        courseFontFamily?: string;
-      };
-      children?: {
-        nodes?: {
-          name?: string;
-          slug?: string;
-        }[];
-      };
-    }[];
-  };
-};
+import { AcademicStaff } from "@/common/types/type";
 
 const page = () => {
   const { color, setColor } = useTheme();
@@ -50,8 +18,6 @@ const page = () => {
   const [academicStaff, setAcademicStaff] = useState<AcademicStaff | null>(
     null
   );
-
-  console.log(slug);
 
   useEffect(() => {
     if (!slug) return;
@@ -71,16 +37,8 @@ const page = () => {
     fetchAcademicStaff();
   }, [slug]);
 
-  // console.log(
-  //   academicStaff?.schoolTypes?.nodes?.[0]?.schoolTypesColorFontFields?.color
-  // );
-
   setColor(
     academicStaff?.schoolTypes?.nodes?.[0]?.schoolTypesColorFontFields?.color
-  );
-
-  console.log(
-    academicStaff?.schoolTypes?.nodes?.[0]?.children?.nodes?.[0]?.name
   );
 
   if (!academicStaff)

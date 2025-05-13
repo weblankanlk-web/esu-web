@@ -11,14 +11,14 @@ import {
   COURSE_TYPES_QUERY,
   DELIVERY_MODE_QUERY,
   SCHOOL_TYPES_QUERY,
-} from "@/queries/queries";
+} from "@/common/queries/query";
 import {
   CourseType,
   BranchType,
   SchoolType,
   DeliveryModeTypes,
   Courses,
-} from "@/types/data";
+} from "@/common/types/type";
 import {
   CourseList,
   FilterPanel,
@@ -26,6 +26,7 @@ import {
   SearchBar,
 } from "@/components/pages/Courses";
 import { FaTimes } from "react-icons/fa";
+import TitleText from "../../components/common/TextColorChange/TextColorChange";
 
 export default function CoursesPage() {
   const [search, setSearch] = useState("");
@@ -126,12 +127,21 @@ export default function CoursesPage() {
   useEffect(() => {
     async function fetchCourseTypes() {
       try {
-        // setLoadingPrograms(true);
         const data = await graphQLClient.request<{
           courseTypes: { nodes: CourseType[] };
         }>(COURSE_TYPES_QUERY);
-        setCourseTypes(data.courseTypes.nodes);
-        // setLoadingPrograms(false);
+
+        // Filter out undesired course types
+        const excludedNames = [
+          "Certificate Level",
+          "Diploma Level",
+          "Higher National Certificate",
+        ];
+        const filteredTypes = data.courseTypes.nodes.filter(
+          (type) => !excludedNames.includes(type.name)
+        );
+
+        setCourseTypes(filteredTypes);
       } catch (error) {
         console.error("Error fetching course types:", error);
       }
@@ -221,11 +231,10 @@ export default function CoursesPage() {
                   <p id="search-breif">
                     <span id="result-count">{filteredCourses.length} </span>
                     {search && <span id="result-keyword">"{search}"</span>}
-                    Search Results for:
+                    Search Results Found for
                     {selectedSchools.length > 0 && (
                       <span>
                         {" "}
-                        | Facultie(s):{" "}
                         {selectedSchools.map((slug) => {
                           const school = schoolTypes.find(
                             (s) => s.slug === slug
@@ -237,7 +246,6 @@ export default function CoursesPage() {
                     {selectedPrograms.length > 0 && (
                       <span>
                         {" "}
-                        | Program(s):{" "}
                         {selectedPrograms.map((slug) => {
                           const program = courseTypes.find(
                             (c) => c.slug === slug
@@ -246,22 +254,9 @@ export default function CoursesPage() {
                         })}
                       </span>
                     )}
-                    {selectedModes.length > 0 && (
-                      <span>
-                        {" "}
-                        | Mode(s):{" "}
-                        {selectedModes.map((slug) => {
-                          const modes = deliveryModeTypes.find(
-                            (c) => c.slug === slug
-                          );
-                          return modes ? modes.name : slug;
-                        })}
-                      </span>
-                    )}
                     {selectedBranches.length > 0 && (
                       <span>
                         {" "}
-                        | Branche(s):{" "}
                         {selectedBranches.map((slug) => {
                           const branches = branchTypes.find(
                             (c) => c.slug === slug
@@ -305,29 +300,55 @@ export default function CoursesPage() {
                 >
                   <FaTimes />
                 </button>
+
+                {/* 
+                    ---
+                    Faculties Filter  
+                    ---
+                */}
+
+                <div className="title-wrap">
+                  <TitleText title="" subtitle="Faculties" />
+                </div>
+
                 <FilterPanel
-                  title="Faculties"
+                  title="" // overridden by the above <div>
                   options={schoolTypes}
                   selected={selectedSchools}
                   setSelected={setSelectedSchools}
                   loading={false}
                 />
+
+                {/* 
+                    ---
+                    Academic Level Filter  
+                    ---
+                */}
+
+                <div className="title-wrap">
+                  <TitleText title="" subtitle="Academic Level" />
+                </div>
+
                 <FilterPanel
-                  title="Programs"
+                  title="" // overridden by the above <div>
                   options={courseTypes}
                   selected={selectedPrograms}
                   setSelected={setSelectedPrograms}
                   loading={false}
                 />
+
+                {/* 
+                    ---
+                    Campuses Filter  
+                    ---
+                */}
+
+                <div className="title-wrap">
+                  <TitleText title="" subtitle="Campuses" />
+                </div>
+
                 <FilterPanel
-                  title="Modes"
-                  options={deliveryModeTypes}
-                  selected={selectedModes}
-                  setSelected={setSelectedModes}
-                  loading={false}
-                />
-                <FilterPanel
-                  title="Branches"
+                  title=""
                   options={branchTypes}
                   selected={selectedBranches}
                   setSelected={setSelectedBranches}
@@ -336,15 +357,16 @@ export default function CoursesPage() {
               </div>
             </div>
 
-            {/* Course List */}
             <div className="landing-results">
               <div className="landing-results-inner">
+                {/* Course List */}
                 <CourseList
                   courses={filteredCourses}
                   currentPage={currentPage}
                   coursesPerPage={coursesPerPage}
                 />
 
+                {/* Pagination */}
                 <Pagination
                   currentPage={currentPage}
                   totalPages={totalPages}

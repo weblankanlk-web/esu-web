@@ -2,38 +2,35 @@
 
 .accordion-button,
 .accordion-button:not(.collapsed) {
-    color: #fff;
-    font-weight: bold;
+  color: #fff;
+  font-weight: bold;
 }
 
 .section-heading--underline {
-    text-align: center;
+  text-align: center;
+  color: #14549f;
 }
 
 .show-mobile-filter {
-    transform: translateX(0);
-    visibility: visible;
+  transform: translateX(0);
+  visibility: visible;
 }
 
 .mobile-filter-btn {
-    display: none;
-}
+  display: none;
 
-@media only screen and (max-width:992px) {
-    .mobile-filter-btn {
-        display: block;
-        background-color: red;
-        color: #fff;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: 20px;
-        top: 15px;
-        border: none;
-    }
+  @media only screen and (max-width: 992px) {
+    background-color: red;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    border: none;
+  }
 }
-

@@ -2,35 +2,14 @@
 
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import TitleSmall from "../../../common/TitleSmall/TitleSmall";
+import TitleLarge from "../../../common/TitleLarge/TitleLarge";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TestimonialItem from "./TestimonialItem";
 import "./style.scss";
 import { graphQLClient } from "@/lib/graphql-client";
-import { TESTIMONIALS_QUERY } from "@/queries/queries";
-
-type Testimonial = {
-  id: string;
-  title: string;
-  slug: string;
-  featuredImage: {
-    node: {
-      sourceUrl: string;
-      altText: string;
-    }
-  }
-  testimonials: {
-    testimonialType: string[];
-    testimonialVideo?: string;
-    thumbnailImage?: {
-      node: {
-        sourceUrl: string;
-      };
-    };
-    testimonialText?: string;
-  };
-};
+import { TESTIMONIALS_QUERY } from "@/common/queries/query";
+import { Testimonial } from "@/common/types/type";
 
 const HomeTestimonials: React.FC = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -45,8 +24,6 @@ const HomeTestimonials: React.FC = () => {
         const filtered = data.testimonials.nodes.filter(
           (item) => item.testimonials !== null
         );
-
-        console.log("✅ Testimonials fetched:", filtered); // ← log here
 
         setTestimonials(filtered);
       } catch (error) {
@@ -97,7 +74,7 @@ const HomeTestimonials: React.FC = () => {
   return (
     <section className="home-testimonials">
       <div className="title-wrap">
-        <TitleSmall title="Student" subtitle="Testimonials" />
+        <TitleLarge title="Student" subtitle="Testimonials" />
       </div>
       <div className="slider-wrap">
         <Slider {...settings} className="testimonial-slider">

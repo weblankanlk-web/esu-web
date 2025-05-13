@@ -88,6 +88,21 @@ export type DeanDetails = {
   };
 };
 
+export type ViceChancellor = {
+  title: string;
+  staffAcf: {
+    designation: string;
+    message: string;
+    qualifications: string;
+  };
+  featuredImage: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+    };
+  };
+};
+
 // app/courses/page.tsx
 export type CourseType = {
   id: string;
@@ -242,6 +257,61 @@ export type Staffs = {
     nodes?: {
       slug: string;
       name: string;
+    }[];
+  };
+};
+
+export type Testimonial = {
+  id: string;
+  title: string;
+  slug: string;
+  featuredImage: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+    };
+  };
+  testimonials: {
+    testimonialType: string[];
+    testimonialVideo?: string;
+    thumbnailImage?: {
+      node: {
+        sourceUrl: string;
+      };
+    };
+    testimonialText?: string;
+  };
+};
+
+export type AcademicStaff = {
+  title?: string;
+  staffAcf: {
+    academicQualifications?: string;
+    careerSummary?: string;
+    designation?: string;
+    myPublications?: string;
+    qualifications?: string;
+  };
+  featuredImage?: {
+    node?: {
+      altText?: string;
+      sourceUrl?: string;
+    };
+  };
+  schoolTypes?: {
+    nodes: {
+      name?: string;
+      slug?: string;
+      schoolTypesColorFontFields?: {
+        color?: string;
+        courseFontFamily?: string;
+      };
+      children?: {
+        nodes?: {
+          name?: string;
+          slug?: string;
+        }[];
+      };
     }[];
   };
 };

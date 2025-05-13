@@ -1,0 +1,45 @@
+@import "@/styles/global.scss";
+
+.title-wrapper {
+  .main-title-small {
+    font-family: var(--font-poppins);
+    color: #383636;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 45px;
+    letter-spacing: -2px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      color: #02aec9;
+    }
+
+    h2 {
+      font-size: 36px; // ✅ Ensuring h2 inside stays consistent
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+  }
+
+  @media only screen and (min-width: 1360px) {
+    .main-title-small {
+      font-size: get-vw(100px);
+      line-height: get-vw(50px);
+      letter-spacing: get-vw(-4px);
+      text-align: left;
+      justify-content: flex-start;
+
+      h2 {
+        font-size: 36px; // ✅ Override any vw values
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+    }
+  }
+}

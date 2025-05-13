@@ -1,177 +1,186 @@
 @import "@/styles/global.scss";
 
 .dean-massage {
-    background-color: #F4F4F6;
-    padding: 40px 0;
-    .dean-massage-wrap {
-        .massage-wrap {
-            .dean-message-title{
-                text-transform: uppercase;
-                margin-bottom: 0;
-                font-size: 35px;
-                text-align: center;
-                padding: 0 20px 30px;
+  background-color: #f4f4f6;
+  padding: 40px 0;
+  .dean-massage-wrap {
+    .massage-wrap {
+      .dean-message-title {
+        text-transform: uppercase;
+        margin-bottom: 0;
+        font-size: 35px;
+        text-align: center;
+        padding: 0 20px 30px;
+        font-family: var(--font-poppins);
+      }
+      .single-massage-card {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .single-image-wrap {
+          border-radius: 19.938px;
+          border: 0.997px solid #d9d9d9;
+          background: #fff;
+          margin: 0 auto 20px;
+          width: 90%;
+          .member-details {
+            text-align: center;
+            padding: 20px 10px;
+
+            .name {
+              font-family: var(--font-space-grotesk);
+              font-weight: 500;
+              font-size: 18px;
             }
-            .single-massage-card {
-                flex-wrap: wrap;
-                justify-content: space-between;
-                .single-image-wrap {
-                    border-radius: 19.938px;
-                    border: 0.997px solid #D9D9D9;
-                    background: #FFF;
-                    margin: 0 auto 20px;
-                    width: 90%;
-                    .member-details {
-                        text-align: center;
-                        padding: 20px 10px;
 
-                        .name {
-                            font-family: "Space Grotesk";
-                            font-weight: 500;
-                            font-size: 18px;
-
-                        }
-
-                        .position{
-                            font-style: normal;
-                            font-weight: 700;
-                            line-height: normal;
-                            font-size: 16px;
-                        }
-                        .qualification {
-                            font-family: "Space Grotesk";
-                            font-style: normal;
-                            font-weight: 400;
-                            font-size: 16px;
-                        }
-                    }
-
-                    .member-image {
-                        img{
-                            width: 100%;
-                            object-fit: cover;
-                            object-position: top;
-                            border-radius: 19.938px;
-                            height: 300px;
-                        }
-                    }
-                }
-
-                .single-massage {
-                    font-style: normal;
-                    font-weight: 400;
-                    padding: 0 20px;
-                }
+            .position {
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              font-size: 16px;
             }
+            .qualification {
+              font-family: var(--font-space-grotesk);
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+            }
+          }
+
+          .member-image {
+            img {
+              width: 100%;
+              max-width: 240px;
+              height: auto;
+              max-height: 300px;
+              object-fit: cover;
+              border-radius: 12px;
+              margin: 0 auto;
+              display: block;
+            }
+          }
+
+          @media screen and (min-width: 1024px) {
+            .member-image {
+              img {
+                max-width: 300px;
+                max-height: 360px;
+              }
+            }
+          }
         }
+
+        .single-massage {
+          font-style: normal;
+          font-weight: 400;
+          padding: 0 20px;
+        }
+      }
     }
+  }
 }
 
 @media screen and (min-width: 600px) {
-    .dean-massage {
-       
-        .dean-massage-wrap {
-            .massage-wrap {
-                .single-massage-card {
-                   
-                    .single-image-wrap {  
-                        width: 65%;  
-                        .member-image {
-                            img{
-                               height: 400px;
-                               object-fit: cover;
-                            }
-                        }
-                    }
-                }
+  .dean-massage {
+    .dean-massage-wrap {
+      .massage-wrap {
+        .single-massage-card {
+          .single-image-wrap {
+            width: 65%;
+            .member-image {
+              img {
+                height: 400px;
+                object-fit: cover;
+              }
             }
+          }
         }
+      }
     }
+  }
 }
 
 @media screen and (min-width: 990px) {
-    .dean-massage {
-        padding: 60px 0;
-        .dean-massage-wrap {
-            .massage-wrap {
-              
-                .single-massage-card {    
-                    .single-massage {
-                        padding: 40px 40px 0;
-                    }
-                }
-            }
+  .dean-massage {
+    padding: 60px 0;
+    .dean-massage-wrap {
+      .massage-wrap {
+        .single-massage-card {
+          .single-massage {
+            padding: 40px 40px 0;
+          }
         }
+      }
     }
+  }
 }
 @media screen and (min-width: 1024px) {
-    .dean-massage {
-        padding: get-vw(75px) 0;
-        .dean-massage-wrap {
-            .massage-wrap {
-                .dean-message-title{
-                    font-size: get-vw(100px);
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: get-vw(90px);
-                    letter-spacing: get-vw(-4px);
-                    padding-bottom: get-vw(40px);
-                }
-                .single-massage-card {
-                    margin: 0 get-vw(160px);
-                    border-radius: get-vw(19.938px);
-                    border: get-vw(0.997px) solid #D9D9D9;
-                    background: #FFF;
-                    .single-image-wrap {
-                        width: get-vw(500px);
-                        border: 0 solid #d9d9d9;
-                        margin: 0;
-                        padding-left: get-vw(60px);
-                        padding-top: get-vw(87px);
-                        .member-details {
-                            text-align: left;
-                            padding: 0 0 0 get-vw(60px);
-                            .name {
-                                font-size: get-vw(25px);
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: get-vw(28px); 
-                                letter-spacing: get-vw(-0.997px);
-                            }
-    
-                            .position{
-                                font-size: get-vw(16px);
-                                font-style: normal;
-                                font-weight: 700;
-                                line-height: normal;
-                                letter-spacing: get-vw(-0.32px);
-                            }
-                            .qualification {
-                                font-size: get-vw(16px);
-                                font-style: normal;
-                                line-height: normal;
-                                letter-spacing: get-vw(-0.32px);
-                                font-weight: 400;
-                                line-height: normal;
-                            }
-                        }
-    
-                        .member-image {
-                            img{
-                                height: auto;
-                            }
-                        }
-                    }
-                    .single-massage {
-                        width: calc(100% - get-vw(500px));
-                        font-size: get-vw(18px);
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: get-vw(25px); 
-                        padding: get-vw(90px) get-vw(151px);
-                    }
-                }
-            }
+  .dean-massage {
+    padding: get-vw(75px) 0;
+    .dean-massage-wrap {
+      .massage-wrap {
+        .dean-message-title {
+          font-size: get-vw(100px);
+          font-style: normal;
+          font-weight: 400;
+          line-height: get-vw(90px);
+          letter-spacing: get-vw(-4px);
+          padding-bottom: get-vw(40px);
+          font-family: var(--font-poppins);
         }
+        .single-massage-card {
+          margin: 0 get-vw(160px);
+          border-radius: get-vw(19.938px);
+          border: get-vw(0.997px) solid #d9d9d9;
+          background: #fff;
+          .single-image-wrap {
+            width: get-vw(500px);
+            border: 0 solid #d9d9d9;
+            margin: 0;
+            padding-left: get-vw(60px);
+            padding-top: get-vw(87px);
+            .member-details {
+              text-align: left;
+              padding: 0 0 0 get-vw(60px);
+              .name {
+                font-size: get-vw(25px);
+                font-style: normal;
+                font-weight: 500;
+                line-height: get-vw(28px);
+                letter-spacing: get-vw(-0.997px);
+              }
+
+              .position {
+                font-size: get-vw(16px);
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                letter-spacing: get-vw(-0.32px);
+              }
+              .qualification {
+                font-size: get-vw(16px);
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: get-vw(-0.32px);
+                font-weight: 400;
+              }
+            }
+
+            .member-image {
+              img {
+                height: auto;
+              }
+            }
+          }
+          .single-massage {
+            width: calc(100% - get-vw(500px));
+            font-size: get-vw(18px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: get-vw(25px);
+            padding: get-vw(90px) get-vw(151px);
+          }
+        }
+      }
     }
+  }
 }
