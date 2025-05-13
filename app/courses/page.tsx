@@ -26,6 +26,7 @@ import {
   SearchBar,
 } from "@/components/pages/Courses";
 import { FaTimes } from "react-icons/fa";
+import TitleText from "../../components/common/TextColorChange/TextColorChange";
 
 export default function CoursesPage() {
   const [search, setSearch] = useState("");
@@ -245,7 +246,6 @@ export default function CoursesPage() {
                     {selectedPrograms.length > 0 && (
                       <span>
                         {" "}
-                        | Program(s):{" "}
                         {selectedPrograms.map((slug) => {
                           const program = courseTypes.find(
                             (c) => c.slug === slug
@@ -254,22 +254,9 @@ export default function CoursesPage() {
                         })}
                       </span>
                     )}
-                    {selectedModes.length > 0 && (
-                      <span>
-                        {" "}
-                        | Mode(s):{" "}
-                        {selectedModes.map((slug) => {
-                          const modes = deliveryModeTypes.find(
-                            (c) => c.slug === slug
-                          );
-                          return modes ? modes.name : slug;
-                        })}
-                      </span>
-                    )}
                     {selectedBranches.length > 0 && (
                       <span>
                         {" "}
-                        | Branche(s):{" "}
                         {selectedBranches.map((slug) => {
                           const branches = branchTypes.find(
                             (c) => c.slug === slug
@@ -313,29 +300,55 @@ export default function CoursesPage() {
                 >
                   <FaTimes />
                 </button>
+
+                {/* 
+                    ---
+                    Faculties Filter  
+                    ---
+                */}
+
+                <div className="title-wrap">
+                  <TitleText title="" subtitle="Faculties" />
+                </div>
+
                 <FilterPanel
-                  title="Faculties"
+                  title="" // overridden by the above <div>
                   options={schoolTypes}
                   selected={selectedSchools}
                   setSelected={setSelectedSchools}
                   loading={false}
                 />
+
+                {/* 
+                    ---
+                    Academic Level Filter  
+                    ---
+                */}
+
+                <div className="title-wrap">
+                  <TitleText title="" subtitle="Academic Level" />
+                </div>
+
                 <FilterPanel
-                  title="Programs"
+                  title="" // overridden by the above <div>
                   options={courseTypes}
                   selected={selectedPrograms}
                   setSelected={setSelectedPrograms}
                   loading={false}
                 />
-{/*                 <FilterPanel
-                  title="Modes"
-                  options={deliveryModeTypes}
-                  selected={selectedModes}
-                  setSelected={setSelectedModes}
-                  loading={false}
-                /> */}
+
+                {/* 
+                    ---
+                    Campuses Filter  
+                    ---
+                */}
+
+                <div className="title-wrap">
+                  <TitleText title="" subtitle="Campuses" />
+                </div>
+
                 <FilterPanel
-                  title="Campuses"
+                  title=""
                   options={branchTypes}
                   selected={selectedBranches}
                   setSelected={setSelectedBranches}
@@ -344,15 +357,16 @@ export default function CoursesPage() {
               </div>
             </div>
 
-            {/* Course List */}
             <div className="landing-results">
               <div className="landing-results-inner">
+                {/* Course List */}
                 <CourseList
                   courses={filteredCourses}
                   currentPage={currentPage}
                   coursesPerPage={coursesPerPage}
                 />
 
+                {/* Pagination */}
                 <Pagination
                   currentPage={currentPage}
                   totalPages={totalPages}
