@@ -34,3 +34,8 @@ export interface Title {
   title: string;
   subtitle: string;
 }
+
+export interface TitleInterface {
+  title: string;
+  subtitle: string;
+}

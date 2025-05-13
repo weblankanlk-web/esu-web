@@ -3,13 +3,9 @@
 import React from "react";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
+import { TitleInterface } from "@/common/interfaces/interface";
 
-interface Title {
-  title: string;
-  subtitle: string;
-}
-
-const TitleLarge: React.FC<Title> = ({ title, subtitle }) => {
+const TitleLarge: React.FC<TitleInterface> = ({ title, subtitle }) => {
   const { color } = useTheme();
 
   console.log(color);
