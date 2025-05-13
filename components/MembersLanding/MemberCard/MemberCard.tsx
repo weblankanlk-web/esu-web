@@ -23,7 +23,7 @@ const MemberCardItem: React.FC<Props> = ({ memberData }) => {
         </div>
         <div className="member-image">
           <Image
-            src={MemberFeaturedImage?.sourceUrl || "/images/default-profile.jpg"}
+            src={MemberFeaturedImage?.sourceUrl || "/images/default-profile.png"}
             alt={MemberFeaturedImage?.altText || MemberName}
             width={352}
             height={352}
