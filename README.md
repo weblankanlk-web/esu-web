@@ -219,6 +219,25 @@ git merge origin/main --no-ff -m "Merge main into staging for latest updates"
 5. Push the updated staging branch
 git push origin staging
 
+##  Update Main Branch with Latest Changes from Staging
+
+1.	Switch to the main branch
+git checkout main
+
+2.	Ensure main is up to date
+git pull origin main
+
+3.	Fetch the latest changes
+git fetch origin
+
+4.	Merge staging into main
+git merge origin/staging --no-ff -m "Merge staging into main for release"
+
+5.	Resolve any merge conflicts
+
+6.	Push the updated main branch
+git push origin main
+
 ---
 
 **Maintained by:** Web Lankan DevOps Team
