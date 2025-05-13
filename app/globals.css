@@ -310,7 +310,6 @@
 
 /***********************Course Landing***********************************/
 
-
 .center-heading {
   width: max-content;
   margin: auto;
@@ -4080,39 +4079,43 @@ body.single-esoft-transfer #in-body.is-loaded {
   height: 700px;
 } */
 @media (min-width: 991px) and (max-width: 1300px) {
-    .counter-box h6{
-        font-size: var(--font-30);
-        line-height: var(--font-40);
-    }
-    .top-bar-menu a, ul#top-menu a{
-        font-size: 12px;
-    }
-    ul#primary a{
-        font-size: 11px;
-    }
-    .paragraph,.news-feature-box-wrap p,.testimonial-text p {
-        font-size: 15px;
-        line-height: 30px;
-    }
-    /* .next-btn {
+  .counter-box h6 {
+    font-size: var(--font-30);
+    line-height: var(--font-40);
+  }
+  .top-bar-menu a,
+  ul#top-menu a {
+    font-size: 12px;
+  }
+  ul#primary a {
+    font-size: 11px;
+  }
+  .paragraph,
+  .news-feature-box-wrap p,
+  .testimonial-text p {
+    font-size: 15px;
+    line-height: 30px;
+  }
+  /* .next-btn {
         font-size: 13px;
     } */
-    .course-box-details-left, .course-box-details-right {
-        font-size: 12px;
-    }
-    .course-box-details-partner {
-        font-size: 12px;
-    }
-    .attribute-box .attribute-box-check label {
-        font-size: 15px;
-    }
-    .course-box-img-content-inner h6 {
-        font-size: 14px;
-        line-height: 25px;
-    }
-    .course-box-img-content-inner p {
-        font-size: 12px;
-    }
+  .course-box-details-left,
+  .course-box-details-right {
+    font-size: 12px;
+  }
+  .course-box-details-partner {
+    font-size: 12px;
+  }
+  .attribute-box .attribute-box-check label {
+    font-size: 15px;
+  }
+  .course-box-img-content-inner h6 {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .course-box-img-content-inner p {
+    font-size: 12px;
+  }
 }
 @media (min-width: 991px) and (max-width: 1100px) {
   .main-wrap,
