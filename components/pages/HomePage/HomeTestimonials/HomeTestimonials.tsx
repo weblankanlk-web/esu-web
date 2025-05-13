@@ -24,7 +24,7 @@ const HomeTestimonials: React.FC = () => {
         const filtered = data.testimonials.nodes.filter(
           (item) => item.testimonials !== null
         );
-        console.log("✅ Testimonials fetched:", filtered);
+
         setTestimonials(filtered);
       } catch (error) {
         console.error("❌ Error fetching testimonials:", error);

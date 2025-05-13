@@ -8,8 +8,6 @@ import { TitleInterface } from "@/common/interfaces/interface";
 const TitleLarge: React.FC<TitleInterface> = ({ title, subtitle }) => {
   const { color } = useTheme();
 
-  console.log(color);
-
   return (
     <>
       <div className="title-wrapper">

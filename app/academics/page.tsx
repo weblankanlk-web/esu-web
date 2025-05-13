@@ -56,8 +56,6 @@ export default function CoursesPage() {
     fetchAcademics();
   }, []); // 🔁 Do not use [allAcademics] — that causes an infinite loop
 
-  console.log("Academics", allAcademics);
-
   const totalPages = Math.ceil(filteredAcademics.length / coursesPerPage);
 
   return (

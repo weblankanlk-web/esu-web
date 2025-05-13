@@ -12,8 +12,6 @@ interface CourseOverviewProps {
 const CourseOverview: React.FC<CourseOverviewProps> = ({ course }) => {
   const { color, setColor } = useTheme();
 
-  // console.log("Active theme color:", color);
-
   return (
     <>
       {/* <input

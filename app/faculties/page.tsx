@@ -35,14 +35,11 @@ const Page = () => {
 
         const vc = vcRes.staffType.staffs.nodes[0];
         setViceChancellor(vc);
-        console.log("✅ Vice Chancellor:", vc);
       } catch (error) {
         console.error("❌ Error fetching data:", error);
       }
     };
-
-    console.log("👨‍🎓 DeanMessage title prop:", title);
-
+    
     fetchData();
   }, []);
 

@@ -40,8 +40,6 @@ const page = () => {
   const [courseDetails, setCourseDetails] = useState<Courses | null>(null);
   const [relatedCourses, setRelatedCourses] = useState<RelatedCourses[]>([]);
 
-  // console.log("Course ID:", courseId);
-
   useEffect(() => {
     const school = courseDetails?.schoolTypes?.nodes?.[0];
     const font = school?.schoolTypesColorFontFields?.courseFontFamily;
@@ -89,7 +87,6 @@ const page = () => {
           id: wpCourseId,
         });
 
-        // console.log("GraphQL Course Data:", response.course);
         setCourseDetails(response.course);
       } catch (error) {
         console.error("Error fetching course details:", error);
@@ -152,16 +149,9 @@ const page = () => {
           courses: { nodes: RelatedCourses[] };
         }>(RELATED_COURSES_QUERY);
 
-        console.log("✅ GraphQL Related Courses Data:", response.courses.nodes);
-
         const filteredCourses = response.courses.nodes
           .filter((course) => course.id !== wpCourseId) // remove current course
           .slice(0, 3); // pick top 4 after filtering
-
-        console.log(
-          "✅ Filtered Related Courses (excluding current):",
-          filteredCourses
-        );
 
         setRelatedCourses(filteredCourses);
       } catch (error) {
@@ -175,13 +165,6 @@ const page = () => {
     fetchSchedule();
     fetchRelatedCourses();
   }, [courseId]);
-
-  // console.log("Course Data:", course);
-  // console.log("Course Fees Data:", courseFees);
-  // console.log("Schedule Data:", schedule);
-  // console.log("Filtered Related Courses:", relatedCourses);
-  // console.log("Course Details:", courseDetails);
-  // console.log(courseDetails?.featuredImage?.node?.mediaItemUrl)
 
   return (
     <>
@@ -237,10 +220,6 @@ const page = () => {
                 </h5>
               </div>
               {relatedCourses?.map((relatedCourse, index) => {
-                console.log(
-                  `🔍 Rendering related course #${index + 1}:`,
-                  relatedCourse
-                );
 
                 return (
                   <CourseItem

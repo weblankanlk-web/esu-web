@@ -82,8 +82,6 @@ const HomeBanner = () => {
     fetchHomeBanners();
   }, []);
 
-  console.log(homeBanners);
-
   return (
     <section className="home-banner">
       <div className="full-wrap">

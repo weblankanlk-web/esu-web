@@ -19,8 +19,6 @@ const page = () => {
     null
   );
 
-  console.log(slug);
-
   useEffect(() => {
     if (!slug) return;
 
@@ -39,16 +37,8 @@ const page = () => {
     fetchAcademicStaff();
   }, [slug]);
 
-  // console.log(
-  //   academicStaff?.schoolTypes?.nodes?.[0]?.schoolTypesColorFontFields?.color
-  // );
-
   setColor(
     academicStaff?.schoolTypes?.nodes?.[0]?.schoolTypesColorFontFields?.color
-  );
-
-  console.log(
-    academicStaff?.schoolTypes?.nodes?.[0]?.children?.nodes?.[0]?.name
   );
 
   if (!academicStaff)

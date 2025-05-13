@@ -43,7 +43,6 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
             member.title.toLowerCase() !== "dean"
         );
 
-        // console.log(filteredMembers);
         setFacultyMembers(filteredMembers);
       } catch (err) {
         console.error("❌ Error fetching staff members:", err);
