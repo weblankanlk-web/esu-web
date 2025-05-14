@@ -157,6 +157,33 @@ const page = () => {
             </section>
           )}
 
+          {(academicStaff?.staffAcf?.academicPublications?.length ?? 0) > 0 && (
+            <section className="profile__section">
+              <h3>
+                ACADEMIC <span style={{ color: color }}>PUBLICATIONS</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicPublications!.map(
+                  (pub, idx) => (
+                    <li key={idx}>
+                      {pub.publicationLinks ? (
+                        <a
+                          href={pub.publicationLinks}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {pub.text}
+                        </a>
+                      ) : (
+                        pub.text
+                      )}
+                    </li>
+                  )
+                )}
+              </ul>
+            </section>
+          )}
+
           {/*           {academicStaff.staffAcf?.myPublications && (
             <section className="profile__section">
               <h3>

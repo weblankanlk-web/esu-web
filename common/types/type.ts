@@ -284,9 +284,9 @@ export type Testimonial = {
 
 export type AcademicStaff = {
   title?: string;
-  staffAcf?: {
-    academicTitle?: string;
+  staffAcf: {
     designation?: string;
+    academicTitle?: string;
     message?: string;
     careerSummary?: string;
     googleScholarUrl?: {
@@ -299,27 +299,25 @@ export type AcademicStaff = {
       title?: string;
       target?: string;
     };
+    academicPublications?: {
+      text?: string;
+      publicationLinks?: string; // updated to reflect flat URL string
+    }[];
   };
   featuredImage?: {
     node?: {
-      altText?: string;
       sourceUrl?: string;
+      altText?: string;
     };
   };
   schoolTypes?: {
-    nodes?: Array<{
+    nodes: {
       name?: string;
       slug?: string;
       schoolTypesColorFontFields?: {
         color?: string;
         courseFontFamily?: string;
       };
-      children?: {
-        nodes?: Array<{
-          name?: string;
-          slug?: string;
-        }>;
-      };
-    }>;
+    }[];
   };
 };

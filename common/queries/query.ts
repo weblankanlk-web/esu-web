@@ -459,25 +459,29 @@ export const VICE_CHANCELLOR_QUERY = `
 `;
 
 export const ACADEMIC_STAFF = `
-query($slug: ID!){
+query ($slug: ID!) {
   staff(idType: SLUG, id: $slug) {
     title
     staffAcf {
-    designation
-    academicTitle
-    message
-    careerSummary
-    googleScholarUrl {
+      designation
+      academicTitle
+      message
+      careerSummary
+      googleScholarUrl {
         url
         title
         target
-    }
-    researchGateUrl {
+      }
+      researchGateUrl {
         url
         title
         target
+      }
+      academicPublications {
+        text
+        publicationLinks
+      }
     }
-}
     featuredImage {
       node {
         altText
@@ -491,12 +495,6 @@ query($slug: ID!){
         schoolTypesColorFontFields {
           color
           courseFontFamily
-        }
-        children {
-          nodes {
-            name
-            slug
-          }
         }
       }
     }
