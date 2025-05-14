@@ -314,6 +314,18 @@ export type AcademicStaff = {
       research?: string;
       researchDescription?: string;
     }[];
+    academicAwards?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicHonors?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicMembership?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
   };
   featuredImage?: {
     node?: {

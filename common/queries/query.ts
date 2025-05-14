@@ -492,6 +492,18 @@ query ($slug: ID!) {
         research
         researchDescription
       }
+      academicAwards {
+        text
+        publicationLinks
+      }
+      academicHonors {
+        text
+        publicationLinks
+      }
+      academicMembership {
+        text
+        publicationLinks
+      }
     }
     featuredImage {
       node {

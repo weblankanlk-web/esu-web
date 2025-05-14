@@ -239,6 +239,81 @@ const page = () => {
               </ul>
             </section>
           )}
+
+          {(academicStaff?.staffAcf?.academicAwards?.length ?? 0) > 0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>AWARDS & RECOGNITION</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicAwards!.map((pub) => (
+                  <li key={`${pub.text}-${pub.publicationLinks}`}>
+                    {pub.publicationLinks ? (
+                      <a
+                        href={pub.publicationLinks}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pub.text}
+                      </a>
+                    ) : (
+                      pub.text
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {(academicStaff?.staffAcf?.academicHonors?.length ?? 0) > 0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>HONORS</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicHonors!.map((pub) => (
+                  <li key={`${pub.text}-${pub.publicationLinks}`}>
+                    {pub.publicationLinks ? (
+                      <a
+                        href={pub.publicationLinks}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pub.text}
+                      </a>
+                    ) : (
+                      pub.text
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {(academicStaff?.staffAcf?.academicMembership?.length ?? 0) > 0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>MEMBERSHIP</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicMembership!.map((pub) => (
+                  <li key={`${pub.text}-${pub.publicationLinks}`}>
+                    {pub.publicationLinks ? (
+                      <a
+                        href={pub.publicationLinks}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pub.text}
+                      </a>
+                    ) : (
+                      pub.text
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
       </div>
     </>
