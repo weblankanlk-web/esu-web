@@ -488,6 +488,10 @@ query ($slug: ID!) {
       academicResearchInterest {
         text
       }
+      academicResearch {
+        research
+        researchDescription
+      }
     }
     featuredImage {
       node {

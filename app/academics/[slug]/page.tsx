@@ -221,6 +221,24 @@ const page = () => {
               </ul>
             </section>
           )}
+
+          {(academicStaff?.staffAcf?.academicResearch?.length ?? 0) > 0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>RESEARCH</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicResearch!.map((item, idx) => (
+                  <li key={item.research || idx}>
+                    <strong>{item.research}</strong>
+                    {item.researchDescription && (
+                      <p>{item.researchDescription}</p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
       </div>
     </>

@@ -310,6 +310,10 @@ export type AcademicStaff = {
     academicResearchInterest?: {
       text?: string;
     }[];
+    academicResearch?: {
+      research?: string;
+      researchDescription?: string;
+    }[];
   };
   featuredImage?: {
     node?: {
