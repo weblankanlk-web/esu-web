@@ -1,7 +1,8 @@
 "use client";
 
 import { useTheme } from "@/lib/ThemeContext";
-import React from "react";
+import React, { useState } from "react";
+import "./style.scss";
 
 interface Fee {
   currency: string;
@@ -42,6 +43,14 @@ interface FeesProps {
 const CourseFees: React.FC<FeesProps> = ({ fees }) => {
   const { color } = useTheme();
 
+  const [selectedType, setSelectedType] = useState<"local" | "foreign">(
+    "local"
+  );
+
+  const filteredPlans = fees?.fee_plans?.filter(
+    (plan) => plan.origin === selectedType
+  );
+
   return (
     <>
       <div className="course-details-wrapper">
@@ -61,8 +70,22 @@ const CourseFees: React.FC<FeesProps> = ({ fees }) => {
             Conditions Apply
           </p>
         </div>
+               <div className="toggle-buttons mb-3">
+            <button
+              className={selectedType === "local" ? "active" : ""}
+              onClick={() => setSelectedType("local")}
+            >
+              Local
+            </button>
+            <button
+              className={selectedType === "foreign" ? "active" : ""}
+              onClick={() => setSelectedType("foreign")}
+            >
+              International
+            </button>
+          </div>
         <div className="fee-box-wrap d-flex flex-wrap">
-          {fees?.fee_plans?.map((plan) => (
+          {filteredPlans?.map((plan) => (
             <div key={plan.id} className="fee-box">
               <div className="fee-box-inner">
                 <h6 style={{ background: color }}>

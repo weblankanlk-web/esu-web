@@ -5,15 +5,21 @@ import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import FaculityCard from "@/components/FaculityCard/FaculityCard";
 import DeanMessage from "@/components/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
-import { FACULTY_TYPES_QUERY, VICE_CHANCELLOR_QUERY } from "@/common/queries/query";
+import {
+  FACULTY_TYPES_QUERY,
+  VICE_CHANCELLOR_QUERY,
+} from "@/common/queries/query";
 import { Faculty, ViceChancellor } from "@/common/types/type";
 import { title } from "process";
+import { useTheme } from "@/lib/ThemeContext";
 
 const Page = () => {
   const [faculty, setFaculty] = useState<Faculty[]>([]);
   const [viceChancellor, setViceChancellor] = useState<ViceChancellor | null>(
     null
   );
+
+  const { color } = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +45,7 @@ const Page = () => {
         console.error("❌ Error fetching data:", error);
       }
     };
-    
+
     fetchData();
   }, []);
 
@@ -47,7 +53,7 @@ const Page = () => {
     <>
       {
         <InnerBanner
-          innerPageTitle={`Our <span>Faculties</span>`}
+          innerPageTitle={`Our <span style="color: ${color}">Faculties</span>`}
           innerPageDescription=""
           innerBgDesk="/images/faculity-lan.png"
           innerBgMobi="/images/faculity-lan.png"

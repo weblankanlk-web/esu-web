@@ -1,6 +1,8 @@
+@use "sass:math";
+
 @function get-vw($target) {
   $vw-context: 1920 * 0.01 * 1px;
-  $res: ($target / $vw-context) * 1vw;
+  $res: math.div($target, $vw-context) * 1vw;
   @return $res;
 }
 
