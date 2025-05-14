@@ -1,3 +1,4 @@
+@import "@/styles/global.scss";
 // .difference-row {
 //   display: flex;
 //   justify-content: space-between;
@@ -71,6 +72,9 @@
           padding-bottom: 0px;
       .difference-text {
             padding: 40px 20px 20px;
+                max-height: 330px;
+                min-height: 330px;
+                overflow-y: auto;
         .title-wrap {
           .title-wrapper{
             .main-title-small{
@@ -113,15 +117,30 @@
 
 @media only screen and (min-width: 768px) {
 .home-difference-section {
+  
   .home-difference-wrap {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex-wrap: wrap;
+    background: #F4F4F6;
+    border: 0;
+    border-radius: 20px;
+    padding-bottom: 40px;
   .single-difference:not(:first-of-type) {
     display: block !important;
   }
     .single-difference:not(:nth-of-type(1)):not(:nth-of-type(2)) {
       display: none !important;
+    }
+    .single-difference{
+      width: 49%;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    min-height: 320px;
+    overflow-y: auto;
+
     }
 
   }
@@ -130,16 +149,24 @@
 }
 @media only screen and (min-width: 992px) {
 .home-difference-section {
+  padding: 0 get-vw(120px);
   .home-difference-wrap {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding-bottom: get-vw(120px);
  
     .single-difference:not(:nth-of-type(1)):not(:nth-of-type(2)) {
       display: block !important;
     }
     .single-difference {
     width: 32%;
+    .home-difference-section .home-difference-wrap .single-difference .difference-text {
+    min-height: get-vw(330px);
+    max-height: get-vw(330px);
+    padding: get-vw(40px) get-vw(20px) get-vw(20px);
+    overflow-y: auto;
+}
 }
 
   }

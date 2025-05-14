@@ -123,7 +123,7 @@ const HomeDifference: React.FC = () => {
               <div className="title-wrap">
                 <TitleExtraSmall
                   title="Turning "
-                  subtitle="Ambition Into Direction"
+                  subtitle="&nbsp; Ambition Into Direction"
                 />
               </div>
               <p>
@@ -148,7 +148,7 @@ const HomeDifference: React.FC = () => {
               <div className="title-wrap">
                 <TitleExtraSmall
                   title="Learning  "
-                  subtitle="Beyond The Classroom"
+                  subtitle="&nbsp; Beyond The Classroom"
                 />
               </div>
               <p>
