@@ -12,10 +12,8 @@ import {
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.scss";
-import Header from "@/components/layout/Header/Header";
-import Footer from "@/components/layout/Footer/Footer";
-import { ThemeProvider } from "@/lib/ThemeContext";
 import "./globals.css";
+import RootLayoutClient from "./RootLayoutClient";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -37,7 +35,7 @@ const merriweather = Merriweather({
 
 const lobster = Lobster({
   subsets: ["latin"],
-  weight: ["400"], // only 400 available
+  weight: ["400"],
   variable: "--font-lobster",
 });
 
@@ -49,7 +47,7 @@ const orbitron = Orbitron({
 
 const felipa = Felipa({
   subsets: ["latin"],
-  weight: ["400"], // only 400 available
+  weight: ["400"],
   variable: "--font-felipa",
 });
 
@@ -61,7 +59,7 @@ const poppins = Poppins({
 
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"], // or customize as needed
+  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-manrope",
 });
 
@@ -69,14 +67,14 @@ export const metadata: Metadata = {
   title:
     "Education Institute in Sri Lanka | Sri Lanka Private University | ESOFT Uni",
   description:
-    "At ESOFT Uni, we&#039;re committed to providing a transformative learning experience. With programs in ICT and other degree courses, our education institutes in Sri Lanka are widespread.",
+    "At ESOFT Uni, we're committed to providing a transformative learning experience. With programs in ICT and other degree courses, our education institutes in Sri Lanka are widespread.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
@@ -91,11 +89,7 @@ export default function RootLayout({
           ${manrope.variable}
         `}
       >
-        <ThemeProvider>
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <RootLayoutClient>{children}</RootLayoutClient>
       </body>
     </html>
   );

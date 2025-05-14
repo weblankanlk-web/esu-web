@@ -30,16 +30,24 @@ const CourseSchedule: React.FC<ScheduleProps> = ({ schedule }) => {
     if (schedule?.length > 0) {
       const allBatches = schedule[0].batches;
 
+      const allowedBranches = ["Colombo", "Kandy"];
+
+      const filteredByBranch = allBatches.filter((batch) =>
+        allowedBranches.includes(batch.branch)
+      );
+
       const filtered = selectedBranch
-        ? allBatches.filter(
+        ? filteredByBranch.filter(
             (batch) =>
               batch.branch.toLowerCase() === selectedBranch.toLowerCase()
           )
-        : allBatches;
+        : filteredByBranch;
 
       setFilteredBatches(filtered);
     }
   }, [schedule, selectedBranch]);
+
+  console.log(filteredBatches);
 
   return (
     <>
@@ -60,13 +68,11 @@ const CourseSchedule: React.FC<ScheduleProps> = ({ schedule }) => {
             onChange={(e) => setSelectedBranch(e.target.value)}
           >
             <option value="">Select Branch</option>
-            {[...new Set(schedule?.[0]?.batches?.map((b) => b.branch))].map(
-              (branch) => (
-                <option key={branch} value={branch}>
-                  {branch}
-                </option>
-              )
-            )}
+            {["Colombo", "Kandy"]?.map((branch) => (
+              <option key={branch} value={branch}>
+                {branch}
+              </option>
+            ))}
           </select>
           <div className="schedule-table-wrap">
             <table className="batch-table">
