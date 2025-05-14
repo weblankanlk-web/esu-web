@@ -72,7 +72,6 @@ const FacultyInnerPage = () => {
               title="Dean"
               DeanName={dean.title}
               designation={dean.staffAcf.designation}
-              qualifications={dean.staffAcf.qualifications}
               message={dean.staffAcf.message}
               featuredImage={dean.featuredImage.node}
               fontFamily={faculty.schoolTypesColorFontFields.courseFontFamily}

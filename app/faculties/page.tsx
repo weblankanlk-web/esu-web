@@ -61,7 +61,6 @@ const Page = () => {
             title="Vice Chancellor's"
             DeanName={viceChancellor.title}
             designation={viceChancellor.staffAcf.designation || ""}
-            qualifications={viceChancellor.staffAcf.qualifications || ""}
             message={viceChancellor.staffAcf.message || ""}
             featuredImage={{
               sourceUrl:

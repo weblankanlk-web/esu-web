@@ -93,7 +93,6 @@ export type ViceChancellor = {
   staffAcf: {
     designation: string;
     message: string;
-    qualifications: string;
   };
   featuredImage: {
     node: {
