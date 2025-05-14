@@ -55,8 +55,8 @@ const Page = () => {
         <InnerBanner
           innerPageTitle={`Our <span style="color: ${color}">Faculties</span>`}
           innerPageDescription=""
-          innerBgDesk="/images/faculity-lan.png"
-          innerBgMobi="/images/faculity-lan.png"
+          innerBgDesk="/images/faculties-inner-banner.png"
+          innerBgMobi="/images/faculties-inner-banner.png"
         />
       }
 
@@ -77,7 +77,7 @@ const Page = () => {
                 "Vice Chancellor",
             }}
             fontFamily={"inherit"} // You can update this if you add font in VC fields
-            fontColor={"#000"} // Update if VC fields include color
+            fontColor={color} // Update if VC fields include color
           />
         )}
 

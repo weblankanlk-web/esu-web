@@ -155,6 +155,12 @@ const Header = () => {
                 <nav className="navbar navbar-expand-lg nav-menu">
                   <ul className="navbar-nav navbardropdown" id="primary">
                     <li>
+                      <Link href="/">Home</Link>
+                    </li>
+                    <li>
+                      <Link href="/about-us">About Us</Link>
+                    </li>
+                    <li>
                       <Link href="/courses">Courses</Link>
                     </li>
                     <li>
@@ -253,9 +259,10 @@ const Header = () => {
           <nav className="navbar navbar-expand-lg nav-menu">
             <ul className="navbar-nav navbardropdown" id="mobile">
               <li>
-                <Link href="https://esoft.lk/" target="_blank">
-                  Home
-                </Link>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/about-us">About Us</Link>
               </li>
               {/* <li>
                 <Link href="https://esoft.lk/about-us/" target="_blank">
@@ -304,9 +311,7 @@ const Header = () => {
                 <Link href="/faculties">Faculties</Link>
               </li>
               <li>
-                <Link href="/contact-us" target="_blank">
-                  contact us
-                </Link>
+                <Link href="/contact-us">contact us</Link>
               </li>
             </ul>
           </nav>

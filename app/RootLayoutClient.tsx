@@ -6,12 +6,26 @@ import Footer from "@/components/layout/Footer/Footer";
 import { ThemeProvider } from "@/lib/ThemeContext";
 import Preloader from "@/components/common/Preloader/Preloader";
 
-export default function RootLayoutClient({ children }: { children: React.ReactNode }) {
+export default function RootLayoutClient({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [isLoading, setIsLoading] = useState(true);
 
+  //   useEffect(() => {
+  //     const timer = setTimeout(() => setIsLoading(false), 1500);
+  //     return () => clearTimeout(timer);
+  //   }, []);
+
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1500);
-    return () => clearTimeout(timer);
+    const handleLoad = () => setIsLoading(false);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+    return () => window.removeEventListener("load", handleLoad);
   }, []);
 
   return isLoading ? (

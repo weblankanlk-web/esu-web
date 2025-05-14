@@ -57,7 +57,7 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
     <>
       <section className="faculty-member-section">
         <div className="faculty-member-wrap">
-          <h2 className="dean-message-title" style={{ fontFamily }}>
+          <h2 className="dean-message-title">
             {sectinTitle1} <span style={{ color: fontColor }}>{sectinTitle2}</span>
           </h2>
           <div className="members-wrap d-flex flex-wrap justify-content-start gap-1">
