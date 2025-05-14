@@ -110,7 +110,7 @@ const HomeDifference: React.FC = () => {
             </div>
             <div className="difference-image">
               <Image
-                src="/images/difference-sample.png"
+                src="/images/1.png"
                 alt="Students sitting together on stairs"
                 width={360}
                 height={250}
@@ -135,7 +135,7 @@ const HomeDifference: React.FC = () => {
             </div>
             <div className="difference-image">
               <Image
-                src="/images/difference-sample.png"
+                src="/images/2.png"
                 alt="Student reading on a swing chair"
                 width={360}
                 height={250}
@@ -160,7 +160,7 @@ const HomeDifference: React.FC = () => {
             </div>
             <div className="difference-image">
               <Image
-                src="/images/difference-sample.png"
+                src="/images/3.png"
                 alt="Students working together on a laptop"
                 width={360}
                 height={250}
