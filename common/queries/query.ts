@@ -303,19 +303,28 @@ export const HOME_BANNER_QUERY = `
     }
   }
 }
-    `;
+`;
 
 export const ACADEMIC_STAFF = `
 query($slug: ID!){
   staff(idType: SLUG, id: $slug) {
-     title
+    title
     staffAcf {
-      academicQualifications
-      careerSummary
-      designation
-      myPublications
-      qualifications
+    designation
+    academicTitle
+    message
+    careerSummary
+    googleScholarUrl {
+        url
+        title
+        target
     }
+    researchGateUrl {
+        url
+        title
+        target
+    }
+}
     featuredImage {
       node {
         altText

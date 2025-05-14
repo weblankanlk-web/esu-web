@@ -285,12 +285,21 @@ export type Testimonial = {
 
 export type AcademicStaff = {
   title?: string;
-  staffAcf: {
-    academicQualifications?: string;
-    careerSummary?: string;
+  staffAcf?: {
+    academicTitle?: string;
     designation?: string;
-    myPublications?: string;
-    qualifications?: string;
+    message?: string;
+    careerSummary?: string;
+    googleScholarUrl?: {
+      url?: string;
+      title?: string;
+      target?: string;
+    };
+    researchGateUrl?: {
+      url?: string;
+      title?: string;
+      target?: string;
+    };
   };
   featuredImage?: {
     node?: {
@@ -299,7 +308,7 @@ export type AcademicStaff = {
     };
   };
   schoolTypes?: {
-    nodes: {
+    nodes?: Array<{
       name?: string;
       slug?: string;
       schoolTypesColorFontFields?: {
@@ -307,11 +316,11 @@ export type AcademicStaff = {
         courseFontFamily?: string;
       };
       children?: {
-        nodes?: {
+        nodes?: Array<{
           name?: string;
           slug?: string;
-        }[];
+        }>;
       };
-    }[];
+    }>;
   };
 };

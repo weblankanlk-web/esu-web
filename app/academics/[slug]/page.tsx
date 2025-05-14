@@ -78,35 +78,58 @@ const page = () => {
             height={100}
             style={{ background: color }}
           />
-          {/* <div className="profile__contact">
-            <p className="contact-number">Contact Us Number</p>
-            <a href="tel:+94714120934">+94 71 412 0934</a>
-            <br />
-            <p className="email-address">Email Address</p>
-            <a href="mailto:Dayan@esoft.lk">Dayan@esoft.lk</a>
-          </div> */}
+          <div className="profile__contact">
+            <div className="scholar-link-block">
+              {academicStaff?.staffAcf?.googleScholarUrl?.url && (
+                <div className="scholar-link-block">
+                  <a
+                    href={academicStaff.staffAcf.googleScholarUrl.url}
+                    target={
+                      academicStaff.staffAcf.googleScholarUrl.target || "_self"
+                    }
+                    rel="noopener noreferrer"
+                  >
+                    {academicStaff.staffAcf.googleScholarUrl.title ||
+                      "Scholar Link"}
+                  </a>
+
+                  <a
+                    href={academicStaff.staffAcf.researchGateUrl?.url}
+                    target={
+                      academicStaff.staffAcf.researchGateUrl?.target || "_self"
+                    }
+                    rel="noopener noreferrer"
+                  >
+                    {academicStaff.staffAcf.researchGateUrl?.title ||
+                      "Research Gate Link"}
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="profile__content">
           <div className="profile__header">
             <h2>{academicStaff.title}</h2>
+
             <p className="designation">{academicStaff.staffAcf?.designation}</p>
-            <p className="qualifications">
-              {academicStaff.staffAcf?.qualifications}
+
+            <p className="academictitle">
+              {academicStaff.staffAcf?.academicTitle}
             </p>
-            <a href="#" className="faculty">
-              {academicStaff.schoolTypes?.nodes
-                .map((node) => node.name)
-                .join(" | ")}
-              &nbsp;|&nbsp;
-              {
-                academicStaff?.schoolTypes?.nodes?.[0]?.children?.nodes?.[0]
-                  ?.name
-              }
-            </a>
+
+            {academicStaff.schoolTypes?.nodes?.length ? (
+              <p className="faculty">
+                {academicStaff.schoolTypes.nodes
+                  .map((node) => node.name)
+                  .filter(Boolean)
+                  .join(", ")}
+              </p>
+            ) : null}
           </div>
 
-          {academicStaff.staffAcf?.academicQualifications && (
+          {/*           {academicStaff.staffAcf?.academicQualifications && (
             <section className="profile__section">
               <h3>
                 ACADEMIC <span style={{ color: color }}>QUALIFICATIONS</span>
@@ -117,7 +140,7 @@ const page = () => {
                 }}
               />
             </section>
-          )}
+          )} */}
 
           {academicStaff.staffAcf?.careerSummary && (
             <section className="profile__section">
@@ -132,7 +155,7 @@ const page = () => {
             </section>
           )}
 
-          {academicStaff.staffAcf?.myPublications && (
+          {/*           {academicStaff.staffAcf?.myPublications && (
             <section className="profile__section">
               <h3>
                 MY <span style={{ color: color }}>PUBLICATIONS</span>
@@ -143,7 +166,7 @@ const page = () => {
                 }}
               />
             </section>
-          )}
+          )} */}
         </div>
       </div>
     </>
