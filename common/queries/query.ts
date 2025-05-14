@@ -179,7 +179,7 @@ query {
 
 export const ALL_COURSE_QUERY = `
 query {
-  courses (first: 100) {
+  courses (first: 300) {
     nodes {
       id
       title

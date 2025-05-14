@@ -115,7 +115,11 @@ export default function CoursesPage() {
           courses: { nodes: Courses[] };
         }>(ALL_COURSE_QUERY);
 
-        setAllCourses(data.courses.nodes);
+        const filteredByBranch = data.courses.nodes.filter(
+          (course) => (course.branchTypes?.nodes ?? []).length > 0
+        );
+
+        setAllCourses(filteredByBranch);
       } catch (error) {
         console.error("Error fetching course types:", error);
       }
@@ -202,6 +206,8 @@ export default function CoursesPage() {
   };
 
   const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
+
+  console.log("selectedBranches", branchTypes);
 
   return (
     <>
