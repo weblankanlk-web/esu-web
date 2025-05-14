@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Image from "next/image";
 import TitleLarge from "@/components/common/TitleLarge/TitleLarge";
+import Button from "@/components/common/Button/Button";
 
 const HomeNews = () => {
   const [news, setNews] = useState([]);
@@ -15,7 +16,58 @@ const HomeNews = () => {
   }, []);
 
   return (
-    <section className="home-news-section">
+    <>
+     <section className="home-news-section">
+      <div className="home-news-section-wrap">
+        <div className="title-wrap text-center">
+          <TitleLarge title="Latest" subtitle="&nbsp; News & Events" />
+          <div className="all-news-wrap">
+            <Button buttonName="View All News" buttonUrl="/#" />
+          </div>
+        </div>
+        <div className="news-container">
+          <div className="news-main pos-relative">
+            <Image
+              src="/images/news.png"
+              alt="Main News"
+              width={800}
+              height={400}
+              className="news-image"
+            />
+            <div className="news-content pos-absolute">
+              <p className="news-date">📅 May 6, 2025</p>
+              <h3 className="news-title">
+                ESOFT Celebrates Young ICT Talent at National Level Information
+                and Communication Technology Champions Awards
+              </h3>             
+            </div>
+          </div>
+
+          <div className="news-sidebar">
+            <div className="news-sidebar-item">
+              <p className="news-date">📅 16 August 2023</p>
+              <p className="news-subtitle">
+                London Metropolitan Inaugural Ceremony 2023
+              </p>
+            </div>
+            <div className="news-sidebar-item active">
+              <p className="news-date">📅 16 August 2023</p>
+              <p className="news-subtitle">
+                Inaugural Ceremony Kingston University BSc. Top-Up Programme
+              </p>
+            </div>
+            <div className="news-sidebar-item">
+              <p className="news-date">📅 16 August 2023</p>
+              <p className="news-subtitle">
+                ESOFT Metro Campus And Melsta Hospitals Inked MOU
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     {/* <section className="home-news-section">
       <div className="small-middle-wrap">
         <div className="title-wrap text-center">
           <TitleLarge title="Latest" subtitle="News & Events" />
@@ -66,7 +118,9 @@ const HomeNews = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
+    </>
+   
   );
 };
 
