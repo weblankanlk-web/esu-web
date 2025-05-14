@@ -1,3 +1,4 @@
+@import "@/styles/global.scss";
 // .news-container {
 //   display: flex;
 //   gap: 20px;
@@ -87,6 +88,7 @@
 
 
 .home-news-section {
+  padding-bottom: 40px;
   .home-news-section-wrap {
     .title-wrap {
       padding-bottom: 40px;
@@ -99,14 +101,106 @@
 
     .news-container {
       .news-main {
-
+        position: relative;
+        &::after{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(0deg, #0A0A0C 0.09%, rgba(10, 10, 12, 0.84) 17.87%, rgba(10, 10, 12, 0.00) 38.38%);
+          border-radius: 20px;
+        }
         .news-image {
           width: 100%;
           height: 300px;
           object-fit: cover;
+          
         }
 
         .news-content {
+          padding: 20px;
+          position: absolute;
+          bottom: 0;
+          z-index: 99;
+          color: #fff;
+
+
+          .news-date {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 10px;
+          }
+
+          .news-title {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .news-sidebar {
+        padding: 20px;
+        .news-sidebar-item {
+          border-radius: 7.965px;
+          border: 0.531px solid rgba(0, 0, 0, 0.12);
+          background: #FFF;
+          margin-bottom: 10px;
+          padding: 15px 20px;
+          a{
+            text-decoration: none;
+            color: initial;
+          }
+          .news-date {
+            font-size: 9.558px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 18.585px;
+            margin: 0;
+          }
+
+          .news-subtitle {
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 18.585px;
+            margin: 0;
+        
+          }
+
+          &.active {
+            a{
+              text-decoration: none;
+              color: #fff !important;
+            }
+            background: #02AEC9;
+            color: #fff !important; 
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+.home-news-section {
+  .home-news-section-wrap {
+    .title-wrap {
+
+      .all-news-wrap {
+      }
+    }
+
+    .news-container {
+      .news-main {
+        
+
+        .news-image {
+              height: auto;
+        }
+
+        .news-content {
+          position: absolute;
 
           .news-date {
           }
@@ -130,4 +224,78 @@
       }
     }
   }
+}
+}
+@media only screen and (min-width: 992px) {
+.home-news-section {
+  padding: get-vw(40px) get-vw(120px) get-vw(130px);
+  .home-news-section-wrap {
+    .title-wrap {
+          display: flex;
+          justify-content: space-between;
+
+      .all-news-wrap {
+            margin: get-vw(20px) 0 auto;
+      }
+    }
+
+    .news-container {
+          display: flex;
+          justify-content: space-between;
+      .news-main {
+        width: get-vw(1025px);
+
+        .news-image {
+              height: auto;
+              border-radius: 20px;
+              background: linear-gradient(180deg, #0A0A0C 0.09%, rgba(10, 10, 12, 0.84) 17.87%, rgba(10, 10, 12, 0.00) 38.38%);
+
+        }
+
+        .news-content {
+          position: absolute;
+          padding: 0 get-vw(66px) get-vw(66px) !important;
+          .news-date {
+            font-size: get-vw(18px);
+            font-style: normal;
+            font-weight: 600;
+            line-height: get-vw(35px);          
+            }
+
+          .news-title {
+            font-size: get-vw(40px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: get-vw(40px); 
+            text-transform: capitalize;
+          }
+        }
+      }
+
+      .news-sidebar {
+        width: calc(100% - get-vw(1050px));
+        padding: 0;
+        .news-sidebar-item {
+          padding: get-vw(30px) get-vw(30px);
+          .news-date {
+            font-size: get-vw(18px);
+            font-style: normal;
+            font-weight: 600;
+            line-height: get-vw(35px);
+          }
+
+          .news-subtitle {
+            font-size: get-vw(25px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: get-vw(35px);
+          }
+
+          &.active {
+          }
+        }
+      }
+    }
+  }
+}
 }
