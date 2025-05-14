@@ -120,12 +120,14 @@ const page = () => {
             </p>
 
             {academicStaff.schoolTypes?.nodes?.length ? (
-              <p className="faculty">
-                {academicStaff.schoolTypes.nodes
-                  .map((node) => node.name)
-                  .filter(Boolean)
-                  .join(", ")}
-              </p>
+              <h3>
+                <span style={{ color: color }} className="faculty">
+                  {academicStaff.schoolTypes.nodes
+                    .map((node) => node.name)
+                    .filter(Boolean)
+                    .join(", ")}
+                </span>
+              </h3>
             ) : null}
           </div>
 
