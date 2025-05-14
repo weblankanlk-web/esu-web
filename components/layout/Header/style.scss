@@ -7,10 +7,10 @@
 }
 
 #header .hidden-text {
-  visibility: hidden;
-  height: 1px;
-  overflow: hidden;
-  display: inline-block;
+    visibility: hidden;
+    height: 1px;
+    overflow: hidden;
+    display: inline-block;
 }
 
 #header .bottom-bar::after {
@@ -317,6 +317,14 @@ ul#primary li:last-child {
     display: block;
 }
 
+.apply-now-wrap a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+}
+
 @media(min-width: 991px) {
     .desktop-only-view {
         display: block;
@@ -342,8 +350,9 @@ ul#primary li:last-child {
 
     .navbar {
         justify-content: center;
+
         ul {
-            li{
+            li {
                 text-align: center;
             }
         }
