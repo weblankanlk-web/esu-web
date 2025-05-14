@@ -481,6 +481,13 @@ query ($slug: ID!) {
         text
         publicationLinks
       }
+      academicQualification{
+        text
+        publicationLinks
+      }
+      academicResearchInterest {
+        text
+      }
     }
     featuredImage {
       node {

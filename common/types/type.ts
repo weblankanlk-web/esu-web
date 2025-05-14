@@ -301,7 +301,14 @@ export type AcademicStaff = {
     };
     academicPublications?: {
       text?: string;
-      publicationLinks?: string; // updated to reflect flat URL string
+      publicationLinks?: string;
+    }[];
+    academicQualification?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicResearchInterest?: {
+      text?: string;
     }[];
   };
   featuredImage?: {

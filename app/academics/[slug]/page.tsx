@@ -142,23 +142,10 @@ const page = () => {
             ) : null}
           </div>
 
-          {/*           {academicStaff.staffAcf?.academicQualifications && (
-            <section className="profile__section">
-              <h3>
-                ACADEMIC <span style={{ color: color }}>QUALIFICATIONS</span>
-              </h3>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: academicStaff.staffAcf?.academicQualifications || "",
-                }}
-              />
-            </section>
-          )} */}
-
           {academicStaff.staffAcf?.careerSummary && (
             <section className="profile__section">
               <h3>
-                CAREER <span style={{ color: color }}>SUMMARY</span>
+                <span style={{ color: color }}>CAREER SUMMARY</span>
               </h3>
               <div
                 dangerouslySetInnerHTML={{
@@ -171,42 +158,69 @@ const page = () => {
           {(academicStaff?.staffAcf?.academicPublications?.length ?? 0) > 0 && (
             <section className="profile__section">
               <h3>
-                ACADEMIC <span style={{ color: color }}>PUBLICATIONS</span>
+                <span style={{ color: color }}>PUBLICATIONS</span>
               </h3>
               <ul>
-                {academicStaff.staffAcf.academicPublications!.map(
-                  (pub, idx) => (
-                    <li key={idx}>
-                      {pub.publicationLinks ? (
-                        <a
-                          href={pub.publicationLinks}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {pub.text}
-                        </a>
-                      ) : (
-                        pub.text
-                      )}
-                    </li>
+                {academicStaff.staffAcf.academicPublications!.map((pub) => (
+                  <li key={`${pub.text}-${pub.publicationLinks}`}>
+                    {pub.publicationLinks ? (
+                      <a
+                        href={pub.publicationLinks}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pub.text}
+                      </a>
+                    ) : (
+                      pub.text
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {(academicStaff?.staffAcf?.academicQualification?.length ?? 0) >
+            0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>QUALIFICATIONS</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicQualification!.map((pub) => (
+                  <li key={`${pub.text}-${pub.publicationLinks}`}>
+                    {pub.publicationLinks ? (
+                      <a
+                        href={pub.publicationLinks}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pub.text}
+                      </a>
+                    ) : (
+                      pub.text
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {(academicStaff?.staffAcf?.academicResearchInterest?.length ?? 0) >
+            0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>RESEARCH INTEREST</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicResearchInterest!.map(
+                  (item, idx) => (
+                    <li key={item.text || idx}>{item.text}</li>
                   )
                 )}
               </ul>
             </section>
           )}
-
-          {/*           {academicStaff.staffAcf?.myPublications && (
-            <section className="profile__section">
-              <h3>
-                MY <span style={{ color: color }}>PUBLICATIONS</span>
-              </h3>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: academicStaff.staffAcf?.myPublications || "",
-                }}
-              />
-            </section>
-          )} */}
         </div>
       </div>
     </>
