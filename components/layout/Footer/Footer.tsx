@@ -179,7 +179,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer-bottom" style={{ backgroundColor: color }}></div>
+      {/* <div className="footer-bottom" style={{ backgroundColor: color }}></div> */}
     </footer>
   );
 };
