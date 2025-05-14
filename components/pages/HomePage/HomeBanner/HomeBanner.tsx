@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 import TabsWithImages from "./Tabs";
 import { graphQLClient } from "@/lib/graphql-client";
-import { HOME_BANNER_QUERY } from "@/queries/queries";
+import { HOME_BANNER_QUERY } from "@/common/queries/query";
 
 type HomeBannerTypes = {
   page: {
@@ -81,8 +81,6 @@ const HomeBanner = () => {
 
     fetchHomeBanners();
   }, []);
-
-  console.log(homeBanners);
 
   return (
     <section className="home-banner">

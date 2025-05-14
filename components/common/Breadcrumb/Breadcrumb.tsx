@@ -28,8 +28,7 @@ const Breadrumb = () => {
 
             return (
               <span key={index}>
-                {" "}
-                →{" "}
+                {" "} → {" "}
                 {isLast ? (
                   <span>{getLabel(segment)}</span>
                 ) : (

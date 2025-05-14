@@ -35,7 +35,6 @@ const TestimonialItem: React.FC<Props> = ({ testimonialData }) => {
 
   const [expanded, setExpanded] = useState(false);
   const text = testimonials.testimonialText?.trim() || "";
-
   const MAX_CHARACTERS = 220;
 
   const shouldTruncate = text.length > MAX_CHARACTERS;
@@ -52,24 +51,21 @@ const TestimonialItem: React.FC<Props> = ({ testimonialData }) => {
                 src={featuredImageUrl}
                 width={60}
                 height={60}
-                alt={title}
-                className="rounded-circle"
+                alt={featuredImage?.node?.altText || title}
               />
             </div>
           )}
           <div className="detail-contain">
             <h6 className="person-name">{title}</h6>
-            <p className="person-position">{slug}</p>
           </div>
         </div>
 
         {/* Text Testimonial */}
-        {isText && testimonials.testimonialText?.trim() && (
+        {isText && text && (
           <div className="testimonial-content message">
             {visibleText.split(/\r?\n/).map((line, i) => (
               <p key={i}>{line.trim()}</p>
             ))}
-
             {shouldTruncate && (
               <button
                 onClick={() => setExpanded(!expanded)}
@@ -84,18 +80,9 @@ const TestimonialItem: React.FC<Props> = ({ testimonialData }) => {
         {/* Video Testimonial */}
         {isVideo && imageUrl && (
           <div className="testimonial-content video">
-            {/* <iframe
-              width="100%"
-              height="315"
-              src={testimonials.testimonialVideo}
-              title={`Testimonial Video - ${title}`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            /> */}
             <Image
               src={imageUrl}
-              alt=""
+              alt={`Testimonial Video Thumbnail - ${title}`}
               width={300}
               height={200}
               layout="responsive"

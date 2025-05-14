@@ -3,7 +3,7 @@ import "./style.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import TitleSmall from "../../../common/TitleSmall/TitleSmall";
+import TitleLarge from "../../../common/TitleLarge/TitleLarge";
 import Logo from "./Logo";
 
 const logos = [
@@ -69,7 +69,7 @@ const HomeUniversities = () => {
       <section className="home-universities">
         <div className="full-wrap">
           <div className="title-wrap">
-            <TitleSmall title="Academic" subtitle="Partnerships" />
+            <TitleLarge title="Academic" subtitle="Partnerships" />
           </div>
           <div className="slider-wrap">
             <Slider {...settings} className="logo-slider">

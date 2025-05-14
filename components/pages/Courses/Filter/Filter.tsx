@@ -5,7 +5,7 @@ import {
   CourseType,
   DeliveryModeTypes,
   SchoolType,
-} from "@/types/data";
+} from "@/common/types/type";
 import { useTheme } from "@/lib/ThemeContext";
 import { graphQLClient } from "@/lib/graphql-client";
 import {
@@ -13,7 +13,7 @@ import {
   COURSE_TYPES_QUERY,
   DELIVERY_MODE_QUERY,
   SCHOOL_TYPES_QUERY,
-} from "@/queries/queries";
+} from "@/common/queries/query";
 import { FaTimes } from "react-icons/fa";
 
 interface FilterProps {
@@ -142,11 +142,10 @@ const Filter: React.FC<FilterProps> = ({
           <p id="search-breif">
             <span id="result-count">{filteredCourses.length} </span>
             {search && <span id="result-keyword">"{search}"</span>}
-            Search Results for:
+            Search Results Found for
             {selectedSchools && selectedSchools.length > 0 && (
               <span>
                 {" "}
-                | Facultie(s):{" "}
                 {selectedSchools.map((slug: string) => {
                   const school = schoolTypes.find((s) => s.slug === slug);
                   return school ? school.name : slug;

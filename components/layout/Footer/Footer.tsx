@@ -2,17 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import "./style.scss";
+import { useTheme } from "@/lib/ThemeContext";
 import {
   FaFacebookF,
-  FaLinkedinIn,
   FaInstagram,
-  FaTwitter,
-  FaGooglePlusG,
+  FaLinkedinIn,
   FaTiktok,
   FaYoutube,
 } from "react-icons/fa";
-import "./style.scss";
-import { useTheme } from "@/lib/ThemeContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -24,45 +22,47 @@ const Footer = () => {
       <div className="footer-social" style={{ backgroundColor: color }}>
         <div className="social-banner small-middle-wrap">
           <div className="hashtag">#ESULife</div>
-          {/* <div className="social-icons">
-            <div className="icon">
-              <Link
-                href="https://www.facebook.com/ESOFTMetroCampus/"
-                target="_blank"
-              >
-                <FaFacebookF />
-              </Link>
+          {
+            <div className="social-icons">
+              <div className="icon">
+                <Link
+                  href="https://www.facebook.com/ESOFTMetroCampus/"
+                  target="_blank"
+                >
+                  <FaFacebookF />
+                </Link>
+              </div>
+              <div className="icon">
+                <Link
+                  href="https://www.instagram.com/esoftmetrocampus/?hl=en"
+                  target="_blank"
+                >
+                  <FaInstagram />
+                </Link>
+              </div>
+              <div className="icon">
+                <Link
+                  href="https://lk.linkedin.com/school/esoftmetrocampus/"
+                  target="_blank"
+                >
+                  <FaLinkedinIn />
+                </Link>
+              </div>
+              <div className="icon">
+                <Link href="https://www.tiktok.com/@emccolombo" target="_blank">
+                  <FaTiktok />
+                </Link>
+              </div>
+              <div className="icon">
+                <Link
+                  href="https://www.youtube.com/channel/UCrVBMxBtZy7iVHecsUUycew"
+                  target="_blank"
+                >
+                  <FaYoutube />
+                </Link>
+              </div>
             </div>
-            <div className="icon">
-              <Link
-                href="https://www.instagram.com/esoftmetrocampus/?hl=en"
-                target="_blank"
-              >
-                <FaInstagram />
-              </Link>
-            </div>
-            <div className="icon">
-              <Link
-                href="https://lk.linkedin.com/school/esoftmetrocampus/"
-                target="_blank"
-              >
-                <FaLinkedinIn />
-              </Link>
-            </div>
-            <div className="icon">
-              <Link href="https://www.tiktok.com/@emccolombo" target="_blank">
-                <FaTiktok />
-              </Link>
-            </div>
-            <div className="icon">
-              <Link
-                href="https://www.youtube.com/channel/UCrVBMxBtZy7iVHecsUUycew"
-                target="_blank"
-              >
-                <FaYoutube />
-              </Link>
-            </div>
-          </div> */}
+          }
         </div>
       </div>
 
@@ -97,10 +97,22 @@ const Footer = () => {
               <Image
                 src={"/images/logo/awards.png"}
                 alt="Award Seal"
-                width={100}
-                height={100}
+                width={75}
+                height={75}
                 style={{ objectFit: "contain" }}
               />
+            </div>
+            <div className="copyright">
+              <p>
+                Copyright © 2025 <strong>ESOFT UNI</strong> - All Rights
+                Reserved.
+                <br />
+                <br />
+                Designed & Developed By{" "}
+                <Link href="https://www.weblankan.com/" target="_blank">
+                  <strong>Web Lankan</strong>
+                </Link>
+              </p>
             </div>
           </div>
           <div className="column links">
@@ -109,31 +121,13 @@ const Footer = () => {
               <li>
                 <Link href="/">Home</Link>
               </li>
-              {/* <li>
-                <Link href="https://esoft.lk/students-life/">Student Life</Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/about-us/">About Us</Link>
-              </li> */}
               <li>
                 <Link href="https://esoft.lk/contact-us/">Contact Us</Link>
               </li>
-              {/* <li>
-                <Link href="https://esoft.lk/careers/">Careers</Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/news/">News & Events</Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/blogs/">Blogs</Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/csr/">CSR</Link>
-              </li> */}
             </ul>
           </div>
           <div className="column links">
-            <h4>IMPORTANT LINKS</h4>
+            {/*   <h4>IMPORTANT LINKS</h4> */}
             {/* <ul>
               <li>
                 <Link href="/courses">Courses</Link>
@@ -185,15 +179,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer-bottom" style={{ backgroundColor: color }}>
-        <p>
-          Copyright © 2025 <strong>ESU METRO CAMPUS</strong> All rights
-          reserved. Website Designed And Developed By{" "}
-          <Link href="https://www.weblankan.com/" target="_blank">
-            <strong>Web Lankan</strong>
-          </Link>
-        </p>
-      </div>
+      <div className="footer-bottom" style={{ backgroundColor: color }}></div>
     </footer>
   );
 };

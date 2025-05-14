@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 import MemberCardItem from "./MemberCard/MemberCard";
 import { graphQLClient } from "@/lib/graphql-client";
-import { MEMBERS_QUERY } from "@/queries/queries";
-import { StaffMember } from "@/types/data";
+import { MEMBERS_QUERY } from "@/common/queries/query";
+import { StaffMember } from "@/common/types/type";
 
 interface MembersLandingProps {
   slug: string;
@@ -43,7 +43,6 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
             member.title.toLowerCase() !== "dean"
         );
 
-        // console.log(filteredMembers);
         setFacultyMembers(filteredMembers);
       } catch (err) {
         console.error("❌ Error fetching staff members:", err);

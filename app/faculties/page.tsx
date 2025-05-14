@@ -1,52 +1,89 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import FaculityCard from "@/components/FaculityCard/FaculityCard";
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
+import FaculityCard from "@/components/FaculityCard/FaculityCard";
+import DeanMessage from "@/components/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
-import { FACULTY_TYPES_QUERY } from "@/queries/queries";
-import { Faculty } from "@/types/data";
+import { FACULTY_TYPES_QUERY, VICE_CHANCELLOR_QUERY } from "@/common/queries/query";
+import { Faculty, ViceChancellor } from "@/common/types/type";
+import { title } from "process";
 
 const Page = () => {
   const [faculty, setFaculty] = useState<Faculty[]>([]);
+  const [viceChancellor, setViceChancellor] = useState<ViceChancellor | null>(
+    null
+  );
 
   useEffect(() => {
-    const fetchFaculties = async () => {
+    const fetchData = async () => {
       try {
-        const data = await graphQLClient.request<{
-          schoolTypes: { nodes: Faculty[] };
-        }>(FACULTY_TYPES_QUERY);
-        console.log("Fetched faculties:", data.schoolTypes.nodes); // console log
-        setFaculty(data.schoolTypes.nodes);
+        const [facultyRes, vcRes] = await Promise.all([
+          graphQLClient.request<{ schoolTypes: { nodes: Faculty[] } }>(
+            FACULTY_TYPES_QUERY
+          ),
+          graphQLClient.request<{
+            staffType: {
+              staffs: {
+                nodes: ViceChancellor[];
+              };
+            };
+          }>(VICE_CHANCELLOR_QUERY),
+        ]);
+
+        setFaculty(facultyRes.schoolTypes.nodes);
+
+        const vc = vcRes.staffType.staffs.nodes[0];
+        setViceChancellor(vc);
       } catch (error) {
-        console.error("Error fetching faculties:", error);
+        console.error("❌ Error fetching data:", error);
       }
     };
-
-    fetchFaculties();
+    
+    fetchData();
   }, []);
 
   return (
     <>
-      <InnerBanner
-        innerPageTitle={`Our <span>Faculties</span>`}
-        innerPageDescription=""
-        innerBgDesk="/images/faculity-lan.png"
-        innerBgMobi="/images/faculity-lan.png"
-      />
+      {
+        <InnerBanner
+          innerPageTitle={`Our <span>Faculties</span>`}
+          innerPageDescription=""
+          innerBgDesk="/images/faculity-lan.png"
+          innerBgMobi="/images/faculity-lan.png"
+        />
+      }
 
       <div className="faculty-wrap">
-        {faculty.map((faculity, index) => {
-          console.log(`Rendering faculty #${index + 1}:`, faculity);
+        {/* ✅ Vice Chancellor Message Card */}
+        {viceChancellor && (
+          <DeanMessage
+            title="Vice Chancellor's"
+            DeanName={viceChancellor.title}
+            designation={viceChancellor.staffAcf.designation || ""}
+            qualifications={viceChancellor.staffAcf.qualifications || ""}
+            message={viceChancellor.staffAcf.message || ""}
+            featuredImage={{
+              sourceUrl:
+                viceChancellor.featuredImage?.node?.sourceUrl ||
+                "/images/placeholder.jpg",
+              altText:
+                viceChancellor.featuredImage?.node?.altText ||
+                "Vice Chancellor",
+            }}
+            fontFamily={"inherit"} // You can update this if you add font in VC fields
+            fontColor={"#000"} // Update if VC fields include color
+          />
+        )}
 
+        {/* ✅ Faculty Cards */}
+        {faculty.map((faculity) => {
           const imageUrl =
             faculity.schoolTypesColorFontFields?.facultyDesktop?.node
               ?.sourceUrl || "/images/faculity-desk.png";
-
           const fontFamily =
             faculity.schoolTypesColorFontFields?.courseFontFamily?.[0] ||
             "inherit";
-
           const fontColor =
             faculity.schoolTypesColorFontFields?.color || "inherit";
 
@@ -55,9 +92,11 @@ const Page = () => {
               key={faculity.id}
               faculityImgDesk={imageUrl}
               faculityImgMobi={imageUrl}
-              faculityName={`${faculity.schoolTypesColorFontFields.facultyName}`} // we take from the array
-              faculityIntro={`${faculity.description}`}
-              facilityLink={`${faculity.slug}`}
+              faculityName={
+                faculity.schoolTypesColorFontFields?.facultyName || ""
+              }
+              faculityIntro={faculity.description || ""}
+              facilityLink={faculity.slug}
               fontFamily={fontFamily}
               fontColor={fontColor}
             />

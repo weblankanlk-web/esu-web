@@ -27,7 +27,6 @@ interface Course {
 }
 
 const CourseItem: React.FC<{ course: Course }> = ({ course }) => {
-  // console.log("course items", course);
 
   return (
     <div className="course-box-wrap" key={course.id}>

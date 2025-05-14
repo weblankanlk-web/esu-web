@@ -1,142 +1,126 @@
 @import "@/styles/global.scss";
 
 .faculty-wrap {
-    padding: 40px 0;
+  padding: 40px 0;
 }
 .single-faculity-card {
-    padding: 0 20px 40px;
-   margin: 0;   
-  
-    .single-faculity-card-wrap {
-        position: relative;
-        a{
-            color: #333;
-            text-decoration: none;
-        }
-        .single-faculity-card-image {      
-            position: relative;  
-            img {
-                height: 300px;
-                object-fit: cover;
-                border-radius: 35px;
-                
-            }
-            &::after{
-                content: "";
-                z-index: 1;
-                background: linear-gradient(0deg, #0a0a0c -5.45%, #0a0a0c00 69.54%);
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 100%;
-                width: 100%;
-                border-radius: 35px;
-               }
-        }
-        .single-faculity-card-content {
-            h2 {
-               padding: 20px 0 10px;
-               span{
-                color: #fff;
-               }
-               br{
-                display: none;
-            }  
-            }
-            .faculity-intro {
-                font-family: "Space Grotesk";
-                font-weight: 700;
+  padding: 0 20px 40px;
+  margin: 0;
 
-              span{
-                font-weight: 700;
-                font-family: "Space Grotesk";
-
-              }
-            }
-        }
+  .single-faculity-card-wrap {
+    position: relative;
+    a {
+      color: #333;
+      text-decoration: none;
     }
+    .single-faculity-card-image {
+      position: relative;
+      img {
+        height: 300px;
+        object-fit: cover;
+        border-radius: 35px;
+      }
+      &::after {
+        content: "";
+        z-index: 1;
+        background: linear-gradient(0deg, #0a0a0c -5.45%, #0a0a0c00 69.54%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 35px;
+      }
+    }
+    .single-faculity-card-content {
+      h2 {
+        padding: 20px 0 10px;
+        span {
+          color: #fff;
+        }
+        br {
+          display: none;
+        }
+      }
+      .faculity-intro {
+        font-family: var(--font-space-grotesk);
+        font-weight: 700;
+
+        span {
+          font-weight: 700;
+          font-family: var(--font-space-grotesk);
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 990px) {
-    .faculty-wrap {
-        padding: 60px 0;
-    }
-    .single-faculity-card {
-        padding: 0 40px 20px;
+  .faculty-wrap {
+    padding: 60px 0;
+  }
+  .single-faculity-card {
+    padding: 0 40px 20px;
 
-         .single-faculity-card-wrap {
-            
-     
-             .single-faculity-card-image {
-                
-                 img {
-                    
-                 }
-             }
-     
-             .single-faculity-card-content {
-                 h2 {
-                    padding: 20px 0px 10px;           
-                }
-                 p {
-                   
-                 }
-             }
-         }
-     }
+    .single-faculity-card-content {
+      h2 {
+        padding: 20px 0px 10px;
+      }
+    }
+  }
 }
+
 @media screen and (min-width: 1200px) {
-.faculty-wrap {
+  .faculty-wrap {
     padding: get-vw(80px) 0;
-}
-    .single-faculity-card {
-        padding: 0 get-vw(204px) get-vw(20px); 
-         .single-faculity-card-wrap { 
-             position: relative;       
-             .single-faculity-card-image {
-                 img {
-                    height: get-vw(681px);
-                 }
-             }     
-             .single-faculity-card-content {
-                position: absolute;
-                bottom: 0;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                color: #fff;
-                z-index: 2;
-                padding-bottom: get-vw(60px);
-                .faculity-title{
-                    width: get-vw(600px);
-                    padding: 0 0 0 get-vw(60px); 
-                    h2 {
-                        font-size: get-vw(80px);
-                        font-weight: 700;
-                        line-height: get-vw(70px);
-                        letter-spacing: get-vw(-6px);    
-                        padding-top: 0;    
-                           br{
-                            display: block;
-                           }
-                        }
-                }
-                .faculity-intro{
-                    width: calc(100% - get-vw(640px));
-                    padding-right: get-vw(128px);
-                    font-size: get-vw(20px);
-                    p {
-                        font-size: get-vw(2px);
-                        font-style: normal;
-                        font-weight: 700;
-                        line-height: get-vw(26px); 
-                        letter-spacing: get-vw(-0.4px);
-                        font-size: get-vw(20px);
-                        font-family: Manrope;
-                    }
-                }
-             }
-         }
-     }
+  }
+  .single-faculity-card {
+    padding: 0 get-vw(204px) get-vw(20px);
+    .single-faculity-card-wrap {
+      position: relative;
+      .single-faculity-card-image {
+        img {
+          height: get-vw(681px);
+        }
+      }
+      .single-faculity-card-content {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        color: #fff;
+        z-index: 2;
+        padding-bottom: get-vw(60px);
+        .faculity-title {
+          width: get-vw(600px);
+          padding: 0 0 0 get-vw(60px);
+          h2 {
+            font-size: get-vw(80px);
+            font-weight: 700;
+            line-height: get-vw(70px);
+            letter-spacing: get-vw(-6px);
+            padding-top: 0;
+            br {
+              display: block;
+            }
+          }
+        }
+        .faculity-intro {
+          width: calc(100% - get-vw(640px));
+          padding-right: get-vw(128px);
+          font-size: get-vw(20px);
+          p {
+            font-style: normal;
+            font-weight: 700;
+            line-height: get-vw(26px);
+            letter-spacing: get-vw(-0.4px);
+            font-size: get-vw(20px);
+            font-family: var(--font-manrope);
+          }
+        }
+      }
+    }
+  }
 }

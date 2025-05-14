@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { graphQLClient } from "@/lib/graphql-client";
 import Breadrumb from "@/components/common/Breadcrumb/Breadcrumb";
 import "./style.scss";
-import { GET_ALL_ACADEMIC_STAFF } from "@/queries/queries";
-import { Courses, Staffs } from "@/types/data";
+import { GET_ALL_ACADEMIC_STAFF } from "@/common/queries/query";
+import { Courses, Staffs } from "@/common/types/type";
 import { CourseList, Pagination, SearchBar } from "@/components/pages/Courses";
 import Filter from "@/components/pages/Courses/Filter/Filter";
 import FaculityCard from "@/components/FaculityCard/FaculityCard";
@@ -55,8 +55,6 @@ export default function CoursesPage() {
 
     fetchAcademics();
   }, []); // 🔁 Do not use [allAcademics] — that causes an infinite loop
-
-  console.log("Academics", allAcademics);
 
   const totalPages = Math.ceil(filteredAcademics.length / coursesPerPage);
 
