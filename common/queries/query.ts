@@ -40,21 +40,25 @@ query {
       schoolTypes {
         nodes {
           slug
+          name
         }
       }
       courseTypes {
         nodes {
           slug
+          name
         }
       }
       deliveryModeTypes {
         nodes {
           slug
+          name
         }
       }
       branchTypes {
         nodes {
           slug
+          name
         }
       }
     }
