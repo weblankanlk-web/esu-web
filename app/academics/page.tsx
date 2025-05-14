@@ -59,7 +59,7 @@ export default function CoursesPage() {
 
   const totalPages = Math.ceil(filteredAcademics.length / coursesPerPage);
 
-  const color = useTheme();
+  const { color } = useTheme();
 
   return (
     <>

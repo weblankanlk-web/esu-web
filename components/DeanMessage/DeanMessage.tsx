@@ -30,9 +30,6 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
     <section className="dean-massage">
       <div className="dean-massage-wrap">
         <div className="massage-wrap">
-          <h2 className="dean-message-title" style={{ fontFamily }}>
-            {title} <span style={{ color: fontColor }}>Message</span>
-          </h2>
           <div className="single-massage-card d-flex">
             <div className="single-image-wrap">
               <div className="member-details">
@@ -48,10 +45,17 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
                 />
               </div>
             </div>
-            <div
-              className="single-massage"
-              dangerouslySetInnerHTML={{ __html: message }}
-            ></div>
+
+            <div className="single-massage">
+              <h2 className="dean-message-title" style={{ fontFamily }}>
+                {title}
+                <span style={{ color: fontColor }}>
+                  <br />
+                  Message
+                </span>
+              </h2>
+              <div dangerouslySetInnerHTML={{ __html: message }}></div>
+            </div>
           </div>
         </div>
       </div>

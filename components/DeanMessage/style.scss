@@ -3,31 +3,36 @@
 .dean-massage {
   background-color: #f4f4f6;
   padding: 40px 0;
+
   .dean-massage-wrap {
     .massage-wrap {
       .dean-message-title {
-        text-transform: uppercase;
+        text-transform: capitalize;
         margin-bottom: 0;
         font-size: 35px;
         text-align: center;
         padding: 0 20px 30px;
-        font-family: var(--font-poppins);
+        font-family: var(--font-poppins) !important;
+        font-weight: 700;
       }
+
       .single-massage-card {
         flex-wrap: wrap;
         justify-content: space-between;
+
         .single-image-wrap {
           border-radius: 19.938px;
           border: 0.997px solid #d9d9d9;
           background: #fff;
           margin: 0 auto 20px;
           width: 90%;
+
           .member-details {
             text-align: center;
             padding: 20px 10px;
 
             .name {
-              font-family: var(--font-space-grotesk);
+              font-family: var(--font-manrope);
               font-weight: 500;
               font-size: 18px;
             }
@@ -38,8 +43,9 @@
               line-height: normal;
               font-size: 16px;
             }
+
             .qualification {
-              font-family: var(--font-space-grotesk);
+              font-family: var(--font-manrope);
               font-style: normal;
               font-weight: 400;
               font-size: 16px;
@@ -53,7 +59,7 @@
               height: auto;
               max-height: 300px;
               object-fit: cover;
-              border-radius: 12px;
+              // border-radius: 12px;
               margin: 0 auto;
               display: block;
             }
@@ -86,6 +92,7 @@
         .single-massage-card {
           .single-image-wrap {
             width: 65%;
+
             .member-image {
               img {
                 height: 400px;
@@ -102,6 +109,7 @@
 @media screen and (min-width: 990px) {
   .dean-massage {
     padding: 60px 0;
+
     .dean-massage-wrap {
       .massage-wrap {
         .single-massage-card {
@@ -113,34 +121,43 @@
     }
   }
 }
+
 @media screen and (min-width: 1024px) {
   .dean-massage {
     padding: get-vw(75px) 0;
+
     .dean-massage-wrap {
       .massage-wrap {
         .dean-message-title {
-          font-size: get-vw(100px);
+          font-size: get-vw(50px);
           font-style: normal;
-          font-weight: 400;
-          line-height: get-vw(90px);
+          font-weight: 700;
+          line-height: get-vw(48px);
           letter-spacing: get-vw(-4px);
-          padding-bottom: get-vw(40px);
+          padding: 0;
+          padding-bottom: get-vw(60px);
           font-family: var(--font-poppins);
+          text-align: left;
+
         }
+
         .single-massage-card {
           margin: 0 get-vw(160px);
           border-radius: get-vw(19.938px);
           border: get-vw(0.997px) solid #d9d9d9;
           background: #fff;
+
           .single-image-wrap {
             width: get-vw(500px);
             border: 0 solid #d9d9d9;
             margin: 0;
             padding-left: get-vw(60px);
             padding-top: get-vw(87px);
+
             .member-details {
               text-align: left;
-              padding: 0 0 0 get-vw(60px);
+              // padding: 0 0 0 get-vw(60px);
+
               .name {
                 font-size: get-vw(25px);
                 font-style: normal;
@@ -156,6 +173,7 @@
                 line-height: normal;
                 letter-spacing: get-vw(-0.32px);
               }
+
               .qualification {
                 font-size: get-vw(16px);
                 font-style: normal;
@@ -171,6 +189,7 @@
               }
             }
           }
+
           .single-massage {
             width: calc(100% - get-vw(500px));
             font-size: get-vw(18px);
