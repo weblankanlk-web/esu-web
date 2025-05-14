@@ -86,6 +86,43 @@ export type DeanDetails = {
       altText: string;
     };
   };
+  schoolTypes?: {
+    nodes: {
+      slug: string;
+      name: string;
+      schoolTypesColorFontFields?: {
+        facultyName?: string;
+        color?: string;
+        courseFontFamily?: string;
+        schoolOverview?: string;
+        schoolOverviewTitle?: string;
+        schoolOverviewImage?: {
+          node: {
+            id?: string;
+            link?: string;
+            altText?: string;
+            title?: string;
+          };
+        };
+        facultyDesktop?: {
+          node: {
+            id?: string;
+            link?: string;
+            altText?: string;
+            title?: string;
+          };
+        };
+        facultyMobile?: {
+          node: {
+            id?: string;
+            link?: string;
+            altText?: string;
+            title?: string;
+          };
+        };
+      };
+    }[];
+  };
 };
 
 export type ViceChancellor = {

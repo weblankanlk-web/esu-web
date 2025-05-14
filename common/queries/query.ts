@@ -416,18 +416,56 @@ export const FACULTY_INNER_QUERY = `
         }
       }
     }
+
     staffType(id: "dean", idType: SLUG) {
       staffs {
         nodes {
+          title
           staffAcf {
             designation
             message
           }
-          title
           featuredImage {
             node {
               sourceUrl
               altText
+            }
+          }
+          schoolTypes {
+            nodes {
+              name
+              slug
+              schoolTypesColorFontFields {
+                facultyName
+                color
+                courseFontFamily
+                schoolOverview
+                schoolOverviewTitle
+                schoolOverviewImage {
+                  node {
+                    id
+                    link
+                    altText
+                    title
+                  }
+                }
+                facultyDesktop {
+                  node {
+                    id
+                    link
+                    altText
+                    title
+                  }
+                }
+                facultyMobile {
+                  node {
+                    id
+                    link
+                    altText
+                    title
+                  }
+                }
+              }
             }
           }
         }

@@ -67,17 +67,26 @@ const FacultyInnerPage = () => {
             Overview={faculty.schoolTypesColorFontFields.schoolOverview}
           />
 
-          {dean && (
-            <DeanMessage
-              title="Dean"
-              DeanName={dean.title}
-              designation={dean.staffAcf.designation}
-              message={dean.staffAcf.message}
-              featuredImage={dean.featuredImage.node}
-              fontFamily={faculty.schoolTypesColorFontFields.courseFontFamily}
-              fontColor={faculty.schoolTypesColorFontFields.color}
-            />
-          )}
+          {dean &&
+            dean.schoolTypes?.nodes?.some((node) => node.slug === slug) && (
+              <DeanMessage
+                title="Dean"
+                DeanName={dean.title}
+                designation={dean.staffAcf.designation}
+                message={dean.staffAcf.message}
+                featuredImage={dean.featuredImage.node}
+                fontFamily={
+                  dean.schoolTypes?.nodes?.find((node) => node.slug === slug)
+                    ?.schoolTypesColorFontFields?.courseFontFamily ||
+                  faculty.schoolTypesColorFontFields.courseFontFamily
+                }
+                fontColor={
+                  dean.schoolTypes?.nodes?.find((node) => node.slug === slug)
+                    ?.schoolTypesColorFontFields?.color ||
+                  faculty.schoolTypesColorFontFields.color
+                }
+              />
+            )}
 
           <MembersLanding
             slug={slug || ""}
