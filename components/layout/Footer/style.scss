@@ -30,9 +30,9 @@
 
       .social-icons {
         display: flex;
-        background-color: #006778;
         border-radius: 8px;
         overflow: hidden;
+        background-color: #0c0b1e;
 
         .icon {
           padding: 20px;
@@ -112,7 +112,6 @@
       }
 
       img {
-        // width: 48px;
         margin-top: 8px;
       }
     }
@@ -122,7 +121,9 @@
       align-items: center;
       justify-content: flex-start;
       padding-top: 20px;
-      flex-direction: column;
+      margin: 0;
+      padding-right: 8px;
+      font-family: var(--font-poppins);
     }
 
     .background-logo {
@@ -132,7 +133,18 @@
 
   .footer-bottom {
     background-color: #00acc1;
-    padding: 1px;
+    text-align: left;
+    padding: 10px;
+    font-size: 12px;
+
+    p {
+      margin: 0;
+      font-family: var(--font-poppins);
+    }
+
+    strong {
+      color: white;
+    }
   }
 }
 

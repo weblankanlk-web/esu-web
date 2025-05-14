@@ -71,26 +71,20 @@ const Footer = () => {
           <div className="column contact">
             <h4>CONTACT DETAILS</h4>
             <p>
-              Hotline Number <br />
-              <strong>
-                <Link href="tel:+94117572572">+94 117 572 572</Link>
-              </strong>
+              <strong>Hotline</strong> <br />
+              <Link href="tel:+94117572572">+94 117 572 572</Link>
             </p>
             <p>
-              Email <br />
-              <Link href="mailto:info@esoft.lk">
-                <strong>info@esoft.lk</strong>
-              </Link>
+              <strong>Email</strong> <br />
+              <Link href="mailto:info@esoft.lk">info@esoft.lk</Link>
             </p>
             <p>
-              Head Office (Block E) <br />
-              <strong>
-                ESOFT Metro Campus No.03,
-                <br />
-                De Fonseka Place,
-                <br />
-                Colombo 4, Sri Lanka.
-              </strong>
+              <strong>Head Office (Block E)</strong> <br />
+              ESOFT Metro Campus No.03,
+              <br />
+              De Fonseka Place,
+              <br />
+              Colombo 4, Sri Lanka.
             </p>
             <div className="awards">
               <h4>OUR AWARDS</h4>
@@ -103,16 +97,7 @@ const Footer = () => {
               />
             </div>
             <div className="copyright">
-              <p>
-                Copyright © 2025 <strong>ESOFT UNI</strong> - All Rights
-                Reserved.
-                <br />
-                <br />
-                Designed & Developed By{" "}
-                <Link href="https://www.weblankan.com/" target="_blank">
-                  <strong>Web Lankan</strong>
-                </Link>
-              </p>
+              <p>Copyright © 2025 ESOFT UNI</p>
             </div>
           </div>
           <div className="column links">
@@ -179,7 +164,14 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* <div className="footer-bottom" style={{ backgroundColor: color }}></div> */}
+      <div className="footer-bottom" style={{ backgroundColor: color }}>
+        <p>
+          Website Designed And Developed By{" "}
+          <Link href="https://www.weblankan.com/" target="_blank">
+            <strong>Web Lankan</strong>
+          </Link>
+        </p>
+      </div>
     </footer>
   );
 };
