@@ -20,14 +20,15 @@ const HomeNews = () => {
      <section className="home-news-section">
       <div className="home-news-section-wrap">
         <div className="title-wrap text-center">
-          <TitleLarge title="Latest" subtitle="&nbsp; News & Events" />
+          <TitleLarge title="Latest" subtitle="&nbsp; News" />
           <div className="all-news-wrap">
             <Button buttonName="View All News" buttonUrl="/#" />
           </div>
         </div>
         <div className="news-container">
           <div className="news-main pos-relative">
-            <Image
+            <a href="">
+              <Image
               src="/images/news.png"
               alt="Main News"
               width={800}
@@ -41,26 +42,37 @@ const HomeNews = () => {
                 and Communication Technology Champions Awards
               </h3>             
             </div>
+            </a>
+            
           </div>
 
           <div className="news-sidebar">
             <div className="news-sidebar-item">
-              <p className="news-date">📅 16 August 2023</p>
-              <p className="news-subtitle">
-                London Metropolitan Inaugural Ceremony 2023
-              </p>
+              <a href="">
+                <p className="news-date">📅 16 August 2023</p>
+                <p className="news-subtitle">
+                  London Metropolitan Inaugural Ceremony 2023
+                </p>
+              </a>
+              
             </div>
             <div className="news-sidebar-item active">
-              <p className="news-date">📅 16 August 2023</p>
-              <p className="news-subtitle">
-                Inaugural Ceremony Kingston University BSc. Top-Up Programme
-              </p>
+              <a href="">
+                <p className="news-date">📅 16 August 2023</p>
+                <p className="news-subtitle">
+                  Inaugural Ceremony Kingston University BSc. Top-Up Programme
+                </p>
+              </a>
+            
             </div>
             <div className="news-sidebar-item">
-              <p className="news-date">📅 16 August 2023</p>
+              <a href="">
+                  <p className="news-date">📅 16 August 2023</p>
               <p className="news-subtitle">
                 ESOFT Metro Campus And Melsta Hospitals Inked MOU
               </p>
+              </a>
+            
             </div>
           </div>
         </div>
