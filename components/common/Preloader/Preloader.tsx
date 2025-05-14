@@ -6,7 +6,7 @@ const Preloader = () => {
   return (
     <div className="global-preloader">
       {/* <div className="spinner" /> */}
-      <Image src="/images/preloader.gif" width={200} height={200} alt="" />
+      <Image src="/images/preloader.gif" width={400} height={400} alt="" />
     </div>
   );
 };
