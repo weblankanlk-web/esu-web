@@ -9,7 +9,7 @@ const page = () => {
     <>
       <InnerBanner
         innerPageTitle={`Contact <span>Us</span>`}
-        innerPageDescription="Connect with Excellence! Reach out to ESOFT Metro Campus today – where all your questions find answers, and your future begins. Your life-changing journey towards knowledge, innovation and success starts with a simple touch. Contact us now and let's shape your future together!"
+        innerPageDescription="Connect with Excellence! Reach out to ESOFT Uni today – where all your questions find answers, and your future begins. Your life-changing journey towards knowledge, innovation and success starts with a simple touch. Contact us now and let's shape your future together!"
         innerBgDesk="/images/contact-us-banner.png"
         innerBgMobi="/images/contact-us-banner.png"
       />

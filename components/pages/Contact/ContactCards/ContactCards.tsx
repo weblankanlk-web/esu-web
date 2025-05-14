@@ -6,16 +6,10 @@ const ContactCards = () => {
     <div className="contact-cards">
       <div className="card">
         <h3>
-          Certificate and <span className="highlight">Transcript</span>
+          <span className="highlight">Colombo</span>
         </h3>
         <p className="label">Address</p>
-        <p>
-          Registrar <br />
-          ESOFT Metro Campus <br />
-          No.03, De Fonseka Place,
-          <br />
-          Colombo 4, Srilanka
-        </p>
+        <p></p>
         <div className="info">
           <div>
             <p className="label">Email</p>
@@ -30,15 +24,60 @@ const ContactCards = () => {
 
       <div className="card">
         <h3>
-          Complaints and <span className="highlight">Student Feedback</span>
+          <span className="highlight">Kandy</span>
         </h3>
         <p className="label">Address</p>
         <p>
-          SRU Division <br />
-          ESOFT Metro Campus <br />
-          No.03, De Fonseka Place,
+          479,
           <br />
-          Colombo 4, Srilanka
+          William Gopallawa mawatha, <br />
+          Kandy, Srilanka
+        </p>
+        <div className="info">
+          <div>
+            <p className="label">Call Us on</p>
+            <p>+94 117 677 888</p>
+          </div>
+          <div>
+            <p className="label">Email</p>
+            <p>SRU@esoft.lk</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3>
+          <span className="highlight">Colombo</span>
+        </h3>
+        <p className="label">Address</p>
+        <p>
+          Block A
+          <br />
+          235, Galle Road <br />
+          Colombo 04, Srilanka
+        </p>
+        <div className="info">
+          <div>
+            <p className="label">Call Us on</p>
+            <p>+94 117 677 888</p>
+          </div>
+          <div>
+            <p className="label">Email</p>
+            <p>SRU@esoft.lk</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3>
+          <span className="highlight">Colombo</span>
+        </h3>
+        <p className="label">Address</p>
+        <p>
+          Block B
+          <br />
+          233, Galle Road <br />
+          Colombo 04, Srilanka
         </p>
         <div className="info">
           <div>
