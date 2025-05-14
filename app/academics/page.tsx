@@ -93,13 +93,20 @@ export default function CoursesPage() {
               filteredCourses={filteredAcademics}
             />
 
-            {/* Course List */}
             <div className="landing-results">
               <div className="landing-results-inner academics-mamber-group">
                 {filteredAcademics.length > 0 &&
-                  filteredAcademics.map((academicsItem, index) => (
-                    <MemberCardItem memberData={academicsItem} key={index} />
-                  ))}
+                  filteredAcademics
+                    .slice(
+                      (currentPage - 1) * coursesPerPage,
+                      currentPage * coursesPerPage
+                    )
+                    .map((academicsItem, index) => (
+                      <MemberCardItem
+                        memberData={academicsItem}
+                        key={`${academicsItem.title}-${index}`}
+                      />
+                    ))}
 
                 <Pagination
                   currentPage={currentPage}
