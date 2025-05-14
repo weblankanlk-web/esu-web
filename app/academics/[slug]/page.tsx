@@ -9,6 +9,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 import { ACADEMIC_STAFF } from "@/common/queries/query";
 import { ThreeDots } from "react-loader-spinner";
 import { AcademicStaff } from "@/common/types/type";
+import { FaGraduationCap, FaResearchgate } from "react-icons/fa";
 
 const page = () => {
   const { color, setColor } = useTheme();
@@ -78,35 +79,45 @@ const page = () => {
             height={100}
             style={{ background: color }}
           />
-          <div className="profile__contact">
-            <div className="scholar-link-block">
-              {academicStaff?.staffAcf?.googleScholarUrl?.url && (
-                <div className="scholar-link-block">
+
+          {/* check and see if there are any values, if so only show the component */}
+
+          {(academicStaff?.staffAcf?.googleScholarUrl?.url ||
+            academicStaff?.staffAcf?.researchGateUrl?.url) && (
+            <div className="profile__contact">
+              <div className="scholar-link-block">
+                {academicStaff.staffAcf.googleScholarUrl?.url && (
                   <a
                     href={academicStaff.staffAcf.googleScholarUrl.url}
                     target={
-                      academicStaff.staffAcf.googleScholarUrl.target || "_self"
+                      academicStaff.staffAcf.googleScholarUrl.target || "_blank"
                     }
                     rel="noopener noreferrer"
+                    className="scholar-link"
                   >
+                    <FaGraduationCap />
                     {academicStaff.staffAcf.googleScholarUrl.title ||
-                      "Scholar Link"}
+                      "Google Scholar"}
                   </a>
+                )}
 
+                {academicStaff.staffAcf.researchGateUrl?.url && (
                   <a
-                    href={academicStaff.staffAcf.researchGateUrl?.url}
+                    href={academicStaff.staffAcf.researchGateUrl.url}
                     target={
-                      academicStaff.staffAcf.researchGateUrl?.target || "_self"
+                      academicStaff.staffAcf.researchGateUrl.target || "_blank"
                     }
                     rel="noopener noreferrer"
+                    className="scholar-link"
                   >
-                    {academicStaff.staffAcf.researchGateUrl?.title ||
-                      "Research Gate Link"}
+                    <FaResearchgate />
+                    {academicStaff.staffAcf.researchGateUrl.title ||
+                      "ResearchGate"}
                   </a>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="profile__content">
