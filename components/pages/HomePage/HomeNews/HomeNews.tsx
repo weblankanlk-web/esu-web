@@ -5,10 +5,11 @@ import "./style.scss";
 import Image from "next/image";
 import TitleLarge from "@/components/common/TitleLarge/TitleLarge";
 import Button from "@/components/common/Button/Button";
+import { useTheme } from "@/lib/ThemeContext";
 
 const HomeNews = () => {
   const [news, setNews] = useState([]);
-
+ const { color } = useTheme();
   // Optional: Fetch logic (currently unused, placeholder)
   useEffect(() => {
     // You can fetch and set dynamic news here
@@ -49,16 +50,16 @@ const HomeNews = () => {
           <div className="news-sidebar">
             <div className="news-sidebar-item">
               <a href="">
-                <p className="news-date">📅 16 August 2023</p>
+                <p className="news-date">📅 04 August 2023</p>
                 <p className="news-subtitle">
                   London Metropolitan Inaugural Ceremony 2023
                 </p>
               </a>
               
             </div>
-            <div className="news-sidebar-item active">
+            <div className="news-sidebar-item active" style={{ backgroundColor: color }}>
               <a href="">
-                <p className="news-date">📅 16 August 2023</p>
+                <p className="news-date">📅 10 August 2023</p>
                 <p className="news-subtitle">
                   Inaugural Ceremony Kingston University BSc. Top-Up Programme
                 </p>
@@ -67,7 +68,7 @@ const HomeNews = () => {
             </div>
             <div className="news-sidebar-item">
               <a href="">
-                  <p className="news-date">📅 16 August 2023</p>
+                  <p className="news-date">📅 18 August 2023</p>
               <p className="news-subtitle">
                 ESOFT Metro Campus And Melsta Hospitals Inked MOU
               </p>
