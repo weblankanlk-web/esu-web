@@ -211,7 +211,7 @@
 
               .detail-wrapper {
                 flex-direction: row;
-                align-items: flex-start;
+                align-items: center;
 
                 .image-contain {
                   padding-right: get-vw(16px);
@@ -221,6 +221,10 @@
                     height: get-vw(56.799px);
                     padding: get-vw(4px);
                   }
+                }
+                .detail-contain{
+                  padding-left: get-vw(10px) !important;
+                  
                 }
               }
 
@@ -239,6 +243,8 @@
               }
             }
           }
+
+
         }
       }
     }

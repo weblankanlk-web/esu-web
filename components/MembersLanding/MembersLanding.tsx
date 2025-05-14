@@ -60,7 +60,7 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
           <h2 className="dean-message-title" style={{ fontFamily }}>
             {sectinTitle1} <span style={{ color: fontColor }}>{sectinTitle2}</span>
           </h2>
-          <div className="members-wrap d-flex flex-wrap">
+          <div className="members-wrap d-flex flex-wrap justify-content-start gap-1">
               {facultyMembers.length === 0 ? (
                 <p>No staff members found for this department.</p>
               ) : (

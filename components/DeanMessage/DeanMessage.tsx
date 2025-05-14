@@ -8,7 +8,6 @@ interface DeanMessageProps {
   title: string;
   DeanName: string;
   designation: string;
-  qualifications: string;
   message: string;
   featuredImage: {
     sourceUrl: string;
@@ -22,7 +21,6 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
   title,
   DeanName,
   designation,
-  qualifications,
   message,
   featuredImage,
   fontFamily,
@@ -40,7 +38,6 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
               <div className="member-details">
                 <h3 className="name">{DeanName}</h3>
                 <h4 className="position">{designation}</h4>
-                <h4 className="qualification">{qualifications}</h4>
               </div>
               <div className="member-image">
                 <Image

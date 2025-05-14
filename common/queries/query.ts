@@ -305,7 +305,6 @@ export const HOME_BANNER_QUERY = `
 }
 `;
 
-
 export const TESTIMONIALS_QUERY = `
 query {
     testimonials(last: 10) {
@@ -335,19 +334,14 @@ query {
 `;
 
 export const MEMBERS_QUERY = `
-  query($slug: ID!) {
+query($slug: ID!) {
     schoolType(id: $slug, idType: SLUG) {
       staffs {
         nodes {
           title
           slug
           staffAcf {
-            academicQualifications
-            careerSummary
             designation
-            message
-            myPublications
-            qualifications
           }
           featuredImage {
             node {
@@ -383,7 +377,7 @@ query {
     }
   }
 }
-    `;
+`;
 
 export const FACULTY_INNER_QUERY = `
   query ($slug: [String]) {
@@ -428,7 +422,6 @@ export const FACULTY_INNER_QUERY = `
           staffAcf {
             designation
             message
-            qualifications
           }
           title
           featuredImage {
@@ -451,7 +444,6 @@ export const VICE_CHANCELLOR_QUERY = `
           staffAcf {
             designation
             message
-            qualifications
           }
           title
           featuredImage {
@@ -465,7 +457,6 @@ export const VICE_CHANCELLOR_QUERY = `
     }
 }
 `;
-
 
 export const ACADEMIC_STAFF = `
 query($slug: ID!){
