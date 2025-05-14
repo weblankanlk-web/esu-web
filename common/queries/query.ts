@@ -334,19 +334,14 @@ query {
 `;
 
 export const MEMBERS_QUERY = `
-  query($slug: ID!) {
+query($slug: ID!) {
     schoolType(id: $slug, idType: SLUG) {
       staffs {
         nodes {
           title
           slug
           staffAcf {
-            academicQualifications
-            careerSummary
             designation
-            message
-            myPublications
-            qualifications
           }
           featuredImage {
             node {
