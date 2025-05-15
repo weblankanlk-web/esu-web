@@ -416,18 +416,56 @@ export const FACULTY_INNER_QUERY = `
         }
       }
     }
+
     staffType(id: "dean", idType: SLUG) {
       staffs {
         nodes {
+          title
           staffAcf {
             designation
             message
           }
-          title
           featuredImage {
             node {
               sourceUrl
               altText
+            }
+          }
+          schoolTypes {
+            nodes {
+              name
+              slug
+              schoolTypesColorFontFields {
+                facultyName
+                color
+                courseFontFamily
+                schoolOverview
+                schoolOverviewTitle
+                schoolOverviewImage {
+                  node {
+                    id
+                    link
+                    altText
+                    title
+                  }
+                }
+                facultyDesktop {
+                  node {
+                    id
+                    link
+                    altText
+                    title
+                  }
+                }
+                facultyMobile {
+                  node {
+                    id
+                    link
+                    altText
+                    title
+                  }
+                }
+              }
             }
           }
         }
@@ -459,25 +497,52 @@ export const VICE_CHANCELLOR_QUERY = `
 `;
 
 export const ACADEMIC_STAFF = `
-query($slug: ID!){
+query ($slug: ID!) {
   staff(idType: SLUG, id: $slug) {
     title
     staffAcf {
-    designation
-    academicTitle
-    message
-    careerSummary
-    googleScholarUrl {
+      designation
+      academicTitle
+      message
+      careerSummary
+      googleScholarUrl {
         url
         title
         target
-    }
-    researchGateUrl {
+      }
+      researchGateUrl {
         url
         title
         target
+      }
+      academicPublications {
+        text
+        publicationLinks
+      }
+      academicQualification{
+        text
+        publicationLinks
+      }
+      academicResearchInterest {
+        text
+      }
+      academicResearch {
+        research
+        researchDescription
+      }
+      academicAwards {
+        text
+        publicationLinks
+      }
+      academicHonors {
+        text
+        publicationLinks
+      }
+      academicMembership {
+        text
+        publicationLinks
+      }
     }
-}
     featuredImage {
       node {
         altText
@@ -491,12 +556,6 @@ query($slug: ID!){
         schoolTypesColorFontFields {
           color
           courseFontFamily
-        }
-        children {
-          nodes {
-            name
-            slug
-          }
         }
       }
     }

@@ -9,6 +9,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 import { ACADEMIC_STAFF } from "@/common/queries/query";
 import { ThreeDots } from "react-loader-spinner";
 import { AcademicStaff } from "@/common/types/type";
+import { FaGraduationCap, FaResearchgate } from "react-icons/fa";
 
 const page = () => {
   const { color, setColor } = useTheme();
@@ -78,35 +79,45 @@ const page = () => {
             height={100}
             style={{ background: color }}
           />
-          <div className="profile__contact">
-            <div className="scholar-link-block">
-              {academicStaff?.staffAcf?.googleScholarUrl?.url && (
-                <div className="scholar-link-block">
+
+          {/* check and see if there are any values, if so only show the component */}
+
+          {(academicStaff?.staffAcf?.googleScholarUrl?.url ||
+            academicStaff?.staffAcf?.researchGateUrl?.url) && (
+            <div className="profile__contact">
+              <div className="scholar-link-block">
+                {academicStaff.staffAcf.googleScholarUrl?.url && (
                   <a
                     href={academicStaff.staffAcf.googleScholarUrl.url}
                     target={
-                      academicStaff.staffAcf.googleScholarUrl.target || "_self"
+                      academicStaff.staffAcf.googleScholarUrl.target || "_blank"
                     }
                     rel="noopener noreferrer"
+                    className="scholar-link"
                   >
+                    <FaGraduationCap />
                     {academicStaff.staffAcf.googleScholarUrl.title ||
-                      "Scholar Link"}
+                      "Google Scholar"}
                   </a>
+                )}
 
+                {academicStaff.staffAcf.researchGateUrl?.url && (
                   <a
-                    href={academicStaff.staffAcf.researchGateUrl?.url}
+                    href={academicStaff.staffAcf.researchGateUrl.url}
                     target={
-                      academicStaff.staffAcf.researchGateUrl?.target || "_self"
+                      academicStaff.staffAcf.researchGateUrl.target || "_blank"
                     }
                     rel="noopener noreferrer"
+                    className="scholar-link"
                   >
-                    {academicStaff.staffAcf.researchGateUrl?.title ||
-                      "Research Gate Link"}
+                    <FaResearchgate />
+                    {academicStaff.staffAcf.researchGateUrl.title ||
+                      "ResearchGate"}
                   </a>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="profile__content">
@@ -131,23 +142,10 @@ const page = () => {
             ) : null}
           </div>
 
-          {/*           {academicStaff.staffAcf?.academicQualifications && (
-            <section className="profile__section">
-              <h3>
-                ACADEMIC <span style={{ color: color }}>QUALIFICATIONS</span>
-              </h3>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: academicStaff.staffAcf?.academicQualifications || "",
-                }}
-              />
-            </section>
-          )} */}
-
           {academicStaff.staffAcf?.careerSummary && (
             <section className="profile__section">
               <h3>
-                CAREER <span style={{ color: color }}>SUMMARY</span>
+                <span style={{ color: color }}>CAREER SUMMARY</span>
               </h3>
               <div
                 dangerouslySetInnerHTML={{
@@ -157,18 +155,165 @@ const page = () => {
             </section>
           )}
 
-          {/*           {academicStaff.staffAcf?.myPublications && (
+          {(academicStaff?.staffAcf?.academicPublications?.length ?? 0) > 0 && (
             <section className="profile__section">
               <h3>
-                MY <span style={{ color: color }}>PUBLICATIONS</span>
+                <span style={{ color: color }}>PUBLICATIONS</span>
               </h3>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: academicStaff.staffAcf?.myPublications || "",
-                }}
-              />
+              <ul>
+                {academicStaff.staffAcf.academicPublications!.map((pub) => (
+                  <li key={`${pub.text}-${pub.publicationLinks}`}>
+                    {pub.publicationLinks ? (
+                      <a
+                        href={pub.publicationLinks}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pub.text}
+                      </a>
+                    ) : (
+                      pub.text
+                    )}
+                  </li>
+                ))}
+              </ul>
             </section>
-          )} */}
+          )}
+
+          {(academicStaff?.staffAcf?.academicQualification?.length ?? 0) >
+            0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>QUALIFICATIONS</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicQualification!.map((pub) => (
+                  <li key={`${pub.text}-${pub.publicationLinks}`}>
+                    {pub.publicationLinks ? (
+                      <a
+                        href={pub.publicationLinks}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pub.text}
+                      </a>
+                    ) : (
+                      pub.text
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {(academicStaff?.staffAcf?.academicResearchInterest?.length ?? 0) >
+            0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>RESEARCH INTEREST</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicResearchInterest!.map(
+                  (item, idx) => (
+                    <li key={item.text || idx}>{item.text}</li>
+                  )
+                )}
+              </ul>
+            </section>
+          )}
+
+          {(academicStaff?.staffAcf?.academicResearch?.length ?? 0) > 0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>RESEARCH</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicResearch!.map((item, idx) => (
+                  <li key={item.research || idx}>
+                    <strong>{item.research}</strong>
+                    {item.researchDescription && (
+                      <p>{item.researchDescription}</p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {(academicStaff?.staffAcf?.academicAwards?.length ?? 0) > 0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>AWARDS & RECOGNITION</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicAwards!.map((pub) => (
+                  <li key={`${pub.text}-${pub.publicationLinks}`}>
+                    {pub.publicationLinks ? (
+                      <a
+                        href={pub.publicationLinks}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pub.text}
+                      </a>
+                    ) : (
+                      pub.text
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {(academicStaff?.staffAcf?.academicHonors?.length ?? 0) > 0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>HONORS</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicHonors!.map((pub) => (
+                  <li key={`${pub.text}-${pub.publicationLinks}`}>
+                    {pub.publicationLinks ? (
+                      <a
+                        href={pub.publicationLinks}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pub.text}
+                      </a>
+                    ) : (
+                      pub.text
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {(academicStaff?.staffAcf?.academicMembership?.length ?? 0) > 0 && (
+            <section className="profile__section">
+              <h3>
+                <span style={{ color: color }}>MEMBERSHIP</span>
+              </h3>
+              <ul>
+                {academicStaff.staffAcf.academicMembership!.map((pub) => (
+                  <li key={`${pub.text}-${pub.publicationLinks}`}>
+                    {pub.publicationLinks ? (
+                      <a
+                        href={pub.publicationLinks}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pub.text}
+                      </a>
+                    ) : (
+                      pub.text
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
       </div>
     </>

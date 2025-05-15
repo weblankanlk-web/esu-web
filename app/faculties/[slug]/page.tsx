@@ -9,13 +9,14 @@ import { graphQLClient } from "@/lib/graphql-client";
 import MembersLanding from "@/components/MembersLanding/MembersLanding";
 import { FACULTY_INNER_QUERY } from "@/common/queries/query";
 import { FacultyInner, DeanDetails } from "@/common/types/type";
+import "./style.scss";
 
 const FacultyInnerPage = () => {
   const pathname = usePathname();
   const slug = pathname?.split("/").pop();
 
   const [faculty, setFaculty] = useState<FacultyInner | null>(null);
-  const [dean, setDean] = useState<DeanDetails | null>(null);
+  const [deans, setDeans] = useState<DeanDetails[]>([]);
 
   useEffect(() => {
     if (!slug) return;
@@ -28,11 +29,13 @@ const FacultyInnerPage = () => {
         }>(FACULTY_INNER_QUERY, { slug });
 
         if (data.schoolTypes.nodes.length > 0) {
+          console.log("🎓 Faculty Details:", data.schoolTypes.nodes[0]);
           setFaculty(data.schoolTypes.nodes[0]);
         }
 
         if (data.staffType.staffs.nodes.length > 0) {
-          setDean(data.staffType.staffs.nodes[0]);
+          console.log("🎓 All Dean Records:", data.staffType.staffs.nodes);
+          setDeans(data.staffType.staffs.nodes);
         }
       } catch (error) {
         console.error("❌ Error fetching faculty/dean data:", error);
@@ -42,40 +45,65 @@ const FacultyInnerPage = () => {
     fetchFacultyDetails();
   }, [slug]);
 
+  const matchingDean = deans.find((dean) =>
+    dean.schoolTypes?.nodes?.some((node) => node.slug === slug)
+  );
+
   return (
     <>
       {faculty && (
         <>
-          <InnerBanner
-            innerPageTitle={`Faculty of <span style="color: ${faculty.schoolTypesColorFontFields.color}; font-family: ${faculty.schoolTypesColorFontFields.courseFontFamily}">${faculty.schoolTypesColorFontFields.facultyName}</span>`}
-            innerPageDescription={`Welcome to the Faculty of ${faculty.schoolTypesColorFontFields.facultyName}.`}
-            innerBgDesk={
-              faculty.schoolTypesColorFontFields.facultyDesktop?.node?.link ||
-              ""
+          <div
+            style={
+              {
+                "--faculty-color": faculty.schoolTypesColorFontFields.color,
+                "--faculty-font":
+                  faculty.schoolTypesColorFontFields.courseFontFamily,
+              } as React.CSSProperties
             }
-            innerBgMobi={
-              faculty.schoolTypesColorFontFields.facultyMobile?.node?.link || ""
-            }
-          />
+          >
+            <InnerBanner
+              innerPageTitle={`Faculty of <span class="inner-banner-title">${faculty.schoolTypesColorFontFields.facultyName}</span>`}
+              innerPageDescription={`Welcome to the Faculty of ${faculty.schoolTypesColorFontFields.facultyName}.`}
+              innerBgDesk={
+                faculty.schoolTypesColorFontFields.facultyDesktop?.node?.link ||
+                ""
+              }
+              innerBgMobi={
+                faculty.schoolTypesColorFontFields.facultyMobile?.node?.link ||
+                ""
+              }
+            />
 
-          <FaculityOverview
-            schoolOverviewTitle={`<span style="font-family: ${faculty.schoolTypesColorFontFields.courseFontFamily}; background: linear-gradient(90deg, ${faculty.schoolTypesColorFontFields.color} 0%, rgba(124, 124, 124, 0.70) 100%);">${faculty.schoolTypesColorFontFields.schoolOverviewTitle}</span>`}
-            OverviewImage={
-              faculty.schoolTypesColorFontFields.schoolOverviewImage?.node
-                ?.link || ""
-            }
-            Overview={faculty.schoolTypesColorFontFields.schoolOverview}
-          />
+            <FaculityOverview
+              schoolOverviewTitle={`<span class="faculty-overview-title">${faculty.schoolTypesColorFontFields.schoolOverviewTitle}</span>`}
+              OverviewImage={
+                faculty.schoolTypesColorFontFields.schoolOverviewImage?.node
+                  ?.link || ""
+              }
+              Overview={faculty.schoolTypesColorFontFields.schoolOverview}
+            />
+          </div>
 
-          {dean && (
+          {matchingDean && (
             <DeanMessage
               title="Dean"
-              DeanName={dean.title}
-              designation={dean.staffAcf.designation}
-              message={dean.staffAcf.message}
-              featuredImage={dean.featuredImage.node}
-              fontFamily={faculty.schoolTypesColorFontFields.courseFontFamily}
-              fontColor={faculty.schoolTypesColorFontFields.color}
+              DeanName={matchingDean.title}
+              designation={matchingDean.staffAcf.designation}
+              message={matchingDean.staffAcf.message}
+              featuredImage={matchingDean.featuredImage.node}
+              fontFamily={
+                matchingDean.schoolTypes?.nodes?.find(
+                  (node) => node.slug === slug
+                )?.schoolTypesColorFontFields?.courseFontFamily ||
+                faculty.schoolTypesColorFontFields.courseFontFamily
+              }
+              fontColor={
+                matchingDean.schoolTypes?.nodes?.find(
+                  (node) => node.slug === slug
+                )?.schoolTypesColorFontFields?.color ||
+                faculty.schoolTypesColorFontFields.color
+              }
             />
           )}
 

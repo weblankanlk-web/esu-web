@@ -181,12 +181,12 @@ const page = () => {
                 />
               )}
             </div>
-            <div className="left-course-details">
+            {/* <div className="left-course-details">
               <h2>
                 <span />
               </h2>
               <p className="paragraph paragraph--black" />
-              <div className="d-flex justify-content-between course-btn-wrap">
+              <div className="d-flex justify-content-between course-btn-wrap"> */}
                 {/* <Link
                   className="next-btn next-btn--red next-btn--titlecase"
                   target="_blank"
@@ -209,8 +209,8 @@ const page = () => {
                 >
                   <span>Inquire Now</span>
                 </button> */}
-              </div>
-            </div>
+              {/* </div>
+            </div> */}
             <div className="desktop-div">
               <div className="related-coures-div">
                 <h5>

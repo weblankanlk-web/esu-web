@@ -86,6 +86,43 @@ export type DeanDetails = {
       altText: string;
     };
   };
+  schoolTypes?: {
+    nodes: {
+      slug: string;
+      name: string;
+      schoolTypesColorFontFields?: {
+        facultyName?: string;
+        color?: string;
+        courseFontFamily?: string;
+        schoolOverview?: string;
+        schoolOverviewTitle?: string;
+        schoolOverviewImage?: {
+          node: {
+            id?: string;
+            link?: string;
+            altText?: string;
+            title?: string;
+          };
+        };
+        facultyDesktop?: {
+          node: {
+            id?: string;
+            link?: string;
+            altText?: string;
+            title?: string;
+          };
+        };
+        facultyMobile?: {
+          node: {
+            id?: string;
+            link?: string;
+            altText?: string;
+            title?: string;
+          };
+        };
+      };
+    }[];
+  };
 };
 
 export type ViceChancellor = {
@@ -284,9 +321,9 @@ export type Testimonial = {
 
 export type AcademicStaff = {
   title?: string;
-  staffAcf?: {
-    academicTitle?: string;
+  staffAcf: {
     designation?: string;
+    academicTitle?: string;
     message?: string;
     careerSummary?: string;
     googleScholarUrl?: {
@@ -299,27 +336,48 @@ export type AcademicStaff = {
       title?: string;
       target?: string;
     };
+    academicPublications?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicQualification?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicResearchInterest?: {
+      text?: string;
+    }[];
+    academicResearch?: {
+      research?: string;
+      researchDescription?: string;
+    }[];
+    academicAwards?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicHonors?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicMembership?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
   };
   featuredImage?: {
     node?: {
-      altText?: string;
       sourceUrl?: string;
+      altText?: string;
     };
   };
   schoolTypes?: {
-    nodes?: Array<{
+    nodes: {
       name?: string;
       slug?: string;
       schoolTypesColorFontFields?: {
         color?: string;
         courseFontFamily?: string;
       };
-      children?: {
-        nodes?: Array<{
-          name?: string;
-          slug?: string;
-        }>;
-      };
-    }>;
+    }[];
   };
 };
