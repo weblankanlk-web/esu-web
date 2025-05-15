@@ -4,8 +4,11 @@ import React from "react";
 import Image from "next/image";
 import TitleExtraSmall from "../../../common/TitleExtraSmall/TitleExtraSmall";
 import "./style.scss";
+import { useTheme } from "@/lib/ThemeContext";
 
 const HomeDifference: React.FC = () => {
+    const { color } = useTheme();
+
   return (
     <>
      {/* <section className="home-difference">
@@ -118,7 +121,7 @@ const HomeDifference: React.FC = () => {
               />
             </div>
           </div>
-          <div className="single-difference reverse">
+          <div className="single-difference reverse" style={{ backgroundColor: color }}>
             <div className="difference-text">
               <div className="title-wrap">
                 <TitleExtraSmall

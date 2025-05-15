@@ -3,6 +3,7 @@ import "./style.scss";
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import ContactCards from "@/components/pages/Contact/ContactCards/ContactCards";
 import ContactForm from "@/components/pages/Contact/ContactForm/ContactForm";
+import ContactHeadOffice from "@/components/pages/Contact/ContactHeadOffice/ContactHeadOffice";
 
 const page = () => {
   return (
@@ -13,6 +14,7 @@ const page = () => {
         innerBgDesk="/images/contact-us-banner.png"
         innerBgMobi="/images/contact-us-banner.png"
       />
+      <ContactHeadOffice/>
       <ContactCards />
       <ContactForm />
     </>
