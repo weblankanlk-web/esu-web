@@ -38,7 +38,7 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
   const router = useRouter();
 
   const handleRedirect = (url: string) => {
-    router.push(url);
+    router.push(`/faculties/${url}`);
   };
 
   return (

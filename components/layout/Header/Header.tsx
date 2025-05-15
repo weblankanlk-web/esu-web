@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 import { useState } from "react";
-import Button from "@/components/common/Button/Button";
 
 const Header = () => {
   const pathname = usePathname();
@@ -125,7 +124,7 @@ const Header = () => {
         <div className="bottom-bar">
           <div className="main-wrap d-flex justify-content-between main-menu-wrap">
             <div className="d-flex main-menu-inner-wrap w-100 justify-content-between">
-              <div className="ml-auto">
+              <div className="ml-auto mobile-margin-auto">
                 <Link href="/">
                   <Image
                     src="/images/logo/esu-header.png"
@@ -157,9 +156,9 @@ const Header = () => {
                     <li>
                       <Link href="/">Home</Link>
                     </li>
-               {/*      <li>
+                    <li>
                       <Link href="/about-us">About Us</Link>
-                    </li> */}
+                    </li>
                     <li>
                       <Link href="/courses">Courses</Link>
                     </li>
@@ -220,7 +219,7 @@ const Header = () => {
                 >
                   <span>Register Online</span>
                 </Link> */}
-            {/*     <Button
+                {/*     <Button
                   buttonUrl={
                     isCoursePage
                       ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`

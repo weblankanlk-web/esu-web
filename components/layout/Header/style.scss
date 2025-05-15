@@ -325,6 +325,10 @@ ul#primary li:last-child {
     text-decoration: none;
 }
 
+.mobile-margin-auto {
+    margin: auto;
+}
+
 @media(min-width: 991px) {
     .desktop-only-view {
         display: block;
@@ -341,6 +345,10 @@ ul#primary li:last-child {
     .mobile-esu-logo {
         display: none;
     }
+
+    .mobile-margin-auto {
+        margin: 0;
+    }
 }
 
 @media (max-width:992px) {
@@ -349,7 +357,7 @@ ul#primary li:last-child {
     }
 
     .navbar {
-        justify-content: center;
+        justify-content: center !important;
 
         ul {
             li {

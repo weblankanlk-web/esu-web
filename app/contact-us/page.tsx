@@ -14,8 +14,8 @@ const page = () => {
         innerBgDesk="/images/contact-us-banner.png"
         innerBgMobi="/images/contact-us-banner.png"
       />
-      <ContactHeadOffice/>
-      <ContactCards />
+      <ContactHeadOffice />
+      <ContactCards about={false} />
       <ContactForm />
     </>
   );
