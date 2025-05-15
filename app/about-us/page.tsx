@@ -1,4 +1,5 @@
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
+import OurCampus from "@/components/pages/AboutUs/OurCampus/OurCampus";
 import HomeAbout from "@/components/pages/HomePage/HomeAbout/HomeAbout";
 import HomeUniversities from "@/components/pages/HomePage/HomeUniversities/HomeUniversities";
 import React from "react";
@@ -14,6 +15,8 @@ const page = () => {
       />
       <HomeAbout />
       <HomeUniversities />
+
+      <OurCampus />
     </>
   );
 };
