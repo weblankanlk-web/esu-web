@@ -238,6 +238,17 @@ git merge origin/staging --no-ff -m "Merge staging into main for release"
 6.	Push the updated main branch
 git push origin main
 
+## Revert back and make a commit the head
+
+1. Checkout the main branch
+git checkout main
+
+2. Reset main to the desired commit
+git reset --hard d28d81bb4da20fa591af114a2dabe42c90491d66
+
+3. Force push to origin to overwrite remote history
+git push origin main --force
+
 ---
 
 **Maintained by:** Web Lankan DevOps Team

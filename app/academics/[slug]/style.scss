@@ -204,3 +204,31 @@
     }
   }
 }
+
+.profile__contact {
+  margin-top: 20px;
+
+  .scholar-link-block {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .scholar-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #00aecd;
+    font-weight: 600;
+
+    svg {
+      font-size: 1.2rem;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

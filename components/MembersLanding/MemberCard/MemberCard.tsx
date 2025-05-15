@@ -4,7 +4,7 @@ import Image from "next/image";
 import { StaffMember } from "@/common/types/type";
 
 interface Props {
-  memberData: StaffMember
+  memberData: StaffMember;
 }
 
 const MemberCardItem: React.FC<Props> = ({ memberData }) => {
@@ -12,10 +12,11 @@ const MemberCardItem: React.FC<Props> = ({ memberData }) => {
   const MemberDesignation = memberData?.staffAcf?.designation || "";
   const MemberQualifications = memberData?.staffAcf?.qualifications || "";
   const MemberFeaturedImage = memberData?.featuredImage?.node;
+  const SlugUrl = memberData?.slug;
 
   return (
     <div className="single-massage-card d-flex member-card">
-      <a href={`/academics/${MemberName.toLowerCase().replace(/\s+/g, "-")}`} className="single-image-wrap">
+      <a href={`/academics/${SlugUrl}`} className="single-image-wrap">
         <div className="member-details">
           <h3 className="name">{MemberName}</h3>
           <h4 className="position">{MemberDesignation}</h4>
@@ -24,14 +25,13 @@ const MemberCardItem: React.FC<Props> = ({ memberData }) => {
         <div className="member-image">
           <Image
             src={MemberFeaturedImage?.sourceUrl || "/images/default-profile.png"}
-            alt={MemberFeaturedImage?.altText || MemberName}
+            alt={MemberFeaturedImage?.altText || MemberName || "Profile image"}
             width={352}
             height={352}
           />
         </div>
       </a>
     </div>
-
   );
 };
 

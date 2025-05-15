@@ -10,6 +10,7 @@ import { CourseList, Pagination, SearchBar } from "@/components/pages/Courses";
 import Filter from "@/components/pages/Courses/Filter/Filter";
 import FaculityCard from "@/components/FaculityCard/FaculityCard";
 import MemberCardItem from "@/components/MembersLanding/MemberCard/MemberCard";
+import { useTheme } from "@/lib/ThemeContext";
 
 export default function CoursesPage() {
   const [search, setSearch] = useState("");
@@ -58,6 +59,8 @@ export default function CoursesPage() {
 
   const totalPages = Math.ceil(filteredAcademics.length / coursesPerPage);
 
+  const { color } = useTheme();
+
   return (
     <>
       <Breadrumb />
@@ -65,7 +68,7 @@ export default function CoursesPage() {
       <section className="simple-padding-bottom academics-page-section">
         <div className="small-middle-wrap">
           <h2 className="section-heading section-heading--black">
-            our <span>academics</span>
+            our <span style={{ color: color }}>academics</span>
           </h2>
 
           <div className="landing-wrap-top">
@@ -90,13 +93,20 @@ export default function CoursesPage() {
               filteredCourses={filteredAcademics}
             />
 
-            {/* Course List */}
             <div className="landing-results">
               <div className="landing-results-inner academics-mamber-group">
                 {filteredAcademics.length > 0 &&
-                  filteredAcademics.map((academicsItem, index) => (
-                    <MemberCardItem memberData={academicsItem} key={index} />
-                  ))}
+                  filteredAcademics
+                    .slice(
+                      (currentPage - 1) * coursesPerPage,
+                      currentPage * coursesPerPage
+                    )
+                    .map((academicsItem, index) => (
+                      <MemberCardItem
+                        memberData={academicsItem}
+                        key={`${academicsItem.title}-${index}`}
+                      />
+                    ))}
 
                 <Pagination
                   currentPage={currentPage}

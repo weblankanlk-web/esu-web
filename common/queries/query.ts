@@ -40,21 +40,25 @@ query {
       schoolTypes {
         nodes {
           slug
+          name
         }
       }
       courseTypes {
         nodes {
           slug
+          name
         }
       }
       deliveryModeTypes {
         nodes {
           slug
+          name
         }
       }
       branchTypes {
         nodes {
           slug
+          name
         }
       }
     }
@@ -179,7 +183,7 @@ query {
 
 export const ALL_COURSE_QUERY = `
 query {
-  courses (first: 100) {
+  courses (first: 300) {
     nodes {
       id
       title
@@ -299,43 +303,6 @@ export const HOME_BANNER_QUERY = `
     }
   }
 }
-    `;
-
-export const ACADEMIC_STAFF = `
-query($slug: ID!){
-  staff(idType: SLUG, id: $slug) {
-     title
-    staffAcf {
-      academicQualifications
-      careerSummary
-      designation
-      myPublications
-      qualifications
-    }
-    featuredImage {
-      node {
-        altText
-        sourceUrl
-      }
-    }
-    schoolTypes {
-      nodes {
-        name
-        slug
-        schoolTypesColorFontFields {
-          color
-          courseFontFamily
-        }
-        children {
-          nodes {
-            name
-            slug
-          }
-        }
-      }
-    }
-  }
-}
 `;
 
 export const TESTIMONIALS_QUERY = `
@@ -367,19 +334,14 @@ query {
 `;
 
 export const MEMBERS_QUERY = `
-  query($slug: ID!) {
+query($slug: ID!) {
     schoolType(id: $slug, idType: SLUG) {
       staffs {
         nodes {
           title
           slug
           staffAcf {
-            academicQualifications
-            careerSummary
             designation
-            message
-            myPublications
-            qualifications
           }
           featuredImage {
             node {
@@ -415,7 +377,7 @@ query {
     }
   }
 }
-    `;
+`;
 
 export const FACULTY_INNER_QUERY = `
   query ($slug: [String]) {
@@ -454,19 +416,56 @@ export const FACULTY_INNER_QUERY = `
         }
       }
     }
+
     staffType(id: "dean", idType: SLUG) {
       staffs {
         nodes {
+          title
           staffAcf {
             designation
             message
-            qualifications
           }
-          title
           featuredImage {
             node {
               sourceUrl
               altText
+            }
+          }
+          schoolTypes {
+            nodes {
+              name
+              slug
+              schoolTypesColorFontFields {
+                facultyName
+                color
+                courseFontFamily
+                schoolOverview
+                schoolOverviewTitle
+                schoolOverviewImage {
+                  node {
+                    id
+                    link
+                    altText
+                    title
+                  }
+                }
+                facultyDesktop {
+                  node {
+                    id
+                    link
+                    altText
+                    title
+                  }
+                }
+                facultyMobile {
+                  node {
+                    id
+                    link
+                    altText
+                    title
+                  }
+                }
+              }
             }
           }
         }
@@ -483,7 +482,6 @@ export const VICE_CHANCELLOR_QUERY = `
           staffAcf {
             designation
             message
-            qualifications
           }
           title
           featuredImage {
@@ -498,6 +496,73 @@ export const VICE_CHANCELLOR_QUERY = `
 }
 `;
 
+export const ACADEMIC_STAFF = `
+query ($slug: ID!) {
+  staff(idType: SLUG, id: $slug) {
+    title
+    staffAcf {
+      designation
+      academicTitle
+      message
+      careerSummary
+      googleScholarUrl {
+        url
+        title
+        target
+      }
+      researchGateUrl {
+        url
+        title
+        target
+      }
+      academicPublications {
+        text
+        publicationLinks
+      }
+      academicQualification{
+        text
+        publicationLinks
+      }
+      academicResearchInterest {
+        text
+      }
+      academicResearch {
+        research
+        researchDescription
+      }
+      academicAwards {
+        text
+        publicationLinks
+      }
+      academicHonors {
+        text
+        publicationLinks
+      }
+      academicMembership {
+        text
+        publicationLinks
+      }
+    }
+    featuredImage {
+      node {
+        altText
+        sourceUrl
+      }
+    }
+    schoolTypes {
+      nodes {
+        name
+        slug
+        schoolTypesColorFontFields {
+          color
+          courseFontFamily
+        }
+      }
+    }
+  }
+}
+`;
+
 export const GET_ALL_ACADEMIC_STAFF = `
 query {
   staffs(first: 100) {
@@ -507,12 +572,19 @@ query {
       content
       slug
       staffAcf {
-        academicQualifications
         careerSummary
         designation
         message
-        myPublications
-        qualifications
+        googleScholarUrl {
+          url
+          title
+          target
+        }
+        researchGateUrl {
+          url
+          title
+          target
+        }
       }
       featuredImage {
         node {
@@ -524,6 +596,16 @@ query {
         nodes {
           slug
           name
+          schoolTypesColorFontFields {
+            color
+            courseFontFamily
+          }
+          children {
+            nodes {
+              name
+              slug
+            }
+          }
         }
       }
     }

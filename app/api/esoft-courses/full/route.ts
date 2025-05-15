@@ -1,7 +1,7 @@
 // app/api/esoft-courses/full/route.ts
 import { NextRequest } from "next/server";
 import { graphQLClient } from "@/lib/graphql-client";
-import { ALL_COURSE_QUERY } from "@/queries/queries";
+import { ALL_COURSE_QUERY } from "@/common/queries/query";
 
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -14,7 +14,13 @@ const headers = {
 export async function GET(req: NextRequest) {
   try {
     // 1. Get all courses from GraphQL
-    const data = await graphQLClient.request(ALL_COURSE_QUERY);
+    interface CourseData {
+      courses?: {
+        nodes?: any[];
+      };
+    }
+
+    const data = (await graphQLClient.request(ALL_COURSE_QUERY)) as CourseData;
     const courses = data?.courses?.nodes || [];
 
     // 2. For each course, get fees & batches

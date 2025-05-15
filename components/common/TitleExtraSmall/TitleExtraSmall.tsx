@@ -11,8 +11,8 @@ const TitleExtraSmall: React.FC<TitleInterface> = ({ title, subtitle }) => {
     <>
       <div className="title-wrapper">
         <div className="main-title-small">
-          <h2> {title} </h2>
-          <h2>
+          <h2> {title} 
+          
             <span style={{ color: color }}> {subtitle}</span>
           </h2>
         </div>

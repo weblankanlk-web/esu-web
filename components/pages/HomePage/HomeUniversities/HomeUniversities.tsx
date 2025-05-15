@@ -69,7 +69,7 @@ const HomeUniversities = () => {
       <section className="home-universities">
         <div className="full-wrap">
           <div className="title-wrap">
-            <TitleLarge title="Academic" subtitle="Partnerships" />
+            <TitleLarge title="Academic" subtitle=" Partnerships" />
           </div>
           <div className="slider-wrap">
             <Slider {...settings} className="logo-slider">

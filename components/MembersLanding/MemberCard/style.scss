@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+
   .single-image-wrap {
     border-radius: 19.938px;
     border: 0.997px solid #d9d9d9;
@@ -12,6 +13,9 @@
     width: 95%;
     color: #4d4d4d;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+
     .member-details {
       text-align: center;
       padding: 20px 10px;
@@ -21,12 +25,14 @@
         font-weight: 500;
         font-size: 18px;
       }
+
       .position {
         font-style: normal;
         font-weight: 700;
         line-height: normal;
         font-size: 16px;
       }
+
       .qualification {
         font-family: var(--font-space-grotesk);
         font-style: normal;
@@ -34,6 +40,7 @@
         font-size: 16px;
       }
     }
+
     .member-image {
       img {
         width: 100%;
@@ -44,6 +51,7 @@
       }
     }
   }
+
   .single-massage {
     font-style: normal;
     font-weight: 400;
@@ -56,17 +64,20 @@
     width: 49%;
   }
 }
+
 @media only screen and (min-width: 992px) {
   .member-card {
     border-radius: get-vw(19.938px);
     border: get-vw(0.997px) solid #d9d9d9;
     width: 48%;
     margin-bottom: get-vw(40px);
+
     .single-image-wrap {
       border: 0 solid #d9d9d9;
       margin: 0;
-      // padding-top: get-vw(87px);
       width: 100%;
+      display: flex;
+      flex-direction: column;
 
       .member-details {
         text-align: left;
@@ -87,6 +98,7 @@
           line-height: normal;
           letter-spacing: get-vw(-0.32px);
         }
+
         .qualification {
           font-size: get-vw(16px);
           font-style: normal;
@@ -99,9 +111,11 @@
       .member-image {
         img {
           height: 350px;
+          object-fit: contain;
         }
       }
     }
+
     .single-massage {
       width: calc(100% - get-vw(500px));
       font-size: get-vw(18px);
@@ -114,15 +128,22 @@
 }
 
 @media only screen and (min-width: 1200px) {
+  .landing-results-inner.academics-mamber-group .member-card {
+    width: 32%;
+  }
+
   .member-card {
     width: 24%;
+
     .single-image-wrap {
       display: flex;
-      flex-direction: column-reverse;
-      justify-content: left;
+      flex-direction: column;
+      justify-content: flex-start;
+
       .member-details {
         padding: get-vw(50px) get-vw(50px) get-vw(50px) get-vw(50px) !important;
       }
+
       .member-image {
         img {
           height: get-vw(350px);

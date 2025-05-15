@@ -62,19 +62,11 @@ const TestimonialItem: React.FC<Props> = ({ testimonialData }) => {
 
         {/* Text Testimonial */}
         {isText && text && (
-          <div className="testimonial-content message">
-            {visibleText.split(/\r?\n/).map((line, i) => (
+            <div className="testimonial-content message">
+            {text.split(/\r?\n/).map((line, i) => (
               <p key={i}>{line.trim()}</p>
             ))}
-            {shouldTruncate && (
-              <button
-                onClick={() => setExpanded(!expanded)}
-                className="read-more-btn"
-              >
-                {expanded ? "Show Less" : "Read More"}
-              </button>
-            )}
-          </div>
+            </div>
         )}
 
         {/* Video Testimonial */}

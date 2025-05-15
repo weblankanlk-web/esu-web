@@ -5,15 +5,21 @@ import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import FaculityCard from "@/components/FaculityCard/FaculityCard";
 import DeanMessage from "@/components/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
-import { FACULTY_TYPES_QUERY, VICE_CHANCELLOR_QUERY } from "@/common/queries/query";
+import {
+  FACULTY_TYPES_QUERY,
+  VICE_CHANCELLOR_QUERY,
+} from "@/common/queries/query";
 import { Faculty, ViceChancellor } from "@/common/types/type";
 import { title } from "process";
+import { useTheme } from "@/lib/ThemeContext";
 
 const Page = () => {
   const [faculty, setFaculty] = useState<Faculty[]>([]);
   const [viceChancellor, setViceChancellor] = useState<ViceChancellor | null>(
     null
   );
+
+  const { color } = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +45,7 @@ const Page = () => {
         console.error("❌ Error fetching data:", error);
       }
     };
-    
+
     fetchData();
   }, []);
 
@@ -47,10 +53,10 @@ const Page = () => {
     <>
       {
         <InnerBanner
-          innerPageTitle={`Our <span>Faculties</span>`}
+          innerPageTitle={`Our <span style="color: ${color}">Faculties</span>`}
           innerPageDescription=""
-          innerBgDesk="/images/faculity-lan.png"
-          innerBgMobi="/images/faculity-lan.png"
+          innerBgDesk="/images/faculties-inner-banner.png"
+          innerBgMobi="/images/faculties-inner-banner.png"
         />
       }
 
@@ -61,7 +67,6 @@ const Page = () => {
             title="Vice Chancellor's"
             DeanName={viceChancellor.title}
             designation={viceChancellor.staffAcf.designation || ""}
-            qualifications={viceChancellor.staffAcf.qualifications || ""}
             message={viceChancellor.staffAcf.message || ""}
             featuredImage={{
               sourceUrl:
@@ -72,7 +77,7 @@ const Page = () => {
                 "Vice Chancellor",
             }}
             fontFamily={"inherit"} // You can update this if you add font in VC fields
-            fontColor={"#000"} // Update if VC fields include color
+            fontColor={color} // Update if VC fields include color
           />
         )}
 

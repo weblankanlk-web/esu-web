@@ -25,6 +25,9 @@
               position: relative;
 
               .course-box-img {
+                img{
+                  object-position: top;
+                }
                 .course-box-img-content-inner {
                   h6 {
                     font-family: var(--font-poppins);
@@ -86,6 +89,13 @@
     }
   }
 
+
+  @media only screen and (min-width: 992px) {
+    .course-box-wrap {
+    width: 100% !important;
+}
+
+  }
   @media only screen and (min-width: 1200px) {
     margin-bottom: get-vw(100px);
 

@@ -86,6 +86,43 @@ export type DeanDetails = {
       altText: string;
     };
   };
+  schoolTypes?: {
+    nodes: {
+      slug: string;
+      name: string;
+      schoolTypesColorFontFields?: {
+        facultyName?: string;
+        color?: string;
+        courseFontFamily?: string;
+        schoolOverview?: string;
+        schoolOverviewTitle?: string;
+        schoolOverviewImage?: {
+          node: {
+            id?: string;
+            link?: string;
+            altText?: string;
+            title?: string;
+          };
+        };
+        facultyDesktop?: {
+          node: {
+            id?: string;
+            link?: string;
+            altText?: string;
+            title?: string;
+          };
+        };
+        facultyMobile?: {
+          node: {
+            id?: string;
+            link?: string;
+            altText?: string;
+            title?: string;
+          };
+        };
+      };
+    }[];
+  };
 };
 
 export type ViceChancellor = {
@@ -93,7 +130,6 @@ export type ViceChancellor = {
   staffAcf: {
     designation: string;
     message: string;
-    qualifications: string;
   };
   featuredImage: {
     node: {
@@ -286,16 +322,52 @@ export type Testimonial = {
 export type AcademicStaff = {
   title?: string;
   staffAcf: {
-    academicQualifications?: string;
-    careerSummary?: string;
     designation?: string;
-    myPublications?: string;
-    qualifications?: string;
+    academicTitle?: string;
+    message?: string;
+    careerSummary?: string;
+    googleScholarUrl?: {
+      url?: string;
+      title?: string;
+      target?: string;
+    };
+    researchGateUrl?: {
+      url?: string;
+      title?: string;
+      target?: string;
+    };
+    academicPublications?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicQualification?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicResearchInterest?: {
+      text?: string;
+    }[];
+    academicResearch?: {
+      research?: string;
+      researchDescription?: string;
+    }[];
+    academicAwards?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicHonors?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
+    academicMembership?: {
+      text?: string;
+      publicationLinks?: string;
+    }[];
   };
   featuredImage?: {
     node?: {
-      altText?: string;
       sourceUrl?: string;
+      altText?: string;
     };
   };
   schoolTypes?: {
@@ -305,12 +377,6 @@ export type AcademicStaff = {
       schoolTypesColorFontFields?: {
         color?: string;
         courseFontFamily?: string;
-      };
-      children?: {
-        nodes?: {
-          name?: string;
-          slug?: string;
-        }[];
       };
     }[];
   };

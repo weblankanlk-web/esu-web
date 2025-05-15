@@ -1,0 +1,20 @@
+:root {
+  --faculty-color: #000;
+  --faculty-font: "inherit";
+}
+
+.inner-banner-title {
+  color: var(--faculty-color);
+  font-family: var(--faculty-font);
+  font-weight: bold;
+}
+
+.faculty-overview-title {
+  font-family: var(--faculty-font);
+  background: linear-gradient(
+    90deg,
+    var(--faculty-color) 0%,
+    rgba(124, 124, 124, 0.7) 100%
+  );
+  font-weight: bold;
+}
