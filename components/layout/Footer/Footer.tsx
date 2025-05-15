@@ -76,7 +76,7 @@ const Footer = () => {
             </p>
             <p>
               <strong>Email</strong> <br />
-              <Link href="mailto:info@esoft.lk">info@esoft.lk</Link>
+              <Link href="mailto:info@esu.lk">info@esu.lk</Link>
             </p>
             <p>
               <strong>Head Office (Block E)</strong> <br />
