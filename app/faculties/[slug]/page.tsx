@@ -10,6 +10,7 @@ import MembersLanding from "@/components/MembersLanding/MembersLanding";
 import { FACULTY_INNER_QUERY } from "@/common/queries/query";
 import { FacultyInner, StaffMemberDetails } from "@/common/types/type";
 import "./style.scss";
+import FacultyCourses from "@/components/pages/Faculty/FacultyCourses/FacultyCourses";
 
 const FacultyInnerPage = () => {
   const pathname = usePathname();
@@ -98,6 +99,8 @@ const FacultyInnerPage = () => {
             />
           </div>
 
+          <FacultyCourses slug={slug || ""} />
+
           {matchingDean && (
             <DeanMessage
               title="Dean"
@@ -119,7 +122,6 @@ const FacultyInnerPage = () => {
               }
             />
           )}
-
           {matchingHOD && (
             <DeanMessage
               title="Head of Department"
@@ -141,7 +143,6 @@ const FacultyInnerPage = () => {
               }
             />
           )}
-
           <MembersLanding
             slug={slug || ""}
             sectinTitle1="Faculty"

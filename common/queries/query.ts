@@ -143,7 +143,7 @@ query {
       }
     }
 }
-    `;
+`;
 
 export const BRANCH_TYPES_QUERY = `
 query {
@@ -646,4 +646,34 @@ query {
     }
   }
 }
+`;
+
+export const COURSE_GET_BY_FACULTY_TYPES = `
+  query CoursesByFaculty($slug: ID!) {
+    schoolType(id: $slug, idType: SLUG) {
+      courses(first: 8) {
+        nodes {
+          id
+          title
+          slug
+          featuredImage {
+            node {
+              mediaItemUrl
+            }
+          }
+          courses {
+            courseId
+            courseCode
+            studentsCount
+          }
+          schoolTypes {
+            nodes {
+              slug
+              name
+            }
+          }
+        }
+      }
+    }
+  }
 `;
