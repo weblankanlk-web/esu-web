@@ -13,7 +13,7 @@ const ContactCards = () => {
         <div className="info">
           <div>
             <p className="label">Email</p>
-            <p>verifications@esoft.lk</p>
+            <p>info@esu.lk</p>
           </div>
           <div>
             <p className="label">Call Us on</p>
@@ -28,7 +28,7 @@ const ContactCards = () => {
         </h3>
         <p className="label">Address</p>
         <p>
-          479,
+          No 479,
           <br />
           William Gopallawa mawatha, <br />
           Kandy, Srilanka
@@ -36,11 +36,11 @@ const ContactCards = () => {
         <div className="info">
           <div>
             <p className="label">Call Us on</p>
-            <p>+94 117 677 888</p>
+            <p>+94 117 572 572</p>
           </div>
           <div>
             <p className="label">Email</p>
-            <p>SRU@esoft.lk</p>
+            <p>info@esu.lk</p>
           </div>
         </div>
       </div>
@@ -59,11 +59,11 @@ const ContactCards = () => {
         <div className="info">
           <div>
             <p className="label">Call Us on</p>
-            <p>+94 117 677 888</p>
+            <p>+94 117 572 572</p>
           </div>
           <div>
             <p className="label">Email</p>
-            <p>SRU@esoft.lk</p>
+            <p>info@esu.lk</p>
           </div>
         </div>
       </div>
@@ -82,11 +82,11 @@ const ContactCards = () => {
         <div className="info">
           <div>
             <p className="label">Call Us on</p>
-            <p>+94 117 677 888</p>
+            <p>+94 117 572 572</p>
           </div>
           <div>
             <p className="label">Email</p>
-            <p>SRU@esoft.lk</p>
+            <p>info@esu.lk</p>
           </div>
         </div>
       </div>
