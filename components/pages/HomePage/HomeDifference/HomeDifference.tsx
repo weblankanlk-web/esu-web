@@ -118,7 +118,7 @@ const HomeDifference: React.FC = () => {
               />
             </div>
           </div>
-          <div className="single-difference">
+          <div className="single-difference reverse">
             <div className="difference-text">
               <div className="title-wrap">
                 <TitleExtraSmall
