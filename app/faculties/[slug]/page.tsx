@@ -9,6 +9,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 import MembersLanding from "@/components/MembersLanding/MembersLanding";
 import { FACULTY_INNER_QUERY } from "@/common/queries/query";
 import { FacultyInner, DeanDetails } from "@/common/types/type";
+import "./style.scss";
 
 const FacultyInnerPage = () => {
   const pathname = usePathname();
@@ -52,25 +53,37 @@ const FacultyInnerPage = () => {
     <>
       {faculty && (
         <>
-          <InnerBanner
-            innerPageTitle={`Faculty of <span style="color: ${faculty.schoolTypesColorFontFields.color}; font-family: ${faculty.schoolTypesColorFontFields.courseFontFamily}">${faculty.schoolTypesColorFontFields.facultyName}</span>`}
-            innerPageDescription={`Welcome to the Faculty of ${faculty.schoolTypesColorFontFields.facultyName}.`}
-            innerBgDesk={
-              faculty.schoolTypesColorFontFields.facultyDesktop?.node?.link || ""
+          <div
+            style={
+              {
+                "--faculty-color": faculty.schoolTypesColorFontFields.color,
+                "--faculty-font":
+                  faculty.schoolTypesColorFontFields.courseFontFamily,
+              } as React.CSSProperties
             }
-            innerBgMobi={
-              faculty.schoolTypesColorFontFields.facultyMobile?.node?.link || ""
-            }
-          />
+          >
+            <InnerBanner
+              innerPageTitle={`Faculty of <span class="inner-banner-title">${faculty.schoolTypesColorFontFields.facultyName}</span>`}
+              innerPageDescription={`Welcome to the Faculty of ${faculty.schoolTypesColorFontFields.facultyName}.`}
+              innerBgDesk={
+                faculty.schoolTypesColorFontFields.facultyDesktop?.node?.link ||
+                ""
+              }
+              innerBgMobi={
+                faculty.schoolTypesColorFontFields.facultyMobile?.node?.link ||
+                ""
+              }
+            />
 
-          <FaculityOverview
-            schoolOverviewTitle={`<span style="font-family: ${faculty.schoolTypesColorFontFields.courseFontFamily}; background: linear-gradient(90deg, ${faculty.schoolTypesColorFontFields.color} 0%, rgba(124, 124, 124, 0.70) 100%);">${faculty.schoolTypesColorFontFields.schoolOverviewTitle}</span>`}
-            OverviewImage={
-              faculty.schoolTypesColorFontFields.schoolOverviewImage?.node
-                ?.link || ""
-            }
-            Overview={faculty.schoolTypesColorFontFields.schoolOverview}
-          />
+            <FaculityOverview
+              schoolOverviewTitle={`<span class="faculty-overview-title">${faculty.schoolTypesColorFontFields.schoolOverviewTitle}</span>`}
+              OverviewImage={
+                faculty.schoolTypesColorFontFields.schoolOverviewImage?.node
+                  ?.link || ""
+              }
+              Overview={faculty.schoolTypesColorFontFields.schoolOverview}
+            />
+          </div>
 
           {matchingDean && (
             <DeanMessage
