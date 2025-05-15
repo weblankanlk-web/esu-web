@@ -9,7 +9,9 @@ const ContactCards = () => {
           <span className="highlight">Colombo</span>
         </h3>
         <p className="label">Address</p>
-        <p></p>
+        <p>Head Office (Block E)<br></br>
+No.03,<br></br>
+De Fonseka Place, Colombo 4,<br></br> Sri Lanka.</p>
         <div className="info">
           <div>
             <p className="label">Email</p>
@@ -31,7 +33,7 @@ const ContactCards = () => {
           No 479,
           <br />
           William Gopallawa mawatha, <br />
-          Kandy, Srilanka
+          Kandy,<br></br> Srilanka
         </p>
         <div className="info">
           <div>
@@ -54,7 +56,7 @@ const ContactCards = () => {
           Block A
           <br />
           235, Galle Road <br />
-          Colombo 04, Srilanka
+          Colombo 04,<br></br> Srilanka
         </p>
         <div className="info">
           <div>
@@ -77,7 +79,7 @@ const ContactCards = () => {
           Block B
           <br />
           233, Galle Road <br />
-          Colombo 04, Srilanka
+          Colombo 04,<br></br> Srilanka
         </p>
         <div className="info">
           <div>
