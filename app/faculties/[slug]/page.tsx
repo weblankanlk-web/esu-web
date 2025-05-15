@@ -8,7 +8,7 @@ import DeanMessage from "@/components/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
 import MembersLanding from "@/components/MembersLanding/MembersLanding";
 import { FACULTY_INNER_QUERY } from "@/common/queries/query";
-import { FacultyInner, DeanDetails } from "@/common/types/type";
+import { FacultyInner, StaffMemberDetails } from "@/common/types/type";
 import "./style.scss";
 
 const FacultyInnerPage = () => {
@@ -16,7 +16,8 @@ const FacultyInnerPage = () => {
   const slug = pathname?.split("/").pop();
 
   const [faculty, setFaculty] = useState<FacultyInner | null>(null);
-  const [deans, setDeans] = useState<DeanDetails[]>([]);
+  const [deans, setDeans] = useState<StaffMemberDetails[]>([]);
+  const [hods, setHods] = useState<StaffMemberDetails[]>([]);
 
   useEffect(() => {
     if (!slug) return;
@@ -25,7 +26,8 @@ const FacultyInnerPage = () => {
       try {
         const data = await graphQLClient.request<{
           schoolTypes: { nodes: FacultyInner[] };
-          staffType: { staffs: { nodes: DeanDetails[] } };
+          dean: { staffs: { nodes: StaffMemberDetails[] } };
+          hod: { staffs: { nodes: StaffMemberDetails[] } };
         }>(FACULTY_INNER_QUERY, { slug });
 
         if (data.schoolTypes.nodes.length > 0) {
@@ -33,12 +35,17 @@ const FacultyInnerPage = () => {
           setFaculty(data.schoolTypes.nodes[0]);
         }
 
-        if (data.staffType.staffs.nodes.length > 0) {
-          console.log("🎓 All Dean Records:", data.staffType.staffs.nodes);
-          setDeans(data.staffType.staffs.nodes);
+        if (data.dean?.staffs?.nodes?.length > 0) {
+          console.log("🎓 All Dean Records:", data.dean.staffs.nodes);
+          setDeans(data.dean.staffs.nodes);
+        }
+
+        if (data.hod?.staffs?.nodes?.length > 0) {
+          console.log("🎓 All HOD Records:", data.hod.staffs.nodes);
+          setHods(data.hod.staffs.nodes);
         }
       } catch (error) {
-        console.error("❌ Error fetching faculty/dean data:", error);
+        console.error("❌ Error fetching faculty/dean/HOD data:", error);
       }
     };
 
@@ -46,7 +53,13 @@ const FacultyInnerPage = () => {
   }, [slug]);
 
   const matchingDean = deans.find((dean) =>
-    dean.schoolTypes?.nodes?.some((node) => node.slug === slug)
+    dean.schoolTypes?.nodes?.some(
+      (node: { slug: string }) => node.slug === slug
+    )
+  );
+
+  const matchingHOD = hods.find((hod) =>
+    hod.schoolTypes?.nodes?.some((node: { slug: string }) => node.slug === slug)
   );
 
   return (
@@ -94,14 +107,36 @@ const FacultyInnerPage = () => {
               featuredImage={matchingDean.featuredImage.node}
               fontFamily={
                 matchingDean.schoolTypes?.nodes?.find(
-                  (node) => node.slug === slug
-                )?.schoolTypesColorFontFields?.courseFontFamily ||
+                  (node: { slug: string }) => node.slug === slug
+                )?.schoolTypesColorFontFields?.courseFontFamily ??
                 faculty.schoolTypesColorFontFields.courseFontFamily
               }
               fontColor={
                 matchingDean.schoolTypes?.nodes?.find(
-                  (node) => node.slug === slug
-                )?.schoolTypesColorFontFields?.color ||
+                  (node: { slug: string }) => node.slug === slug
+                )?.schoolTypesColorFontFields?.color ??
+                faculty.schoolTypesColorFontFields.color
+              }
+            />
+          )}
+
+          {matchingHOD && (
+            <DeanMessage
+              title="Head of Department"
+              DeanName={matchingHOD.title}
+              designation={matchingHOD.staffAcf.designation}
+              message={matchingHOD.staffAcf.message}
+              featuredImage={matchingHOD.featuredImage.node}
+              fontFamily={
+                matchingHOD.schoolTypes?.nodes?.find(
+                  (node: { slug: string }) => node.slug === slug
+                )?.schoolTypesColorFontFields?.courseFontFamily ??
+                faculty.schoolTypesColorFontFields.courseFontFamily
+              }
+              fontColor={
+                matchingHOD.schoolTypes?.nodes?.find(
+                  (node: { slug: string }) => node.slug === slug
+                )?.schoolTypesColorFontFields?.color ??
                 faculty.schoolTypesColorFontFields.color
               }
             />
