@@ -157,9 +157,9 @@ const Header = () => {
                     <li>
                       <Link href="/">Home</Link>
                     </li>
-                    <li>
+               {/*      <li>
                       <Link href="/about-us">About Us</Link>
-                    </li>
+                    </li> */}
                     <li>
                       <Link href="/courses">Courses</Link>
                     </li>
@@ -220,14 +220,14 @@ const Header = () => {
                 >
                   <span>Register Online</span>
                 </Link> */}
-                <Button
+            {/*     <Button
                   buttonUrl={
                     isCoursePage
                       ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`
                       : "https://register.esoft.lk/"
                   }
                   buttonName={"Inquire Now"}
-                />
+                /> */}
               </div>
             </div>
           </div>
