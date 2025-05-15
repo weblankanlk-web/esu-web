@@ -2775,7 +2775,7 @@ body.single-esoft-transfer #in-body.is-loaded {
     border-radius: 0;
     display: block;
     position: fixed;
-    top: 80px;
+    top: 40px;
     left: 0;
     overflow: auto;
     height: 100vh;

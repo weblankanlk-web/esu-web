@@ -310,7 +310,7 @@ const Header = () => {
                 <Link href="/faculties">Faculties</Link>
               </li>
               <li>
-                <Link href="/contact-us">contact us</Link>
+                <Link href="/contact-us">Contact Us</Link>
               </li>
             </ul>
           </nav>

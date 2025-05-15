@@ -328,6 +328,9 @@ ul#primary li:last-child {
 .mobile-margin-auto {
     margin: auto;
 }
+.apply-now-wrap.mobile-only-view {
+    display: none;
+}
 
 @media(min-width: 991px) {
     .desktop-only-view {
@@ -365,4 +368,19 @@ ul#primary li:last-child {
             }
         }
     }
+}
+
+
+@media (max-width: 990px) {
+   header#header {
+    position: sticky;
+    top: 0;
+   }
+   nav#navbar_main_nav .main-wrap {
+    padding-top: 80px !important;
+    .navbar ul li {
+    padding-bottom: 15px;
+}
+}
+
 }
