@@ -73,12 +73,12 @@ export type FacultyInner = {
 };
 
 // app/faculties/[slug]/page.tsx
-export type DeanDetails = {
+export type StaffMemberDetails = {
   title: string;
   staffAcf: {
     designation: string;
     message: string;
-    qualifications: string;
+    qualifications?: string;
   };
   featuredImage: {
     node: {

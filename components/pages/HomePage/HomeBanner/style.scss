@@ -135,6 +135,25 @@
                             // border: 2px solid #000;
                             // margin-right: 5px;
                             border: none;
+
+                            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+
+                            &:hover {
+                                transform: scale(1.02);
+                            }
+
+                            &.active {
+                                font-weight: 600;
+                                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                            }
+
+                            svg {
+                                transition: transform 0.3s ease;
+                            }
+
+                            &.active svg {
+                                transform: translateY(-2px);
+                            }
                         }
                     }
                 }
@@ -216,5 +235,14 @@
                 }
             }
         }
+    }
+}
+
+
+
+
+@media screen and (min-width: 1200px) {
+    .home-banner {
+        min-height: 515px;
     }
 }

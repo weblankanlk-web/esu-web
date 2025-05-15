@@ -103,7 +103,8 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
                 }}
                 // dangerouslySetInnerHTML={{ __html: tab.buttonName }}
               >
-                {tab.buttonName} &nbsp;
+                {activeTab === tab.id ? "Visit Faculty" : tab.buttonName}
+                &nbsp; &nbsp;
                 {activeTab === tab.id ? <FaArrowUpRightFromSquare /> : ""}
               </button>
             </li>
