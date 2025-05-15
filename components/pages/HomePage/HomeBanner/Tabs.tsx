@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Button from "../../../common/Button/Button";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
 
 interface Tabs {
   ImgDesk: string;
@@ -13,6 +14,7 @@ interface Tabs {
   text: string;
   color: string;
   buttonName: string;
+  buttonUrl: string;
 }
 
 interface TabsWithImagesProps {
@@ -30,6 +32,14 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
       setActiveTab(tabData[0].id);
     }
   }, [tabData, activeTab]);
+
+  // console.log(tabData);
+
+  const router = useRouter();
+
+  const handleRedirect = (url: string) => {
+    router.push(url);
+  };
 
   return (
     <div className="tab-section">
@@ -78,7 +88,12 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
               <button
                 className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
                 onClick={() => {
-                  setActiveTab(tab.id), setColor(tab.color);
+                  {
+                    activeTab === tab.id
+                      ? handleRedirect(tab.buttonUrl)
+                      : setActiveTab(tab.id),
+                      setColor(tab.color);
+                  }
                 }}
                 style={{
                   backgroundColor:
@@ -86,8 +101,11 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
                       ? tab.color
                       : "rgba(186, 186, 186, 0.65)",
                 }}
-                dangerouslySetInnerHTML={{ __html: tab.buttonName }}
-              />
+                // dangerouslySetInnerHTML={{ __html: tab.buttonName }}
+              >
+                {tab.buttonName} &nbsp;
+                {activeTab === tab.id ? <FaArrowUpRightFromSquare /> : ""}
+              </button>
             </li>
           ))}
         </ul>

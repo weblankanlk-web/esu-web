@@ -99,6 +99,7 @@ const HomeBanner = () => {
             text: item.bannerText || "Default description",
             color: item?.button?.nodes?.[0]?.schoolTypesColorFontFields?.color || "#000000",
             buttonName: item?.button?.nodes?.[0]?.name || "Default Button Name",
+            buttonUrl: item?.button?.nodes?.[0]?.slug || ""
           }))}
         />
       </div>
