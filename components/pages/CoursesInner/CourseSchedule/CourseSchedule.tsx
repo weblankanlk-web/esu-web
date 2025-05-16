@@ -47,7 +47,7 @@ const CourseSchedule: React.FC<ScheduleProps> = ({ schedule }) => {
     }
   }, [schedule, selectedBranch]);
 
-  console.log(filteredBatches);
+  //console.log(filteredBatches);
 
   return (
     <>
