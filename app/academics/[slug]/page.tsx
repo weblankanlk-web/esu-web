@@ -38,9 +38,13 @@ const page = () => {
     fetchAcademicStaff();
   }, [slug]);
 
-  setColor(
-    academicStaff?.schoolTypes?.nodes?.[0]?.schoolTypesColorFontFields?.color
-  );
+  useEffect(() => {
+    const newColor =
+      academicStaff?.schoolTypes?.nodes?.[0]?.schoolTypesColorFontFields?.color;
+    if (newColor) {
+      setColor(newColor);
+    }
+  }, [academicStaff]);
 
   if (!academicStaff)
     return (
@@ -147,11 +151,7 @@ const page = () => {
               <h3>
                 <span style={{ color: color }}>CAREER SUMMARY</span>
               </h3>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: academicStaff.staffAcf?.careerSummary || "",
-                }}
-              />
+              <p>{academicStaff.staffAcf?.careerSummary}</p>
             </section>
           )}
 
@@ -160,7 +160,7 @@ const page = () => {
               <h3>
                 <span style={{ color: color }}>PUBLICATIONS</span>
               </h3>
-              <ul>
+              <ul style={{ "--bullet-color": color } as React.CSSProperties}>
                 {academicStaff.staffAcf.academicPublications!.map((pub) => (
                   <li key={`${pub.text}-${pub.publicationLinks}`}>
                     {pub.publicationLinks ? (
@@ -186,7 +186,7 @@ const page = () => {
               <h3>
                 <span style={{ color: color }}>QUALIFICATIONS</span>
               </h3>
-              <ul>
+              <ul style={{ "--bullet-color": color } as React.CSSProperties}>
                 {academicStaff.staffAcf.academicQualification!.map((pub) => (
                   <li key={`${pub.text}-${pub.publicationLinks}`}>
                     {pub.publicationLinks ? (
@@ -212,7 +212,7 @@ const page = () => {
               <h3>
                 <span style={{ color: color }}>RESEARCH INTEREST</span>
               </h3>
-              <ul>
+              <ul style={{ "--bullet-color": color } as React.CSSProperties}>
                 {academicStaff.staffAcf.academicResearchInterest!.map(
                   (item, idx) => (
                     <li key={item.text || idx}>{item.text}</li>
@@ -227,7 +227,7 @@ const page = () => {
               <h3>
                 <span style={{ color: color }}>RESEARCH</span>
               </h3>
-              <ul>
+              <ul style={{ "--bullet-color": color } as React.CSSProperties}>
                 {academicStaff.staffAcf.academicResearch!.map((item, idx) => (
                   <li key={item.research || idx}>
                     <strong>{item.research}</strong>
@@ -245,7 +245,7 @@ const page = () => {
               <h3>
                 <span style={{ color: color }}>AWARDS & RECOGNITION</span>
               </h3>
-              <ul>
+              <ul style={{ "--bullet-color": color } as React.CSSProperties}>
                 {academicStaff.staffAcf.academicAwards!.map((pub) => (
                   <li key={`${pub.text}-${pub.publicationLinks}`}>
                     {pub.publicationLinks ? (
@@ -270,7 +270,7 @@ const page = () => {
               <h3>
                 <span style={{ color: color }}>HONORS</span>
               </h3>
-              <ul>
+              <ul style={{ "--bullet-color": color } as React.CSSProperties}>
                 {academicStaff.staffAcf.academicHonors!.map((pub) => (
                   <li key={`${pub.text}-${pub.publicationLinks}`}>
                     {pub.publicationLinks ? (
@@ -295,7 +295,7 @@ const page = () => {
               <h3>
                 <span style={{ color: color }}>MEMBERSHIP</span>
               </h3>
-              <ul>
+              <ul style={{ "--bullet-color": color } as React.CSSProperties}>
                 {academicStaff.staffAcf.academicMembership!.map((pub) => (
                   <li key={`${pub.text}-${pub.publicationLinks}`}>
                     {pub.publicationLinks ? (

@@ -3,6 +3,29 @@
 .profile {
   padding: 20px;
 
+  .profile__section ul {
+  list-style: none;
+  padding-left: 1.5rem;
+
+  li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.8rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.4rem;
+      width: 0.4rem;
+      height: 0.8rem;
+      background-color: var(--bullet-color, #007bff);
+      border-radius: 0.2rem;
+      display: inline-block;
+    }
+  }
+}
+
   &__card {
     text-align: center;
     background: #f4f4f4;
@@ -15,7 +38,7 @@
       padding: 0 20px;
       border-radius: 20px;
     }
-
+/* 
     .profile__contact {
       border-radius: 20px;
       border: 1px solid #d9d9d9;
@@ -32,7 +55,7 @@
       .email-address {
         color: #4d4d4d;
         text-align: center;
-        font-family: var(--font-space-grotesk);
+        font-family: var(--font-manrope);
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
@@ -45,13 +68,13 @@
         text-decoration: none;
         margin-top: 5px;
         color: #00aecd;
-        font-family: var(--font-space-grotesk);
+        font-family: var(--font-manrope);
         font-size: 16px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 400;
         letter-spacing: -0.5px;
       }
-    }
+    } */
   }
 
   &__content {
@@ -61,17 +84,17 @@
       h2 {
         margin-bottom: 5px;
         color: #4d4d4d;
-        font-family: var(--font-space-grotesk);
+        font-family: var(--font-manrope);
         font-size: 40.92px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 40px;
         letter-spacing: -1.637px;
       }
 
       .designation {
         color: #4d4d4d;
-        font-family: var(--font-space-grotesk);
+        font-family: var(--font-manrope);
         font-size: 20px;
         font-style: normal;
         font-weight: 400;
@@ -82,19 +105,19 @@
 
       .qualifications {
         color: #4d4d4d;
-        font-family: var(--font-space-grotesk);
+        font-family: var(--font-manrope);
         font-size: 15px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 400;
         line-height: normal;
       }
 
       .faculty {
         color: #00aecd;
-        font-family: var(--font-space-grotesk);
+        font-family: var(--font-manrope);
         font-size: 25px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 400;
         line-height: normal;
         letter-spacing: -0.5px;
         text-transform: uppercase;
@@ -117,10 +140,10 @@
       h3 {
         margin-bottom: 10px;
         color: #383636;
-        font-family: var(--font-space-grotesk);
+        font-family: var(--font-manrope);
         font-size: 40px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 400;
         line-height: normal;
         letter-spacing: -0.8px;
       }
@@ -130,7 +153,7 @@
         font-family: var(--font-manrope);
         font-size: 14px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 400;
         line-height: 25px;
       }
 
@@ -143,7 +166,7 @@
           font-family: var(--font-manrope);
           font-size: 14px;
           font-style: normal;
-          font-weight: 700;
+          font-weight: 400;
         }
       }
     }
