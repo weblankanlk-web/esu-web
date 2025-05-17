@@ -16,8 +16,8 @@ const ContactCards = ({ about }: ContactCardsProps) => {
               <div className="address">
                 <p className="label">Address</p>
                 <p>
-                  Head Office (Block E)<br></br>
-                  No.03,<br></br>
+                  Block E<br></br>
+                  No 03,<br></br>
                   De Fonseka Place, Colombo 4,<br></br> Sri Lanka.
                 </p>
               </div>
@@ -41,9 +41,11 @@ const ContactCards = ({ about }: ContactCardsProps) => {
                   <div className="address">
                     <p className="label">Address</p>
                     <p>
-                      Block A
+                      Block A,
                       <br />
-                      235, Galle Road <br />
+                      No 235,
+                      <br />
+                      Galle Road, <br />
                       Colombo 04,<br></br> Srilanka
                     </p>
                   </div>
@@ -65,9 +67,11 @@ const ContactCards = ({ about }: ContactCardsProps) => {
                   <div className="address">
                     <p className="label">Address</p>
                     <p>
-                      Block B
+                      Block B,
                       <br />
-                      233, Galle Road <br />
+                      No 233,
+                      <br />
+                      Galle Road <br />
                       Colombo 04,<br></br> Srilanka
                     </p>
                   </div>

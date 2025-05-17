@@ -79,7 +79,7 @@ const Footer = () => {
               <Link href="mailto:info@esu.lk">info@esu.lk</Link>
             </p>
             <p>
-              <strong>Head Office </strong> <br />
+              <strong>Address</strong> <br />
               ESOFT Uni, No.03,
               <br />
               De Fonseka Place,
