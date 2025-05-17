@@ -230,7 +230,8 @@ const InquireForm = () => {
         )}
         {status === "error" && (
           <p className="newsletter__error">
-            Oops! Something went wrong. Please try again.
+            Oops! Something went wrong. Please try again. <br />
+            Reach us at Hotline: +94 117 572 572 or Email: info@esu.lk
           </p>
         )}
       </div>
