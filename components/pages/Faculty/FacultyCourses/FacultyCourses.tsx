@@ -48,7 +48,7 @@ export default function FacultyCourses({ slug }: FacultyCoursesProps) {
           };
         }>(COURSE_GET_BY_FACULTY_TYPES, { slug });
 
-        console.log("Fetched courses:", data.schoolType.courses.nodes);
+        //console.log("Fetched courses:", data.schoolType.courses.nodes);
 
         setCourses(data.schoolType.courses.nodes);
       } catch (error) {

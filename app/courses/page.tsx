@@ -207,7 +207,7 @@ export default function CoursesPage() {
 
   const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
 
-  console.log("selectedBranches", branchTypes);
+  //console.log("selectedBranches", branchTypes);
 
   return (
     <>

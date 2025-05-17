@@ -32,17 +32,17 @@ const FacultyInnerPage = () => {
         }>(FACULTY_INNER_QUERY, { slug });
 
         if (data.schoolTypes.nodes.length > 0) {
-          console.log("🎓 Faculty Details:", data.schoolTypes.nodes[0]);
+          //console.log("🎓 Faculty Details:", data.schoolTypes.nodes[0]);
           setFaculty(data.schoolTypes.nodes[0]);
         }
 
         if (data.dean?.staffs?.nodes?.length > 0) {
-          console.log("🎓 All Dean Records:", data.dean.staffs.nodes);
+          //console.log("🎓 All Dean Records:", data.dean.staffs.nodes);
           setDeans(data.dean.staffs.nodes);
         }
 
         if (data.hod?.staffs?.nodes?.length > 0) {
-          console.log("🎓 All HOD Records:", data.hod.staffs.nodes);
+          //console.log("🎓 All HOD Records:", data.hod.staffs.nodes);
           setHods(data.hod.staffs.nodes);
         }
       } catch (error) {

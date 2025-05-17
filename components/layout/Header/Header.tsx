@@ -226,19 +226,19 @@ const Header = () => {
           <nav className="navbar navbar-expand-lg nav-menu">
             <ul className="navbar-nav navbardropdown" id="mobile">
               <li>
-                <Link href="/">Home</Link>
+              <Link href="/" onClick={() => window.location.href = "/"}>Home</Link>
               </li>
               <li>
-                <Link href="/about-us">About Us</Link>
+              <Link href="/about-us" onClick={() => window.location.href = "/about-us"}>About Us</Link>
               </li>
               <li>
-                <Link href="/courses">Courses</Link>
+              <Link href="/courses" onClick={() => window.location.href = "/courses"}>Courses</Link>
               </li>
               <li>
-                <Link href="/faculties">Faculties</Link>
+              <Link href="/faculties" onClick={() => window.location.href = "/faculties"}>Faculties</Link>
               </li>
               <li>
-                <Link href="/contact-us">contact us</Link>
+              <Link href="/contact-us" onClick={() => window.location.href = "/contact-us"}>Contact Us</Link>
               </li>
             </ul>
           </nav>

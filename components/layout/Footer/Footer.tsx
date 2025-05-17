@@ -79,8 +79,8 @@ const Footer = () => {
               <Link href="mailto:info@esu.lk">info@esu.lk</Link>
             </p>
             <p>
-              <strong>Head Office (Block E)</strong> <br />
-              ESOFT Metro Campus No.03,
+              <strong>Head Office </strong> <br />
+              ESOFT Uni, No.03,
               <br />
               De Fonseka Place,
               <br />
@@ -107,9 +107,22 @@ const Footer = () => {
                 <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="https://esoft.lk/contact-us/">Contact Us</Link>
+                <Link href="/about-us">About Us</Link>
+              </li>
+              <li>
+                <Link href="/courses">Courses</Link>
+              </li>
+              <li>
+                <Link href="/faculties">Faculties</Link>
+              </li>
+              <li>
+                <Link href="/academics">Academics</Link>
+              </li>
+              <li>
+                <Link href="/contact-us">Contact Us</Link>
               </li>
             </ul>
+
           </div>
           <div className="column links">
             {/*   <h4>IMPORTANT LINKS</h4> */}
