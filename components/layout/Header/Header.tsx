@@ -200,18 +200,21 @@ const Header = () => {
           </div>
           {/* mobile */}
           <div className="apply-now-wrap mobile-only-view">
-            <Link
+            {/* <button
               className="next-btn next-btn--blue"
-              target="_blank"
-              href={
-                isCoursePage
-                  ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`
-                  : "https://register.esoft.lk/"
-              }
+              // target="_blank"
+              // href={
+              //   isCoursePage
+              //     ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`
+              //     : "https://register.esoft.lk/"
+              // }
               style={{ backgroundColor: color }}
             >
               <span>Register Online</span>
-            </Link>
+            </button> */}
+            <Modal>
+              <InquireForm />
+            </Modal>
           </div>
         </div>
       </header>
@@ -226,19 +229,41 @@ const Header = () => {
           <nav className="navbar navbar-expand-lg nav-menu">
             <ul className="navbar-nav navbardropdown" id="mobile">
               <li>
-              <Link href="/" onClick={() => window.location.href = "/"}>Home</Link>
+                <Link href="/" onClick={() => (window.location.href = "/")}>
+                  Home
+                </Link>
               </li>
               <li>
-              <Link href="/about-us" onClick={() => window.location.href = "/about-us"}>About Us</Link>
+                <Link
+                  href="/about-us"
+                  onClick={() => (window.location.href = "/about-us")}
+                >
+                  About Us
+                </Link>
               </li>
               <li>
-              <Link href="/courses" onClick={() => window.location.href = "/courses"}>Courses</Link>
+                <Link
+                  href="/courses"
+                  onClick={() => (window.location.href = "/courses")}
+                >
+                  Courses
+                </Link>
               </li>
               <li>
-              <Link href="/faculties" onClick={() => window.location.href = "/faculties"}>Faculties</Link>
+                <Link
+                  href="/faculties"
+                  onClick={() => (window.location.href = "/faculties")}
+                >
+                  Faculties
+                </Link>
               </li>
               <li>
-              <Link href="/contact-us" onClick={() => window.location.href = "/contact-us"}>Contact Us</Link>
+                <Link
+                  href="/contact-us"
+                  onClick={() => (window.location.href = "/contact-us")}
+                >
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </nav>
@@ -285,5 +310,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
