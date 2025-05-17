@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
-import FaculityCard from "@/components/FaculityCard/FaculityCard";
-import DeanMessage from "@/components/DeanMessage/DeanMessage";
+import FaculityCard from "@/components/pages/Faculty/FaculityCard/FaculityCard";
+import DeanMessage from "@/components/pages/Faculty/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
 import {
   FACULTY_TYPES_QUERY,

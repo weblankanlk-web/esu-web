@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
-import FaculityOverview from "@/components/FaculityOverview/FaculityOverview";
-import DeanMessage from "@/components/DeanMessage/DeanMessage";
+import FaculityOverview from "@/components/pages/Faculty/FaculityOverview/FaculityOverview";
+import DeanMessage from "@/components/pages/Faculty/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
-import MembersLanding from "@/components/MembersLanding/MembersLanding";
+import MembersLanding from "@/components/pages/Faculty/MembersLanding/MembersLanding";
 import { FACULTY_INNER_QUERY } from "@/common/queries/query";
 import { FacultyInner, StaffMemberDetails } from "@/common/types/type";
 import "./style.scss";
@@ -99,7 +99,7 @@ const FacultyInnerPage = () => {
             />
           </div>
 
-          <FacultyCourses slug={slug || ""} />
+          <FacultyCourses slug={slug ?? ""} />
 
           {matchingDean && (
             <DeanMessage
@@ -144,7 +144,7 @@ const FacultyInnerPage = () => {
             />
           )}
           <MembersLanding
-            slug={slug || ""}
+            slug={slug ?? ""}
             sectinTitle1="Faculty"
             sectinTitle2="Members"
             fontFamily={faculty.schoolTypesColorFontFields.courseFontFamily}

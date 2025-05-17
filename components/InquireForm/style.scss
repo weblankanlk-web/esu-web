@@ -1,0 +1,224 @@
+@function get-vw($target) {
+    $vw-context: (
+        1920 * 0.01) * 1px;
+    $res: (
+        calc($target / $vw-context)) * 1vw;
+    @return $res;
+}
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1
+    );
+width: 100%;
+margin: auto;
+position: sticky;
+left: 0;
+right: 0;
+top: 20%;
+z-index: 999;
+height: 600px;
+// overflow-y: auto;
+background-color: #fff;
+border-radius: 20px;
+
+&__image-section {
+    background-color: #e6f0f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding: 40px 0;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        object-position: right center;
+        height: 100%;
+    }
+
+    .newsletter__icon {
+        width: 80px;
+        height: 60px;
+        background: url('/images/mail-icon.svg') no-repeat center/contain;
+    }
+}
+
+&__form-section {
+    padding: 20px;
+    background-color: #fff;
+    height: 600px;
+    overflow-y: auto;
+
+    .newsletter__title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #222;
+    }
+
+    .newsletter__form {
+        display: flex;
+        flex-direction: column;
+
+        .newsletter__row {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .newsletter__field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 16px;
+
+            label {
+                font-size: 14px;
+                margin-bottom: 6px;
+                color: #555;
+            }
+
+            input,
+            select,
+            textarea {
+                padding: 10px;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            textarea {
+                resize: none;
+            }
+        }
+
+        button {
+            border-radius: 15px;
+            background: #02AEC9;
+            padding: 10px 30px;
+            width: 100%;
+            color: #fff;
+            font-family: var(--font-manrope);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-transform: capitalize;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: none;
+
+            &:hover {
+                background-color: #b2d0ea;
+            }
+        }
+    }
+}
+}
+
+@media screen and (min-width: 768px) {
+    .newsletter {
+        flex-direction: row;
+
+        &__image-section,
+        &__form-section {
+            flex: 1;
+        }
+
+        &__form-section {
+            padding: 40px;
+
+            .newsletter__form .newsletter__row {
+                flex-direction: row;
+            }
+
+            .newsletter__field {
+                flex: 1;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 990px) {
+    .newsletter__form-section {
+        .newsletter__title {
+            font-size: 22px;
+        }
+
+        .newsletter__form {
+
+            input,
+            select,
+            textarea {
+                font-size: 15px;
+            }
+
+            button {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .newsletter {
+        border-radius: get-vw(20px);
+    }
+
+    .newsletter__image-section {
+        // padding: get-vw(80px) 0;
+
+        .newsletter__icon {
+            width: get-vw(100px);
+            height: get-vw(75px);
+        }
+    }
+
+    .newsletter__form-section {
+        padding: get-vw(60px);
+
+        .newsletter__title {
+            font-size: get-vw(28px);
+            margin-bottom: get-vw(30px);
+        }
+
+        .newsletter__form {
+            .newsletter__row {
+                gap: get-vw(20px);
+                margin-bottom: get-vw(20px);
+            }
+
+            .newsletter__field {
+                margin-bottom: get-vw(20px);
+
+                label {
+                    font-size: get-vw(16px);
+                    margin-bottom: get-vw(8px);
+                }
+
+                input,
+                select,
+                textarea {
+                    font-size: get-vw(16px);
+                    padding: get-vw(12px);
+                }
+
+                textarea {
+                    height: get-vw(120px);
+                }
+            }
+
+            button {
+                border-radius: get-vw(15px);
+                padding: get-vw(17px) get-vw(60px);
+                font-size: get-vw(20px);
+            }
+        }
+    }
+}

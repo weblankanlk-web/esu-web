@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 import { useState } from "react";
+import Modal from "@/components/common/Modal/Modal";
+import InquireForm from "@/components/InquireForm/InquireForm";
 
 const Header = () => {
   const pathname = usePathname();
@@ -28,7 +30,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg nav-menu">
               {/* Replace with dynamic menu data */}
               <ul className="navbar-nav navbardropdown" id="top-menu">
-                {/*                 <li>
+                {/* <li>
                   <Link href="https://esoft.lk/" target="_blank">
                     Home
                   </Link>
@@ -171,23 +173,6 @@ const Header = () => {
                     <li>
                       <Link href="/contact-us">Contact Us</Link>
                     </li>
-                    {/* <li>
-                      <Link href="">
-                        <span className="hidden-text">Transfer Programmes</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="">
-                        <span className="hidden-text">Branch Network</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="">
-                        <span className="hidden-text">
-                          International Placements
-                        </span>
-                      </Link>
-                    </li> */}
                   </ul>
                 </nav>
               </div>
@@ -207,26 +192,9 @@ const Header = () => {
               </div>
               {/* desktop */}
               <div className="apply-now-wrap desktop-only-view">
-                {/* <Link
-                  className="next-btn next-btn--blue"
-                  target="_blank"
-                  href={
-                    isCoursePage
-                      ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`
-                      : "https://register.esoft.lk/"
-                  }
-                  style={{ backgroundColor: color }}
-                >
-                  <span>Register Online</span>
-                </Link> */}
-                {/*     <Button
-                  buttonUrl={
-                    isCoursePage
-                      ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`
-                      : "https://register.esoft.lk/"
-                  }
-                  buttonName={"Inquire Now"}
-                /> */}
+                <Modal>
+                  <InquireForm />
+                </Modal>
               </div>
             </div>
           </div>
@@ -263,46 +231,6 @@ const Header = () => {
               <li>
                 <Link href="/about-us">About Us</Link>
               </li>
-              {/* <li>
-                <Link href="https://esoft.lk/about-us/" target="_blank">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/students-life/" target="_blank">
-                  students life
-                </Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/careers/" target="_blank">
-                  careers
-                </Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/news/" target="_blank">
-                  news & events
-                </Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/blogs/" target="_blank">
-                  blogs
-                </Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/research/" target="_blank">
-                  Research
-                </Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/student-loan/" target="_blank">
-                  Scholarship
-                </Link>
-              </li>
-              <li>
-                <Link href="https://esoft.lk/csr/" target="_blank">
-                  CSR
-                </Link>
-              </li> */}
               <li>
                 <Link href="/courses">Courses</Link>
               </li>
@@ -357,3 +285,5 @@ const Header = () => {
 };
 
 export default Header;
+
+

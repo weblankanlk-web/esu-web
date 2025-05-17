@@ -8,8 +8,8 @@ import { GET_ALL_ACADEMIC_STAFF } from "@/common/queries/query";
 import { Courses, Staffs } from "@/common/types/type";
 import { CourseList, Pagination, SearchBar } from "@/components/pages/Courses";
 import Filter from "@/components/pages/Courses/Filter/Filter";
-import FaculityCard from "@/components/FaculityCard/FaculityCard";
-import MemberCardItem from "@/components/MembersLanding/MemberCard/MemberCard";
+import FaculityCard from "@/components/pages/Faculty/FaculityCard/FaculityCard";
+import MemberCardItem from "@/components/pages/Faculty/MembersLanding/MemberCard/MemberCard";
 import { useTheme } from "@/lib/ThemeContext";
 
 export default function CoursesPage() {

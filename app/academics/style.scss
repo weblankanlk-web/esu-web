@@ -23,3 +23,29 @@
     }
   }
 }
+
+@media only screen and (max-width: 991px) {
+  .academics-page-section {
+    .landing-results-top {
+      align-items: center;
+    }
+
+    .landing-wrap {
+      .landing-filter {
+        width: 100%;
+      }
+
+      .landing-results {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .academics-page-section {
+    .section-heading {
+      font-size: 65px;
+    }
+  }
+}
