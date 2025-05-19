@@ -4,7 +4,7 @@ import Breadrumb from "@/components/common/Breadcrumb/Breadcrumb";
 import CourseItem from "@/components/pages/Courses/CourseItem/CourseItem";
 import { graphQLClient } from "@/lib/graphql-client";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import "./style.scss";
 import LecturePanel from "@/components/pages/CoursesInner/LecturePanel/LecturePanel";
@@ -18,11 +18,14 @@ import CourseOutline from "@/components/pages/CoursesInner/CourseOutline/CourseO
 import { Courses, RelatedCourses } from "@/common/types/type";
 import Button from "@/components/common/Button/Button";
 import { FeePlanInterface } from "@/common/interfaces/interface";
+import Modal from "@/components/common/Modal/Modal";
+import InquireForm from "@/components/sections/InquireForm/InquireForm";
 
 const page = () => {
   const searchParams = useSearchParams();
   const courseId = searchParams.get("id");
   const wpCourseId = searchParams.get("courseId");
+
   const { color, setColor } = useTheme();
 
   const [course, setCourse] = useState<{
@@ -34,7 +37,9 @@ const page = () => {
     };
   } | null>(null);
   // const [courseFees, setCourseFees] = useState([]);0
-  const [courseFees, setCourseFees] = useState<{ fee_plans?: FeePlanInterface[] }>({});
+  const [courseFees, setCourseFees] = useState<{
+    fee_plans?: FeePlanInterface[];
+  }>({});
 
   const [schedule, setSchedule] = useState([]);
   const [courseDetails, setCourseDetails] = useState<Courses | null>(null);
@@ -45,9 +50,9 @@ const page = () => {
     const font = school?.schoolTypesColorFontFields?.courseFontFamily;
     const color = school?.schoolTypesColorFontFields?.color;
 
-    if (font) {
-      document.body.style.fontFamily = font;
-    }
+    // if (font) {
+    //   document.body.style.fontFamily = font;
+    // }
 
     if (color) {
       setColor(color); // this updates your ThemeContext and CSS variable
@@ -181,36 +186,14 @@ const page = () => {
                 />
               )}
             </div>
-            {/* <div className="left-course-details">
-              <h2>
-                <span />
-              </h2>
-              <p className="paragraph paragraph--black" />
-              <div className="d-flex justify-content-between course-btn-wrap"> */}
-                {/* <Link
-                  className="next-btn next-btn--red next-btn--titlecase"
-                  target="_blank"
-                  href={`https://register.esoft.lk?id=${courseId}`}
-                  style={{ backgroundColor: color }}
-                >
-                  <span>Register Online</span>
-                </Link> */}
-
-                {/*    <Button
-                  buttonUrl={`https://register.esoft.lk?id=${courseId}`}
-                  buttonName={"Register Online"}
-                /> */}
-
-                {/*   <button
-                  type="button"
-                  className="next-btn next-btn--gray inquiry-now-btn next-btn--titlecase"
-                  data-bs-toggle="modal"
-                  data-bs-target="#inquiryModal"
-                >
-                  <span>Inquire Now</span>
-                </button> */}
-              {/* </div>
-            </div> */}
+            <div className="left-course-details">
+             
+              <div className="d-flex justify-content-center course-btn-wrap">
+                <Modal>
+                  <InquireForm courseName={course?.name ?? ""} />
+                </Modal>
+              </div>
+            </div>
             <div className="desktop-div">
               <div className="related-coures-div">
                 <h5>
@@ -220,7 +203,6 @@ const page = () => {
                 </h5>
               </div>
               {relatedCourses?.map((relatedCourse, index) => {
-
                 return (
                   <CourseItem
                     key={relatedCourse.id}
@@ -264,7 +246,7 @@ const page = () => {
                         src="http://esoft.local/wp-content/themes/esoftonline/assets/img/user.png"
                         alt=""
                       />
-                      <span>2450+</span>
+                      {/* <span>2450+</span> */}
                     </div>
                   </div>
                 </div>

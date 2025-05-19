@@ -23,3 +23,27 @@
   line-height: normal;
   letter-spacing: -0.8px;
 }
+
+@media only screen and (max-width: 991px) {
+  .left-course {
+    flex-direction: column;
+    box-shadow: 0 4px 10px 0 #0000002e;
+    padding: 20px 0 0;
+    border-radius: 15px;
+
+    .left-course-img {
+      width: 100%;
+
+      img {
+        object-position: top;
+        object-fit: contain;
+
+      }
+    }
+
+    .left-course-details {
+      width: 100%;
+      box-shadow: none;
+    }
+  }
+}

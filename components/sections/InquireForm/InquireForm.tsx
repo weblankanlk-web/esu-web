@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
 import "./style.scss";
-import Button from "../common/Button/Button";
+import Button from "../../common/Button/Button";
 import Image from "next/image";
 import { useTheme } from "@/lib/ThemeContext";
 import { graphQLClient } from "@/lib/graphql-client";
 import { CoursesInquire } from "@/common/types/type";
 import { GET_COURSES_FOR_INQUIRE_FORM } from "@/common/queries/query";
+import { usePathname } from "next/navigation";
 
-const InquireForm = () => {
+interface InquireFormProps {
+  courseName: string;
+}
+
+const InquireForm: React.FC<InquireFormProps> = ({ courseName }) => {
   const { color } = useTheme();
   const [courses, setCourses] = useState<CoursesInquire[]>([]);
+
+  const pathname = usePathname();
+  const slug = pathname?.split("/").pop();
+
+  if (slug && courseName) {
+    console.log("Slug:", slug);
+  }
 
   useEffect(() => {
     async function fetchCourses() {
@@ -47,6 +59,11 @@ const InquireForm = () => {
 
   console.log("Courses:", courses);
 
+  const filterslugcourse = courses.filter((course) => course.slug === slug);
+  // console.log("Filtered Slug Course:", filterslugcourse);
+
+  const findCourseCode = filterslugcourse[0]?.courses?.courseCode;
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -75,7 +92,7 @@ const InquireForm = () => {
       lastname: formData.lastName,
       phone: formData.phone,
       email: formData.email,
-      course: formData.course,
+      course: slug ? findCourseCode : formData.course,
       source: "ESU-Web Form",
       nationality: formData.nationality,
       notes: formData.message,
@@ -504,19 +521,40 @@ const InquireForm = () => {
           </div>
 
           <div className="inquire__field">
-            <label>Course:</label>
-            <select
-              name="course"
-              value={formData.course}
-              onChange={handleChange}
-            >
-              <option value="">Select a course</option>
-              {courses.map((course) => (
-                <option value={course?.courses?.courseCode} key={course.slug}>
-                  {course.title}
-                </option>
-              ))}
-            </select>
+            {slug ? (
+              <>
+                <label>
+                  {filterslugcourse.length > 0
+                    ? filterslugcourse[0].title
+                    : "Course"}
+                </label>
+                {/* <input
+                  type="text"
+                  name="course"
+                  value={findCourseCode}
+                  hidden
+                /> */}
+              </>
+            ) : (
+              <>
+                <label>Course:</label>
+                <select
+                  name="course"
+                  value={formData.course}
+                  onChange={handleChange}
+                >
+                  <option value="">Select a course</option>
+                  {courses.map((course) => (
+                    <option
+                      value={course?.courses?.courseCode}
+                      key={course.slug}
+                    >
+                      {course.title}
+                    </option>
+                  ))}
+                </select>
+              </>
+            )}
           </div>
 
           {/* <div className="inquire__field">

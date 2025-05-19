@@ -28,109 +28,16 @@
   margin-left: auto;
   margin-right: auto;
 }
-/* .next-btn--blue {
-  color: #fff;
-  background: var(--btn-blue);
-} */
-.single-chat-amm {
+
+/* .single-chat-amm {
   margin-top: 20px;
   width: 100% !important;
-}
-/* .next-btn--red {
-  color: #fff;
-  background: var(--red-color);
-}
-.next-btn--gray {
-  color: #000;
-  background: var(--gray-light);
-}
-.next-btn--gray:hover {
-  color: #fff;
-}
-.next-btn--gray::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--dark-blck);
-  width: 0;
-  transition: all 0.25s;
-  border-radius: 5px;
-}
-.next-btn--gray:hover::before {
-  transition: all 0.25s;
-  width: 100%;
-}
-.next-btn--red::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--darkred);
-  width: 0;
-  transition: all 0.25s;
-  border-radius: 5px;
-}
-.next-btn--red:hover::before {
-  transition: all 0.25s;
-  width: 100%;
-}
-.next-btn--blue::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--darkblue);
-  width: 0;
-  transition: all 0.25s;
-  border-radius: 5px;
-}
-.next-btn--blue:hover::before {
-  transition: all 0.25s;
-  width: 100%;
-}
-.next-btn {
-  position: relative;
-  height: 40px;
-  padding: 0 20px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: max-content;
-  text-decoration: none;
-  font-size: var(--font-16);
-  letter-spacing: 2px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.next-btn span {
-  z-index: 1;
-  position: relative;
-  text-align: center;
-}
-.next-btn--titlecase {
-  text-transform: capitalize;
-  letter-spacing: 0;
-  font-weight: 400;
-} */
-/* .simple-padding-top {
-  padding-top: 50px;
 } */
 
 .simple-padding-bottom {
   padding-bottom: 50px;
 }
 
-/* .creative-heading {
-  font-size: var(--font-38);
-} */
 .section-heading {
   font-size: var(--font-38);
   font-weight: 700;
@@ -561,8 +468,7 @@ input:focus {
 .course-wrap select {
   background-position: 95%;
 }
-.course-btn-wrap a,
-.course-btn-wrap button {
+.course-btn-wrap a {
   width: 48%;
 }
 .left-course-img img {
@@ -986,26 +892,7 @@ select:focus {
 .banner-image .breadcrumbs a {
   color: #fff !important;
 }
-/* .banner-con p {
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-.banner-con h2 {
-  font-size: var(--font-100);
-  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-  -webkit-text-fill-color: transparent;
-  text-transform: capitalize;
-  font-weight: bold;
-  text-align: center;
-}
-.banner-con p {
-  color: #fff;
-  font-size: var(--font-24);
-  line-height: var(--font-38);
-  padding-top: 20px;
-} */
+
 .banner-image-only .inner-banner-wrap {
   position: relative;
 }
@@ -1026,361 +913,15 @@ select:focus {
 .padding-file {
   margin-bottom: 20px;
 }
-/* .banner-image-only .banner-con {
-  padding-top: 0;
-} */
-/* .page-template-about-us .breadcrumbs img,
-.page-template-alumni .breadcrumbs img,
-.page-template-careers-at-esoft .breadcrumbs img,
-.page-template-contact-us .breadcrumbs img,
-.page-template-csr-landing .breadcrumbs img,
-.page-template-job-landing .breadcrumbs img,
-.page-template-news-landing .breadcrumbs img,
-.page-template-publication-landing .breadcrumbs img,
-.page-template-scholarships .breadcrumbs img,
-.page-template-school-landing .breadcrumbs img,
-.page-template-students-life .breadcrumbs img,
-.single-esof-schools .breadcrumbs img,
-.single-esoft-branches .breadcrumbs img {
-  filter: invert(93%) sepia(94%) saturate(0%) hue-rotate(248deg)
-    brightness(106%) contrast(106%);
-} */
+
 .banner-image {
   position: relative;
 }
-/* .inner-banner-wrap {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-} */
-/* .banner-con {
-  display: flex;
-  align-items: flex-start;
-  flex-grow: 1;
-  padding-top: 5vh;
-  margin-left: auto;
-  margin-right: auto;
-} */
-/* .banner-image-main-img {
-  width: 100%;
-} */
-/* .school-box-single {
-  width: 33.3%;
-  padding: 0 10px 20px;
-}
-.school-box-wrap {
-  display: flex;
-  flex-wrap: wrap;
-}
-.school-box-single .feature-img-school {
-  width: 100%;
-} */
-/* .archive.date .school-box-inner-details,
-.page-template-blog-landing .school-box-inner-details,
-.page-template-publication-landing .school-box-inner-details,
-.single-esoft-blogs .school-box-inner-details,
-.single-esoft-publications .school-box-inner-details,
-.tax-blog-type .school-box-inner-details,
-.tax-publication-type .school-box-inner-details {
-  margin: 0 !important;
-} */
-/* .archive.date .school-box-single .feature-img-school,
-.page-template-blog-landing .school-box-single .feature-img-school,
-.page-template-publication-landing .school-box-single .feature-img-school,
-.single-esoft-blogs .school-box-single .feature-img-school,
-.single-esoft-publications .school-box-single .feature-img-school,
-.tax-blog-type .school-box-single .feature-img-school,
-.tax-publication-type .school-box-single .feature-img-school {
-  height: 250px;
-  object-fit: cover;
-}
-.page-template-alumni .school-box-single .feature-img-school,
-.page-template-events-landing .school-box-single .feature-img-school,
-.page-template-news-landing .school-box-single .feature-img-school,
-.single-esoft-events .school-box-single .feature-img-school,
-.single-esoft-news .school-box-single .feature-img-school {
-  height: 400px;
-  object-fit: cover;
-}
-.school-box-inner {
-  width: 100%;
-} */
+
 .date-p {
   font-size: var(--font-15);
 }
-/* .school-box-inner a {
-  display: block;
-  overflow: hidden;
-}
-.school-box-inner a img {
-  transform: scale(1);
-  transition: all 0.5s;
-  border-radius: 10px;
-}
-.school-box-inner a:hover img {
-  transform: scale(1.1);
-  transition: all 0.5s;
-} */
-/* .school-box-inner-details {
-  background: #fff;
-  margin-top: -50px;
-  z-index: 1;
-  position: relative;
-  width: 93%;
-  margin-left: auto;
-  padding: 20px;
-  border-radius: 10px;
-} */
-/* .school-box-details span {
-  font-size: var(--font-24);
-  font-weight: bold;
-  line-height: var(--font-38);
-  padding-left: 15px;
-}
-.school-box-details {
-  padding-bottom: 25px;
-}
-.school-box-details,
-.school-box-details span {
-  text-decoration: none !important;
-  color: #000;
-  align-items: flex-start;
-} */
-/* .school-box-inner-details .btnn-next {
-  font-size: var(--font-18);
-  color: var(--btn-blue);
-  text-decoration: none;
-  margin-top: 25px;
-  display: block;
-}
-.school-box-inner-details .btnn-next {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: max-content;
-}
-.school-box-inner-details .btnn-next::after {
-  content: "";
-  height: 2px;
-  width: 0;
-  background: var(--btn-blue);
-  transition: all 0.5s;
-}
-.school-box-inner-details a:hover::after {
-  transition: all 0.5s;
-  width: 100%;
-} */
-/* .head-msg-wrap {
-  display: flex;
-  padding-top: 15px;
-  align-items: center;
-}
-.head-msg-img {
-  width: 30%;
-  text-align: center;
-}
-.head-msg-img img {
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.dean-msg {
-  width: 70%;
-  padding-left: 5%;
-  padding-right: 10%;
-}
-.head-msg-img h6 {
-  font-size: var(--font-20);
-  line-height: var(--font-30);
-  font-weight: 600;
-  padding-top: 15px;
-}
-.head-msg-img p {
-  font-size: var(--font-16);
-}
-.dean-msg h5 {
-  font-size: var(--font-24);
-  line-height: var(--font-32);
-  font-weight: bold;
-  padding-bottom: 10px;
-} */
-/* .parent-gal {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-}
 
-.parent-gal .div1 {
-  grid-area: 1 / 1 / 3 / 2;
-  height: 610px;
-}
-.parent-gal .div2 {
-  grid-area: 1 / 2 / 2 / 3;
-  height: 300px;
-}
-.parent-gal .div3 {
-  grid-area: 1 / 3 / 2 / 4;
-  height: 300px;
-}
-.parent-gal .div4 {
-  grid-area: 2 / 2 / 3 / 3;
-  height: 300px;
-}
-.parent-gal .div5 {
-  grid-area: 2 / 3 / 3 / 4;
-  height: 300px;
-}
-
-.parent-gal a {
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  display: block;
-  background-position: center !important;
-}
-.parent-gal a {
-  position: relative;
-}
-.parent-gal a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transition: all 0.5s;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: all 0.5s;
-}
-.parent-gal a:hover::after {
-  background-color: rgb(0 0 0 / 29%);
-}
-.parent-gal img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.parent-gal div {
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: cover !important;
-} */
-/* .intern-slider,
-.testimonial-slider-school {
-  padding: 0 6.5%;
-}
-.intern-slider .slick-prev,
-.testimonial-slider-school .slick-prev {
-  left: 3%;
-}
-.intern-slider .slick-next,
-.testimonial-slider-school .slick-next {
-  right: 3%;
-} */
-/* .view-course {
-  display: flex !important;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  align-items: center;
-}
-.view-course a,
-.view-course h3,
-.view-course h6 {
-  z-index: 1;
-  position: relative;
-  color: #fff;
-}
-.view-course h3 {
-  margin: 0;
-  padding-right: 15px;
-  font-size: var(--font-34);
-}
-.view-course::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #0e072a;
-  opacity: 0.8;
-} */
-/* .opportunity-wrap {
-  background: #0e072a;
-}
-.opportunity-wrap h2 {
-  font-size: var(--font-80);
-  line-height: var(--font-100);
-  color: #fff;
-  text-align: center;
-  text-transform: capitalize;
-  font-weight: bold;
-}
-.opportunity-wrap h2 span {
-  color: var(--red-color);
-  display: block;
-}
-.opportunity-wrap p {
-  font-size: var(--font-24);
-  line-height: var(--font-40);
-  color: #fff;
-  text-align: center;
-  padding-top: 20px;
-} */
-/* .intern-box {
-  text-align: center;
-  border: 1px solid var(--dark-gray);
-  display: flex;
-  justify-content: center;
-} */
-/* .intern-slider .slide-item {
-  padding: 0 15px;
-}
-.intern-box img {
-  height: 150px;
-  width: 100%;
-  object-fit: scale-down;
-  padding: 10px;
-} */
-/* .news-slider .slick-list {
-  padding-right: 20%;
-}
-.news-slider .slide-item {
-  padding: 0 10px;
-} */
-/* .news-slider-box-wrap {
-  overflow: hidden;
-  display: block;
-}
-.news-slider-box-wrap:hover img {
-  transform: scale(1.1);
-  transition: all 0.5s;
-}
-.news-slider-box-wrap .news-slider-box-details {
-  transform: translateY(0px);
-  transition: all 0.5s;
-}
-.news-slider-box-wrap:hover .news-slider-box-details {
-  transform: translateY(-10px);
-  transition: all 0.5s;
-}
-.news-slider-box-wrap img {
-  width: 100%;
-  transform: scale(1);
-  transition: all 0.5s;
-  height: 500px;
-  object-fit: cover;
-} */
 .news-slider {
   margin: 0 -10px;
   padding-top: 50px;
@@ -1388,101 +929,7 @@ select:focus {
 .news-slider-wrap {
   overflow: hidden;
 }
-/* .news-slider-box-wrap {
-  position: relative;
-}
-.news-slider-box-wrap::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), rgb(0 0 0));
-} */
-/* .news-slider-box-details {
-  z-index: 1;
-  position: relative;
-}
-.news-slider-box-details {
-  position: absolute;
-  bottom: 10%;
-  left: 10%;
-  right: 10%;
-  font-size: var(--font-24);
-  line-height: var(--font-34);
-  color: #fff;
-} */
-/* .about-image {
-  width: 48%;
-}
-.about-content {
-  width: 48%;
-}
-.about-wrap {
-  justify-content: space-between;
-  display: flex;
-}
-.about-image .img-m {
-  width: 100%;
-  border-radius: 10px;
-}
-.about-content h5,
-.about-image h5 {
-  font-size: var(--font-34);
-  line-height: var(--font-40);
-  padding-bottom: 20px;
-  font-weight: 600;
-} */
-/* .counter-box-about {
-  flex-direction: column;
-  display: flex;
-}
-.counter-box-about img {
-  padding-bottom: 15px;
-}
-.counter-box-wrap-about {
-  justify-content: space-between;
-}
-.counter-box-about {
-  border-right: 1px solid #dddddd;
-} */
-/* .intern-slider-about {
-    margin-top: 50px;
-} */
-/* .about-content iframe {
-  width: 100% !important;
-}
-.branch-filter-wrap {
-  padding-top: 30px;
-}
-.branch-filter-wrap button,
-.branch-filter-wrap button:hover {
-  background: transparent !important;
-  border: 0;
-  color: #000;
-  padding: 0;
-  border-bottom: 1px solid #000;
-  border-radius: 0 !important;
-  width: 100%;
-  text-align: left;
-}
-.branch-filter-wrap h6 {
-  font-size: var(--font-20);
-  font-weight: 600;
-} */
-/* .branch-details-wrap {
-  padding-top: 30px;
-}
-.branch-details-wrap {
-  flex-direction: column;
-} */
-/* .branch-details-wrap-inner {
-    padding-right: 10%;
-} */
-/* .address-div p {
-  padding-right: 10px;
-} */
+
 canvas {
   position: absolute;
   top: -125px;
@@ -1524,23 +971,6 @@ canvas {
   color: #fff;
 }
 
-/* .flag-box {
-  width: 20%;
-  padding: 15px;
-}
-.flag-box img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-}
-.flag-box h6 {
-  text-align: center;
-  font-size: var(--font-18);
-  font-weight: bold;
-}
-.dark-mode .flag-box h6 {
-  color: #fff !important;
-} */
 .branch-add-wrap-img a:hover {
   text-decoration: underline !important;
 }
@@ -1572,25 +1002,7 @@ canvas {
   font-size: var(--font-16);
   line-height: var(--font-30);
 }
-/* .about-banner {
-  position: relative;
-}
-.about-banner img {
-  width: 100%;
-}
-.about-banner-content {
-  font-size: var(--font-40);
-  line-height: var(--font-50);
-  position: absolute;
-  top: 0;
-  left: 7.5%;
-  bottom: 0;
-  right: 0;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  width: 45%;
-} */
+
 .team-section h2 {
   font-size: var(--font-34);
   font-weight: bold;
@@ -1617,9 +1029,9 @@ canvas {
   align-items: center;
   width: 100%;
 }
-.staff-modal .modal-body {
+/* .staff-modal .modal-body {
   padding: 30px;
-}
+} */
 .staff-box .staff-box-img {
   transform: scale(1);
   transition: all 0.5s;
@@ -1631,12 +1043,12 @@ canvas {
   transform: scale(0.9);
   transition: all 0.5s;
 }
-.staff-modal {
+/* .staff-modal {
   max-width: 50%;
 }
 .staff-modal .modal-header {
   border: 0 !important;
-}
+} */
 .staff-box h6 {
   font-size: var(--font-20);
   line-height: var(--font-30);
@@ -1844,13 +1256,7 @@ body.single-esoft-jobs {
 .news-evenst-nav .active-page {
   background: var(--btn-blue);
 }
-.job-landing-wrap select {
-  height: 55px;
-  border-radius: 25px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-}
+
 .branch-select-wrap {
   display: flex;
   align-items: center;
@@ -1861,40 +1267,11 @@ body.single-esoft-jobs {
 .branch-select-wrap select {
   background-repeat: no-repeat !important;
 }
-.job-list-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -10px;
-}
-.job-box {
-  width: 25%;
-  padding: 10px;
-}
-.job-box-inner {
-  padding: 30px 20px;
-  background: #dadef6;
-  width: 100%;
-  border-radius: 10px;
-}
-.job-box-inner h6 {
-  font-size: var(--font-16);
-  font-weight: bold;
-}
+
 .result-div-final #search-breif {
   padding-right: 50px;
 }
-.job-content {
-  width: 48%;
-}
-.job-img {
-  width: 48%;
-}
-.job-wrap-single {
-  justify-content: space-between;
-}
-.job-img img {
-  width: 100%;
-}
+
 .con-form-row {
   display: flex;
   justify-content: space-between;
@@ -2033,10 +1410,10 @@ body.single-esoft-jobs {
 .blog-results-inner {
   margin: 0 -10px;
 }
-.alumni-wrap .counter-box {
+/* .alumni-wrap .counter-box {
   border: 0;
   width: 40%;
-}
+} */
 .material-item {
   padding-left: 15px;
   font-weight: bold;
@@ -2055,23 +1432,7 @@ body.single-esoft-jobs {
   font-weight: bold;
   border-radius: 20px;
 }
-.quick-float {
-  position: fixed;
-  z-index: 99;
-  bottom: 128px;
-  right: 10px;
-  background: var(--btn-blue);
-  padding: 5px 10px;
-  border-radius: 50px;
-  box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
-}
-.quick-float ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
+
 .main-li {
   margin: 0 10px;
 }
@@ -2094,43 +1455,11 @@ body.single-esoft-jobs {
   opacity: 0;
   transition: all 0.5s;
 }
-.quick-float:not(.is-active) .social-li div {
-  width: 0 !important;
-  opacity: 0 !important;
-  transition: all 0.5s;
-}
-.quick-float:not(.is-active) .social-li {
-  width: 0 !important;
-  opacity: 0 !important;
-  transition: all 0.5s;
-}
-.quick-float.is-active .social-li {
-  width: 110px !important;
-  opacity: 1 !important;
-  transition: all 0.5s;
-}
-.quick-float.is-active .social-li div {
-  width: 110px !important;
-  opacity: 1 !important;
-  transition: all 0.5s;
-}
-.quick-float .first-li img,
-.quick-float .social-li img {
-  height: 50px;
-  width: 50px;
-  object-fit: contain;
-}
+
 .social-li div {
   padding-left: 5px;
 }
-.quick-float.is-active .close-arr {
-  opacity: 1;
-  transition: all 0.5s;
-}
-.quick-float.is-active .open-arr {
-  opacity: 0;
-  transition: all 0.5s;
-}
+
 .close-arr {
   position: absolute;
   left: 0;
@@ -2162,63 +1491,7 @@ body.single-esoft-jobs {
     transform: scale(1);
   }
 }
-/* .opening-box-content {
-  display: flex;
-  align-items: center;
-}
-.opening-box-content-inner {
-  padding: 50px;
-  box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
-  background: #fff;
-}
-.opening-box-content-inner h6 {
-  font-size: var(--font-18);
-  line-height: var(--font-30);
-}
-.opening-box-content-inner h2 {
-  font-size: var(--font-30);
-  line-height: var(--font-40);
-}
-.opening-box-img {
-  width: 40%;
-}
-.opening-box-img img {
-  width: 110%;
-}
-.opening-box-content {
-  width: 60%;
-} */
-.careers-job-wrap:nth-child(2n) .about-wrap {
-  display: flex;
-  flex-direction: row-reverse;
-}
-.careers-job-wrap .counter-box {
-  width: 30%;
-}
-.careers-job-wrap .counter-box p {
-  font-size: var(--font-16);
-}
-.careers-job-wrap .counter-box h6 {
-  font-size: var(--font-30);
-  line-height: var(--font-40);
-}
-.careers-job-wrap .counter-box img {
-  height: 60px;
-}
-/* .contact-page-contact-ul {
-  display: flex;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: space-between;
-  padding-top: 50px;
-} */
-/* .contact-banner {
-  height: 75vh;
-} */
-/* .contact-banner .banner-con {
-  padding-top: 0;
-} */
+
 .module-table {
   width: 100%;
   table-layout: auto;
@@ -2258,41 +1531,7 @@ body.single-esoft-jobs {
   font-size: var(--font-16);
   font-weight: bold;
 }
-/* .install-div-wrap .next-btn {
-  width: 100%;
-  border: 0 !important;
-  margin-top: 20px;
-} */
-.installment-modal .modal-dialog {
-  max-width: 80%;
-}
-.installment-modal ul {
-  display: flex;
-  padding: 0;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.installment-modal ul li {
-  border: 0;
-  width: 20%;
-}
-.installment-modal ul li ul li {
-  border-bottom: 1px solid #b6b6b6;
-  width: 100%;
-}
-.installment-modal ul ul {
-  flex-direction: column;
-  padding: 0 15px;
-}
-.installment-modal .fee-box {
-  width: 100%;
-}
-.installment-modal h5 {
-  text-align: center;
-  font-size: var(--font-30);
-  font-weight: bold;
-  line-height: var(--font-40);
-}
+
 .batch-table {
   width: 100%;
   table-layout: auto;
@@ -2317,73 +1556,6 @@ body.single-esoft-jobs {
   padding: 15px 5px;
 }
 
-/* body #preloader {
-  display: none;
-}
-body.single-esoft-courses #preloader,
-body.single-esoft-transfer #preloader {
-  display: block !important;
-} */
-body.single-esoft-courses #in-body,
-body.single-esoft-transfer #in-body {
-  overflow: hidden;
-  height: 0 !important;
-}
-body.single-esoft-courses #in-body.is-loaded,
-body.single-esoft-transfer #in-body.is-loaded {
-  overflow: auto;
-  height: auto !important;
-}
-#myTab {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border: 0;
-}
-#myTabContent {
-  padding: 30px;
-  background: #fafafa;
-  border-radius: 15px;
-}
-#myTab button {
-  background: #494949 !important;
-  color: #fff;
-  border: 0 !important;
-  padding: 5px 30px;
-  border-radius: 20px;
-  font-size: var(--font-15);
-  margin-right: 15px;
-}
-#myTab button.active {
-  background: var(--darkblue) !important;
-}
-#myTab li {
-  padding: 0 0 10px 0;
-}
-.make-an-inquiry-button {
-  font-size: 11px;
-  display: flex;
-  justify-content: center;
-  padding: 8px 15px;
-  align-items: center;
-  position: fixed;
-  transform: rotate(90deg);
-  left: -41px;
-  top: auto;
-  bottom: 100px;
-  z-index: 99;
-  background: var(--darkblue);
-  cursor: pointer;
-  border-radius: 20px 0 20px 0;
-  border: 0;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 600;
-  transition: ease all 0.5s;
-  box-shadow: 0 3px 6px #00000029;
-  -webkit-box-shadow: 0 3px 6px #00000029;
-  -moz-box-shadow: 0 3px 6px #00000029;
-  letter-spacing: 2.83px;
-}
 .modal {
   z-index: 99999;
 }
@@ -2399,11 +1571,11 @@ body.single-esoft-transfer #in-body.is-loaded {
 #inquiryModal .form-wrap {
   padding: 30px;
 }
-.make-an-inquiry-button:hover {
+/* .make-an-inquiry-button:hover {
   border-radius: 0 20px 0 20px;
   transition: ease all 0.5s;
   background: var(--dark-gray);
-}
+} */
 /**************************Course End******************************************/
 
 .category-wrap-box {
@@ -2455,46 +1627,19 @@ body.single-esoft-transfer #in-body.is-loaded {
   .small-middle-wrap {
     width: 85%;
   }
-  /* .page-template-alumni .school-box-single .feature-img-school,
-  .page-template-events-landing .school-box-single .feature-img-school,
-  .page-template-news-landing .school-box-single .feature-img-school,
-  .single-esoft-events .school-box-single .feature-img-school,
-  .single-esoft-news .school-box-single .feature-img-school {
-    height: 300px;
-  }
-  .archive.date .school-box-single .feature-img-school,
-  .page-template-blog-landing .school-box-single .feature-img-school,
-  .page-template-publication-landing .school-box-single .feature-img-school,
-  .single-esoft-blogs .school-box-single .feature-img-school,
-  .single-esoft-publications .school-box-single .feature-img-school,
-  .tax-blog-type .school-box-single .feature-img-school,
-  .tax-publication-type .school-box-single .feature-img-school {
-    height: 200px;
-  } */
-  /* .course-box-img img {
-    height: 350px;
-  } */
+
   .news-slider-box-wrap img {
     height: 400px;
   }
 }
 @media (min-width: 991px) and (max-width: 1300px) {
-  /* .banner-con h2 {
-    font-size: var(--font-62);
-  }
-  .banner-con p {
+  /* .counter-box p {
     font-size: var(--font-20);
-    line-height: var(--font-30);
   } */
-  .counter-box p {
-    font-size: var(--font-20);
-  }
   .vision-text p {
     font-size: var(--font-25);
   }
-  /* .school-box {
-    min-height: 170px;
-  } */
+
   .news-list {
     padding: 50px 2%;
   }
@@ -2504,43 +1649,6 @@ body.single-esoft-transfer #in-body.is-loaded {
   .left-course-details {
     padding: 20px;
   }
-  /* .parent-gal .div1 {
-    height: 410px;
-  }
-  .parent-gal .div2 {
-    height: 200px;
-  }
-  .parent-gal .div3 {
-    height: 200px;
-  }
-  .parent-gal .div4 {
-    height: 200px;
-  }
-  .parent-gal .div5 {
-    height: 200px;
-  } */
-  /* .page-template-alumni .school-box-single .feature-img-school,
-  .page-template-events-landing .school-box-single .feature-img-school,
-  .page-template-news-landing .school-box-single .feature-img-school,
-  .single-esoft-events .school-box-single .feature-img-school,
-  .single-esoft-news .school-box-single .feature-img-school {
-    height: 200px;
-  }
-  .archive.date .school-box-single .feature-img-school,
-  .page-template-blog-landing .school-box-single .feature-img-school,
-  .page-template-publication-landing .school-box-single .feature-img-school,
-  .single-esoft-blogs .school-box-single .feature-img-school,
-  .single-esoft-publications .school-box-single .feature-img-school,
-  .tax-blog-type .school-box-single .feature-img-school,
-  .tax-publication-type .school-box-single .feature-img-school {
-    height: 200px;
-  } */
-  /* .school-box-inner-details {
-    margin-top: -25px;
-  } */
-  /* .course-box-img img {
-    height: 350px;
-  } */
   .news-slider-box-wrap img {
     height: 350px;
   }
@@ -2888,7 +1996,7 @@ body.single-esoft-transfer #in-body.is-loaded {
   .vision-text h5 {
     flex-direction: column;
   }
-  .counter-box h6 {
+  /* .counter-box h6 {
     font-size: 20px;
     line-height: 35px;
   }
@@ -2913,12 +2021,12 @@ body.single-esoft-transfer #in-body.is-loaded {
   }
   .counter-box p {
     font-size: 15px;
-  }
+  } */
   .section-heading {
     font-size: 25px;
     line-height: 35px;
   }
-  .counter-box img {
+  /* .counter-box img {
     height: 40px;
     width: 40px;
     object-fit: contain;
@@ -2926,7 +2034,7 @@ body.single-esoft-transfer #in-body.is-loaded {
   .counter-box {
     justify-content: flex-start;
     align-items: flex-start;
-  }
+  } */
   .heading-wrap {
     flex-direction: column;
   }
@@ -2947,16 +2055,16 @@ body.single-esoft-transfer #in-body.is-loaded {
   .content-wrap-short {
     width: 100%;
   }
-  .feature-news {
+  /* .feature-news {
     width: 100%;
   }
   .feature-news {
     flex-wrap: wrap;
-  }
+  } */
   .news-list-wrap {
     flex-wrap: wrap;
   }
-  .feature-news-img {
+  /* .feature-news-img {
     width: 100%;
     padding-right: 0;
   }
@@ -2966,7 +2074,7 @@ body.single-esoft-transfer #in-body.is-loaded {
   }
   .feature-news {
     padding: 30px 2.5%;
-  }
+  } */
   .news-list {
     width: 100%;
     padding: 30px 2.5%;
@@ -2985,9 +2093,9 @@ body.single-esoft-transfer #in-body.is-loaded {
   .event-wrap {
     flex-wrap: wrap;
   }
-  .feature-news-content {
+  /* .feature-news-content {
     padding-top: 20px;
-  }
+  } */
   .event-banner-inner-content {
     position: relative;
     width: 100%;
@@ -3040,15 +2148,15 @@ body.single-esoft-transfer #in-body.is-loaded {
     flex-direction: column;
     align-items: center;
   }
-  .news-feature-box-wrap {
+  /* .news-feature-box-wrap {
     text-align: center;
-  }
+  } */
   .news-date {
     justify-content: center;
   }
-  .feature-news-content a {
+  /* .feature-news-content a {
     margin: auto;
-  }
+  } */
   .news-title--white {
     text-align: center;
   }
@@ -3136,47 +2244,17 @@ body.single-esoft-transfer #in-body.is-loaded {
     width: 100%;
     padding: 0 5px 10px;
   }
-  /* .school-box-inner-details {
-    margin-top: -10px;
-    padding: 20px;
-    background: var(--light-ash-color);
-  } */
-  /* .school-box-details img {
-    height: 30px;
-    width: 30px;
-    object-fit: contain;
-  }
-  .school-box-details span {
-    font-size: 18px;
-    line-height: 28px;
-    padding-left: 5px;
-  }
-  .school-box-details {
-    padding-bottom: 10px;
-  } */
-  /* .school-box-inner-details .btnn-next {
-    font-size: 16px;
-  } */
+
   .braedcumb-section {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  /* .banner-con {
-    padding-top: 0;
-  }
-  .banner-con p {
-    font-size: 15px;
-    line-height: 28px;
-    padding-top: 10px;
-    width: 90%;
-  } */
+
   .inner-banner-wrap {
     position: relative;
     padding: 20px 0;
   }
-  /* .canvas-section {
-        height: auto;
-    } */
+
   .braedcumb-section,
   .braedcumb-section a {
     font-size: 12px;
@@ -3191,44 +2269,11 @@ body.single-esoft-transfer #in-body.is-loaded {
     font-size: 15px;
     line-height: 30px;
   }
-  /* .about-image {
-    width: 100%;
-  }
-  .about-content {
-    width: 100%;
-    padding-top: 15px;
-  }
-  .about-wrap {
-    flex-wrap: wrap;
-  }
-  .about-content h5,
-  .about-image h5 {
-    font-size: 25px;
-    line-height: 35px;
-  }
-  .about-content .the-content-div,
-  .about-content h5,
-  .about-image .the-content-div,
-  .about-image h5 {
-    text-align: center;
-  } */
-  /* .intern-slider-about {
-        margin-top: 30px;
-    } */
+
   .intern-box img {
     height: 110px;
   }
-  /* .about-banner-content {
-    position: relative;
-  }
-  .about-content .counter-box {
-    width: 33.3%;
-    text-align: center;
-  }
-  .about-content .counter-box img {
-    margin-left: auto;
-    margin-right: auto;
-  } */
+
   .btn-div-top {
     display: none;
   }
@@ -3242,25 +2287,7 @@ body.single-esoft-transfer #in-body.is-loaded {
   .branch-add-wrap {
     flex-direction: column;
   }
-  /* .about-banner img {
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .about-banner-content {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    font-size: 20px;
-    line-height: 30px;
-    padding: 30px 0;
-  } */
+
   .staff-box h6 {
     font-size: 16px;
     line-height: 30px;
@@ -3276,9 +2303,9 @@ body.single-esoft-transfer #in-body.is-loaded {
     font-size: 25px;
     line-height: 35px;
   }
-  .staff-modal {
+  /* .staff-modal {
     max-width: 100%;
-  }
+  } */
   .modal-staff-img {
     flex-direction: column;
     text-align: center;
@@ -3339,31 +2366,11 @@ body.single-esoft-transfer #in-body.is-loaded {
   .testimonial-box {
     padding: 20px;
   }
-  /* .opening-box-img {
-    width: 100%;
-  }
-  .opening-box-content {
-    width: 100%;
-  }
-  .opening-box-img-wrap {
-    flex-wrap: wrap;
-  }
-  .opening-box-img img {
-    width: 100%;
-  }
-  .opening-box-content-inner {
-    padding: 30px;
-  } */
+
   .news-evenst-nav {
     width: 80%;
   }
-  /* .page-template-alumni .school-box-single .feature-img-school,
-  .page-template-events-landing .school-box-single .feature-img-school,
-  .page-template-news-landing .school-box-single .feature-img-school,
-  .single-esoft-events .school-box-single .feature-img-school,
-  .single-esoft-news .school-box-single .feature-img-school {
-    height: 200px;
-  } */
+
   .news-inner-slider img {
     width: 100%;
     height: 200px;
@@ -3504,25 +2511,12 @@ body.single-esoft-transfer #in-body.is-loaded {
   .course-box-wrap {
     width: 100%;
   }
-  /* .course-box-img img {
-    height: 350px;
-  } */
+
   .attribute-box .attribute-box-check label {
     font-size: 15px;
   }
 }
 @media (min-width: 600px) and (max-width: 991px) {
-  .job-img {
-    width: 100%;
-  }
-  .job-wrap-single {
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 30px;
-  }
-  .job-content {
-    width: 100%;
-  }
   .banner-search-bar {
     bottom: 50px;
   }
@@ -3532,10 +2526,7 @@ body.single-esoft-transfer #in-body.is-loaded {
   #banner-carousel img {
     height: 500px;
   }
-  /* .flag-box {
-    width: 33.3%;
-    padding: 15px;
-  } */
+
   .banne-cap-div {
     bottom: 50vh;
   }
@@ -3577,13 +2568,7 @@ body.single-esoft-transfer #in-body.is-loaded {
   .landing-results-top div {
     flex-direction: column;
   }
-  .job-landing-wrap select {
-    width: 100%;
-  }
-  .job-box {
-    width: 50%;
-    padding: 5px;
-  }
+
   .left-course {
     display: flex;
   }
@@ -3599,7 +2584,7 @@ body.single-esoft-transfer #in-body.is-loaded {
   .course-box-wrap {
     padding: 5px;
   }
-  .counter-box h6 {
+  /* .counter-box h6 {
     font-size: 38px;
     line-height: 48px;
   }
@@ -3612,7 +2597,7 @@ body.single-esoft-transfer #in-body.is-loaded {
   }
   .counter-box img {
     padding-right: 15px;
-  }
+  } */
   .creative-heading {
     font-size: 35px;
     line-height: 45px;
@@ -3638,78 +2623,29 @@ body.single-esoft-transfer #in-body.is-loaded {
   #footer .main-wrap {
     width: 95%;
   }
-  /* .school-box-single {
-    width: 50%;
-    padding: 0 5px 10px;
-  } */
-  /* .banner-con,
-  .banner-con div {
-    width: 100% !important;
-  } */
-  canvas {
+
+  /* canvas {
     top: -50px;
-  }
-  /* .parent-gal .div1 {
-    height: 410px;
-  }
-  .parent-gal .div2 {
-    height: 200px;
-  }
-  .parent-gal .div3 {
-    height: 200px;
-  }
-  .parent-gal .div4 {
-    height: 200px;
-  }
-  .parent-gal .div5 {
-    height: 200px;
   } */
+
   .course-box-wrap {
     width: 100%;
   }
-  .counter-box img {
+  /* .counter-box img {
     padding-right: 0;
-  }
+  } */
   .branch-add-wrap {
     flex-direction: row;
   }
   .branch-details-wrap {
     flex-direction: row;
   }
-  /* .about-banner img {
-    position: relative;
-  }
-  .about-banner-content {
-    position: absolute;
-  }
-  .about-banner-content {
-    width: 50%;
-    left: 5%;
-    margin: 0;
-  } */
-  .staff-modal {
+
+  /* .staff-modal {
     max-width: 100%;
     width: 80%;
-  }
-  /* .opening-box-img img {
-    width: 110%;
-  }
-  .opening-box-img {
-    width: 40%;
-  }
-  .opening-box-content {
-    width: 60%;
   } */
-  /* .blog-filter {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-  }
-  .contact-page-contact-ul {
-    display: flex;
-    width: 90%;
-    padding-top: 30px;
-    margin: auto !important;
-  } */
+
   .hide-tab {
     display: none !important;
   }
@@ -3806,17 +2742,7 @@ body.single-esoft-transfer #in-body.is-loaded {
   .related-coures-div {
     text-align: center;
   }
-  /* .partner-uni-post-left ul li {
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-    width: 50%;
-    padding-left: 0px;
-  }
-  .partner-uni-post-left,
-  .partner-uni-post-right {
-    width: 100%;
-  } */
+
   .course-box-wrap {
     padding: 0 0 15px;
   }
@@ -3896,9 +2822,9 @@ body.single-esoft-transfer #in-body.is-loaded {
   .lecture-slider .slide-item {
     width: 50%;
   }
-  .staff-modal .modal-body {
+  /* .staff-modal .modal-body {
     padding: 20px;
-  }
+  } */
   .lecture-slider .staff-box,
   .lecture-slider-st .staff-box {
     overflow: hidden;
@@ -3980,13 +2906,7 @@ body.single-esoft-transfer #in-body.is-loaded {
   .job-box {
     width: 100%;
   }
-  /* .parent-gal {
-    display: flex;
-    flex-direction: column;
-  }
-  .parent-gal a {
-    height: 200px !important;
-  } */
+
   .head-msg-wrap {
     flex-direction: column;
   }
@@ -4075,10 +2995,10 @@ body.single-esoft-transfer #in-body.is-loaded {
   height: 700px;
 } */
 @media (min-width: 991px) and (max-width: 1300px) {
-  .counter-box h6 {
+  /* .counter-box h6 {
     font-size: var(--font-30);
     line-height: var(--font-40);
-  }
+  } */
   .top-bar-menu a,
   ul#top-menu a {
     font-size: 12px;
@@ -4087,7 +3007,7 @@ body.single-esoft-transfer #in-body.is-loaded {
     font-size: 11px;
   }
   .paragraph,
-  .news-feature-box-wrap p,
+  /* .news-feature-box-wrap p, */
   .testimonial-text p {
     font-size: 15px;
     line-height: 30px;
@@ -4121,54 +3041,4 @@ body.single-esoft-transfer #in-body.is-loaded {
   .xsmall-wrap {
     width: 90%;
   }
-  /* .school-box-single {
-    width: 50%;
-    padding: 0 10px 20px;
-  } */
-  /* .course-box-wrap {
-    width: 50%;
-  } */
-  /* .canvas-section {
-    height: 40vh;
-  } */
-  /* .course-box-img img {
-    height: 350px;
-  } */
-  /* .school-box h6 {
-    font-size: 15px;
-    line-height: 28px;
-  }
-  .school-box {
-    min-height: 210px;
-    height: 210px;
-  } */
-  /* .news-date {
-    font-size: 14px;
-  } */
-  /* .feature-news-content .news-title,
-  .news-title--white {
-    font-size: 20px;
-    line-height: 30px;
-  }
-  .feature-news,
-  .news-list {
-    width: 50%;
-  }
-  .feature-news {
-    flex-direction: column;
-  }
-  .feature-news-content,
-  .feature-news-img {
-    width: 100%;
-  }
-  .feature-news-content {
-    padding-top: 10px;
-  } */
-  /* .page-template-alumni .school-box-single .feature-img-school,
-  .page-template-events-landing .school-box-single .feature-img-school,
-  .page-template-news-landing .school-box-single .feature-img-school,
-  .single-esoft-events .school-box-single .feature-img-school,
-  .single-esoft-news .school-box-single .feature-img-school {
-    height: 300px;
-  } */
 }

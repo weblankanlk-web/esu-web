@@ -5,8 +5,8 @@ import Header from "@/components/layout/Header/Header";
 import Footer from "@/components/layout/Footer/Footer";
 import { ThemeProvider } from "@/lib/ThemeContext";
 import Preloader from "@/components/common/Preloader/Preloader";
-import Chatbot from "@/components/Chatbot/Chatbot";
-import InquireForm from "@/components/InquireForm/InquireForm";
+import Chatbot from "@/components/sections/Chatbot/Chatbot";
+import InquireForm from "@/components/sections/InquireForm/InquireForm";
 import Modal from "@/components/common/Modal/Modal";
 
 export default function RootLayoutClient({
@@ -38,7 +38,7 @@ export default function RootLayoutClient({
       <Header />
       {children}
       <Footer />
-      <Chatbot />
+      {/* <Chatbot /> */}
     </ThemeProvider>
   );
 }

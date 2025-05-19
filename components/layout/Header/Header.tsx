@@ -7,7 +7,7 @@ import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 import { useState } from "react";
 import Modal from "@/components/common/Modal/Modal";
-import InquireForm from "@/components/InquireForm/InquireForm";
+import InquireForm from "@/components/sections/InquireForm/InquireForm";
 
 const Header = () => {
   const pathname = usePathname();
@@ -193,7 +193,7 @@ const Header = () => {
               {/* desktop */}
               <div className="apply-now-wrap desktop-only-view">
                 <Modal>
-                  <InquireForm />
+                  <InquireForm courseName={""} />
                 </Modal>
               </div>
             </div>
@@ -213,7 +213,7 @@ const Header = () => {
               <span>Register Online</span>
             </button> */}
             <Modal>
-              <InquireForm />
+              <InquireForm courseName={""} />
             </Modal>
           </div>
         </div>
