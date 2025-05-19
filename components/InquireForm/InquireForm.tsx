@@ -56,8 +56,8 @@ const InquireForm = () => {
     nicPassport: "",
     branch: "",
     message: "",
-    course: "Website",
-    source: "",
+    course: "",
+    source: "ESU-Web Form",
   });
 
   const [status, setStatus] = useState("");
@@ -76,7 +76,7 @@ const InquireForm = () => {
       phone: formData.phone,
       email: formData.email,
       course: formData.course,
-      source: "Website",
+      source: "ESU-Web Form",
       nationality: formData.nationality,
       notes: formData.message,
       nic_passport: formData.nicPassport,
