@@ -6,7 +6,7 @@
     @return $res;
 }
 
-.newsletter {
+.inquire {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -39,7 +39,7 @@ border-radius: 20px;
         height: 100%;
     }
 
-    .newsletter__icon {
+    .inquire__icon {
         width: 80px;
         height: 60px;
         background: url('/images/mail-icon.svg') no-repeat center/contain;
@@ -52,25 +52,25 @@ border-radius: 20px;
     height: 600px;
     overflow-y: auto;
 
-    .newsletter__title {
+    .inquire__title {
         font-size: 20px;
         font-weight: 700;
         margin-bottom: 20px;
         color: #222;
     }
 
-    .newsletter__form {
+    .inquire__form {
         display: flex;
         flex-direction: column;
 
-        .newsletter__row {
+        .inquire__row {
             display: flex;
             flex-direction: column;
             gap: 16px;
             margin-bottom: 16px;
         }
 
-        .newsletter__field {
+        .inquire__field {
             display: flex;
             flex-direction: column;
             margin-bottom: 16px;
@@ -122,8 +122,24 @@ border-radius: 20px;
 }
 }
 
+.inquire__error {
+    background-color: #ffcccc;
+    color: #d8000c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.inquire__success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
 @media screen and (min-width: 768px) {
-    .newsletter {
+    .inquire {
         flex-direction: row;
 
         &__image-section,
@@ -134,11 +150,11 @@ border-radius: 20px;
         &__form-section {
             padding: 40px;
 
-            .newsletter__form .newsletter__row {
+            .inquire__form .inquire__row {
                 flex-direction: row;
             }
 
-            .newsletter__field {
+            .inquire__field {
                 flex: 1;
             }
         }
@@ -146,12 +162,12 @@ border-radius: 20px;
 }
 
 @media screen and (min-width: 990px) {
-    .newsletter__form-section {
-        .newsletter__title {
+    .inquire__form-section {
+        .inquire__title {
             font-size: 22px;
         }
 
-        .newsletter__form {
+        .inquire__form {
 
             input,
             select,
@@ -167,34 +183,34 @@ border-radius: 20px;
 }
 
 @media screen and (min-width: 1200px) {
-    .newsletter {
+    .inquire {
         border-radius: get-vw(20px);
     }
 
-    .newsletter__image-section {
+    .inquire__image-section {
         // padding: get-vw(80px) 0;
 
-        .newsletter__icon {
+        .inquire__icon {
             width: get-vw(100px);
             height: get-vw(75px);
         }
     }
 
-    .newsletter__form-section {
+    .inquire__form-section {
         padding: get-vw(60px);
 
-        .newsletter__title {
+        .inquire__title {
             font-size: get-vw(28px);
             margin-bottom: get-vw(30px);
         }
 
-        .newsletter__form {
-            .newsletter__row {
+        .inquire__form {
+            .inquire__row {
                 gap: get-vw(20px);
                 margin-bottom: get-vw(20px);
             }
 
-            .newsletter__field {
+            .inquire__field {
                 margin-bottom: get-vw(20px);
 
                 label {

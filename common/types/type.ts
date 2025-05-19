@@ -381,3 +381,23 @@ export type AcademicStaff = {
     }[];
   };
 };
+
+export type CoursesInquire = {
+  courses: any;
+  title: any;
+  slug: any;
+  branchTypes: {
+    nodes: {
+      name: string;
+      courses: {
+        nodes: {
+          title: string;
+          slug: string;
+          courses: {
+            courseCode: string;
+          };
+        };
+      };
+    };
+  };
+};

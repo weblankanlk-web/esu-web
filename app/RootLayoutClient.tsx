@@ -38,7 +38,7 @@ export default function RootLayoutClient({
       <Header />
       {children}
       <Footer />
-      {/* <Chatbot /> */}
+      <Chatbot />
     </ThemeProvider>
   );
 }

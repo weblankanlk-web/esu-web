@@ -677,3 +677,22 @@ export const COURSE_GET_BY_FACULTY_TYPES = `
     }
   }
 `;
+
+export const GET_COURSES_FOR_INQUIRE_FORM = `
+query {
+  branchTypes {
+    nodes {
+      name
+      courses {
+        nodes {
+          title
+          slug
+          courses {
+            courseCode
+          }
+        }
+      }
+    }
+  }
+}
+`;
