@@ -1,5 +1,7 @@
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import OurCampus from "@/components/pages/AboutUs/OurCampus/OurCampus";
+import ContactCards from "@/components/pages/Contact/ContactCards/ContactCards";
+import ContactHeadOffice from "@/components/pages/Contact/ContactHeadOffice/ContactHeadOffice";
 import HomeAbout from "@/components/pages/HomePage/HomeAbout/HomeAbout";
 import HomeUniversities from "@/components/pages/HomePage/HomeUniversities/HomeUniversities";
 import React from "react";
@@ -9,7 +11,7 @@ const page = () => {
     <>
       <InnerBanner
         innerPageTitle={`About <span>Us</span>`}
-        innerPageDescription="Welcome to ESOFT Metro Campus – Sri Lanka's premier destination for higher education excellence! Since 2000, we've grown into the country's largest private sector higher education network, providing educational opportunities for over 30,000 students annually across our expansive 40-branch network"
+        innerPageDescription="Welcome to ESU – Sri Lanka's premier uni for higher education excellence! Since our inception in 2000, we have evolved into a leading private uni, offering industry-relevant, globally recognised academic programmes. Our growing academic network spans multiple campuses, empowering students to achieve their full potential across a wide range of disciplines."
         innerBgDesk="/images/contact-us-banner.png"
         innerBgMobi="/images/contact-us-banner.png"
       />
@@ -17,6 +19,8 @@ const page = () => {
       <HomeUniversities />
 
       <OurCampus />
+
+      <ContactHeadOffice/>
     </>
   );
 };

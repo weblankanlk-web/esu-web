@@ -683,7 +683,7 @@ query {
   branchTypes {
     nodes {
       name
-      courses {
+      courses(first: 100) {
         nodes {
           title
           slug

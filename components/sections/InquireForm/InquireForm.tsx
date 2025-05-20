@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Button from "../../common/Button/Button";
@@ -9,19 +11,30 @@ import { GET_COURSES_FOR_INQUIRE_FORM } from "@/common/queries/query";
 import { usePathname } from "next/navigation";
 
 interface InquireFormProps {
-  courseName: string;
 }
 
-const InquireForm: React.FC<InquireFormProps> = ({ courseName }) => {
+const InquireForm: React.FC<InquireFormProps> = () => {
   const { color } = useTheme();
   const [courses, setCourses] = useState<CoursesInquire[]>([]);
 
   const pathname = usePathname();
   const slug = pathname?.split("/").pop();
 
-  if (slug && courseName) {
-    console.log("Slug:", slug);
-  }
+  const [isCoursePage, setIsCoursePage] = useState(false);
+
+  useEffect(() => {
+    if (pathname.includes("/courses/")) {
+      setIsCoursePage(true);
+    } else {
+      setIsCoursePage(false);
+    }
+  }, [pathname]);
+
+  // console.log("Slug:", isCoursePage);
+
+  // if (slug && courseName) {
+  //   console.log("Slug:", slug);
+  // }
 
   useEffect(() => {
     async function fetchCourses() {
@@ -30,8 +43,6 @@ const InquireForm: React.FC<InquireFormProps> = ({ courseName }) => {
           branchTypes: any;
           courses: { nodes: CoursesInquire[] };
         }>(GET_COURSES_FOR_INQUIRE_FORM);
-
-        // setCourses(data.branchTypes.nodes);
 
         const branchNodes = data.branchTypes.nodes;
 
@@ -92,7 +103,7 @@ const InquireForm: React.FC<InquireFormProps> = ({ courseName }) => {
       lastname: formData.lastName,
       phone: formData.phone,
       email: formData.email,
-      course: slug ? findCourseCode : formData.course,
+      course: isCoursePage ? findCourseCode : formData.course,
       source: "ESU-Web Form",
       nationality: formData.nationality,
       notes: formData.message,
@@ -521,7 +532,7 @@ const InquireForm: React.FC<InquireFormProps> = ({ courseName }) => {
           </div>
 
           <div className="inquire__field">
-            {slug ? (
+            {isCoursePage ? (
               <>
                 <label>
                   {filterslugcourse.length > 0

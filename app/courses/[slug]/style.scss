@@ -47,3 +47,16 @@
     }
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .left-course {
+    padding: 0;
+
+    .left-course-img {
+      img {
+        object-position: top;
+        object-fit: cover;
+      }
+    }
+  }
+}

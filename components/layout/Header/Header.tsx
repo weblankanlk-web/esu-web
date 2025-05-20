@@ -193,7 +193,7 @@ const Header = () => {
               {/* desktop */}
               <div className="apply-now-wrap desktop-only-view">
                 <Modal>
-                  <InquireForm courseName={""} />
+                  <InquireForm />
                 </Modal>
               </div>
             </div>
@@ -213,7 +213,7 @@ const Header = () => {
               <span>Register Online</span>
             </button> */}
             <Modal>
-              <InquireForm courseName={""} />
+              <InquireForm />
             </Modal>
           </div>
         </div>

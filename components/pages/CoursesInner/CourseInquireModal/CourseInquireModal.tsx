@@ -1,10 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { Fragment } from "react";
 
 const CourseInquireModal = () => {
+
+  
+
   return (
-    <>
+    <Fragment>
       <div
         className="modal fade show"
         id="inquiryModal"
@@ -908,7 +911,7 @@ const CourseInquireModal = () => {
           </div>
         </div>
       </div>
-    </>
+    </Fragment>
   );
 };
 

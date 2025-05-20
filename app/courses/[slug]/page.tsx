@@ -187,10 +187,9 @@ const page = () => {
               )}
             </div>
             <div className="left-course-details">
-             
               <div className="d-flex justify-content-center course-btn-wrap">
                 <Modal>
-                  <InquireForm courseName={course?.name ?? ""} />
+                  <InquireForm />
                 </Modal>
               </div>
             </div>
