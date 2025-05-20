@@ -12,7 +12,27 @@ permissions:
   id-token: write
 
 jobs:
+
+  sonarqube-scan:
+    name: Sonarqube-Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 
+      - uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+      - uses: sonarsource/sonarqube-quality-gate-action@master
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   build-and-push:
+    name: Build
+    needs: sonarqube-scan
     runs-on: ubuntu-latest
 
     steps:
@@ -44,6 +64,7 @@ jobs:
 
   deploy-to-live:
     runs-on: ubuntu-latest
+    name: Deploy
     needs: build-and-push 
     steps:
       - name: Trigger Watchtower via Webhook
@@ -52,19 +73,42 @@ jobs:
             -H "Authorization: Bearer wt_secret_4aP9tKx7rQm2"
 
 
-  sonarqube-scan:
-    name: sonarqube-scan
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 
-      - uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
-      - uses: sonarsource/sonarqube-quality-gate-action@master
-        timeout-minutes: 5
+  create-release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: deploy-to-live
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false  # Prevent using the default GITHUB_TOKEN
+
+      - name: Get current date and time
+        id: get_datetime
+        run: echo "TAG_NAME=v$(date +'%Y%m%d-%H%M')" >> $GITHUB_ENV
+
+      - name: Set up Git user
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Authenticate and push tag
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git tag $TAG_NAME
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}.git
+          git push origin $TAG_NAME
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          name: "Release ${{ env.TAG_NAME }}"
+          body: "Automated release for Live Push ${{ github.sha }}"
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
