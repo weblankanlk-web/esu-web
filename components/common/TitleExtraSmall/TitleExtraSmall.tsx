@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Fragment } from "react";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 import { TitleInterface } from "@/common/interfaces/interface";
@@ -8,16 +8,14 @@ import { TitleInterface } from "@/common/interfaces/interface";
 const TitleExtraSmall: React.FC<TitleInterface> = ({ title, subtitle }) => {
   const { color } = useTheme();
   return (
-    <>
-      <div className="title-wrapper">
-        <div className="main-title-small">
-          <h2> {title} 
-          
-            <span style={{ color: color }}> {subtitle}</span>
-          </h2>
-        </div>
+    <div className="title-wrapper">
+      <div className="main-title-small">
+        <h2>
+          {title}
+          <span style={{ color: color }}> {subtitle}</span>
+        </h2>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -15,12 +15,19 @@ const page = () => {
         innerBgDesk="/images/contact-us-banner.png"
         innerBgMobi="/images/contact-us-banner.png"
       />
-      <HomeAbout />
+      <HomeAbout
+        title="Empowering Minds With"
+        subtitle="Global Education"
+        content={`
+        At ESU, we offer a diverse range of degree programmes across six dynamic faculties, each designed to equip students with the skills and knowledge to excel in their chosen fields. Our strategic partnerships with globally recognised institutions—including Kingston University London, London Metropolitan University together with our status as a Pearson Platinum Partner (the UK’s largest awarding body), reflect our unwavering commitment to academic excellence. Through these collaborations, students have the opportunity to earn prestigious international qualifications right here in Sri Lanka.
+        <br/><br/>
+        Our strategic partnerships along with our Pearson Platinum Partner status in affiliation with the UK’s largest awarding body, reflects our unwavering commitment to elevating education standards. Our Pearson Higher National Diplomas (HND) form the first two years of some of our degree programmes, offering students a strong foundation before progressing to complete their degrees either in Sri Lanka or overseas.`}
+      />
       <HomeUniversities />
 
       <OurCampus />
 
-      <ContactHeadOffice/>
+      <ContactHeadOffice />
     </>
   );
 };

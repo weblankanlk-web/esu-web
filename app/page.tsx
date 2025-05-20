@@ -13,7 +13,16 @@ export default function Home() {
   return (
     <Fragment>
       <HomeBanner />
-      <HomeAbout />
+      <HomeAbout
+        title="Welcome to"
+        subtitle="ESOFT Uni"
+        content={`
+        <span>Welcome to ESU - Sri Lanka's Premier Uni for Higher Education Excellence!</span>
+        <br/><br/>
+        Established in 2000, ESU has evolved from its origins in computing into a comprehensive, degree-awarding university offering globally recognised qualifications. Today, we serve 15,000 students annually across a dynamic network with a growing academic reputation both locally and internationally. We are committed to academic excellence, industry relevance, and global pathways. ESU offers undergraduate and postgraduate programmes in Computing, Engineering, Business, Law, Art & Design, Education and Life Sciences through its dedicated faculties that combine academic rigour, practical relevance, and an increasing focus on interdisciplinary research. Each faculty is led by credentialed academics and supported by a curriculum that is benchmarked against international standards.
+        <br/><br/>
+        Join us at ESU - where your unique potential meets infinite possibilities.`}
+      />
       <HomeDifference />
       <HomeCourses />
       <HomeUniversities />

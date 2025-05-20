@@ -14,6 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.scss";
 import "./globals.css";
 import RootLayoutClient from "./RootLayoutClient";
+import Script from "next/script";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -77,6 +78,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* GTM script for head */}
+        <Script id="gtm-head" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KLC9HT5X');
+          `}
+        </Script>
+      </head>
       <body
         className={`
           ${spaceGrotesk.variable}
@@ -90,6 +103,16 @@ export default function RootLayout({
         `}
       >
         <RootLayoutClient>{children}</RootLayoutClient>
+
+        {/* GTM noscript for body */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KLC9HT5X"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
       </body>
     </html>
   );
