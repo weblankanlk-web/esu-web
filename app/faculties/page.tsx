@@ -42,7 +42,7 @@ const Page = () => {
         const vc = vcRes.staffType.staffs.nodes[0];
         setViceChancellor(vc);
       } catch (error) {
-        console.error("❌ Error fetching data:", error);
+        console.error("Error fetching data:", error);
       }
     };
 

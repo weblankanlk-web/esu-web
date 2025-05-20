@@ -1,0 +1,102 @@
+@import "@/styles/global.scss";
+
+.campus-facilities {
+    padding: 20px 16px;
+
+    .section-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .facility-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .facility-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+        transition: border-color 0.3s;
+
+        .facility-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .facility-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #000;
+        }
+
+        &:hover {
+            border: 1px solid #5a45ff;
+        }
+    }
+}
+
+// Tablet
+@media screen and (min-width: 768px) {
+    .campus-facilities {
+        .facility-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+    }
+}
+
+// Desktop
+@media screen and (min-width: 990px) {
+    .campus-facilities {
+        .section-title {
+            font-size: 22px;
+        }
+
+        .facility-box {
+            padding: 16px;
+
+            .facility-label {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+// 1920px+ - get-vw()
+@media screen and (min-width: 1200px) {
+    .campus-facilities {
+        padding: get-vw(40px) get-vw(100px);
+
+        .section-title {
+            font-size: get-vw(24px);
+            margin-bottom: get-vw(24px);
+        }
+
+        .facility-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: get-vw(20px);
+        }
+
+        .facility-box {
+            padding: get-vw(20px);
+            border-radius: get-vw(12px);
+
+            .facility-label {
+                font-size: get-vw(18px);
+            }
+
+            .facility-icon {
+                width: get-vw(28px);
+                height: get-vw(28px);
+            }
+        }
+    }
+}
+

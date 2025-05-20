@@ -238,16 +238,16 @@ const page = () => {
                       | {courseDetails?.courseTypes?.nodes?.[0]?.name}
                     </span>
                   </p>
-                  <h1>{course?.name || ""}</h1>
-                  <div className="d-flex course-box-details">
+                  <h1>{course?.name ?? ""}</h1>
+                  {/* <div className="d-flex course-box-details">
                     <div className="d-flex course-box-details-right">
                       <img
-                        src="http://esoft.local/wp-content/themes/esoftonline/assets/img/user.png"
-                        alt=""
+                        src="/images/user.png"
+                        alt="user icon"
                       />
-                      {/* <span>2450+</span> */}
+                      <span>2450+</span>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

@@ -4,14 +4,23 @@ import Image from "next/image";
 
 const ContactHeadOffice = () => {
   return (
-    <>
-      <section className="headoffice-section position-relative">
-        <div className="headoffice-section-wrap">
-          <div className="headoffice-title-wrap">
-            <h2 className="headoffice-title">BUILD <br></br> <span>Your Career with <strong>us</strong></span></h2>
-            <Image src="/images/contact-head-office.png" alt="Head Office" width={1128} height={707} />
-          </div>
-          {/* <div className="headoffice-details">
+    <section className="headoffice-section position-relative">
+      <div className="headoffice-section-wrap">
+        <div className="headoffice-title-wrap">
+          <h2 className="headoffice-title">
+            BUILD <br></br>{" "}
+            <span>
+              Your Career with <strong>us</strong>
+            </span>
+          </h2>
+          <Image
+            src="/images/contact-head-office.png"
+            alt="Head Office"
+            width={1128}
+            height={707}
+          />
+        </div>
+        {/* <div className="headoffice-details">
             <div className="single-branch">
               <h3 className="branch-title">Colombo</h3>
               <div className="branch-details">
@@ -35,16 +44,15 @@ const ContactHeadOffice = () => {
               </div>
             </div>
           </div> */}
-          {/* <div className="social-media">
+        {/* <div className="social-media">
             <ul>
               <li><a href="#"><Image src="/images/facebook-icon.png" alt="Facebook" width={24} height={24} /></a></li>
               <li><a href="#"><Image src="/images/youtube-icon.png" alt="Youtube" width={24} height={24} /></a></li>
               <li><a href="#"><Image src="/images/instagram-icon.png" alt="Instagram" width={24} height={24} /></a></li>
             </ul>
           </div> */}
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

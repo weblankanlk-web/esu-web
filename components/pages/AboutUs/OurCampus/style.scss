@@ -1,7 +1,11 @@
-.our-campuses .branches-section .branches-section-wrap .single-branch {
-    width: 49%;
-}
+.our-campuses {
+    .branches-section {
+        .branches-section-wrap {
+            padding: 0 20px;
 
-.our-campuses .branches-section .branches-section-wrap {
-    padding: 0 20px;
+            .single-branch {
+                width: 49%;
+            }
+        }
+    }
 }

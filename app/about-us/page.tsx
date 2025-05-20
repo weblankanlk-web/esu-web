@@ -1,10 +1,13 @@
+import CampusCards from "@/components/pages/AboutUs/CampusCards/CampusCards";
+import StatsSection from "@/components/pages/AboutUs/StatsSection/StatsSection";
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import OurCampus from "@/components/pages/AboutUs/OurCampus/OurCampus";
-import ContactCards from "@/components/pages/Contact/ContactCards/ContactCards";
+import OurVision from "@/components/pages/AboutUs/OurVision/OurVision";
 import ContactHeadOffice from "@/components/pages/Contact/ContactHeadOffice/ContactHeadOffice";
 import HomeAbout from "@/components/pages/HomePage/HomeAbout/HomeAbout";
-import HomeUniversities from "@/components/pages/HomePage/HomeUniversities/HomeUniversities";
+
 import React from "react";
+import OurStrategicTeam from "@/components/pages/AboutUs/OurStrategicTeam/OurStrategicTeam";
 
 const page = () => {
   return (
@@ -23,11 +26,10 @@ const page = () => {
         <br/><br/>
         Our strategic partnerships along with our Pearson Platinum Partner status in affiliation with the UK’s largest awarding body, reflects our unwavering commitment to elevating education standards. Our Pearson Higher National Diplomas (HND) form the first two years of some of our degree programmes, offering students a strong foundation before progressing to complete their degrees either in Sri Lanka or overseas.`}
       />
-      <HomeUniversities />
-
-      <OurCampus />
-
-      <ContactHeadOffice />
+      <StatsSection />
+      <CampusCards />
+      <OurVision />
+      <OurStrategicTeam />
     </>
   );
 };

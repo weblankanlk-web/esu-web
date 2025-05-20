@@ -31,8 +31,8 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
           schoolType: {
             staffs: {
               nodes: StaffMember[];
-            }
-          }
+            };
+          };
         }>(MEMBERS_QUERY, { slug });
 
         const allMembers = data.schoolType?.staffs?.nodes || [];
@@ -53,30 +53,23 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
   }, [slug]);
 
   return (
-
-    <>
-      <section className="faculty-member-section">
-        <div className="faculty-member-wrap">
-          <h2 className="dean-message-title">
-            {sectinTitle1} <span style={{ color: fontColor }}>{sectinTitle2}</span>
-          </h2>
-          <div className="members-wrap d-flex flex-wrap justify-content-start gap-1">
-              {facultyMembers.length === 0 ? (
-                <p>No staff members found for this department.</p>
-              ) : (
-                facultyMembers.map((member, index) => (
-                  <MemberCardItem
-                    key={index}
-                    memberData={member}
-                  />
-                ))
-              )}
-          </div>
-
+    <section className="faculty-member-section">
+      <div className="faculty-member-wrap">
+        <h2 className="dean-message-title">
+          {sectinTitle1}{" "}
+          <span style={{ color: fontColor }}>{sectinTitle2}</span>
+        </h2>
+        <div className="members-wrap d-flex flex-wrap justify-content-start gap-1">
+          {facultyMembers.length === 0 ? (
+            <p>No staff members found for this department.</p>
+          ) : (
+            facultyMembers.map((member, index) => (
+              <MemberCardItem key={index} memberData={member} />
+            ))
+          )}
         </div>
-      </section>
-    </>
-
+      </div>
+    </section>
   );
 };
 

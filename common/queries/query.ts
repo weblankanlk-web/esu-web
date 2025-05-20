@@ -696,3 +696,27 @@ query {
   }
 }
 `;
+
+export const OUR_STRATEGIC_TEAM = `
+  query {
+    staffType(id: "strategic-team", idType: SLUG) {
+      staffs {
+        nodes {
+          slug
+          title
+          staffAcf {
+            academicTitle
+            designation
+            message
+          }
+          featuredImage {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+`;

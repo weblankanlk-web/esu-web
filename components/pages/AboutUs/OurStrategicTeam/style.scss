@@ -1,0 +1,11 @@
+@import "@/styles/global.scss";
+
+.our-strategic-team {
+    padding: 20px 16px;
+}
+
+@media screen and (min-width: 1200px) {
+    .our-strategic-team {
+        padding: get-vw(80px) get-vw(100px);
+    }
+}
