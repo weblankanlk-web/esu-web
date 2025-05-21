@@ -20,30 +20,27 @@ const ContactHeadOffice = () => {
             height={707}
           />
         </div>
-        {/* <div className="headoffice-details">
-            <div className="single-branch">
-              <h3 className="branch-title">Colombo</h3>
-              <div className="branch-details">
-                <div className="address">
-                  <p className="label">Address</p>
-                  <p>
-                    Block A
-                    <br />
-                    235, Galle Road <br />
-                    Colombo 04,<br></br> Srilanka
-                  </p>
-                </div>
-                <div className="email">
-                  <p className="label">Email</p>
-                  <a href="mailto:info@esu.lk">info@esu.lk</a>
-                </div>
-                <div className="call-us">
-                  <p className="label">Call Us on</p>
-                  <a href="tel:+94 117 572 572" className="">+94 117 572 572</a>
-                </div>
+        <div className="headoffice-details">
+          <div className="single-branch">
+            <h3 className="branch-title">General Inquiries</h3>
+            <div className="branch-details">
+              <div className="address">
+                <p className="label">Address</p>
+                <p>No 03, De Fonseka Place, Colombo 4, Sri Lanka.</p>
+              </div>
+              <div className="email">
+                <p className="label">Email</p>
+                <a href="mailto:info@esu.lk">info@esu.lk</a>
+              </div>
+              <div className="call-us">
+                <p className="label">Call Us on</p>
+                <a href="tel:+94 117 572 572" className="">
+                  +94 117 572 572
+                </a>
               </div>
             </div>
-          </div> */}
+          </div>
+        </div>
         {/* <div className="social-media">
             <ul>
               <li><a href="#"><Image src="/images/facebook-icon.png" alt="Facebook" width={24} height={24} /></a></li>

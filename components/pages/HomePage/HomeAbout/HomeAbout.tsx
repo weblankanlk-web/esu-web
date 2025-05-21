@@ -17,16 +17,17 @@ interface HomeAboutProps {
   title: string;
   subtitle: string;
   content: string;
+  image: string;
 }
 
-const HomeAbout: React.FC<HomeAboutProps> = ({ title, subtitle, content }) => {
+const HomeAbout: React.FC<HomeAboutProps> = ({ title, subtitle, content, image }) => {
   return (
       <section className="home-about">
         <div className="full-wrap">
           <div className="image-detail-wrap">
             <div className="left">
               <Image
-                src="https://esoft.lk/wp-content/uploads/2023/12/About-1.jpg"
+                src={image}
                 width={900}
                 height={850}
                 alt=""

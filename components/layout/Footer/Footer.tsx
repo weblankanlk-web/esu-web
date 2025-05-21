@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="social-icons">
               <div className="icon">
                 <Link
-                  href="https://www.facebook.com/ESOFTMetroCampus/"
+                  href="https://www.facebook.com/p/ESULK-61576131141044/"
                   target="_blank"
                 >
                   <FaFacebookF />
@@ -34,7 +34,7 @@ const Footer = () => {
               </div>
               <div className="icon">
                 <Link
-                  href="https://www.instagram.com/esoftmetrocampus/?hl=en"
+                  href="https://www.instagram.com/esu.lk?igsh=em96N3kwZ3Uxc2xk"
                   target="_blank"
                 >
                   <FaInstagram />
@@ -42,18 +42,19 @@ const Footer = () => {
               </div>
               <div className="icon">
                 <Link
-                  href="https://lk.linkedin.com/school/esoftmetrocampus/"
+                  href="https://www.linkedin.com/company/esu-lk/"
                   target="_blank"
                 >
                   <FaLinkedinIn />
                 </Link>
               </div>
               <div className="icon">
-                <Link href="https://www.tiktok.com/@emccolombo" target="_blank">
+                <Link href="https://www.tiktok.com/@esu.lk?_t=ZS-8wXBCM65Bn5&_r=1"
+                target="_blank">
                   <FaTiktok />
                 </Link>
               </div>
-              {/* <div className="icon">
+{/*               <div className="icon">
                 <Link
                   href="https://www.youtube.com/channel/UCrVBMxBtZy7iVHecsUUycew"
                   target="_blank"

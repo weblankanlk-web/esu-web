@@ -16,6 +16,7 @@ export default function Home() {
       <HomeAbout
         title="Welcome to"
         subtitle="ESOFT Uni"
+        image="/images/home-main.png"
         content={`
         <span>Welcome to ESU - Sri Lanka's Premier Uni for Higher Education Excellence!</span>
         <br/><br/>
