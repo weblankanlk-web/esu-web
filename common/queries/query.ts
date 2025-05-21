@@ -483,7 +483,7 @@ export const FACULTY_INNER_QUERY = `
 
 export const VICE_CHANCELLOR_QUERY = `
  query  {
-    staffType(id: "vice-chancellor", idType: SLUG) {
+    staffType(id: "pro-vice-chancellor", idType: SLUG) {
       staffs {
         nodes {
           staffAcf {

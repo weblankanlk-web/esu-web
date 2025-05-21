@@ -12,6 +12,7 @@ import ContactHeadOffice from "@/components/pages/Contact/ContactHeadOffice/Cont
 import DeanMessage from "@/components/pages/Faculty/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
 import { useTheme } from "@/lib/ThemeContext";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const page = () => {
@@ -20,6 +21,15 @@ const page = () => {
   );
 
   const { color } = useTheme();
+
+  const pathname = usePathname();
+  const slug = pathname.split("/").pop();
+
+  const facultySlug = slug?.split("-").join(" ").toUpperCase();
+
+  // console.log("facultySlug", facultySlug);
+
+  // console.log("slug", slug);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,7 +62,7 @@ const page = () => {
   return (
     <>
       <InnerBanner
-        innerPageTitle={`ESU <span>Colombo Campus</span>`}
+        innerPageTitle={`ESU <span>${facultySlug}</span>`}
         innerPageDescription="Welcome to ESU – Sri Lanka's premier uni for higher education excellence! Since our inception in 2000, we have evolved into a leading private uni, offering industry-relevant, globally recognised academic programmes. Our growing academic network spans multiple campuses, empowering students to achieve their full potential across a wide range of disciplines."
         innerBgDesk="/images/contact-us-banner.png"
         innerBgMobi="/images/contact-us-banner.png"
@@ -79,8 +89,6 @@ const page = () => {
       <CampusFacilities />
 
       <CreativeCollage />
-
-
 
       <ContactHeadOffice />
     </>
