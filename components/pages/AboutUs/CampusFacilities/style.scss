@@ -12,7 +12,7 @@
     .facility-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 0;
     }
 
     .facility-box {
@@ -21,7 +21,7 @@
         gap: 12px;
         padding: 12px;
         border: 1px solid #ddd;
-        border-radius: 8px;
+        // border-radius: 8px;
         background-color: #fff;
         transition: border-color 0.3s;
 
@@ -47,7 +47,7 @@
     .campus-facilities {
         .facility-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            gap: 0;
         }
     }
 }
@@ -81,12 +81,12 @@
 
         .facility-grid {
             grid-template-columns: repeat(3, 1fr);
-            gap: get-vw(20px);
+            gap: get-vw(0px);
         }
 
         .facility-box {
-            padding: get-vw(20px);
-            border-radius: get-vw(12px);
+            padding: get-vw(40px);
+            // border-radius: get-vw(12px);
 
             .facility-label {
                 font-size: get-vw(18px);

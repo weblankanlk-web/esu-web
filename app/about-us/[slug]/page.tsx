@@ -29,7 +29,7 @@ const page = () => {
 
   // console.log("facultySlug", facultySlug);
 
-  // console.log("slug", slug);
+  console.log("slug", slug);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,8 +64,8 @@ const page = () => {
       <InnerBanner
         innerPageTitle={`ESU <span>${facultySlug}</span>`}
         innerPageDescription="Welcome to ESU – Sri Lanka's premier uni for higher education excellence! Since our inception in 2000, we have evolved into a leading private uni, offering industry-relevant, globally recognised academic programmes. Our growing academic network spans multiple campuses, empowering students to achieve their full potential across a wide range of disciplines."
-        innerBgDesk="/images/contact-us-banner.png"
-        innerBgMobi="/images/contact-us-banner.png"
+        innerBgDesk="/images/campus-inner-banner.gif"
+        innerBgMobi="/images/campus-inner-banner.gif"
       />
 
       {viceChancellor && (
@@ -88,7 +88,7 @@ const page = () => {
 
       <CampusFacilities />
 
-      <CreativeCollage />
+      <CreativeCollage slug={slug || ""}/>
 
       <ContactHeadOffice />
     </>
