@@ -49,12 +49,14 @@ const Footer = () => {
                 </Link>
               </div>
               <div className="icon">
-                <Link href="https://www.tiktok.com/@esu.lk?_t=ZS-8wXBCM65Bn5&_r=1"
-                target="_blank">
+                <Link
+                  href="https://www.tiktok.com/@esu.lk?_t=ZS-8wXBCM65Bn5&_r=1"
+                  target="_blank"
+                >
                   <FaTiktok />
                 </Link>
               </div>
-{/*               <div className="icon">
+              {/*               <div className="icon">
                 <Link
                   href="https://www.youtube.com/channel/UCrVBMxBtZy7iVHecsUUycew"
                   target="_blank"
@@ -123,7 +125,6 @@ const Footer = () => {
                 <Link href="/contact-us">Contact Us</Link>
               </li>
             </ul>
-
           </div>
           <div className="column links">
             {/*   <h4>IMPORTANT LINKS</h4> */}
@@ -168,7 +169,7 @@ const Footer = () => {
           </div>
           <div className="background-logo">
             <Image
-              src={"/images/logo/best-web-logo.png"}
+              src={"/images/logo/esu-footer.png"}
               width={700}
               height={400}
               alt=""
