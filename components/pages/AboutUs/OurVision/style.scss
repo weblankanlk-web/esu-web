@@ -212,6 +212,13 @@
 
                 .ourvision-image-content {
                     flex-direction: row;
+
+                    .our-vision-content {
+                        p {
+                            margin-top: get-vw(100px);
+                            font-weight: 800;
+                        }
+                    }
                 }
 
                 img {

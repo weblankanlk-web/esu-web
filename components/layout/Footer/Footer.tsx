@@ -53,14 +53,14 @@ const Footer = () => {
                   <FaTiktok />
                 </Link>
               </div>
-              <div className="icon">
+              {/* <div className="icon">
                 <Link
                   href="https://www.youtube.com/channel/UCrVBMxBtZy7iVHecsUUycew"
                   target="_blank"
                 >
                   <FaYoutube />
                 </Link>
-              </div>
+              </div> */}
             </div>
           }
         </div>
@@ -167,7 +167,7 @@ const Footer = () => {
           </div>
           <div className="background-logo">
             <Image
-              src={"/images/logo/esu-footer.png"}
+              src={"/images/logo/best-web-logo.png"}
               width={700}
               height={400}
               alt=""

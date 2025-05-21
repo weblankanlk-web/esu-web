@@ -23,7 +23,7 @@ const campuses = [
   {
     name: "Jaffna",
     image: "/images/colombo.jpg",
-    description: "ESU Jaffna Campus Coming Soon...",
+    description: "Coming Soon...",
   },
 ];
 

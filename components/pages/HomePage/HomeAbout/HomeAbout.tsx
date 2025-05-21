@@ -26,7 +26,7 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ title, subtitle, content }) => {
           <div className="image-detail-wrap">
             <div className="left">
               <Image
-                src="/images/home-main.png"
+                src="https://esoft.lk/wp-content/uploads/2023/12/About-1.jpg"
                 width={900}
                 height={850}
                 alt=""

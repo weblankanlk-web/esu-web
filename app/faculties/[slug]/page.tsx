@@ -103,7 +103,7 @@ const FacultyInnerPage = () => {
 
           {matchingDean && (
             <DeanMessage
-              title="Dean"
+              title="Dean's"
               DeanName={matchingDean.title}
               designation={matchingDean.staffAcf.designation}
               message={matchingDean.staffAcf.message}
