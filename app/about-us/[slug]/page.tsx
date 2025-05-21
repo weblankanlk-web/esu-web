@@ -68,7 +68,7 @@ const page = () => {
         innerBgMobi="/images/campus-inner-banner.gif"
       />
 
-      {viceChancellor && (
+      {/* {viceChancellor && (
         <DeanMessage
           title="Pro Vice Chancellor's"
           DeanName={viceChancellor.title}
@@ -84,7 +84,7 @@ const page = () => {
           fontFamily={"inherit"} // You can update this if you add font in VC fields
           fontColor={color} // Update if VC fields include color
         />
-      )}
+      )} */}
 
       <CampusFacilities />
 
