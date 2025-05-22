@@ -1,32 +1,42 @@
-.section-heading {
-    line-height: normal !important;
-    letter-spacing: normal !important;
-    font-size: 30 !important;
+.news-inner-page {
+    .section-heading {
+        line-height: normal;
+        letter-spacing: normal;
+        font-size: 30px;
+    }
+
+    .slick-dots {
+        position: relative;
+        bottom: 0;
+    }
+
+    .news-inner-slider {
+        img {
+            height: 600px;
+            object-fit: cover;
+        }
+    }
 }
 
-.the-content-div ul li::before,
-.date-archive li::before {
-    background-image: url(../../../public/images/tick-red.png);
-}
-
-.date-archive li::before,
-.the-content-div ul li::before {
-    content: "";
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    border: 1px solid #d8d8d8;
-    margin-right: 10px;
-    margin-top: 5px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-    padding: 10px;
-    position: absolute;
-    left: 0;
-}
-
-.slick-dots {
+.the-content-div ul li,
+.date-archive li {
     position: relative;
-    bottom: 0;
+    padding-left: 40px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        border: 1px solid #d8d8d8;
+        margin-right: 10px;
+        background-image: url("/images/tick-red.png"); // Clean relative path
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+        padding: 10px;
+    }
 }
