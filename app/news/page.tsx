@@ -1,5 +1,6 @@
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import React from "react";
+import "./style.scss";
 
 const page = () => {
   return (
@@ -10,20 +11,7 @@ const page = () => {
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />
-      <section className="simple-padding-top simple-padding-bottom">
-        <div className="news-evenst-nav">
-          <a
-            className="next-btn next-btn--blue active-page"
-            href="https://esoft.lk/news"
-          >
-            
-            <span>News</span>
-          </a>
-          <a className="next-btn next-btn--blue" href="https://esoft.lk/events">
-            
-            <span>Events</span>
-          </a>
-        </div>
+      <section className="simple-padding-top simple-padding-bottom news-events-section">
         <div className="school-box-wrap d-flex middle-wrap">
           <div className="school-box-single news-box-landing">
             <div className="school-box-inner">

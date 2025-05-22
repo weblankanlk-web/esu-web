@@ -826,3 +826,31 @@ query($slug: ID!) {
     }
 }
 `;
+
+export const GET_ALL_NEWS = `
+query{
+  news(first: 100) {
+    nodes {
+      content
+      date
+      title
+      slug
+      news {
+        date
+        gallery {
+          nodes {
+            altText
+            sourceUrl
+          }
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+    }
+  }
+}
+`;
