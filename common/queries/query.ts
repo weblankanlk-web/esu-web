@@ -742,3 +742,65 @@ export const OUR_STRATEGIC_TEAM = `
     }
   }
 `;
+
+export const GET_ALL_PUBLICATIONS = `
+query {
+  publications(first: 100) {
+    nodes {
+      title
+      slug
+      content
+      date
+      research {
+        pdf {
+          node {
+            file
+            filePath
+            sourceUrl
+          }
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      blogs {
+        gallery {
+          nodes {
+            altText
+            sourceUrl
+          }
+        }
+      }
+      publicationType {
+        nodes {
+          name
+          slug
+          count
+        }
+      }
+    }
+  }
+}
+`;
+
+export const GET_ALL_PUBLICATION_TYPES = `
+query {
+  publications(first: 100) {
+    nodes {
+      title
+      slug
+      content
+      date
+      publicationType {
+        nodes {
+          name
+          slug
+        }
+      }
+    }
+  }
+}
+`;

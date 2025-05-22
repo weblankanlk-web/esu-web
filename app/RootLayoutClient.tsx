@@ -16,20 +16,20 @@ export default function RootLayoutClient({
 }) {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
   // useEffect(() => {
-  //   const handleLoad = () => setIsLoading(false);
-  //   if (document.readyState === "complete") {
-  //     handleLoad();
-  //   } else {
-  //     window.addEventListener("load", handleLoad);
-  //   }
-  //   return () => window.removeEventListener("load", handleLoad);
+  //   const timer = setTimeout(() => setIsLoading(false), 1500);
+  //   return () => clearTimeout(timer);
   // }, []);
+
+  useEffect(() => {
+    const handleLoad = () => setIsLoading(false);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
 
   return isLoading ? (
     <Preloader />
