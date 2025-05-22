@@ -2,6 +2,8 @@
 
 import { useTheme } from "@/lib/ThemeContext";
 import React, { useEffect, useState } from "react";
+import "./style.scss";
+import { FaChevronDown } from "react-icons/fa";
 
 type Batch = {
   id: number;
@@ -50,90 +52,86 @@ const CourseSchedule: React.FC<ScheduleProps> = ({ schedule }) => {
   //console.log(filteredBatches);
 
   return (
-    <>
-      <div className="course-details-wrapper">
-        <div id="section5" className="related-coures-div course-title">
-          <h5>
-            <span>
-              Course <span style={{ color }}>Schedule</span>
-            </span>
-          </h5>
-        </div>
-        <div>
+    <div className="course-details-wrapper">
+      <div id="section5" className="related-coures-div course-title">
+        <h5>
+          <span>
+            Course <span style={{ color }}>Schedule</span>
+          </span>
+        </h5>
+      </div>
+      <div>
+        <div className="custom-select-wrapper">
           <select
             className="branch-select"
             name="select_branch"
             id="select_branch"
-            value={selectedBranch}
-            onChange={(e) => setSelectedBranch(e.target.value)}
           >
             <option value="">Select Branch</option>
-            {["Colombo", "Kandy"]?.map((branch) => (
-              <option key={branch} value={branch}>
-                {branch}
-              </option>
-            ))}
+            <option value="Colombo">Colombo</option>
+            <option value="Kandy">Kandy</option>
           </select>
-          <div className="schedule-table-wrap">
-            <table className="batch-table">
-              <thead>
-                <tr>
-                  <th>Branch</th>
-                  <th>Batch</th>
-                  <th>Delivery Mode</th>
-                  <th>Commencement Date</th>
-                  <th>Available Seats</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredBatches?.length > 0 ? (
-                  filteredBatches.map((batch) => (
-                    <tr key={batch.id}>
-                      <td>
-                        <span className="mobile-div">Branch:</span>
-                        <div>{batch.branch}</div>
-                      </td>
-                      <td>
-                        <span className="mobile-div">Batch:</span>
-                        <div>
-                          <p className="m-0 dark-not-change">{batch.code}</p>
-                          <p className="m-0 dark-not-change">
-                            (Medium: {batch.medium_of_instructions})
-                          </p>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="mobile-div">Delivery Mode:</span>
-                        <div>{batch.delivery_mode}</div>
-                      </td>
-                      <td>
-                        <span className="mobile-div">Commencement Date:</span>
+          <span className="custom-icon">
+            <FaChevronDown />
+          </span>
+        </div>
+        <div className="schedule-table-wrap">
+          <table className="batch-table">
+            <thead>
+              <tr>
+                <th>Branch</th>
+                <th>Batch</th>
+                <th>Delivery Mode</th>
+                <th>Commencement Date</th>
+                <th>Available Seats</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredBatches?.length > 0 ? (
+                filteredBatches.map((batch) => (
+                  <tr key={batch.id}>
+                    <td>
+                      <span className="mobile-div">Branch:</span>
+                      <div>{batch.branch}</div>
+                    </td>
+                    <td>
+                      <span className="mobile-div">Batch:</span>
+                      <div>
+                        <p className="m-0 dark-not-change">{batch.code}</p>
                         <p className="m-0 dark-not-change">
-                          {batch.date_starts}
+                          (Medium: {batch.medium_of_instructions})
                         </p>
-                        <p className="m-0 last-register-div dark-not-change">
-                          Register before {batch.date_registration_ends}
-                        </p>
-                      </td>
-                      <td>
-                        <span className="mobile-div">Available Seats:</span>
-                        <div>{batch.seats_total - batch.seats_filled}</div>
-                      </td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={5} style={{ textAlign: "center" }}>
-                      No batches available
+                      </div>
+                    </td>
+                    <td>
+                      <span className="mobile-div">Delivery Mode:</span>
+                      <div>{batch.delivery_mode}</div>
+                    </td>
+                    <td>
+                      <span className="mobile-div">Commencement Date:</span>
+                      <p className="m-0 dark-not-change">{batch.date_starts}</p>
+                      <p className="m-0 last-register-div dark-not-change">
+                        Register before {batch.date_registration_ends}
+                      </p>
+                    </td>
+                    <td>
+                      <span className="mobile-div">Available Seats:</span>
+                      <div>{batch.seats_total - batch.seats_filled}</div>
                     </td>
                   </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={5} style={{ textAlign: "center" }}>
+                    No batches available
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

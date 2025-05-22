@@ -52,73 +52,56 @@ const CourseFees: React.FC<FeesProps> = ({ fees }) => {
   );
 
   return (
-    <>
-      <div className="course-details-wrapper">
-        <div id="section6" className="related-coures-div course-title">
-          <h5>
-            <span>
-              Course <span style={{ color }}>Fees</span>
-            </span>
-          </h5>
-        </div>
-        <div>
-          <p className="con">
-            Total investment is an approximate figure and includes registration
-            fees and university fees (calculated at 1 USD = 300 LKR). <br />
-            Monthly instalment plans available.
-            <br />
-            Conditions Apply
-          </p>
-        </div>
-               <div className="toggle-buttons mb-3">
-            <button
-              className={selectedType === "local" ? "active" : ""}
-              onClick={() => setSelectedType("local")}
-            >
-              Local
-            </button>
-            <button
-              className={selectedType === "foreign" ? "active" : ""}
-              onClick={() => setSelectedType("foreign")}
-            >
-              International
-            </button>
-          </div>
-        <div className="fee-box-wrap d-flex flex-wrap">
-          {filteredPlans?.map((plan) => (
-            <div key={plan.id} className="fee-box">
-              <div className="fee-box-inner">
-                <h6 style={{ background: color }}>
-                  {plan.origin === "local"
-                    ? "Sri Lankan Students"
-                    : "Foreign Students"}
-                  <span className="d-block">
-                    ({plan.delivery_mode.name}-Fee)
-                  </span>
-                </h6>
-                <ul>
-                  <li>
-                    Registration Fee:
-                    <span>
-                      {plan.registration_fee.currency}&nbsp;
-                      {parseFloat(plan.registration_fee.price).toLocaleString()}
-                    </span>
-                  </li>
-                  <li>
-                    Total Investment:
-                    <span>
-                      {plan.approximate_total.currency}&nbsp;
-                      {plan.approximate_total.total.toLocaleString()}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          ))}
-          {!fees?.fee_plans?.length && <p>No fee information available.</p>}
+    <div className="course-details-wrapper">
+      <div id="section6" className="related-coures-div course-title">
+        <h5><span>Course <span style={{ color }}>Fees</span></span></h5>
+        <div className="toggle-buttons mb-3">
+          <button className={selectedType === "local" ? "active" : ""} onClick={() => setSelectedType("local")}>Local</button>
+          <button className={selectedType === "foreign" ? "active" : ""} onClick={() => setSelectedType("foreign")}>International</button>
         </div>
       </div>
-    </>
+      <div>
+        <p className="con">
+          Total investment is an approximate figure and includes registration
+          fees and university fees (calculated at 1 USD = 300 LKR). <br />
+          Monthly instalment plans available.
+          <br />
+          Conditions Apply
+        </p>
+      </div>
+
+      <div className="fee-box-wrap d-flex flex-wrap">
+        {filteredPlans?.map((plan) => (
+          <div key={plan.id} className="fee-box">
+            <div className="fee-box-inner">
+              <h6 style={{ background: color }}>
+                {plan.origin === "local"
+                  ? "Sri Lankan Students"
+                  : "Foreign Students"}
+                <span className="d-block">({plan.delivery_mode.name}-Fee)</span>
+              </h6>
+              <ul>
+                <li>
+                  Registration Fee:
+                  <span>
+                    {plan.registration_fee.currency}&nbsp;
+                    {parseFloat(plan.registration_fee.price).toLocaleString()}
+                  </span>
+                </li>
+                <li>
+                  Total Investment:
+                  <span>
+                    {plan.approximate_total.currency}&nbsp;
+                    {plan.approximate_total.total.toLocaleString()}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        ))}
+        {!fees?.fee_plans?.length && <p>No fee information available.</p>}
+      </div>
+    </div>
   );
 };
 
