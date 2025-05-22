@@ -74,8 +74,8 @@ const NewsPage = () => {
                 <Link href={`/news/${news.slug}`}>
                   <img
                     className="feature-img-school"
-                    src={news.featuredImage.node.sourceUrl}
-                    alt={news.featuredImage.node.altText}
+                    src={news.featuredImage.node?.sourceUrl || ""}
+                    alt={news.featuredImage.node?.altText || ""}
                   />
                 </Link>
                 <div className="school-box-inner-details">

@@ -85,4 +85,13 @@ export interface NewsEvents {
       sourceUrl: string;
     };
   };
+  news: {
+    date: string;
+    gallery: {
+      nodes: {
+        altText: string;
+        sourceUrl: string;
+      }[];
+    };
+  };
 }

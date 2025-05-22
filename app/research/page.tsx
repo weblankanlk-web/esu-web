@@ -74,7 +74,7 @@ const page = () => {
       <section className="simple-padding-bottom simple-padding-top">
         <div className="small-middle-wrap">
           <div className="center-text">
-            <h2 className="section-heading  section-heading--underline section-heading--underline--center">
+            <h2 className="section-heading section-heading--underline section-heading--underline--center">
               <span style={{ color: color }}>Publications</span>
             </h2>
           </div>

@@ -849,3 +849,32 @@ query GetNews($first: Int = 6, $after: String) {
   }
 }
 `;
+
+export const GET_NEWS_BY_SLUG = `
+query($slug: ID!) {
+  new(
+    id: $slug
+    idType: SLUG
+  ) {
+    content
+    date
+    title
+    slug
+    news {
+      date
+      gallery {
+        nodes {
+          altText
+          sourceUrl
+        }
+      }
+    }
+    featuredImage {
+      node {
+        altText
+        sourceUrl
+      }
+    }
+  }
+}
+`;
