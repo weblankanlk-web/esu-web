@@ -49,23 +49,19 @@ const Header = () => {
                   <Link href="https://esoft.lk/careers/" target="_blank">
                     careers
                   </Link>
-                </li>
+                </li>*/}
                 <li>
-                  <Link href="https://esoft.lk/news/" target="_blank">
-                    news & events
-                  </Link>
+                  <Link href="/news">news & events</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="https://esoft.lk/blogs/" target="_blank">
                     blogs
                   </Link>
-                </li>
+                </li>  */}
                 <li>
-                  <Link href="https://esoft.lk/research/" target="_blank">
-                    Research
-                  </Link>
+                  <Link href="/research">Research</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="https://esoft.lk/student-loan/" target="_blank">
                     Scholarship
                   </Link>
@@ -74,8 +70,7 @@ const Header = () => {
                   <Link href="https://esoft.lk/csr/" target="_blank">
                     CSR
                   </Link>
-                </li> */}
-                {/*                 <li>
+                </li>                <li>
                   <Link href="https://esoft.lk/contact-us/" target="_blank">
                     contact us
                   </Link>

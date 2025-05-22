@@ -16,15 +16,6 @@
     }
 }
 
-.dark-lightmode {
-    background-color: #f9f9f9;
-    color: #222;
-}
-
-.dark-font-change {
-    font-family: "Poppins", sans-serif;
-}
-
 .section-heading {
     text-align: center;
     font-size: 36px;
@@ -49,6 +40,10 @@
 .landing-wrap {
     .landing-results {
         align-items: flex-start;
+
+        .publication-content {
+            min-height: 200px;
+        }
     }
 
 

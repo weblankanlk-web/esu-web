@@ -7,43 +7,9 @@ import { graphQLClient } from "@/lib/graphql-client";
 import { GET_ALL_PUBLICATIONS } from "@/common/queries/query";
 import Link from "next/link";
 import { useTheme } from "@/lib/ThemeContext";
-
-interface Publication {
-  title: string;
-  slug: string;
-  content: string;
-  date: string;
-  research: {
-    pdf: {
-      node: {
-        file: string;
-        filePath: string;
-        sourceUrl: string;
-      };
-    };
-  };
-  featuredImage: {
-    node: {
-      altText: string;
-      sourceUrl: string;
-    };
-  };
-  blogs: {
-    gallery: {
-      nodes: {
-        altText: string;
-        sourceUrl: string;
-      };
-    };
-  };
-  publicationType: {
-    nodes: {
-      name: string;
-      slug: string;
-      count: number;
-    };
-  };
-}
+import Image from "next/image";
+import Button from "@/components/common/Button/Button";
+import { Publication } from "@/common/interfaces/interface";
 
 const page = () => {
   const { color } = useTheme();
@@ -154,10 +120,13 @@ const page = () => {
                   >
                     <div className="school-box-inner">
                       <Link href={`/research/${publication.slug}`}>
-                        <img
+                        <Image
                           className="feature-img-school"
-                          src="https://esoft.lk/wp-content/uploads/2025/05/BIIRC-Logo.jpeg"
-                          alt=""
+                          src={publication.featuredImage.node.sourceUrl}
+                          alt={publication.featuredImage.node.altText}
+                          width={500}
+                          height={500}
+                          layout="responsive"
                         />
                       </Link>
                       <div className="school-box-inner-details">
@@ -172,7 +141,7 @@ const page = () => {
                             {publication.title}
                           </span>
                         </Link>
-                        <div className="paragraph paragraph--black">
+                        <div className="paragraph paragraph--black publication-content">
                           <div
                             dangerouslySetInnerHTML={{
                               __html:
@@ -183,13 +152,14 @@ const page = () => {
                             }}
                           />
                         </div>
-                        <Link
+                        <Button buttonUrl={`/research/${publication.slug}`} buttonName={"Read More"} />
+                        {/* <Link
                           className="btnn-next"
                           href={`/research/${publication.slug}`}
                           style={{ background: color }}
                         >
                           Read More
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                   </div>
@@ -244,7 +214,7 @@ const page = () => {
                     return (
                       <li key={month}>
                         <a
-                          href={`/${year}/${mon}?post_type=esoft-publications`}
+                          href={`#`}
                         >
                           {monthName}
                         </a>

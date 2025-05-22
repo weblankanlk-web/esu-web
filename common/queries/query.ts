@@ -786,21 +786,43 @@ query {
 }
 `;
 
-export const GET_ALL_PUBLICATION_TYPES = `
-query {
-  publications(first: 100) {
-    nodes {
-      title
+export const GET_PUBLICATIONS_BY_SLUG = `
+query($slug: ID!) {
+  publication(id: $slug, idType: SLUG) {
+    title
       slug
       content
       date
+      research {
+        pdf {
+          node {
+            file
+            filePath
+            sourceUrl
+          }
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      blogs {
+        gallery {
+          nodes {
+            altText
+            sourceUrl
+          }
+        }
+      }
       publicationType {
         nodes {
           name
           slug
+          count
         }
       }
     }
-  }
 }
 `;

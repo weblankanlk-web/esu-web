@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export interface FeeInterface {
   currency: string;
   price: string;
@@ -33,4 +35,41 @@ export interface FeePlanInterface {
 export interface TitleInterface {
   title: string;
   subtitle: string;
+}
+
+export interface Publication {
+  title: string;
+  slug: string;
+  content: string;
+  date: string;
+  research: {
+    pdf: {
+      node: {
+        file: string;
+        filePath: string;
+        sourceUrl: string;
+      };
+    };
+  };
+  featuredImage: {
+    node: {
+      altText: string;
+      sourceUrl: string;
+    };
+  };
+  blogs: {
+    gallery: {
+      nodes: {
+        altText: string;
+        sourceUrl: string;
+      }[];
+    };
+  };
+  publicationType: {
+    nodes: {
+      name: string;
+      slug: string;
+      count: number;
+    }[];
+  };
 }
