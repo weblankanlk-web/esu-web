@@ -1,4 +1,4 @@
-/***************************** Publications Page *****************************/
+@import "@/styles/global.scss";
 
 .simple-padding-bottom,
 .simple-padding-top {
@@ -41,20 +41,83 @@
     .landing-results {
         align-items: flex-start;
 
+        .landing-results-inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+
+            .school-box-single {
+                overflow: hidden;
+                transition: all 0.3s ease;
+                border: 1px solid #e0e2ed;
+
+                &:hover {
+                    transform: translateY(-5px);
+                }
+
+                .feature-img-school {
+                    width: 100%;
+                    height: 180px;
+                    object-fit: contain;
+                }
+
+                .school-box-inner-details {
+                    padding: 15px;
+
+                    .date-p {
+                        font-size: 14px;
+                        color: #888;
+                        margin-bottom: 5px;
+                    }
+
+                    .school-box-details {
+                        font-weight: 600;
+                        font-size: 18px;
+                        color: #000;
+                        text-decoration: none;
+                        margin-bottom: 10px;
+                    }
+
+                    .paragraph--black {
+                        color: #333;
+                        font-size: 15px;
+                        margin-bottom: 10px;
+
+                        h1 {
+                            display: none;
+                        }
+
+                        h2 {
+                            display: none;
+                        }
+
+                        h3 {
+                            display: none;
+                        }
+                    }
+
+                    .btnn-next {
+                        color: #fff;
+                        background: #0073e6;
+                        padding: 8px 14px;
+                        border-radius: 5px;
+                        font-size: 14px;
+                        display: inline-block;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
         .publication-content {
             min-height: 200px;
         }
     }
 
-
     .landing-filter {
-        // margin-top: 50px;
-
         .archive-div {
-            background: #fff;
             padding: 20px;
             border-radius: 10px;
-            border: 1px solid #eee;
             padding-top: 0;
 
             .related-coures-div.course-title {
@@ -106,106 +169,15 @@
         justify-content: space-between !important;
         align-items: center !important;
     }
-}
 
-// .search-form-ajax {
-//     display: flex;
-//     align-items: center;
-//     border: 1px solid #ddd;
-//     border-radius: 5px;
-//     overflow: hidden;
+    .search-form-ajax {
+        background: transparent;
 
-//     input.type-check {
-//         border: none;
-//         padding: 10px 15px;
-//         width: 250px;
-//         font-size: 16px;
-//         outline: none;
-//     }
-
-//     button {
-//         border: none;
-//         background-color: #0073e6;
-//         padding: 10px 15px;
-//         cursor: pointer;
-
-//         img {
-//             width: 20px;
-//             height: auto;
-//         }
-//     }
-// }
-
-.landing-results-inner {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-.school-box-single {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    transition: all 0.3s ease;
-
-    &:hover {
-        transform: translateY(-5px);
-    }
-
-    .feature-img-school {
-        width: 100%;
-        height: 180px;
-        object-fit: contain;
-    }
-
-    .school-box-inner-details {
-        padding: 15px;
-
-        .date-p {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 5px;
-        }
-
-        .school-box-details {
-            font-weight: 600;
-            font-size: 18px;
-            color: #000;
-            text-decoration: none;
-            margin-bottom: 10px;
-        }
-
-        .paragraph--black {
-            color: #333;
-            font-size: 15px;
-            margin-bottom: 10px;
-
-            h1 {
-                display: none;
-            }
-
-            h2 {
-                display: none;
-            }
-
-            h3 {
-                display: none;
-            }
-        }
-
-        .btnn-next {
-            color: #fff;
-            background: #0073e6;
-            padding: 8px 14px;
-            border-radius: 5px;
-            font-size: 14px;
-            display: inline-block;
-            text-decoration: none;
+        input {
+            background: transparent;
         }
     }
 }
-
 
 @media screen and (max-width: 768px) {
     .landing-wrap-top {

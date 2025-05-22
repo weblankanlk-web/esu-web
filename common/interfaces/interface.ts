@@ -73,3 +73,16 @@ export interface Publication {
     }[];
   };
 }
+
+export interface NewsEvents {
+  title: string;
+  slug: string;
+  date: string;
+  content: string;
+  featuredImage: {
+    node: {
+      altText: string;
+      sourceUrl: string;
+    };
+  };
+}
