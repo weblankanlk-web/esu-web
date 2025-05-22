@@ -828,28 +828,23 @@ query($slug: ID!) {
 `;
 
 export const GET_ALL_NEWS = `
-query{
-  news(first: 100) {
+query GetNews($first: Int = 6, $after: String) {
+  news(first: $first, after: $after) {
     nodes {
-      content
-      date
       title
       slug
-      news {
-        date
-        gallery {
-          nodes {
-            altText
-            sourceUrl
-          }
-        }
-      }
+      content
+      date
       featuredImage {
         node {
-          altText
           sourceUrl
+          altText
         }
       }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
     }
   }
 }

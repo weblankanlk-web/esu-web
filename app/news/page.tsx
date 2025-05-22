@@ -8,32 +8,64 @@ import { GET_ALL_NEWS } from "@/common/queries/query";
 import { NewsEvents } from "@/common/interfaces/interface";
 import Link from "next/link";
 
-const page = () => {
+const PAGE_SIZE = 9;
+
+const NewsPage = () => {
   const [newsEvents, setNewsEvents] = useState<NewsEvents[]>([]);
+  const [endCursor, setEndCursor] = useState<string | null>(null);
+  const [cursors, setCursors] = useState<string[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasNextPage, setHasNextPage] = useState(false);
+
+  const fetchNewsEvents = async (
+    first = PAGE_SIZE,
+    after: string | null = null
+  ) => {
+    const data = await graphQLClient.request<{
+      news: {
+        nodes: NewsEvents[];
+        pageInfo: {
+          endCursor: string;
+          hasNextPage: boolean;
+        };
+      };
+    }>(GET_ALL_NEWS, { first, after });
+
+    setNewsEvents(data.news.nodes);
+    setEndCursor(data.news.pageInfo.endCursor);
+    setHasNextPage(data.news.pageInfo.hasNextPage);
+  };
 
   useEffect(() => {
-    const fetchNewsEvents = async () => {
-      const data = await graphQLClient.request<{
-        news: {
-          nodes: NewsEvents[];
-        };
-      }>(GET_ALL_NEWS);
-
-      console.log("News Events data:", data.news.nodes);
-      setNewsEvents(data.news.nodes);
-    };
-
     fetchNewsEvents();
   }, []);
+
+  const handlePageChange = async (page: number) => {
+    if (page === 1) {
+      fetchNewsEvents();
+      setCurrentPage(1);
+      setCursors([]);
+    } else {
+      const after = cursors[page - 2];
+      await fetchNewsEvents(PAGE_SIZE, after);
+      setCurrentPage(page);
+      setCursors((prev) => {
+        const updated = [...prev];
+        if (!updated[page - 1]) updated[page - 1] = endCursor ?? "";
+        return updated;
+      });
+    }
+  };
 
   return (
     <>
       <InnerBanner
         innerPageTitle={`News & Events`}
-        innerPageDescription="Discover the latest at ESU on our dynamic News & Events page - featuring updates on graduation ceremonies, new branch openings, program launches, university partnerships and more exciting happenings! Stay informed, celebrate success and be part of our journey toward academic excellence and innovation."
+        innerPageDescription="Discover the latest updates at ESU — graduations, partnerships, and more."
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />
+
       <section className="simple-padding-top simple-padding-bottom news-events-section">
         <div className="school-box-wrap d-flex middle-wrap">
           {newsEvents.map((news, index) => (
@@ -42,28 +74,38 @@ const page = () => {
                 <Link href={`/news/${news.slug}`}>
                   <img
                     className="feature-img-school"
-                    src={news?.featuredImage.node.sourceUrl}
-                    alt={news?.featuredImage.node.altText}
+                    src={news.featuredImage.node.sourceUrl}
+                    alt={news.featuredImage.node.altText}
                   />
                 </Link>
                 <div className="school-box-inner-details">
                   <p className="m-0 aragraph paragraph--black date-p">
-                    {news?.date}
+                    {new Date(news.date).toLocaleDateString("en-US", {
+                      day: "2-digit",
+                      month: "short",
+                      year: "numeric",
+                    })}
                   </p>
                   <Link
                     href={`/news/${news.slug}`}
                     className="school-box-details d-flex"
                   >
                     <span>
-                      We are happy to announce the partnership between Cambridge
-                      English and ESOFT, with the launch of the[...]
+                      {news.title.length > 50
+                        ? news.title.substring(0, 50) + "[...]"
+                        : news.title}
                     </span>
                   </Link>
-                  <p className="paragraph paragraph--black">
-                    ESOFT Metro Campus celebrated the launch of Cambridge
-                    Authorised Exam Centre, marking a significant step towards
-                    expanding international learning oppo[...]
-                  </p>
+                  <div className="paragraph paragraph--black">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          news.content.length > 200
+                            ? news.content.substring(0, 200) + "[...]"
+                            : news.content,
+                      }}
+                    />
+                  </div>
                   <Link className="btnn-next" href={`/news/${news.slug}`}>
                     Read More
                   </Link>
@@ -72,35 +114,23 @@ const page = () => {
             </div>
           ))}
         </div>
+
         <div className="pagination-div justify-content-center">
-          <a className="prev page-numbers" href="https://esoft.lk/news/">
-            <i /> &lt;&lt;
-          </a>
-          <a className="page-numbers" href="https://esoft.lk/news/">
-            1
-          </a>
-          <span aria-current="page" className="page-numbers current">
-            2
-          </span>
-          <a className="page-numbers" href="https://esoft.lk/news/?paged=3">
-            3
-          </a>
-          <a className="page-numbers" href="https://esoft.lk/news/?paged=4">
-            4
-          </a>
-          <a className="page-numbers" href="https://esoft.lk/news/?paged=5">
-            5
-          </a>
-          <a
-            className="next page-numbers"
-            href="https://esoft.lk/news/?paged=3"
-          >
-            &gt;&gt; <i />
-          </a>
+          {[...Array(currentPage + (hasNextPage ? 1 : 0))].map((_, i) => (
+            <button
+              key={i}
+              className={`page-numbers ${
+                currentPage === i + 1 ? "current" : ""
+              }`}
+              onClick={() => handlePageChange(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))}
         </div>
       </section>
     </>
   );
 };
 
-export default page;
+export default NewsPage;
