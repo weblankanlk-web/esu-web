@@ -4,6 +4,9 @@
   padding: 0 20px;
 
   .home-uni-wrap {
+    display: flex;
+    flex-direction: column;
+
     .uni-content-wrap {
       .title-wrapper {
         padding-bottom: 30px;
@@ -16,8 +19,12 @@
 
     .uni-slider-wrap {
       padding-bottom: 40px;
+      width: 100%;
+      display: block;
 
       .uni-image-slider {
+        width: 100%;
+
         .single-slider {
           .uni-image-wrapper {
             position: relative;
@@ -27,6 +34,7 @@
               object-fit: cover;
               object-position: right;
               width: 100%;
+              border-radius: 16px;
             }
 
             .uni-logo {
@@ -45,25 +53,70 @@
           }
         }
       }
+
+      .slick-dots {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        height: 8px;
+        width: 100%;
+        margin-top: 16px;
+
+        li {
+          flex-grow: 1;
+          margin: 0 2px;
+
+          button {
+            padding: 0;
+            width: 70%;
+            height: 8px;
+
+            &::before {
+              content: "";
+              display: block;
+              height: 8px;
+              background-color: var(--main-title-color, red);
+              opacity: 0.3;
+              border-radius: 4px;
+              width: 100%;
+            }
+          }
+
+          &.slick-active button::before {
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 }
 
+// Tablet
 @media only screen and (min-width: 600px) {
   .home-universities {
     .home-uni-wrap {
-      display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: space-between;
+
+      .uni-content-wrap {
+        width: 55%;
+      }
 
       .uni-slider-wrap {
+        width: 40%;
+        padding-bottom: 40px;
+
         .uni-image-slider {
           .single-slider {
             .uni-image-wrapper {
-              .uni-logo {
-                .uni-logo-image {
-                  height: 70px;
-                }
+              .uni-main-image {
+                height: 300px;
+              }
+
+              .uni-logo-image {
+                height: 60px;
               }
             }
           }
@@ -73,16 +126,16 @@
   }
 }
 
+// Desktop
 @media only screen and (min-width: 1200px) {
   .home-universities {
     padding: get-vw(60px) get-vw(120px) get-vw(130px);
 
-    // background-color: #fff;
     .home-uni-wrap {
       background-color: #fff;
       padding: get-vw(60px);
-      justify-content: space-between;
       border-radius: get-vw(20px);
+      flex-direction: row;
 
       .uni-content-wrap {
         width: 52%;
@@ -95,67 +148,127 @@
 
       .uni-slider-wrap {
         width: 38%;
+        padding-bottom: 40px;
+        margin-top: 40px;
 
         .slick-dots {
-          width: 100%;
-          display: flex !important;
-          justify-content: center;
-          position: relative !important;
-          flex-direction: row;
-          height: auto;
-
-          li {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            height: auto;
-
-            &.slick-active button:before {
-              opacity: 0.75;
-              color: transparent;
-              border-radius: 0px 10px 10px 0px;
-            }
-
-            .slick-active {
-              button {
-                height: 8px;
-
-                &::after {
-                  background-color: var(--main-title-color, red);
-                  height: 8px;
-                }
-              }
-            }
-
-            button {
-              padding: 0;
-              width: 100%;
-              height: get-vw(0px);
-
-              &::before {
-                width: 100%;
-                background-color: var(--main-title-color, red);
-                height: 8px;
-                opacity: 0.2;
-                color: transparent !important;
-
-                border-radius: 10px 0px 0px 10px;
-              }
-            }
-          }
+          width: 70%;
+          height: 8px;
         }
 
         .uni-image-slider {
           .single-slider {
             .uni-image-wrapper {
               .uni-main-image {
-                border-radius: get-vw(20px);
                 height: get-vw(400px);
+                border-radius: get-vw(20px);
               }
             }
           }
         }
       }
+    }
+  }
+}
+
+// Mobile
+@media only screen and (max-width: 599px) {
+  .home-universities {
+    .home-uni-wrap {
+      flex-direction: column;
+
+      .uni-content-wrap,
+      .uni-slider-wrap {
+        width: 100% !important;
+        display: block !important;
+      }
+
+      .uni-slider-wrap {
+        padding: 20px 0;
+
+        .uni-image-slider {
+          .single-slider {
+            .uni-image-wrapper {
+              .uni-main-image {
+                height: 220px;
+                border-radius: 12px;
+              }
+
+              .uni-logo {
+                top: 10px;
+                left: 10px;
+
+                .uni-logo-image {
+                  width: 80px;
+                  height: auto;
+                }
+              }
+            }
+          }
+        }
+
+        .slick-dots {
+          display: flex !important;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          margin-top: 12px;
+          width: 70%;
+          height: 8px;
+
+          li {
+            flex-grow: 1;
+            margin: 0 2px;
+
+            button {
+              padding: 0;
+              width: 100%;
+              height: 8px;
+
+              &::before {
+                content: "";
+                display: block;
+                height: 8px;
+                background-color: var(--main-title-color, red);
+                opacity: 0.3;
+                border-radius: 4px;
+                width: 100%;
+              }
+            }
+
+            &.slick-active button::before {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+
+  .slider-btn {
+    background-color: #fff;
+    color: var(--main-title-color, red);
+    font-size: 18px;
+    border: 1px solid var(--main-title-color, red);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: var(--main-title-color, red);
+      color: #fff;
     }
   }
 }

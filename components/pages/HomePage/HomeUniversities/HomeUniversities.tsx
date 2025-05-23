@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import TitleLarge from "../../../common/TitleLarge/TitleLarge";
@@ -28,7 +28,7 @@ const universitySlides = [
 ];
 
 const sliderSettings = {
-  dots: true,
+  dots: true, // ✅ ensure this is true
   infinite: false,
   speed: 500,
   slidesToShow: 1,
@@ -41,13 +41,18 @@ const sliderSettings = {
       breakpoint: 1200,
       settings: {
         arrows: false,
-        dots: false,
+        dots: true, // ✅ must be true here for mobile
       },
     },
   ],
 };
 
 const HomeUniversities = () => {
+  const sliderRef = useRef<Slider>(null);
+
+  const handlePrev = () => sliderRef.current?.slickPrev();
+  const handleNext = () => sliderRef.current?.slickNext();
+
   return (
     <section className="home-universities">
       <div className="home-uni-wrap">
@@ -55,8 +60,13 @@ const HomeUniversities = () => {
           <TitleLarge title="Academic" subtitle=" Partnerships" />
           <div className="uni-content">{universityContent}</div>
         </div>
+
         <div className="uni-slider-wrap">
-          <Slider {...sliderSettings} className="uni-image-slider">
+          <Slider
+            ref={sliderRef}
+            {...sliderSettings}
+            className="uni-image-slider"
+          >
             {universitySlides.map((slide, index) => (
               <div className="single-slider" key={index}>
                 <div className="uni-image-wrapper">
@@ -99,6 +109,16 @@ const HomeUniversities = () => {
               </div>
             ))}
           </Slider>
+
+          {/* Navigation Buttons */}
+          <div className="slider-buttons">
+            <button className="slider-btn prev" onClick={handlePrev}>
+              ‹
+            </button>
+            <button className="slider-btn next" onClick={handleNext}>
+              ›
+            </button>
+          </div>
         </div>
       </div>
     </section>
