@@ -1,90 +1,112 @@
 "use client";
 
 import React from "react";
-import "./style.scss";
+import Image from "next/image";
 import Slider from "react-slick";
+import TitleLarge from "../../../common/TitleLarge/TitleLarge";
+import "./style.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import TitleLarge from "../../../common/TitleLarge/TitleLarge";
-import Logo from "./Logo";
 
-const logos = [
+
+const universityContent = `
+ESOFT Uni has established a robust network of academic partnerships that enhance its position as a leading uni for higher education in Sri Lanka. Collaborating with esteemed UK universities such as London Metropolitan University and Kingston University, ESU offers students access to internationally recognized undergraduate and postgraduate programmes across disciplines including IT / Computing, Business and Management, Law, Engineering, BioMedical Engineering, Nursing, Psychology, Education, Hospitality Management, Travel and Tourism Management, and Fashion Design.
+`;
+
+const universitySlides = [
   {
-    imageUrl: "/images/brand1.png",
+    img: "https://cms.esu.lk/wp-content/uploads/2025/05/Goulston-Street-Etrance.webp",
+    alt: "Goulston Street Entrance",
+    url: "https://www.londonmet.ac.uk/",
+    logo: [
+      "https://cms.esu.lk/wp-content/uploads/2025/05/images-3.png",
+    ],
   },
   {
-    imageUrl: "/images/brand2.png",
-  },
-  {
-    imageUrl: "/images/brand3.png",
-  },
-  {
-    imageUrl: "/images/brand4.png",
-  },
-  {
-    imageUrl: "/images/brand5.png",
-  },
-  {
-    imageUrl: "/images/brand6.png",
+    img: "https://cms.esu.lk/wp-content/uploads/2025/05/78e9ec80-c82e-49e4-b42c-827d5a0a1438.jpg",
+    alt: "Kingston University",
+    url: "https://www.kingston.ac.uk/",
+    logo: [
+      "https://cms.esu.lk/wp-content/uploads/2025/05/KingstonUniLogo.png",
+    ],
   },
 ];
 
+const sliderSettings = {
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  arrows: true,  
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        arrows: false,
+        dots: false,
+      },
+    },
+  ],
+};
+
 const HomeUniversities = () => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          arrows: false,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          arrows: false,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-        },
-      },
-    ],
-  };
   return (
-    <>
-      <section className="home-universities">
-        <div className="full-wrap">
-          <div className="title-wrap">
-            <TitleLarge title="Academic" subtitle=" Partnerships" />
-          </div>
-          <div className="slider-wrap">
-            <Slider {...settings} className="logo-slider">
-              {logos.map((logo, index) => (
-                <div key={index}>
-                  <Logo logoData={logo} />
-                </div>
-              ))}
-            </Slider>
-          </div>
+    <section className="home-universities">
+      <div className="home-uni-wrap">
+        <div className="uni-content-wrap">
+          <TitleLarge title="Academic" subtitle=" Partnerships" />
+          <div className="uni-content">{universityContent}</div>
         </div>
-      </section>
-    </>
+        <div className="uni-slider-wrap">
+          <Slider {...sliderSettings} className="uni-image-slider">
+            {universitySlides.map((slide, index) => (
+              <div className="single-slider" key={index}>
+                <div className="uni-image-wrapper">
+                  {slide.url ? (
+                    <a
+                      href={slide.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Image
+                        src={slide.img}
+                        alt={slide.alt}
+                        width={800}
+                        height={450}
+                        className="uni-main-image"
+                      />
+                    </a>
+                  ) : (
+                    <Image
+                      src={slide.img}
+                      alt={slide.alt}
+                      width={800}
+                      height={450}
+                      className="uni-main-image"
+                    />
+                  )}
+                  <div className="uni-logo">
+                    {slide.logo.map((logo, idx) => (
+                      <Image
+                        key={idx}
+                        src={logo}
+                        alt={`University logo ${idx + 1}`}
+                        width={80}
+                        height={80}
+                        className="uni-logo-image"
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+    </section>
   );
 };
 

@@ -10,19 +10,19 @@ import { useTheme } from "@/lib/ThemeContext";
 const campuses = [
   {
     name: "Colombo",
-    image: "/images/colombo.jpg",
+    image: "https://cms.esu.lk/wp-content/uploads/2025/05/shutterstock_2574719137-1-e1747994011891.jpg",
     description: "Explore ESU Colombo Campus",
     link: "/colombo-campus",
   },
   {
     name: "Kandy",
-    image: "/images/colombo.jpg",
+    image: "https://cms.esu.lk/wp-content/uploads/2025/05/shutterstock_2535825335-1.jpg",
     description: "Explore ESU Kandy Campus",
     link: "/kandy-campus",
   },
   {
     name: "Jaffna",
-    image: "/images/colombo.jpg",
+    image: "https://cms.esu.lk/wp-content/uploads/2025/05/shutterstock_2353370315-1.jpg",
     description: "Coming Soon...",
   },
 ];
@@ -56,9 +56,10 @@ const CampusCards = () => {
               <Image
                 src={campus.image}
                 alt={campus.name}
-                width={550}
-                height={650}
+                width={700}
+                height={750}
                 className="campus-image"
+                quality={100}
               />
               <div className="campus-overlay">
                 <h3 className="campus-title">{campus.name}</h3>
