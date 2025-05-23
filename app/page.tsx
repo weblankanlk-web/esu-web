@@ -26,7 +26,7 @@ export default function Home() {
       />
       <HomeDifference />
       <HomeCourses />
-      {/* <HomeUniversities /> */}
+      <HomeUniversities />
       {/* <HomeNews /> */}
       <HomeTestimonials />
     </Fragment>
