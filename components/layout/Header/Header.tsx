@@ -2,25 +2,97 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import "./style.scss";
-import { useTheme } from "@/lib/ThemeContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "@/components/common/Modal/Modal";
 import InquireForm from "@/components/sections/InquireForm/InquireForm";
+import { FaArrowRight } from "react-icons/fa";
+import { graphQLClient } from "@/lib/graphql-client";
+import { CourseMenuResponse, CourseNode } from "@/common/interfaces/interface";
+import { GET_MENU_COURSE_BY_SLUG_SELECTED } from "@/common/queries/query";
 
 const Header = () => {
-  const pathname = usePathname();
-  const isCoursePage =
-    pathname.includes("/esoft-courses") || pathname.includes("/esoft-transfer");
-
-  const { color } = useTheme();
-
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => !prev);
   };
+
+  const [facultyArtDesignMenu, setFacultyArtDesignMenu] = useState<
+    CourseNode[]
+  >([]);
+  const [facultyComputingMenu, setFacultyComputingMenu] = useState<
+    CourseNode[]
+  >([]);
+  const [facultyLifeScienceMenu, setFacultyLifeScienceMenu] = useState<
+    CourseNode[]
+  >([]);
+  const [facultyEngineeringMenu, setFacultyEngineeringMenu] = useState<
+    CourseNode[]
+  >([]);
+  const [facultyBusinessLawMenu, setFacultyBusinessLawMenu] = useState<
+    CourseNode[]
+  >([]);
+  const [
+    facultyLanguagesEducationSociologyMenu,
+    setFacultyLanguagesEducationSociologyMenu,
+  ] = useState<CourseNode[]>([]);
+
+  const slugs = [
+    "faculty-of-art-design",
+    "faculty-of-computing",
+    "faculty-of-life-science",
+    "faculty-of-engineering",
+    "faculty-of-business-law",
+    "faculty-of-languages-education-and-sociology",
+  ];
+
+  useEffect(() => {
+    const fetchCourseMenu = async (slug: string) => {
+      const data = await graphQLClient.request<CourseMenuResponse>(
+        GET_MENU_COURSE_BY_SLUG_SELECTED,
+        {
+          slug: slug,
+        }
+      );
+
+      const enableCourse = data.schoolType?.courses?.nodes.filter(
+        (course) => course.courses.enableCourseInTheMenu === true
+      );
+
+      console.log("Course Menu Data:", data);
+      console.log("Filtered Courses:", enableCourse);
+
+      switch (slug) {
+        case "faculty-of-art-design":
+          setFacultyArtDesignMenu(enableCourse);
+          break;
+        case "faculty-of-computing":
+          setFacultyComputingMenu(enableCourse);
+          break;
+        case "faculty-of-life-sciences":
+          setFacultyLifeScienceMenu(enableCourse);
+          break;
+        case "faculty-of-engineering":
+          setFacultyEngineeringMenu(enableCourse);
+          break;
+        case "faculty-of-business-law":
+          setFacultyBusinessLawMenu(enableCourse);
+          break;
+        case "faculty-of-languages-education-sociology":
+          setFacultyLanguagesEducationSociologyMenu(enableCourse);
+          break;
+        default:
+          break;
+      }
+    };
+
+    for (const slug of slugs) {
+      fetchCourseMenu(slug);
+    }
+  }, []);
+
+  console.log("facultyComputingMenu", facultyComputingMenu);
 
   return (
     <>
@@ -30,60 +102,16 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg nav-menu">
               {/* Replace with dynamic menu data */}
               <ul className="navbar-nav navbardropdown" id="top-menu">
-                {/* <li>
-                  <Link href="https://esoft.lk/" target="_blank">
-                    Home
-                  </Link>
-                </li> */}
-                {/* <li>
-                  <Link href="https://esoft.lk/about-us/" target="_blank">
-                    About
-                  </Link>
+                <li>
+                  <Link href="/news">news & events</Link>
                 </li>
                 <li>
-                  <Link href="https://esoft.lk/students-life/" target="_blank">
-                    students life
-                  </Link>
+                  <Link href="/research">Research</Link>
                 </li>
-                <li>
-                  <Link href="https://esoft.lk/careers/" target="_blank">
-                    careers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://esoft.lk/news/" target="_blank">
-                    news & events
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://esoft.lk/blogs/" target="_blank">
-                    blogs
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://esoft.lk/research/" target="_blank">
-                    Research
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://esoft.lk/student-loan/" target="_blank">
-                    Scholarship
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://esoft.lk/csr/" target="_blank">
-                    CSR
-                  </Link>
-                </li> */}
-                {/*                 <li>
-                  <Link href="https://esoft.lk/contact-us/" target="_blank">
-                    contact us
-                  </Link>
-                </li> */}
               </ul>
             </nav>
-            <ul className="top-bar-menu">
-              {/* <li>
+            {/* <ul className="top-bar-menu">
+              <li>
                 <Link target="_blank" href="https://payments.esoft.lk/">
                   <Image
                     src="/images/payment.png"
@@ -118,8 +146,8 @@ const Header = () => {
                   />
                   <span>Alumni</span>
                 </Link>
-              </li> */}
-            </ul>
+              </li>
+            </ul> */}
           </div>
         </div>
 
@@ -164,8 +192,137 @@ const Header = () => {
                     <li>
                       <Link href="/courses">Courses</Link>
                     </li>
-                    <li>
+                    <li className="faculties-hover-menu">
                       <Link href="/faculties">Faculties</Link>
+                      <div className="mega-menu">
+                        <div className="mega-menu-panel">
+                          <div className="mega-column">
+                            <Link href="/faculties/faculty-of-life-science">
+                              <h4 style={{ color: "rgb(245, 131, 60)" }}>
+                                Faculty of Art & Design
+                                <i className="arrow">
+                                  <FaArrowRight
+                                    style={{ color: "rgb(245, 131, 60)" }}
+                                  />
+                                </i>
+                              </h4>
+                            </Link>
+                            <ul>
+                              {facultyArtDesignMenu.map((item, index) => (
+                                <li key={index}>
+                                  <a href={`/courses/${item.slug}`}>
+                                    {item.title}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+
+                            <Link href="/faculties/faculty-of-life-science">
+                              <h4 style={{ color: "rgb(191, 215, 48)" }}>
+                                Faculty of Life Science
+                                <i className="arrow">
+                                  <FaArrowRight
+                                    style={{ color: "rgb(191, 215, 48)" }}
+                                  />
+                                </i>
+                              </h4>
+                            </Link>
+                            <ul>
+                              {facultyLifeScienceMenu.map((item, index) => (
+                                <li key={index}>
+                                  <a href={`/courses/${item.slug}`}>
+                                    {item.title}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="mega-column">
+                            <Link href="/faculties/faculty-of-life-science">
+                              <h4 style={{ color: "rgb(0, 174, 205)" }}>
+                                Faculty of Computing
+                                <i className="arrow">
+                                  <FaArrowRight
+                                    style={{ color: "rgb(0, 174, 205)" }}
+                                  />
+                                </i>
+                              </h4>
+                            </Link>
+                            <ul>
+                              {facultyComputingMenu.map((item, index) => (
+                                <li key={index}>
+                                  <a href={`/courses/${item.slug}`}>
+                                    {item.title}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+
+                            <Link href="/faculties/faculty-of-life-science">
+                              <h4 style={{ color: "rgb(0, 80, 160)" }}>
+                                Faculty of Engineering
+                                <i className="arrow">
+                                  <FaArrowRight
+                                    style={{ color: "rgb(0, 80, 160)" }}
+                                  />
+                                </i>
+                              </h4>
+                            </Link>
+                            <ul>
+                              {facultyEngineeringMenu.map((item, index) => (
+                                <li key={index}>
+                                  <a href={`/courses/${item.slug}`}>
+                                    {item.title}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="mega-column">
+                            <Link href="/faculties/faculty-of-life-science">
+                              <h4 style={{ color: "rgb(210, 35, 50)" }}>
+                                Faculty of Business & Law
+                                <i className="arrow">
+                                  <FaArrowRight
+                                    style={{ color: "rgb(210, 35, 50)" }}
+                                  />
+                                </i>
+                              </h4>
+                            </Link>
+                            <ul>
+                              {facultyBusinessLawMenu.map((item, index) => (
+                                <li key={index}>
+                                  <a href={`/courses/${item.slug}`}>
+                                    {item.title}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+
+                            <Link href="/faculties/faculty-of-life-science">
+                              <h4 style={{ color: "rgb(255, 203, 5)" }}>
+                                Faculty of Languages, Education & Sociology
+                                <i className="arrow">
+                                  <FaArrowRight
+                                    style={{ color: "rgb(255, 203, 5)" }}
+                                  />
+                                </i>
+                              </h4>
+                            </Link>
+                            <ul>
+                              {facultyLanguagesEducationSociologyMenu.map(
+                                (item, index) => (
+                                  <li key={index}>
+                                    <a href={`/courses/${item.slug}`}>
+                                      {item.title}
+                                    </a>
+                                  </li>
+                                )
+                              )}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
                     </li>
                     <li>
                       <Link href="/academics">Academics</Link>
@@ -200,18 +357,6 @@ const Header = () => {
           </div>
           {/* mobile */}
           <div className="apply-now-wrap mobile-only-view">
-            {/* <button
-              className="next-btn next-btn--blue"
-              // target="_blank"
-              // href={
-              //   isCoursePage
-              //     ? `https://register.esoft.lk/?id=${"COURSE_ID_DYNAMIC"}`
-              //     : "https://register.esoft.lk/"
-              // }
-              style={{ backgroundColor: color }}
-            >
-              <span>Register Online</span>
-            </button> */}
             <Modal>
               <InquireForm />
             </Modal>

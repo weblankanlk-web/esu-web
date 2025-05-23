@@ -742,3 +742,157 @@ export const OUR_STRATEGIC_TEAM = `
     }
   }
 `;
+
+export const GET_ALL_PUBLICATIONS = `
+query {
+  publications(first: 100) {
+    nodes {
+      title
+      slug
+      content
+      date
+      research {
+        pdf {
+          node {
+            file
+            filePath
+            sourceUrl
+          }
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      blogs {
+        gallery {
+          nodes {
+            altText
+            sourceUrl
+          }
+        }
+      }
+      publicationType {
+        nodes {
+          name
+          slug
+          count
+        }
+      }
+    }
+  }
+}
+`;
+
+export const GET_PUBLICATIONS_BY_SLUG = `
+query($slug: ID!) {
+  publication(id: $slug, idType: SLUG) {
+    title
+      slug
+      content
+      date
+      research {
+        pdf {
+          node {
+            file
+            filePath
+            sourceUrl
+          }
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      blogs {
+        gallery {
+          nodes {
+            altText
+            sourceUrl
+          }
+        }
+      }
+      publicationType {
+        nodes {
+          name
+          slug
+          count
+        }
+      }
+    }
+}
+`;
+
+export const GET_ALL_NEWS = `
+query GetNews($first: Int = 6, $after: String) {
+  news(first: $first, after: $after) {
+    nodes {
+      title
+      slug
+      content
+      date
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+        }
+      }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
+`;
+
+export const GET_NEWS_BY_SLUG = `
+query($slug: ID!) {
+  new(
+    id: $slug
+    idType: SLUG
+  ) {
+    content
+    date
+    title
+    slug
+    news {
+      date
+      gallery {
+        nodes {
+          altText
+          sourceUrl
+        }
+      }
+    }
+    featuredImage {
+      node {
+        altText
+        sourceUrl
+      }
+    }
+  }
+}
+`;
+
+export const GET_MENU_COURSE_BY_SLUG_SELECTED = `
+query($slug: ID!) {
+  schoolType(id: $slug, idType: SLUG) {
+    name
+    courses {
+      nodes {
+        title
+        slug
+        courses {
+          enableCourseInTheMenu
+        }
+      }
+    }
+  }
+}
+`;
+
