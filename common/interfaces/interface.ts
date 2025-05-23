@@ -95,3 +95,35 @@ export interface NewsEvents {
     };
   };
 }
+
+export interface CoursesMenu {
+  name: string;
+  title: string;
+  slug: string;
+  courses: {
+    nodes: {
+      title: string;
+      slug: string;
+      courses: {
+        enableCourseInTheMenu: boolean;
+      };
+    };
+  };
+}
+
+export interface CourseNode {
+  title: string;
+  slug: string;
+  courses: {
+    enableCourseInTheMenu: boolean;
+  };
+}
+
+export interface CourseMenuResponse {
+  schoolType: {
+    name: string;
+    courses: {
+      nodes: CourseNode[];
+    };
+  };
+}

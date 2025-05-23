@@ -878,3 +878,21 @@ query($slug: ID!) {
   }
 }
 `;
+
+export const GET_MENU_COURSE_BY_SLUG_SELECTED = `
+query($slug: ID!) {
+  schoolType(id: $slug, idType: SLUG) {
+    name
+    courses {
+      nodes {
+        title
+        slug
+        courses {
+          enableCourseInTheMenu
+        }
+      }
+    }
+  }
+}
+`;
+
