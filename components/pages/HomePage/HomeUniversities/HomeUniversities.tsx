@@ -8,7 +8,6 @@ import "./style.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 const universityContent = `
 ESOFT Uni has established a robust network of academic partnerships that enhance its position as a leading uni for higher education in Sri Lanka. Collaborating with esteemed UK universities such as London Metropolitan University and Kingston University, ESU offers students access to internationally recognized undergraduate and postgraduate programmes across disciplines including IT / Computing, Business and Management, Law, Engineering, BioMedical Engineering, Nursing, Psychology, Education, Hospitality Management, Travel and Tourism Management, and Fashion Design.
 `;
@@ -18,17 +17,13 @@ const universitySlides = [
     img: "https://cms.esu.lk/wp-content/uploads/2025/05/Goulston-Street-Etrance.webp",
     alt: "Goulston Street Entrance",
     url: "https://www.londonmet.ac.uk/",
-    logo: [
-      "https://cms.esu.lk/wp-content/uploads/2025/05/images-3.png",
-    ],
+    logo: ["https://cms.esu.lk/wp-content/uploads/2025/05/images-3.png"],
   },
   {
     img: "https://cms.esu.lk/wp-content/uploads/2025/05/78e9ec80-c82e-49e4-b42c-827d5a0a1438.jpg",
     alt: "Kingston University",
     url: "https://www.kingston.ac.uk/",
-    logo: [
-      "https://cms.esu.lk/wp-content/uploads/2025/05/KingstonUniLogo.png",
-    ],
+    logo: ["https://cms.esu.lk/wp-content/uploads/2025/05/KingstonUniLogo.png"],
   },
 ];
 
@@ -40,7 +35,7 @@ const sliderSettings = {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 4000,
-  arrows: true,  
+  arrows: true,
   responsive: [
     {
       breakpoint: 1200,

@@ -1,182 +1,5 @@
 @import "@/styles/global.scss";
 
-// .home-universities {
-//   margin-bottom: 60px;
-//   padding-top: 10px;
-
-//   .title-wrap {
-//     padding: 0 20px 20px;
-//   }
-
-//   .full-wrap {
-//     width: 100%;
-
-//     .image-detail-wrap {
-//       margin-bottom: 0px;
-
-//       .left {
-//         padding: 0 0 30px;
-
-//         img {
-//           width: 100%;
-//           object-fit: cover;
-//           height: 300px;
-//         }
-//       }
-
-//       .right {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//         padding: 0 20px;
-
-//         .title-wrap {
-//           padding-bottom: 20px;
-//         }
-
-//         .button-wrap {
-//           padding-bottom: 30px;
-//         }
-
-//         .the-content-div {
-//           font-family: var(--font-manrope);
-//           font-size: 14px;
-//           font-style: normal;
-//           font-weight: 600;
-//           line-height: 20px;
-//           text-align: center;
-//           color: #9a9090;
-
-//           p {
-//             color: #9a9090;
-//           }
-
-//           span {
-//             color: #4d4d4d;
-//           }
-//         }
-//       }
-//     }
-
-//     .slider-wrap {
-//       .slick-track {
-//         padding: 36px 0;
-//       }
-
-//       .logo-slider {
-//         #logo-item {
-//           margin: 0 10px;
-//           box-shadow: 12px -1px 20px 3px rgba(0, 0, 0, 0.12);
-
-//           .l-item-inner {
-//             border-radius: 10px 10px 12px 12px;
-//             border: 1.017px solid rgba(42, 42, 42, 0.15);
-//             border-bottom: 6px solid #02aec9;
-//             background: #fefdfb;
-//             box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.12);
-//             display: flex;
-//             flex-direction: column;
-//             align-items: center;
-//             padding: 20px 50px;
-
-//             img {
-//               width: 100%;
-//               height: 80px;
-//               object-fit: contain;
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-
-//   @media only screen and (min-width: 768px) {
-//     .full-wrap {
-//       .image-detail-wrap {
-//         .left {
-//           img {
-//             height: 600px;
-//           }
-//         }
-//       }
-//     }
-//   }
-
-//   @media only screen and (min-width: 1200px) {
-//     margin-bottom: get-vw(120px);
-//     padding-top: 0px;
-
-//     .title-wrap {
-//       padding: 0 get-vw(120px) get-vw(40px);
-//     }
-
-//     .full-wrap {
-//       .image-detail-wrap {
-//         margin-bottom: get-vw(0px);
-//         margin-top: get-vw(90px);
-//         display: flex;
-//         flex-direction: row;
-
-//         .left {
-//           padding: 0 get-vw(68px) 0 get-vw(20px);
-//           width: 50%;
-
-//           img {
-//             height: get-vw(739.197px);
-//           }
-//         }
-
-//         .right {
-//           align-items: flex-start;
-//           padding: 0 get-vw(120px) 0 0;
-//           width: 50%;
-
-//           .title-wrap {
-//             padding-bottom: get-vw(20px);
-//           }
-
-//           .button-wrap {
-//             padding-bottom: get-vw(50px);
-//           }
-
-//           .the-content-div {
-//             font-size: get-vw(22px);
-//             line-height: get-vw(30px);
-//             text-align: left;
-
-//             span {
-//               font-size: get-vw(22px);
-//               line-height: get-vw(30px);
-//             }
-//           }
-//         }
-//       }
-
-//       .slider-wrap {
-//         .logo-slider {
-//           #logo-item {
-//             margin: 0 get-vw(5px);
-//             border-radius: get-vw(10px) get-vw(10px) get-vw(12px) get-vw(12px);
-
-//             .l-item-inner {
-//               border-radius: get-vw(10px) get-vw(10px) get-vw(12px) get-vw(12px);
-//               border: get-vw(1.017px) solid rgba(42, 42, 42, 0.15);
-//               border-bottom: get-vw(6px) solid #02aec9;
-//               box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.12);
-//               padding: get-vw(40px) get-vw(25px);
-
-//               img {
-//                 height: get-vw(85px);
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-
 .home-universities {
   padding: 0 20px;
 
@@ -264,8 +87,6 @@
       .uni-content-wrap {
         width: 52%;
 
-        .title-wrapper {}
-
         .uni-content {
           padding-top: get-vw(40px);
           padding-bottom: 0;
@@ -290,7 +111,7 @@
             height: auto;
 
             &.slick-active button:before {
-              opacity: .75;
+              opacity: 0.75;
               color: transparent;
               border-radius: 0px 10px 10px 0px;
             }
@@ -311,7 +132,6 @@
               width: 100%;
               height: get-vw(0px);
 
-
               &::before {
                 width: 100%;
                 background-color: var(--main-title-color, red);
@@ -320,7 +140,6 @@
                 color: transparent !important;
 
                 border-radius: 10px 0px 0px 10px;
-
               }
             }
           }
@@ -332,10 +151,6 @@
               .uni-main-image {
                 border-radius: get-vw(20px);
                 height: get-vw(400px);
-              }
-
-              .uni-logo {
-                .uni-logo-image {}
               }
             }
           }
