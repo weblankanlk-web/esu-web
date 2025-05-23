@@ -139,65 +139,6 @@ ul#primary {
     align-items: center;
 }
 
-// #banner-carousel {
-//     img {
-//         height: 100vh;
-//         object-fit: cover;
-//     }
-// }
-
-// .banner-carousel {
-//     .carousel-item {
-//         position: relative;
-
-//         &::after {
-//             content: "";
-//             top: 0;
-//             bottom: 0;
-//             left: 0;
-//             right: 0;
-//             background: linear-gradient(180deg,
-//                     rgba(0, 0, 0, 0.77) 0%,
-//                     rgba(0, 0, 0, 0.28) 50%,
-//                     rgba(0, 0, 0, 1) 100%);
-//             position: absolute;
-//             z-index: 9;
-//         }
-//     }
-// }
-
-// .banner-search-bar {
-//     position: absolute;
-//     left: 0;
-//     right: 0;
-//     bottom: 20vh;
-//     z-index: 98;
-//     display: flex;
-//     justify-content: center;
-
-//     h3,
-//     .text-slider p {
-//         font-size: var(--font-55);
-//         font-weight: bold;
-//         color: #fff;
-//     }
-
-//     h3 span,
-//     .text-slider p {
-//         color: var(--orange-red);
-//     }
-
-//     .banner-search-bar-form {
-//         padding-top: 30px;
-//     }
-
-//     .banner-search-bar-innner {
-//         position: relative;
-//         width: 100%;
-//         text-align: center;
-//     }
-// }
-
 .search-form {
     height: 65px;
     border-radius: 35px;
@@ -301,9 +242,17 @@ ul#primary {
                 color: #000;
 
                 .arrow {
-                    font-size: 16px;
-                    // color: #6b38fb;
+                    display: inline-block;
+                    transition: transform 0.3s ease;
                 }
+
+                &:hover .arrow {
+                    animation: arrowMoveRight 0.3s forwards;
+                }
+            }
+
+            h4:hover .arrow {
+                transform: translateX(5px);
             }
 
             ul {
@@ -336,12 +285,13 @@ ul#primary {
 }
 
 @keyframes arrowMoveRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(5px);
-  }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(5px);
+    }
 }
 
 
