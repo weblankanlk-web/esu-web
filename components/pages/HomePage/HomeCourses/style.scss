@@ -153,6 +153,7 @@
                 .course-box-img {
                   img {
                     height: get-vw(736px);
+                    object-position: top !important; 
                   }
                 }
 

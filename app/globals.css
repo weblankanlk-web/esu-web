@@ -130,6 +130,7 @@
   border-radius: 10px;
   height: 450px;
   object-fit: cover;
+  object-position: top;
 }
 .course-box-img::after {
   content: "";
