@@ -2,218 +2,216 @@
 
 .simple-padding-bottom,
 .simple-padding-top {
-    padding: 60px 0;
+  padding: 60px 0;
 
-    .center-text {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  .center-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .section-heading {
-            font-size: 50px;
-            letter-spacing: normal;
-        }
+    .section-heading {
+      font-size: 50px;
+      letter-spacing: normal;
     }
+  }
 }
 
 .section-heading {
-    text-align: center;
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 30px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
 
-    &--black {
-        color: #000;
-    }
+  &--black {
+    color: #000;
+  }
 
-    &--underline {
-        border-bottom: 2px solid #ccc;
-        padding-bottom: 10px;
-    }
+  &--underline {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+  }
 
-    &--underline--center {
-        display: inline-block;
-        margin: 0 auto;
-    }
+  &--underline--center {
+    display: inline-block;
+    margin: 0 auto;
+  }
 }
 
 .landing-wrap {
-    .landing-results {
-        align-items: flex-start;
+  .landing-results {
+    align-items: flex-start;
 
-        .landing-results-inner {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
+    .landing-results-inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
 
-            .school-box-single {
-                overflow: hidden;
-                transition: all 0.3s ease;
-                border: 1px solid #e0e2ed;
+      .school-box-single {
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid #e0e2ed;
 
-                &:hover {
-                    transform: translateY(-5px);
-                }
+        &:hover {
+          transform: translateY(-5px);
+        }
 
-                .feature-img-school {
-                    width: 100%;
-                    height: 180px;
-                    object-fit: contain;
-                }
+        .feature-img-school {
+          width: 100%;
+          height: 180px;
+          object-fit: contain;
+        }
 
-                .school-box-inner-details {
-                    padding: 15px;
+        .school-box-inner-details {
+          padding: 15px;
 
-                    .date-p {
-                        font-size: 14px;
-                        color: #888;
-                        margin-bottom: 5px;
-                    }
+          .date-p {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 5px;
+          }
 
-                    .school-box-details {
-                        font-weight: 600;
-                        font-size: 18px;
-                        color: #000;
-                        text-decoration: none;
-                        margin-bottom: 10px;
-                    }
+          .school-box-details {
+            font-weight: 600;
+            font-size: 18px;
+            color: #000;
+            text-decoration: none;
+            margin-bottom: 10px;
+          }
 
-                    .paragraph--black {
-                        color: #333;
-                        font-size: 15px;
-                        margin-bottom: 10px;
+          .paragraph--black {
+            color: #333;
+            font-size: 15px;
+            margin-bottom: 10px;
 
-                        h1 {
-                            display: none;
-                        }
-
-                        h2 {
-                            display: none;
-                        }
-
-                        h3 {
-                            display: none;
-                        }
-                    }
-
-                    .btnn-next {
-                        color: #fff;
-                        background: #0073e6;
-                        padding: 8px 14px;
-                        border-radius: 5px;
-                        font-size: 14px;
-                        display: inline-block;
-                        text-decoration: none;
-                    }
-                }
+            h1 {
+              display: none;
             }
-        }
 
-        .publication-content {
-            min-height: 200px;
+            h2 {
+              display: none;
+            }
+
+            h3 {
+              display: none;
+            }
+          }
+
+          .btnn-next {
+            color: #fff;
+            background: #0073e6;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: inline-block;
+            text-decoration: none;
+          }
         }
+      }
     }
 
-    .landing-filter {
-        .archive-div {
-            padding: 20px;
-            border-radius: 10px;
-            padding-top: 0;
-
-            .related-coures-div.course-title {
-                padding-top: 0;
-            }
-
-            .course-title h5 {
-                font-weight: 600;
-                margin-bottom: 10px;
-                font-size: 18px;
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 8px;
-                text-align: left;
-            }
-
-            .recent-post-lists ul,
-            .date-archive {
-                list-style: none;
-                padding: 0;
-
-                li {
-                    margin-bottom: 8px;
-
-                    a {
-                        color: #000;
-                        text-decoration: none;
-
-                        &:hover {
-                            text-decoration: none;
-                        }
-                    }
-                }
-            }
-        }
-
-        padding-left: 0px !important;
+    .publication-content {
+      min-height: 200px;
     }
+  }
+
+  .landing-filter {
+    .archive-div {
+      padding: 20px;
+      border-radius: 10px;
+      padding-top: 0;
+
+      .related-coures-div.course-title {
+        padding-top: 0;
+      }
+
+      .course-title h5 {
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 18px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 8px;
+        text-align: left;
+      }
+
+      .recent-post-lists ul,
+      .date-archive {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 8px;
+
+          a {
+            color: #000;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    padding-left: 0px !important;
+  }
 }
 
-
 .landing-wrap-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 
-    .landing-results-top {
-        justify-content: space-between !important;
-        align-items: center !important;
+  .landing-results-top {
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .search-form-ajax {
+    background: transparent;
+
+    input {
+      background: transparent;
     }
-
-    .search-form-ajax {
-        background: transparent;
-
-        input {
-            background: transparent;
-        }
-    }
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .landing-wrap-top {
-        flex-direction: column;
-        align-items: flex-start;
+  .landing-wrap-top {
+    flex-direction: column;
+    align-items: flex-start;
 
-        .search-form-ajax {
-            margin-top: 15px;
-            width: 100%;
-        }
+    .search-form-ajax {
+      margin-top: 15px;
+      width: 100%;
     }
+  }
 
-    .search-form-ajax input {
-        width: 100%;
-    }
+  .search-form-ajax input {
+    width: 100%;
+  }
 }
-
 
 .the-content-div ul li::before,
 .date-archive li::before {
-    background-image: url(https://esoft.lk/wp-content/themes/esoft_metro_campus/assets/img/tick-red.png);
+  background-image: url(https://esoft.lk/wp-content/themes/esoft_metro_campus/assets/img/tick-red.png);
 }
 
 .date-archive li::before,
 .the-content-div ul li::before {
-    content: "";
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    border: 1px solid #d8d8d8;
-    margin-right: 10px;
-    margin-top: 5px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-    padding: 10px;
-    position: absolute;
-    left: 0;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid #d8d8d8;
+  margin-right: 10px;
+  margin-top: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  padding: 10px;
+  position: absolute;
+  left: 0;
 }

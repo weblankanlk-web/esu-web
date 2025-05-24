@@ -61,23 +61,23 @@ const page = () => {
     fetchPublications();
   }, []);
 
-  console.log("Publications:", publications);
-
   return (
     <>
       <InnerBanner
-        innerPageTitle={`Research`}
-        innerPageDescription="Welcome to the dynamic realm of research at ESU, where innovation knows no bounds. Our commitment to academic excellence extends beyond classrooms, delving into diverse research endeavors that span Environmental Sustainability, Robotics, International Relations and Social Sciences."
+        innerPageTitlePrimary={"Research"}
+        innerPageTitleSecondary={"Publications"}
+        innerPageDescription="Research is a vital pillar of ESU’s identity and mission. We foster a research culture that pushes the boundaries of knowledge while solving real-world problems through collaboration and innovation. From sustainability and robotics to international relations and social sciences, our research is defined by its practical application, interdisciplinary scope, and partnerships that create real impact. Through this work, we aim to transform lives and advance society. Welcome to the dynamic realm of research at ESU, where innovation knows no bounds."
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />
+
       <section className="simple-padding-bottom simple-padding-top">
         <div className="small-middle-wrap">
-          <div className="center-text">
+          {/*           <div className="center-text">
             <h2 className="section-heading section-heading--underline section-heading--underline--center">
               <span style={{ color: color }}>Publications</span>
             </h2>
-          </div>
+          </div> */}
           <div className="landing-wrap-top">
             <div className="landing-results w-100 landing-results-top">
               <div>
@@ -95,7 +95,7 @@ const page = () => {
                     type="text"
                     name="search-keyword"
                     className="type-check"
-                    placeholder="Search Courses"
+                    placeholder="Search Publications"
                     id="search-key"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -131,7 +131,11 @@ const page = () => {
                       </Link>
                       <div className="school-box-inner-details">
                         <p className="m-0 aragraph paragraph--black date-p">
-                          {publication.date}
+                          {new Intl.DateTimeFormat("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          }).format(new Date(publication.date))}
                         </p>
                         <Link
                           href={`/research/${publication.slug}`}
@@ -152,7 +156,10 @@ const page = () => {
                             }}
                           />
                         </div>
-                        <Button buttonUrl={`/research/${publication.slug}`} buttonName={"Read More"} />
+                        <Button
+                          buttonUrl={`/research/${publication.slug}`}
+                          buttonName={"Read More"}
+                        />
                         {/* <Link
                           className="btnn-next"
                           href={`/research/${publication.slug}`}
@@ -197,10 +204,10 @@ const page = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="related-coures-div course-title">
+{/*                 <div className="related-coures-div course-title">
                   <h5>Archives</h5>
-                </div>
-                <ul className="date-archive">
+                </div> */}
+{/*                 <ul className="date-archive">
                   {Object.entries(archives).map(([month, count]) => {
                     const [year, mon] = month.split("-");
 
@@ -213,16 +220,13 @@ const page = () => {
 
                     return (
                       <li key={month}>
-                        <a
-                          href={`#`}
-                        >
-                          {monthName}
-                        </a>
-                        &nbsp;({count})
-                      </li>
-                    );
-                  })}
-                </ul>
+                        <a href={`#`}>{monthName}</a>
+                        &nbsp;
+                        {/* ({count}) */}
+                      {/* </li> */}
+                 {/*    ); */}
+               {/*    })}
+             /*    </ul> */}
               </div>
             </div>
           </div>

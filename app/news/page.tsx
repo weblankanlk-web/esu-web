@@ -60,8 +60,9 @@ const NewsPage = () => {
   return (
     <>
       <InnerBanner
-        innerPageTitle={`News & Events`}
-        innerPageDescription="Discover the latest updates at ESU — graduations, partnerships, and more."
+        innerPageTitlePrimary={"News &"}
+        innerPageTitleSecondary={" Events"}
+        innerPageDescription="Discover the latest at ESU on our dynamic News & Events page featuring updates on graduation ceremonies, new campus openings, programme launches, and new partnerships. This is where you will find all the highlights. Stay informed, celebrate success and follow our journey as we continue to advance academic excellence and innovation."
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />

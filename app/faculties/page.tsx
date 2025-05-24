@@ -53,7 +53,8 @@ const Page = () => {
     <>
       {
         <InnerBanner
-          innerPageTitle={`Our <span style="color: ${color}">Faculties</span>`}
+          innerPageTitlePrimary={"Our"}
+          innerPageTitleSecondary={"Faculties"}
           innerPageDescription=""
           innerBgDesk="/images/faculties-inner-banner.png"
           innerBgMobi="/images/faculties-inner-banner.png"
