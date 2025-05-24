@@ -194,7 +194,7 @@ const Header = () => {
                     </li>
                     <li className="faculties-hover-menu">
                       <Link href="/faculties">Faculties</Link>
-                      <div className="mega-menu">
+{/*                       <div className="mega-menu">
                         <div className="mega-menu-panel">
                           <div className="mega-column">
                             <Link href="/faculties/faculty-of-art-design">
@@ -322,7 +322,7 @@ const Header = () => {
                             </ul>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </li>
                     <li>
                       <Link href="/academics">Academics</Link>
