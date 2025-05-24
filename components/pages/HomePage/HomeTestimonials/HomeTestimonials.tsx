@@ -21,9 +21,15 @@ const HomeTestimonials: React.FC = () => {
           testimonials: { nodes: Testimonial[] };
         }>(TESTIMONIALS_QUERY);
 
-        const filtered = data.testimonials.nodes.filter(
-          (item) => item.testimonials !== null
-        );
+        console.log("✅ Raw testimonials:", data.testimonials.nodes);
+
+        const filtered = data.testimonials.nodes.filter((item) => {
+          const types = item.testimonials?.testimonialType || [];
+          const hasVideo = types.some((type) => type.toLowerCase() === "video");
+          return item.testimonials !== null && !hasVideo;
+        });
+
+        console.log("✅ Filtered testimonials (excluding video):", filtered);
 
         setTestimonials(filtered);
       } catch (error) {
