@@ -78,7 +78,7 @@ const OurStrategicTeam = () => {
         </div>
 
         <div className="strategic-team-members">
-          <div className="members-wrap d-flex flex-wrap justify-content-start gap-1">
+          <div className="members-wrap ">
             {ourStrategicTeam.length === 0 ? (
               <p>No Strategic Team found for this department.</p>
             ) : (

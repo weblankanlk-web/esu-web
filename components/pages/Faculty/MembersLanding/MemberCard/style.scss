@@ -42,6 +42,9 @@
     }
 
     .member-image {
+       margin-top: auto; // This pushes the image to the bottom
+  display: flex;
+  justify-content: flex-end;
       img {
         width: 100%;
         object-fit: cover;
