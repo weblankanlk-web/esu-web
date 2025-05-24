@@ -11,6 +11,7 @@ import { FACULTY_INNER_QUERY } from "@/common/queries/query";
 import { FacultyInner, StaffMemberDetails } from "@/common/types/type";
 import "./style.scss";
 import FacultyCourses from "@/components/pages/Faculty/FacultyCourses/FacultyCourses";
+import HomeTestimonials from "@/components/pages/HomePage/HomeTestimonials/HomeTestimonials";
 
 const FacultyInnerPage = () => {
   const pathname = usePathname();
@@ -155,6 +156,7 @@ const FacultyInnerPage = () => {
             fontFamily={faculty.schoolTypesColorFontFields.courseFontFamily}
             fontColor={faculty.schoolTypesColorFontFields.color}
           />
+          <HomeTestimonials />
         </>
       )}
     </>
