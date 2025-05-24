@@ -63,7 +63,7 @@
       height: 40px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      transform: rotate(315deg); // ⬅️ Rotates to point northeast
     }
   }
 }
