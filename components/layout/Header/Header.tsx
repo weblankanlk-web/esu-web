@@ -60,8 +60,8 @@ const Header = () => {
         (course) => course.courses.enableCourseInTheMenu === true
       );
 
-      console.log("Course Menu Data:", data);
-      console.log("Filtered Courses:", enableCourse);
+      // console.log("Course Menu Data:", data);
+      // console.log("Filtered Courses:", enableCourse);
 
       switch (slug) {
         case "faculty-of-art-design":
@@ -70,7 +70,7 @@ const Header = () => {
         case "faculty-of-computing":
           setFacultyComputingMenu(enableCourse);
           break;
-        case "faculty-of-life-sciences":
+        case "faculty-of-life-science":
           setFacultyLifeScienceMenu(enableCourse);
           break;
         case "faculty-of-engineering":
@@ -92,7 +92,7 @@ const Header = () => {
     }
   }, []);
 
-  console.log("facultyComputingMenu", facultyComputingMenu);
+  // console.log("facultyComputingMenu", facultyComputingMenu);
 
   return (
     <>
@@ -197,7 +197,7 @@ const Header = () => {
                       <div className="mega-menu">
                         <div className="mega-menu-panel">
                           <div className="mega-column">
-                            <Link href="/faculties/faculty-of-life-science">
+                            <Link href="/faculties/faculty-of-art-design">
                               <h4 style={{ color: "rgb(245, 131, 60)" }}>
                                 Faculty of Art & Design
                                 <i className="arrow">
@@ -238,7 +238,7 @@ const Header = () => {
                             </ul>
                           </div>
                           <div className="mega-column">
-                            <Link href="/faculties/faculty-of-life-science">
+                            <Link href="/faculties/faculty-of-computing">
                               <h4 style={{ color: "rgb(0, 174, 205)" }}>
                                 Faculty of Computing
                                 <i className="arrow">
@@ -258,7 +258,7 @@ const Header = () => {
                               ))}
                             </ul>
 
-                            <Link href="/faculties/faculty-of-life-science">
+                            <Link href="/faculties/faculty-of-engineering">
                               <h4 style={{ color: "rgb(0, 80, 160)" }}>
                                 Faculty of Engineering
                                 <i className="arrow">
@@ -279,7 +279,7 @@ const Header = () => {
                             </ul>
                           </div>
                           <div className="mega-column">
-                            <Link href="/faculties/faculty-of-life-science">
+                            <Link href="/faculties/faculty-of-business-law">
                               <h4 style={{ color: "rgb(210, 35, 50)" }}>
                                 Faculty of Business & Law
                                 <i className="arrow">
@@ -299,7 +299,7 @@ const Header = () => {
                               ))}
                             </ul>
 
-                            <Link href="/faculties/faculty-of-life-science">
+                            <Link href="/faculties/faculty-of-languages-education-sociology">
                               <h4 style={{ color: "rgb(255, 203, 5)" }}>
                                 Faculty of Languages, Education & Sociology
                                 <i className="arrow">
