@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  CAMPUS_VICE_CHANCELLOR_QUERY,
   FACULTY_TYPES_QUERY,
   VICE_CHANCELLOR_QUERY,
 } from "@/common/queries/query";
@@ -32,31 +33,42 @@ const page = () => {
   console.log("slug", slug);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (campusSlug: any) => {
+      console.log("campus slug", campusSlug);
+
       try {
-        const [facultyRes, vcRes] = await Promise.all([
-          graphQLClient.request<{ schoolTypes: { nodes: Faculty[] } }>(
-            FACULTY_TYPES_QUERY
-          ),
-          graphQLClient.request<{
-            staffType: {
-              staffs: {
-                nodes: ViceChancellor[];
-              };
+        const data = await graphQLClient.request<{
+          staffType: {
+            staffs: {
+              nodes: ViceChancellor[];
             };
-          }>(VICE_CHANCELLOR_QUERY),
-        ]);
+          };
+        }>(CAMPUS_VICE_CHANCELLOR_QUERY, { slug: campusSlug });
 
-        // setFaculty(facultyRes.schoolTypes.nodes);
-
-        const vc = vcRes.staffType.staffs.nodes[0];
+        const vc = data.staffType?.staffs?.nodes?.[0];
         setViceChancellor(vc);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    fetchData();
+    var campusSlug = null;
+
+    switch (slug) {
+      case "colombo-campus":
+        campusSlug = "colombo-vice-chancellor";
+        break;
+      case "kandy-campus":
+        campusSlug = "kandy-vice-chancellor";
+        break;
+      case "jaffna-campus":
+        campusSlug = "jaffna-vice-chancellor";
+        break;
+      default:
+        break;
+    }
+
+    fetchData(campusSlug);
   }, []);
 
   return (
@@ -68,7 +80,7 @@ const page = () => {
         innerBgMobi="/images/campus-inner-banner.gif"
       />
 
-      {/* {viceChancellor && (
+      {viceChancellor && (
         <DeanMessage
           title="Pro Vice Chancellor's"
           DeanName={viceChancellor.title}
@@ -84,11 +96,11 @@ const page = () => {
           fontFamily={"inherit"} // You can update this if you add font in VC fields
           fontColor={color} // Update if VC fields include color
         />
-      )} */}
+      )}
 
       <CampusFacilities />
 
-      <CreativeCollage slug={slug || ""}/>
+      <CreativeCollage slug={slug || ""} />
 
       <ContactHeadOffice />
     </>

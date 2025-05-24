@@ -503,25 +503,25 @@ export const VICE_CHANCELLOR_QUERY = `
 }
 `;
 
-export const PRO_VICE_CHANCELLOR_QUERY = `
- query  {
-    staffType(id: "pro-vice-chancellor", idType: SLUG) {
-      staffs {
-        nodes {
-          staffAcf {
-            designation
-            message
-          }
-          title
-          featuredImage {
-            node {
-              sourceUrl
-              altText
-            }
+export const CAMPUS_VICE_CHANCELLOR_QUERY = `
+query($slug: ID!) {
+  staffType(id: $slug, idType: SLUG) {
+    staffs {
+      nodes {
+        staffAcf {
+          designation
+          message
+        }
+        title
+        featuredImage {
+          node {
+            sourceUrl
+            altText
           }
         }
       }
     }
+  }
 }
 `;
 
@@ -895,4 +895,28 @@ query($slug: ID!) {
   }
 }
 `;
+
+
+// export const GET_MENU_COURSE_BY_SLUG_SELECTED = `
+// query($slug: ID!) {
+//   staffType(id: $slug, idType: SLUG) {
+//     staffs {
+//       nodes {
+//         title
+//         staffAcf {
+//           designation
+//           message
+//         }
+//         featuredImage {
+//           node {
+//             sourceUrl
+//             altText
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// `;
+
 
