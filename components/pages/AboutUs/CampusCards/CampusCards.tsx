@@ -10,19 +10,19 @@ import { useTheme } from "@/lib/ThemeContext";
 const campuses = [
   {
     name: "Colombo",
-    image: "/images/colombo.jpg",
+    image: "/images/about/colombo.jpg",
     description: "Explore ESU Colombo Campus",
     link: "/colombo-campus",
   },
   {
     name: "Kandy",
-    image: "/images/colombo.jpg",
+    image: "/images/about/kandy.jpg",
     description: "Explore ESU Kandy Campus",
     link: "/kandy-campus",
   },
   {
     name: "Jaffna",
-    image: "/images/colombo.jpg",
+    image: "/images/about/jaffna.jpg",
     description: "Coming Soon...",
   },
 ];
@@ -56,9 +56,10 @@ const CampusCards = () => {
               <Image
                 src={campus.image}
                 alt={campus.name}
-                width={550}
-                height={650}
+                width={700}
+                height={750}
                 className="campus-image"
+                quality={100}
               />
               <div className="campus-overlay">
                 <h3 className="campus-title">{campus.name}</h3>

@@ -2,7 +2,7 @@
 
 import { useTheme } from "@/lib/ThemeContext";
 import { useState } from "react";
-import './style.scss'
+import "./style.scss";
 
 interface Module {
   id: number;
@@ -45,26 +45,47 @@ const CustomAccordion = ({ modules }: { modules: Module[] }) => {
           aria-labelledby="heading1"
         >
           <div className="accordion-body">
-            <table className="module-table">
-              <thead>
-                <tr>
-                  <th>Module Code</th>
-                  <th>Module Name</th>
-                  <th className="center-td">Mandatory/Optional</th>
-                </tr>
-              </thead>
-              <tbody>
-                {modules.map((module) => (
-                  <tr key={module.id}>
-                    <td>{module.code}</td>
-                    <td>{module.name}</td>
-                    <td className="center-td">
-                      {module.is_mandatory ? "Mandatory" : "Optional"}
-                    </td>
+            {modules.some((module) => module.code?.trim()) ? (
+              <table className="module-table">
+                <thead>
+                  <tr>
+                    <th>Module Code</th>
+                    <th>Module Name</th>
+                    <th className="center-td">Mandatory/Optional</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {modules.map((module) => (
+                    <tr key={module.id}>
+                      <td>{module.code}</td>
+                      <td>{module.name}</td>
+                      <td className="center-td">
+                        {module.is_mandatory ? "Mandatory" : "Optional"}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <table className="module-table">
+                <thead>
+                  <tr>
+                    <th>Module Name</th>
+                    <th className="center-td">Mandatory/Optional</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {modules.map((module) => (
+                    <tr key={module.id}>
+                      <td>{module.name}</td>
+                      <td className="center-td">
+                        {module.is_mandatory ? "Mandatory" : "Optional"}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
         </div>
       </div>

@@ -1,134 +1,140 @@
 @import "@/styles/global.scss";
 
 .campus-section {
-    padding: 20px 16px;
+  padding: 20px 16px;
 }
 
 .campus-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .campus-card {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  min-height: 640px;
+
+  .campus-image {
+    width: 100%;
+    display: block;
     border-radius: 16px;
-    min-height: 640px;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+  }
 
-    .campus-image {
-        width: 100%;
-        display: block;
-        border-radius: 16px;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
+  .campus-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 50px 20px 20px;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.85) 30%,
+      rgba(0, 0, 0, 0.6) 60%,
+      rgba(0, 0, 0, 0.3) 75%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    color: #fff;
+    border-radius: 0 0 16px 16px;
+
+    .campus-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
-    .campus-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 50px 20px 20px;
-        background: linear-gradient(to top, rgb(0 0 0 / 94%), #00000061 70%);
-        color: #fff;
-        border-radius: 0 0 16px 16px;
-
-        .campus-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .campus-description {
-            font-size: 14px;
-            color: #c2d647;
-            margin-bottom: 10px;
-        }
-
-        .campus-arrow {
-            font-size: 20px;
-            color: #000;
-            background: #c2d647;
-            padding: 10px;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .campus-description {
+      font-size: 14px;
+      color: #c2d647;
+      margin-bottom: 10px;
     }
+
+    .campus-arrow {
+      font-size: 20px;
+      color: #000;
+      background: #c2d647;
+      padding: 10px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
 
 // Tablet
 @media screen and (min-width: 768px) {
-    .campus-grid {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 24px;
-    }
+  .campus-grid {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 24px;
+  }
 
-    .campus-card {
-        flex: 1;
-    }
+  .campus-card {
+    flex: 1;
+  }
 }
 
 // Desktop
 @media screen and (min-width: 990px) {
-    .campus-overlay {
-        padding: 24px;
+  .campus-overlay {
+    padding: 24px;
 
-        .campus-title {
-            font-size: 18px;
-        }
-
-        .campus-description {
-            font-size: 15px;
-        }
-
-        .campus-arrow {
-            font-size: 22px;
-        }
+    .campus-title {
+      font-size: 18px;
     }
+
+    .campus-description {
+      font-size: 15px;
+    }
+
+    .campus-arrow {
+      font-size: 22px;
+    }
+  }
 }
 
 // Extra-large (1920px+) with get-vw()
 @media screen and (min-width: 1200px) {
-    .campus-section {
-        padding: get-vw(80px) get-vw(100px);
+  .campus-section {
+    padding: get-vw(80px) get-vw(100px);
+  }
+
+  .campus-grid {
+    gap: get-vw(32px);
+  }
+
+  .campus-overlay {
+    padding: get-vw(28px);
+
+    .campus-title {
+      font-size: get-vw(40px) !important;
     }
 
-    .campus-grid {
-        gap: get-vw(32px);
+    .campus-description {
+      font-size: get-vw(25px) !important;
+    }
+
+    .campus-arrow {
+      font-size: get-vw(24px);
+    }
+  }
+
+  .campus-card {
+    border-radius: get-vw(24px);
+
+    .campus-image {
+      border-radius: get-vw(24px);
     }
 
     .campus-overlay {
-        padding: get-vw(28px);
-
-        .campus-title {
-            font-size: get-vw(40px) !important;
-        }
-
-        .campus-description {
-            font-size: get-vw(25px) !important;
-        }
-
-        .campus-arrow {
-            font-size: get-vw(24px);
-        }
+      border-radius: 0 0 get-vw(24px) get-vw(24px);
     }
-
-    .campus-card {
-        border-radius: get-vw(24px);
-
-        .campus-image {
-            border-radius: get-vw(24px);
-        }
-
-        .campus-overlay {
-            border-radius: 0 0 get-vw(24px) get-vw(24px);
-        }
-    }
+  }
 }

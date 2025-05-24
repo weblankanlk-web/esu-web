@@ -92,10 +92,10 @@ const Footer = () => {
             <div className="awards">
               <h4>OUR AWARDS</h4>
               <Image
-                src={"/images/logo/awards.png"}
+                src={"/images/best-web-logo.png"}
                 alt="Award Seal"
-                width={75}
-                height={75}
+                width={100}
+                height={100}
                 style={{ objectFit: "contain" }}
               />
             </div>
