@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import Slider from "react-slick";
 import TitleLarge from "../../../common/TitleLarge/TitleLarge";
 import "slick-carousel/slick/slick.css";
@@ -13,6 +13,10 @@ import { Testimonial } from "@/common/types/type";
 
 const HomeTestimonials: React.FC = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+ const sliderRef = useRef<Slider>(null);
+
+  const handlePrev = () => sliderRef.current?.slickPrev();
+  const handleNext = () => sliderRef.current?.slickNext();
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -81,15 +85,25 @@ const HomeTestimonials: React.FC = () => {
     <section className="home-testimonials">
       <div className="title-wrap">
         <TitleLarge title="Student" subtitle="&nbsp; Testimonials" />
+        
       </div>
       <div className="slider-wrap ">
-        <Slider {...settings} className="testimonial-slider">
+        
+        <Slider {...settings} className="testimonial-slider pb-0"  ref={sliderRef}  >
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="item">
               <TestimonialItem testimonialData={testimonial} />
             </div>
           ))}
         </Slider>
+        <div className="testimonial slider-buttons">
+            <button className="slider-btn prev" onClick={handlePrev}>
+              ‹
+            </button>
+            <button className="slider-btn next" onClick={handleNext}>
+              ›
+            </button>
+          </div>
       </div>
     </section>
   );
