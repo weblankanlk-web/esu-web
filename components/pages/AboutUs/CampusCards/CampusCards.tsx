@@ -48,10 +48,9 @@ const CampusCards = () => {
         </p>
       </div>
       <br />
-      <br />
-      <div className="campus-grid">
+      <div className="campus-grid ">
         {campuses.map((campus, index) => (
-          <div key={index} className="campus-card">
+          <div key={index} className="campus-card ">
             <Link href={campus.link ? `/about-us/${campus.link}` : "#"}>
               <Image
                 src={campus.image}
