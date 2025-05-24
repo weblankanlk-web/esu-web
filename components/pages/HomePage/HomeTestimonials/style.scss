@@ -287,6 +287,7 @@
     // Responsive: adjust arrow size and position for mobile
     @media only screen and (max-width: 767px) {
       
+
       .slick-arrow {
         width: 28px;
         height: 28px;
@@ -348,6 +349,26 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 767px) {
+   .video-modal {
+   
+    width: 100% !important;
+    height: 100%  !important;;
+   
+
+    .video-modal-content {
+     
+      width: 100%  !important;;
+      height: 100%  !important;;
+    }
+    iframe {
+      width: 100%  !important;
+      height: 100%  !important;
+    }
+  }
+  
 }
 
 // // Read More content
