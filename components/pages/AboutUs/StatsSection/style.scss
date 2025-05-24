@@ -56,9 +56,47 @@
   }
 }
 
-// Tablet
-@media screen and (min-width: 768px) {
+// Tablet: 2 columns, 2 rows
+@media screen and (min-width: 620px) and (max-width: 989px) {
   .stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 32px;
+    padding: 32px 24px;
+  }
+
+  .stat-box {
+    border-bottom: 1px solid #e0e0e0;
+    border-right: none;
+    padding: 24px 0;
+    gap: 12px;
+
+    &:nth-child(2n) {
+      border-right: none;
+    }
+    &:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+    .stat-number {
+      font-size: 28px;
+      margin: 0 0 6px 0;
+    }
+
+    .stat-label {
+      font-size: 16px;
+    }
+  }
+}
+
+// Desktop: row layout
+@media screen and (min-width: 990px) {
+  .stats-section {
+    padding: 48px 40px;
+  }
+
+  .stats-container {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
@@ -77,28 +115,12 @@
     }
 
     .stat-number {
-      font-size: 28px;
-      margin: 0 0 6px 0;
+      font-size: 32px;
     }
 
     .stat-label {
-      font-size: 16px;
+      font-size: 18px;
     }
-  }
-}
-
-// Large
-@media screen and (min-width: 990px) {
-  .stats-section {
-    padding: 48px 40px;
-  }
-
-  .stat-box .stat-number {
-    font-size: 32px;
-  }
-
-  .stat-box .stat-label {
-    font-size: 18px;
   }
 }
 
