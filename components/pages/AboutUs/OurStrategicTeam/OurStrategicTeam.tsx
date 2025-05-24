@@ -6,18 +6,13 @@ import "./style.scss";
 import MemberCardItem from "../../Faculty/MembersLanding/MemberCard/MemberCard";
 import { graphQLClient } from "@/lib/graphql-client";
 import { OUR_STRATEGIC_TEAM } from "@/common/queries/query";
-import { StaffMember } from "@/common/types/type";
 
 interface StrategicTeamMember {
   id: string;
-  name: string;
   title: string;
-  image: {
-    url: string;
-    altText: string;
-  };
-  description: string;
   slug: string;
+  staffAcf: any;
+  featuredImage: any;
   schoolTypes?: {
     nodes?: {
       slug: string;
@@ -25,23 +20,37 @@ interface StrategicTeamMember {
   };
 }
 
+const namePriority = [
+  "Dr. Dayan Rajapakse",
+  "Mr. Nishan Sembacuttiaratchy",
+  "Mr. Amila Bandara",
+];
+
 const OurStrategicTeam = () => {
-  const [ourStrategicTeam, setOurStrategicTeam] = useState<StrategicTeamMember[]>(
-    []
-  );
+  const [ourStrategicTeam, setOurStrategicTeam] = useState<
+    StrategicTeamMember[]
+  >([]);
 
   useEffect(() => {
     const fetchStrategicTeam = async () => {
       try {
         const data = await graphQLClient.request<{
           staffType: any;
-          strategicTeam: {
-            nodes: StrategicTeamMember[];
-          };
         }>(OUR_STRATEGIC_TEAM);
 
-        console.log("🎓 All Strategic Team Records:", data.staffType.staffs.nodes);
-        setOurStrategicTeam(data.staffType.staffs.nodes);
+        const members = data.staffType.staffs.nodes;
+
+        const sorted = [...members].sort((a, b) => {
+          const aIndex = namePriority.indexOf(a.title);
+          const bIndex = namePriority.indexOf(b.title);
+
+          if (aIndex === -1 && bIndex === -1) return 0;
+          if (aIndex === -1) return 1;
+          if (bIndex === -1) return -1;
+          return aIndex - bIndex;
+        });
+
+        setOurStrategicTeam(sorted);
       } catch (error) {
         console.error("Error fetching strategic team data:", error);
       }
@@ -67,7 +76,7 @@ const OurStrategicTeam = () => {
             accessible, high-quality higher education in Sri Lanka.
           </p>
         </div>
-        {/* strategic team members */}
+
         <div className="strategic-team-members">
           <div className="members-wrap d-flex flex-wrap justify-content-start gap-1">
             {ourStrategicTeam.length === 0 ? (
