@@ -24,9 +24,9 @@ const HomeTestimonials: React.FC = () => {
         console.log("✅ Raw testimonials:", data.testimonials.nodes);
 
         const filtered = data.testimonials.nodes.filter((item) => {
-          const types = item.testimonials?.testimonialType || [];
-          const hasVideo = types.some((type) => type.toLowerCase() === "video");
-          return item.testimonials !== null && !hasVideo;
+          // const types = item.testimonials?.testimonialType || [];
+          // const hasVideo = types.some((type) => type.toLowerCase() === "video");
+          return item.testimonials !== null;
         });
 
         console.log("✅ Filtered testimonials (excluding video):", filtered);
@@ -46,7 +46,7 @@ const HomeTestimonials: React.FC = () => {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 4000,
     arrows: true,
     responsive: [
@@ -55,7 +55,7 @@ const HomeTestimonials: React.FC = () => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
-          arrows: false,
+         
         },
       },
       {
@@ -63,7 +63,7 @@ const HomeTestimonials: React.FC = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          arrows: false,
+      
         },
       },
       {
@@ -71,7 +71,7 @@ const HomeTestimonials: React.FC = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false,
+          arrows: true,
         },
       },
     ],
@@ -82,7 +82,7 @@ const HomeTestimonials: React.FC = () => {
       <div className="title-wrap">
         <TitleLarge title="Student" subtitle="&nbsp; Testimonials" />
       </div>
-      <div className="slider-wrap">
+      <div className="slider-wrap ">
         <Slider {...settings} className="testimonial-slider">
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="item">
