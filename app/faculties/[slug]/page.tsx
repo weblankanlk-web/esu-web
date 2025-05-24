@@ -76,21 +76,23 @@ const FacultyInnerPage = () => {
               } as React.CSSProperties
             }
           >
-<InnerBanner
-  innerPageTitlePrimary={"Faculty of "}
-  innerPageTitleSecondary={
-    <span className="inner-banner-title">
-      {faculty.schoolTypesColorFontFields.facultyName}
-    </span>
-  }
-  innerPageDescription={`Welcome to the Faculty of ${faculty.schoolTypesColorFontFields.facultyName}.`}
-  innerBgDesk={
-    faculty.schoolTypesColorFontFields.facultyDesktop?.node?.link || ""
-  }
-  innerBgMobi={
-    faculty.schoolTypesColorFontFields.facultyMobile?.node?.link || ""
-  }
-/>
+            <InnerBanner
+              innerPageTitlePrimary={"Faculty of "}
+              innerPageTitleSecondary={
+                <span className="inner-banner-title">
+                  {faculty.schoolTypesColorFontFields.facultyName}
+                </span>
+              }
+              innerPageDescription={`Welcome to the Faculty of ${faculty.schoolTypesColorFontFields.facultyName}.`}
+              innerBgDesk={
+                faculty.schoolTypesColorFontFields.facultyDesktop?.node?.link ||
+                ""
+              }
+              innerBgMobi={
+                faculty.schoolTypesColorFontFields.facultyMobile?.node?.link ||
+                ""
+              }
+            />
 
             <FaculityOverview
               schoolOverviewTitle={`<span class="faculty-overview-title">${faculty.schoolTypesColorFontFields.schoolOverviewTitle}</span>`}

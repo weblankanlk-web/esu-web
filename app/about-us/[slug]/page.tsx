@@ -74,7 +74,10 @@ const page = () => {
   return (
     <>
       <InnerBanner
-        innerPageTitle={`ESU <span>${facultySlug}</span>`}
+        innerPageTitlePrimary="ESU"
+        innerPageTitleSecondary={
+          <span className="inner-banner-title">{facultySlug}</span>
+        }
         innerPageDescription="Welcome to ESU – Sri Lanka's premier uni for higher education excellence! Since our inception in 2000, we have evolved into a leading private uni, offering industry-relevant, globally recognised academic programmes. Our growing academic network spans multiple campuses, empowering students to achieve their full potential across a wide range of disciplines."
         innerBgDesk="/images/campus-inner-banner.gif"
         innerBgMobi="/images/campus-inner-banner.gif"
