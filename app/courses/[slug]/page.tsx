@@ -284,9 +284,10 @@ const page = () => {
             >
               <div className="d-flex course-details-bar-details">
                 <div className="course-details-partner-logo">
-                  {course?.image && (
-                    <img src={course?.image || ""} alt={course?.name || ""} />
-                  )}
+                  {course?.image &&
+                    course?.image != "/images/placeholder.png" && (
+                      <img src={course?.image || ""} alt={course?.name || ""} />
+                    )}
                 </div>
                 <div>
                   <p>
