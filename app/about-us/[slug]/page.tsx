@@ -21,7 +21,7 @@ const page = () => {
     null
   );
 
-  const { color,setColor } = useTheme();
+  const { color, setColor } = useTheme();
   useEffect(() => {
     setColor("rgb(0, 174, 205)");
   }, [setColor]);
@@ -29,8 +29,17 @@ const page = () => {
   const pathname = usePathname();
   const slug = pathname.split("/").pop();
 
-  const facultySlug = slug?.split("-").join(" ").toUpperCase();
+  const facultySlugRaw = slug || "";
+  const words = facultySlugRaw.split("-");
 
+  const sentenceCaseWords = words.map(
+    (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  );
+
+  const [firstWord, secondWord] = sentenceCaseWords;
+
+  // Optional: join the full sentence-cased title if needed
+  const facultyTitle = sentenceCaseWords.join(" ");
   // console.log("facultySlug", facultySlug);
 
   console.log("slug", slug);
@@ -54,7 +63,6 @@ const page = () => {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
-
     };
 
     var campusSlug = null;
@@ -79,13 +87,13 @@ const page = () => {
   return (
     <>
       <InnerBanner
-        innerPageTitlePrimary="ESU"
+        innerPageTitlePrimary={"ESU " + firstWord}
         innerPageTitleSecondary={
-          <span className="inner-banner-title">{facultySlug}</span>
+          <span className="inner-banner-title">{secondWord}</span>
         }
         innerPageDescription="Welcome to ESU – Sri Lanka's premier uni for higher education excellence! Since our inception in 2000, we have evolved into a leading private uni, offering industry-relevant, globally recognised academic programmes. Our growing academic network spans multiple campuses, empowering students to achieve their full potential across a wide range of disciplines."
-        innerBgDesk="/images/campus-inner-banner.gif"
-        innerBgMobi="/images/campus-inner-banner.gif"
+        innerBgDesk="/images/inner-banner.gif"
+        innerBgMobi="/images/inner-banner.gif"
       />
 
       {viceChancellor && (
@@ -111,7 +119,6 @@ const page = () => {
       {/* <CreativeCollage slug={slug || ""} /> */}
 
       <ContactHeadOffice />
-   
     </>
   );
 };
