@@ -230,6 +230,53 @@ ul#top-menu a {
   text-decoration: none;
 }
 
+/************************* Mega Menu Hover Wrapper **************************/
+
+.faculties-hover-menu {
+  position: relative;
+
+  .faculties-hover-wrapper {
+    position: relative;
+
+    .mega-menu {
+      position: fixed; // Use fixed to detach from container
+      top: 120px; // Adjust based on your header height
+      left: 0;
+      width: 100vw;
+      background: #fff;
+      z-index: 1000;
+      padding: 40px 60px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      display: none;
+
+      .mega-menu-panel {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: nowrap;
+      }
+    }
+
+    &:hover .mega-menu {
+      display: block;
+    }
+  }
+}
+
+@keyframes arrowMoveRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+/************************ Responsive ************************/
+
 @media (min-width: 991px) {
   .desktop-only-view,
   .desktop-esu-logo {
@@ -276,93 +323,5 @@ ul#top-menu a {
     .navbar ul li {
       padding-bottom: 15px;
     }
-  }
-}
-
-
-
-.faculties-hover-menu {
-  .mega-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    z-index: 1000;
-    padding: 40px 60px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    display: none;
-
-    .mega-menu-panel {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: nowrap !important;
-      row-gap: 0;
-    }
-
-    .mega-column {
-      flex: 1 1 30%;
-
-      h4 {
-        font-size: 16px;
-        font-weight: 700;
-        margin-bottom: 12px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: #000;
-
-        .arrow {
-          display: inline-block;
-          transition: transform 0.3s ease;
-        }
-
-        &:hover .arrow {
-          animation: arrowMoveRight 0.3s forwards;
-        }
-      }
-
-      h4:hover .arrow {
-        transform: translateX(5px);
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 20px;
-
-        li {
-          margin-bottom: 6px;
-
-          a {
-            text-decoration: none;
-            font-size: 14px !important;
-            font-weight: 400 !important;
-            color: #333 !important;
-            text-transform: capitalize !important;
-
-            &:hover {
-              color: #0e52a5 !important;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &:hover .mega-menu {
-    display: block;
-  }
-}
-
-@keyframes arrowMoveRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(5px);
   }
 }
