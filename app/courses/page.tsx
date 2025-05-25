@@ -215,25 +215,25 @@ export default function CoursesPage() {
 
       <section className="simple-padding-bottom dark-lightmode dark-font-change">
         <div className="small-middle-wrap">
-          <h2 className="section-heading section-heading--black">
+          <h2 className="section-heading section-heading--black" data-aos="flip-down">
             our <span>courses</span>
           </h2>
 
-          <div className="landing-wrap-top">
+          <div className="landing-wrap-top" data-aos="fade-up">
             <div className="landing-results landing-results-top">
               <SearchBar search={search} setSearch={setSearch} />
             </div>
           </div>
 
-          <div className="landing-wrap">
+          <div className="landing-wrap" >
             {/* Filter Section */}
-            <div className="landing-filter">
+            <div className="landing-filter" data-aos="fade-right" >
               {search ||
               selectedSchools.length ||
               selectedPrograms.length ||
               selectedModes.length ||
               selectedBranches.length ? (
-                <div>
+                <div  >
                   <p id="search-breif">
                     <span id="result-count">{filteredCourses.length} </span>
                     {search && <span id="result-keyword">"{search}"</span>}
@@ -275,7 +275,7 @@ export default function CoursesPage() {
                 </div>
               ) : null}
 
-              <div className="d-flex filter-clear-wrap justify-content-between align-items-center">
+              <div className="d-flex filter-clear-wrap justify-content-between align-items-center"  >
                 <h5 className="desktop-div">filter by</h5>
                 <button
                   id="filter-toggle"
@@ -363,7 +363,7 @@ export default function CoursesPage() {
               </div>
             </div>
 
-            <div className="landing-results">
+            <div className="landing-results"  >
               <div className="landing-results-inner">
                 {/* Course List */}
                 <CourseList
