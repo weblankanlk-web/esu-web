@@ -19,7 +19,7 @@ const CourseOutline: React.FC<CourseOutlineProps> = ({ modules }) => {
   const { color, setColor } = useTheme();
 
   return (
-    <div className="course-details-wrapper">
+    <div className="course-details-wrapper" data-aos="zoom-in">
       <div id="section3">
         <div className="related-coures-div course-title">
           <h5>

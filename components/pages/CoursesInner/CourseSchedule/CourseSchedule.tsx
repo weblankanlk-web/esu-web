@@ -52,7 +52,7 @@ const CourseSchedule: React.FC<ScheduleProps> = ({ schedule }) => {
   //console.log(filteredBatches);
 
   return (
-    <div className="course-details-wrapper">
+    <div className="course-details-wrapper" data-aos="zoom-in" >
       <div id="section5" className="related-coures-div course-title">
         <h5>
           <span>
