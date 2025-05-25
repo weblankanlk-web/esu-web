@@ -106,6 +106,7 @@ const page = () => {
       <CreativeCollage slug={slug || ""} />
 
       <ContactHeadOffice />
+   
     </>
   );
 };
