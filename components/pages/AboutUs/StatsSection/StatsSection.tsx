@@ -98,7 +98,7 @@ const CountUp = ({
 
 const StatsSection = () => {
   return (
-    <section className="stats-section">
+    <section className="stats-section" data-aos="fade-up">
       <div className="stats-container">
         {stats.map((item, index) => (
           <div key={index} className="stat-box">

@@ -827,6 +827,25 @@ query($slug: ID!) {
 }
 `;
 
+export const HOME_LATEST_NEWS =`
+query MyQuery {
+  news(first: 6) {
+    nodes {
+     title
+      slug
+      content
+      date
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+        }
+      }
+    }
+  }
+}
+`;
+
 export const GET_ALL_NEWS = `
 query GetNews($first: Int = 6, $after: String) {
   news(first: $first, after: $after) {

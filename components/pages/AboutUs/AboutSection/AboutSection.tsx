@@ -22,10 +22,10 @@ const AboutSection: React.FC<HomeAboutProps> = ({
     <section className="home-about">
       <div className="full-wrap">
         <div className="image-detail-wrap">
-          <div className="left">
+          <div className="left" data-aos="fade-right">
             <Image src={image} width={900} height={850} alt="" />
           </div>
-          <div className="right">
+          <div className="right" data-aos="fade-left" >
             <div className="title-wrap">
               <TitleLarge title={title} subtitle={subtitle} />
             </div>
