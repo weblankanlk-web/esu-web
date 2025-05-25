@@ -62,7 +62,7 @@ const OurStrategicTeam = () => {
   return (
     <section className="our-strategic-team">
       <div className="full-wrap">
-        <div className="title-wrap">
+        <div className="title-wrap" data-aos="fade-up">
           <TitleLarge title="Our" subtitle=" Strategic Team" />
           <p className="pt-5">
             ESU is guided by a strong and forward-thinking leadership team
@@ -77,7 +77,7 @@ const OurStrategicTeam = () => {
           </p>
         </div>
 
-        <div className="strategic-team-members">
+        <div className="strategic-team-members" >
           <div className="members-wrap ">
             {ourStrategicTeam.length === 0 ? (
               <p>No Strategic Team found for this department.</p>

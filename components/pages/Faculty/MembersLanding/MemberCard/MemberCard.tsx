@@ -15,7 +15,7 @@ const MemberCardItem: React.FC<Props> = ({ memberData }) => {
   const SlugUrl = memberData?.slug;
 
   return (
-    <div className="single-massage-card d-flex member-card">
+    <div className="single-massage-card d-flex member-card" data-aos="flip-left">
       <a href={`/academics/${SlugUrl}`} className="single-image-wrap">
         <div className="member-details">
           <h3 className="name">{MemberName}</h3>
