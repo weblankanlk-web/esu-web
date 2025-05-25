@@ -144,6 +144,7 @@ export default function CoursesPage() {
           "Certificate Level",
           "Diploma Level",
           "Higher National Certificate",
+          "Higher National Diploma Level",
         ];
         const filteredTypes = data.courseTypes.nodes.filter(
           (type) => !excludedNames.includes(type.name)
