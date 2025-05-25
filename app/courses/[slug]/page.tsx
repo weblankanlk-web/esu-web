@@ -32,6 +32,8 @@ const page = () => {
     description?: string;
     name?: string;
     image?: string;
+    is_bundle_course: number;
+    bundle_items: any;
     course_content?: {
       modules?: [];
     };
@@ -44,6 +46,10 @@ const page = () => {
   const [schedule, setSchedule] = useState([]);
   const [courseDetails, setCourseDetails] = useState<Courses | null>(null);
   const [relatedCourses, setRelatedCourses] = useState<RelatedCourses[]>([]);
+
+  const [subCourses, setSubCourses] = useState<any[]>([]);
+
+  const [selectedSubCourse, setSelectedSubCourse] = useState(null);
 
   useEffect(() => {
     const school = courseDetails?.schoolTypes?.nodes?.[0];
@@ -59,30 +65,42 @@ const page = () => {
     }
   }, [courseDetails]);
 
+  const fetchCourse = async (courseId: any, main_course: boolean) => {
+    try {
+      const response = await axios.get(
+        `https://publicapi.esoft.lk/api/v1/courses/${courseId}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Bearer ${
+              process.env.NEXT_PUBLIC_API_KEY ||
+              "1100626|VPJcv2Y6wFiHPw4i60xdc1WQ2NMPUQgerXlYhOyI3a07cd1c"
+            }`,
+          },
+        }
+      );
+
+      const data = response.data.data;
+
+      if (main_course) {
+        setCourse(data); // main course set
+      } else {
+        if (!main_course) {
+          setSubCourses((prev) => {
+            const alreadyExists = prev.some((item) => item.id === data.id);
+            if (alreadyExists) return prev;
+            return [...prev, data];
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching course data:", error);
+    }
+  };
+
   useEffect(() => {
     if (!courseId) return;
-
-    const fetchCourse = async () => {
-      try {
-        const response = await axios.get(
-          `https://publicapi.esoft.lk/api/v1/courses/${courseId}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-              Authorization: `Bearer ${
-                process.env.NEXT_PUBLIC_API_KEY ||
-                "1100626|VPJcv2Y6wFiHPw4i60xdc1WQ2NMPUQgerXlYhOyI3a07cd1c"
-              }`,
-            },
-          }
-        );
-
-        setCourse(response.data.data);
-      } catch (error) {
-        console.error("Error fetching course data:", error);
-      }
-    };
 
     const fetchCourseDetails = async () => {
       try {
@@ -164,12 +182,51 @@ const page = () => {
       }
     };
 
-    fetchCourse();
+    fetchCourse(courseId, true);
     fetchCourseDetails();
     fetchCourseFees();
     fetchSchedule();
     fetchRelatedCourses();
   }, [courseId]);
+
+  // console.log("fetchCourse", course);
+
+  useEffect(() => {
+    const fetchedIds = new Set();
+
+    const fetchBundleItems = () => {
+      if (course?.is_bundle_course !== 1) return;
+
+      course.bundle_items.forEach((item: any) => {
+        if (item?.course_id && !fetchedIds.has(item.course_id)) {
+          fetchedIds.add(item.course_id);
+          fetchCourse(item.course_id, false);
+        }
+      });
+    };
+
+    fetchBundleItems();
+  }, [course]);
+
+  useEffect(() => {
+    if (subCourses.length > 0 && !selectedSubCourse) {
+      setSelectedSubCourse(subCourses[0].name);
+    }
+  }, [subCourses]);
+
+  // console.log("Main course:", course);
+  // console.log("Bundle sub-courses:", subCourses);
+
+  // console.log(
+  //   "selected course",
+  //   subCourses
+  //     .find((sc) => sc.name === selectedSubCourse)
+  //     ?.course_content?.classifications?.flatMap((c) => c.modules) || []
+  // );
+
+  const selectCourse = subCourses.find((sc) => sc.name === selectedSubCourse);
+
+  // console.log("selectCourse insaf", selectCourse);
 
   return (
     <>
@@ -267,10 +324,52 @@ const page = () => {
                 </li>
               </ul> */}
 
+              {course?.is_bundle_course === 1 && (
+                <div className="toggle-buttons mb-3">
+                  {subCourses?.map((subCourse, index) => (
+                    <button
+                      className={`${
+                        selectedSubCourse === subCourse.name ? "active" : ""
+                      }`}
+                      onClick={() => setSelectedSubCourse(subCourse.name)}
+                      key={index}
+                    >
+                      {subCourse.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+
               <CourseOverview course={course || undefined} />
 
-              {/* <CourseOutline modules={course?.course_content?.modules || undefined} /> */}
-              <CourseOutline modules={course?.course_content?.modules || []} />
+              {course?.is_bundle_course !== 1 ? (
+                <CourseOutline
+                  classifications={[
+                    {
+                      id: 0,
+                      classification_name: "Modules",
+                      modules: course?.course_content?.modules || [],
+                    },
+                  ]}
+                />
+              ) : (
+                <CourseOutline
+                  classifications={
+                    Array.isArray(
+                      selectCourse?.course_content?.classifications
+                    ) && selectCourse.course_content.classifications.length > 0
+                      ? selectCourse.course_content.classifications
+                      : [
+                          {
+                            id: 0,
+                            classification_name: "Modules",
+                            modules:
+                              selectCourse?.course_content?.modules || [],
+                          },
+                        ]
+                  }
+                />
+              )}
 
               <CourseSchedule schedule={schedule} />
               {/* ------------------------------------------------ */}
