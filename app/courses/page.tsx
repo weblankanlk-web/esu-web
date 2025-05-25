@@ -227,7 +227,7 @@ export default function CoursesPage() {
 
           <div className="landing-wrap" >
             {/* Filter Section */}
-            <div className="landing-filter" data-aos="fade-right" >
+            <div className="landing-filter" data-aos="fade-up" >
               {search ||
               selectedSchools.length ||
               selectedPrograms.length ||

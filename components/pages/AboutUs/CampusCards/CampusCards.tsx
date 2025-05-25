@@ -48,7 +48,7 @@ const CampusCards = () => {
         </p>
       </div>
       <br />
-      <div className="campus-grid " data-aos="fade-left" >
+      <div className="campus-grid " data-aos="fade-up" >
         {campuses.map((campus, index) => (
           <div key={index} className="campus-card ">
             <Link href={campus.link ? `/about-us/${campus.link}` : "#"}>

@@ -86,7 +86,7 @@ export default function HomeCourses() {
           <Button buttonName="Explore" buttonUrl="/courses" />
         </div>
       </div>
-      <div className="slider-wrap" data-aos="fade-left" >
+      <div className="slider-wrap" data-aos="fade-up" >
         <Slider {...settings} className="courses-slider">
           {courses.map((course) => (
             <div key={course.id} className="item">

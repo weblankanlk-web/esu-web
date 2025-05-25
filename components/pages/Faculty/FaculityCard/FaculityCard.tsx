@@ -26,7 +26,7 @@ const FaculityCard: React.FC<faculityCardProps> = ({
 }) => {
   return (
     <>
-      <section className="single-faculity-card position-relative">
+      <section className="single-faculity-card position-relative" data-aos="flip-down">
         <div className="single-faculity-card-wrap">
           <Link
             href={`faculties/${facilityLink}`}
