@@ -98,10 +98,10 @@ const CountUp = ({
 
 const StatsSection = () => {
   return (
-    <section className="stats-section">
+    <section className="stats-section" >
       <div className="stats-container">
         {stats.map((item, index) => (
-          <div key={index} className="stat-box">
+          <div key={index} className="stat-box" data-aos="flip-left">
             <div className="stat-icon">{item.icon}</div>
             <div className="stats-content">
               <div className="stat-number">

@@ -1,13 +1,20 @@
+"use client";
 import CampusCards from "@/components/pages/AboutUs/CampusCards/CampusCards";
 import StatsSection from "@/components/pages/AboutUs/StatsSection/StatsSection";
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import OurVision from "@/components/pages/AboutUs/OurVision/OurVision";
 import AboutSection from "@/components/pages/AboutUs/AboutSection/AboutSection";
 
-import React from "react";
+import React,{ useEffect } from "react";
 import OurStrategicTeam from "@/components/pages/AboutUs/OurStrategicTeam/OurStrategicTeam";
+import { useTheme } from "@/lib/ThemeContext";
 
 const page = () => {
+  const { setColor } = useTheme();
+  useEffect(() => {
+    setColor("rgb(0, 174, 205)");
+  }, [setColor]);
+
   return (
     <>
       <InnerBanner

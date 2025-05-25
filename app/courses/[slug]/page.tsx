@@ -235,7 +235,7 @@ const page = () => {
       <section className="simple-padding-bottom dark-lightmode dark-font-change">
         <div className="course-wrap">
           <div className="left-course">
-            <div className="left-course-img">
+            <div className="left-course-img" data-aos="flip-left">
               {courseDetails?.featuredImage?.node?.mediaItemUrl && (
                 <img
                   src={courseDetails.featuredImage.node.mediaItemUrl}
@@ -243,7 +243,7 @@ const page = () => {
                 />
               )}
             </div>
-            <div className="left-course-details">
+            <div className="left-course-details" data-aos="fade-up">
               <div className="d-flex justify-content-center course-btn-wrap">
                 <Modal>
                   <InquireForm />

@@ -3,6 +3,7 @@
 .stats-section {
   padding: 20px 16px;
   background-color: #f9f9fb;
+  margin-top: 3%;
 }
 
 .stats-container {
@@ -31,8 +32,8 @@
   }
 
   .stat-icon {
-    margin-bottom: 8px;
-    font-size: 24px;
+    margin-bottom: 0px;
+    font-size: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +42,7 @@
   .stat-number {
     font-weight: 700;
     font-size: 24px;
-    color: #e60028;
+    color: #02AEC9;
     margin: 0 0 4px 0;
     text-align: center;
     letter-spacing: 0.5px;
@@ -139,7 +140,7 @@
     gap: get-vw(12px);
 
     .stat-icon {
-      font-size: get-vw(32px);
+      font-size: get-vw(72px);
     }
 
     .stat-number {

@@ -17,7 +17,7 @@ const InnerBanner: React.FC<InnerBannerProps> = ({
   innerBgMobi,
 }) => {
   return (
-    <section className="inner-banner position-relative" data-aos="fade-up" >
+    <section className="inner-banner position-relative"  >
       <div className="full-wrap">
         <div className="inner-banner-image">
           <picture>

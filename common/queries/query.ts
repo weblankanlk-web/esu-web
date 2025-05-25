@@ -489,6 +489,7 @@ export const VICE_CHANCELLOR_QUERY = `
           staffAcf {
             designation
             message
+            viceChancellorMessage
           }
           title
           featuredImage {
@@ -511,6 +512,7 @@ query($slug: ID!) {
         staffAcf {
           designation
           message
+          viceChancellorMessage
         }
         title
         featuredImage {
@@ -827,6 +829,25 @@ query($slug: ID!) {
 }
 `;
 
+export const HOME_LATEST_NEWS = `
+query MyQuery {
+  news(first: 6) {
+    nodes {
+     title
+      slug
+      content
+      date
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+        }
+      }
+    }
+  }
+}
+`;
+
 export const GET_ALL_NEWS = `
 query GetNews($first: Int = 6, $after: String) {
   news(first: $first, after: $after) {
@@ -850,6 +871,29 @@ query GetNews($first: Int = 6, $after: String) {
 }
 `;
 
+export const GET_ALL_BLOGS = `
+  query Blogs($first: Int = 6, $after: String) {
+    news: blogs(first: $first, after: $after) {
+      nodes {
+        title
+        slug
+        content
+        date
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+    }
+  }
+`;
+
 export const GET_NEWS_BY_SLUG = `
 query($slug: ID!) {
   new(
@@ -862,6 +906,31 @@ query($slug: ID!) {
     slug
     news {
       date
+      gallery {
+        nodes {
+          altText
+          sourceUrl
+        }
+      }
+    }
+    featuredImage {
+      node {
+        altText
+        sourceUrl
+      }
+    }
+  }
+}
+`;
+
+export const GET_BLOGS_BY_SLUG = `
+query GetBlogBySlug($slug: ID!) {
+  blog(id: $slug, idType: SLUG) {
+    content
+    date
+    title
+    slug
+    blogs {
       gallery {
         nodes {
           altText
@@ -896,7 +965,6 @@ query($slug: ID!) {
 }
 `;
 
-
 // export const GET_MENU_COURSE_BY_SLUG_SELECTED = `
 // query($slug: ID!) {
 //   staffType(id: $slug, idType: SLUG) {
@@ -918,5 +986,3 @@ query($slug: ID!) {
 //   }
 // }
 // `;
-
-

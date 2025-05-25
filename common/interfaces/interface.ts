@@ -96,6 +96,27 @@ export interface NewsEvents {
   };
 }
 
+export interface InterfaceBlogs {
+  title: string;
+  slug: string;
+  date: string;
+  content: string;
+  featuredImage: {
+    node: {
+      altText: string;
+      sourceUrl: string;
+    };
+  };
+  blogs?: {
+    gallery: {
+      nodes: {
+        altText: string;
+        sourceUrl: string;
+      }[];
+    };
+  };
+}
+
 export interface CoursesMenu {
   name: string;
   title: string;

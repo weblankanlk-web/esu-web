@@ -31,7 +31,7 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
       <div className="dean-massage-wrap">
         <div className="massage-wrap">
           <div className="single-massage-card d-flex">
-            <div className="single-image-wrap">
+            <div className="single-image-wrap" data-aos="fade-up">
               <div className="member-details">
                 <h3 className="name">{DeanName}</h3>
                 <h4 className="position">{designation}</h4>
@@ -46,7 +46,7 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
               </div>
             </div>
 
-            <div className="single-massage">
+            <div className="single-massage" data-aos="fade-up">
               <h2 className="dean-message-title" style={{ fontFamily }}>
                 {title}
                 <span style={{ color: fontColor }}>

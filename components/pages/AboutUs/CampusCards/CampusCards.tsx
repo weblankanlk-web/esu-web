@@ -32,7 +32,7 @@ const CampusCards = () => {
 
   return (
     <section className="campus-section">
-      <div className="title-wrap">
+      <div className="title-wrap" data-aos="fade-up">
         <TitleLarge title="Our" subtitle=" Campuses" />
         <br />
         <br />
@@ -48,7 +48,7 @@ const CampusCards = () => {
         </p>
       </div>
       <br />
-      <div className="campus-grid ">
+      <div className="campus-grid " data-aos="fade-up" >
         {campuses.map((campus, index) => (
           <div key={index} className="campus-card ">
             <Link href={campus.link ? `/about-us/${campus.link}` : "#"}>

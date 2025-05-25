@@ -4,15 +4,15 @@ import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { graphQLClient } from "@/lib/graphql-client";
-import { GET_ALL_NEWS } from "@/common/queries/query";
-import { NewsEvents } from "@/common/interfaces/interface";
+import { GET_ALL_BLOGS } from "@/common/queries/query";
+import { InterfaceBlogs } from "@/common/interfaces/interface";
 import Link from "next/link";
 import { useTheme } from "@/lib/ThemeContext";
 
 const PAGE_SIZE = 9;
 
-const NewsPage = () => {
-  const [newsEvents, setNewsEvents] = useState<NewsEvents[]>([]);
+const Blogs = () => {
+  const [newsEvents, setNewsEvents] = useState<InterfaceBlogs[]>([]);
   const [endCursor, setEndCursor] = useState<string | null>(null);
   const [cursors, setCursors] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,19 +26,34 @@ const NewsPage = () => {
     first = PAGE_SIZE,
     after: string | null = null
   ) => {
-    const data = await graphQLClient.request<{
-      news: {
-        nodes: NewsEvents[];
-        pageInfo: {
-          endCursor: string;
-          hasNextPage: boolean;
+    try {
+      console.log("📡 Fetching News & Events with:", { first, after });
+
+      const data = await graphQLClient.request(GET_ALL_BLOGS, { first, after });
+
+      console.log("✅ Raw GraphQL Response:", data);
+
+      const typedData = data as {
+        news: {
+          nodes: InterfaceBlogs[];
+          pageInfo: {
+            endCursor: string;
+            hasNextPage: boolean;
+          };
         };
       };
-    }>(GET_ALL_NEWS, { first, after });
 
-    setNewsEvents(data.news.nodes);
-    setEndCursor(data.news.pageInfo.endCursor);
-    setHasNextPage(data.news.pageInfo.hasNextPage);
+      if (!typedData.news) {
+        console.warn("⚠️ `news` is undefined in response");
+        return;
+      }
+
+      setNewsEvents(typedData.news.nodes);
+      setEndCursor(typedData.news.pageInfo.endCursor);
+      setHasNextPage(typedData.news.pageInfo.hasNextPage);
+    } catch (error) {
+      console.error("❌ Error fetching News & Events:", error);
+    }
   };
 
   useEffect(() => {
@@ -65,9 +80,9 @@ const NewsPage = () => {
   return (
     <>
       <InnerBanner
-        innerPageTitlePrimary={"News &"}
-        innerPageTitleSecondary={" Events"}
-        innerPageDescription="Discover the latest at ESU on our dynamic News & Events page featuring updates on graduation ceremonies, new campus openings, programme launches, and new partnerships. This is where you will find all the highlights. Stay informed, celebrate success and follow our journey as we continue to advance academic excellence and innovation."
+        innerPageTitlePrimary={""}
+        innerPageTitleSecondary={"Blogs"}
+        innerPageDescription=""
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />
@@ -112,7 +127,7 @@ const NewsPage = () => {
                       }}
                     />
                   </div>
-                  <Link className="btnn-next" href={`/news/${news.slug}`}>
+                  <Link className="btnn-next" href={`/blogs/${news.slug}`}>
                     Read More
                   </Link>
                 </div>
@@ -139,4 +154,4 @@ const NewsPage = () => {
   );
 };
 
-export default NewsPage;
+export default Blogs;

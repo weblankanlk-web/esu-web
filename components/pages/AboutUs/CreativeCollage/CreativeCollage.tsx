@@ -22,7 +22,7 @@ const CreativeCollage: React.FC<CreativeCollageProps> = ({ slug }) => {
   // }
 
   return (
-    <section className="creative-collage">
+    <section className="creative-collage" data-aos="zoom-in" >
       <TitleLarge title="Campus" subtitle=" Highlights" />
       <br />
       <br />

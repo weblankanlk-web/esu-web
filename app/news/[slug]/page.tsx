@@ -11,12 +11,17 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.scss";
+import { useTheme } from "@/lib/ThemeContext";
 
 const page = () => {
   const pathname = usePathname();
   const slug = pathname.split("/").pop();
 
   const [news, setNews] = useState<NewsEvents | null>(null);
+  const { setColor } = useTheme();
+  useEffect(() => {
+    setColor("rgb(0, 174, 205)");
+  }, [setColor]);
 
   useEffect(() => {
     const fetchNews = async () => {

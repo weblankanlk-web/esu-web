@@ -56,12 +56,12 @@ const HomeUniversities = () => {
   return (
     <section className="home-universities">
       <div className="home-uni-wrap">
-        <div className="uni-content-wrap">
+        <div className="uni-content-wrap" data-aos="fade-up"  >
           <TitleLarge title="Academic" subtitle=" Partnerships" />
-          <div className="uni-content">{universityContent}</div>
+          <div className="uni-content"  >{universityContent}</div>
         </div>
 
-        <div className="uni-slider-wrap">
+        <div className="uni-slider-wrap" data-aos="fade-up" >
           <Slider
             ref={sliderRef}
             {...sliderSettings}

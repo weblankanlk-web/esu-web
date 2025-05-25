@@ -82,8 +82,8 @@ const HomeTestimonials: React.FC = () => {
   };
 
   return (
-    <section className="home-testimonials">
-      <div className="title-wrap">
+    <section className="home-testimonials" data-aos="fade-up">
+      <div className="title-wrap" >
         <TitleLarge title="Student" subtitle="&nbsp; Testimonials" />
         
       </div>

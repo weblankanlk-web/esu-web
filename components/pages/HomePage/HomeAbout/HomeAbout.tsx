@@ -17,7 +17,7 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ title, subtitle, content, image }
       <section className="home-about"  >
         <div className="full-wrap">
           <div className="image-detail-wrap">
-            <div className="left" data-aos="fade-right">
+            <div className="left" data-aos="fade-up" >
               <Image
                 src={image}
                 width={900}
@@ -25,7 +25,7 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ title, subtitle, content, image }
                 alt=""
               />
             </div>
-            <div className="right" data-aos="fade-left">
+            <div className="right" data-aos="fade-up" >
               <div className="title-wrap">
                 <TitleLarge title={title} subtitle={subtitle} />
               </div>

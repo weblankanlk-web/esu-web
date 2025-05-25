@@ -1,11 +1,18 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import "./style.scss";
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import ContactCards from "@/components/pages/Contact/ContactCards/ContactCards";
 import ContactForm from "@/components/pages/Contact/ContactForm/ContactForm";
 import ContactHeadOffice from "@/components/pages/Contact/ContactHeadOffice/ContactHeadOffice";
+import { useTheme } from "@/lib/ThemeContext";
 
 const page = () => {
+  const { setColor } = useTheme();
+  useEffect(() => {
+    setColor("rgb(0, 174, 205)");
+  }, [setColor]);
+
   return (
     <>
       <InnerBanner

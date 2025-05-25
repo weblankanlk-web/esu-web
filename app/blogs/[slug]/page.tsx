@@ -1,46 +1,42 @@
 "use client";
 
+import { InterfaceBlogs } from "@/common/interfaces/interface";
+import { GET_BLOGS_BY_SLUG } from "@/common/queries/query";
+import Breadrumb from "@/components/common/Breadcrumb/Breadcrumb";
+import { graphQLClient } from "@/lib/graphql-client";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import "./style.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { usePathname } from "next/navigation";
-import { graphQLClient } from "@/lib/graphql-client";
-import { GET_PUBLICATIONS_BY_SLUG } from "@/common/queries/query";
-import { Publication } from "@/common/interfaces/interface";
-import Image from "next/image";
+import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 
-const page = () => {
+const Page = () => {
   const pathname = usePathname();
   const slug = pathname.split("/").pop();
 
-  const [research, setResearch] = useState<Publication | null>(null);
+  const [blog, setBlog] = useState<InterfaceBlogs | null>(null);
   const { setColor } = useTheme();
   useEffect(() => {
     setColor("rgb(0, 174, 205)");
   }, [setColor]);
-  
+
   useEffect(() => {
-    const fetchResearch = async () => {
+    const fetchBlog = async () => {
       const data = await graphQLClient.request<{
-        publication: Publication;
-      }>(GET_PUBLICATIONS_BY_SLUG, {
+        blog: InterfaceBlogs;
+      }>(GET_BLOGS_BY_SLUG, {
         slug,
       });
 
-      setResearch(data.publication);
-      console.log("data", data.publication);
+      console.log("📥 Fetched blog:", data.blog);
+      setBlog(data.blog);
     };
 
-    fetchResearch();
+    fetchBlog();
   }, [slug]);
-
-  const galleryImages =
-    research?.blogs?.gallery?.nodes?.map((item) => item.sourceUrl) || [];
-
-  console.log("gallery", galleryImages);
 
   const settings = {
     dots: true,
@@ -51,18 +47,38 @@ const page = () => {
     arrows: true,
     autoplay: true,
   };
+
+  console.log("📦 blog response:", blog);
+
+  /*   const galleryImages =
+    blog?.blogs?.gallery?.nodes?.map((item: any) => item.sourceUrl) || [];
+ */
+
+  const galleryImages =
+    blog?.blogs?.gallery?.nodes?.length &&
+    Array.isArray(blog.blogs.gallery.nodes)
+      ? blog.blogs.gallery.nodes.map((item) => item.sourceUrl)
+      : blog?.featuredImage?.node?.sourceUrl
+      ? [blog.featuredImage.node.sourceUrl]
+      : [];
+
+  console.log("🖼️ Gallery Images:", galleryImages);
+
   return (
     <>
-      <section className="simple-padding-bottom research-inner-page">
+      <Breadrumb />
+
+      <section className="simple-padding-bottom news-inner-page">
         <div className="small-middle-wrap">
           <div className="heading-wrap d-flex small-wrap">
             <h2 className="section-heading section-heading--black section-heading--underline section-heading--underline--center">
-              <span>{research?.title}</span>
+              <span>{blog?.title}</span>
             </h2>
           </div>
+
           {galleryImages.length > 0 && (
             <Slider {...settings} className="news-inner-slider">
-              {galleryImages.map((src: any, i: any) => (
+              {galleryImages.map((src: any, i: number) => (
                 <div key={i} className="slide-item">
                   <a href={src} target="_blank" rel="noopener noreferrer">
                     <Image
@@ -77,20 +93,19 @@ const page = () => {
               ))}
             </Slider>
           )}
+
           <div className="the-content-div news-con simple-padding-top">
             <div
               className="the-content"
               dangerouslySetInnerHTML={{
-                __html: research?.content || "",
+                __html: blog?.content || "",
               }}
             ></div>
           </div>
         </div>
       </section>
-
-      <section></section>
     </>
   );
 };
 
-export default page;
+export default Page;
