@@ -103,7 +103,7 @@ const page = () => {
 
       <CampusFacilities />
 
-      <CreativeCollage slug={slug || ""} />
+      {/* <CreativeCollage slug={slug || ""} /> */}
 
       <ContactHeadOffice />
    
