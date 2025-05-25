@@ -124,6 +124,15 @@ const Footer = () => {
               <li>
                 <Link href="/contact-us">Contact Us</Link>
               </li>
+              <li>
+                <Link href="/news">News & Events</Link>
+              </li>
+              <li>
+                <Link href="/blogs">Blogs</Link>
+              </li>
+              <li>
+                <Link href="/research">Research</Link>
+              </li>
             </ul>
           </div>
           <div className="column links">
