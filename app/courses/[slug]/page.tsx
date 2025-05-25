@@ -226,6 +226,8 @@ const page = () => {
 
   const selectCourse = subCourses.find((sc) => sc.name === selectedSubCourse);
 
+  console.log("subCourses", subCourses);
+
   // console.log("selectCourse insaf", selectCourse);
 
   return (
@@ -332,20 +334,39 @@ const page = () => {
                 }}
               />
               <br />
-
               {course?.is_bundle_course === 1 && (
                 <div className="toggle-buttons mb-3">
-                  {subCourses?.map((subCourse, index) => (
-                    <button
-                      className={`${
-                        selectedSubCourse === subCourse.name ? "active" : ""
-                      }`}
-                      onClick={() => setSelectedSubCourse(subCourse.name)}
-                      key={index}
-                    >
-                      {subCourse.name}
-                    </button>
-                  ))}
+                  {subCourses
+                    ?.slice() // make a shallow copy so we can sort
+                    .sort((a, b) => {
+                      const aName = a.name.toLowerCase();
+                      const bName = b.name.toLowerCase();
+
+                      const aIsHND = aName.includes("hnd") ? -1 : 1;
+                      const bIsHND = bName.includes("hnd") ? -1 : 1;
+
+                      return aIsHND - bIsHND; // HND comes before others
+                    })
+                    .map((subCourse, index) => {
+                      const name = subCourse.name.toLowerCase();
+                      const label = name.includes("hnd")
+                        ? "Year 1 & 2"
+                        : name.includes("top up") || name.includes("top-up")
+                        ? "Year 3 (TOP UP)"
+                        : subCourse.name;
+
+                      return (
+                        <button
+                          key={index}
+                          className={
+                            selectedSubCourse === subCourse.name ? "active" : ""
+                          }
+                          onClick={() => setSelectedSubCourse(subCourse.name)}
+                        >
+                          {label}
+                        </button>
+                      );
+                    })}
                 </div>
               )}
 
