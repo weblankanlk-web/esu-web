@@ -6,6 +6,7 @@ import "./style.scss";
 import MemberCardItem from "../../Faculty/MembersLanding/MemberCard/MemberCard";
 import { graphQLClient } from "@/lib/graphql-client";
 import { OUR_STRATEGIC_TEAM } from "@/common/queries/query";
+import AboutMemberCardItem from "../../Faculty/MembersLanding/MemberCard/AboutMemberCard";
 
 interface StrategicTeamMember {
   id: string;
@@ -83,7 +84,7 @@ const OurStrategicTeam = () => {
               <p>No Strategic Team found for this department.</p>
             ) : (
               ourStrategicTeam.map((member, index) => (
-                <MemberCardItem key={index} memberData={member} />
+                <AboutMemberCardItem key={index} memberData={member} />
               ))
             )}
           </div>

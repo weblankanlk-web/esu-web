@@ -1,4 +1,51 @@
 @import "@/styles/global.scss";
+// Add at the end of your style.scss
+.member-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.member-modal {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.member-modal-header {
+  flex-shrink: 0;
+}
+
+.member-modal-body {
+  overflow-y: auto;
+  max-height: 60vh; // Adjust as needed
+  margin-top: 20px;
+  flex-grow: 1;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.member-message {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #333;
+}
 
 .member-card {
   flex-wrap: wrap;
