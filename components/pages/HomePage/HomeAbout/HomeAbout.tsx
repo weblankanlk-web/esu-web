@@ -22,10 +22,10 @@ interface HomeAboutProps {
 
 const HomeAbout: React.FC<HomeAboutProps> = ({ title, subtitle, content, image }) => {
   return (
-      <section className="home-about">
+      <section className="home-about"  >
         <div className="full-wrap">
           <div className="image-detail-wrap">
-            <div className="left">
+            <div className="left" data-aos="fade-right">
               <Image
                 src={image}
                 width={900}
@@ -33,7 +33,7 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ title, subtitle, content, image }
                 alt=""
               />
             </div>
-            <div className="right">
+            <div className="right" data-aos="fade-left">
               <div className="title-wrap">
                 <TitleLarge title={title} subtitle={subtitle} />
               </div>
