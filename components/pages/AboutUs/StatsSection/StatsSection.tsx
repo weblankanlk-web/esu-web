@@ -1,17 +1,56 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { JSX, useEffect, useRef, useState } from "react";
 import "./style.scss";
-import Image from "next/image";
 
-const stats = [
-  { icon: "/images/excellence.png", number: 6, label: "Faculties" },
-  { icon: "/images/branchi.png", number: 3, label: "Main Campuses" },
-  { icon: "/images/academic.png", number: 400, label: "Full-time Academics", suffix: "+" },
-  { icon: "/images/students.png", number: 15000, label: "Students", suffix: "+" },
+import {
+  FaGraduationCap,
+  FaUniversity,
+  FaChalkboardTeacher,
+  FaUserGraduate,
+} from "react-icons/fa";
+
+type Stat = {
+  icon: JSX.Element;
+  number: number;
+  label: string;
+  suffix?: string;
+};
+
+const stats: Stat[] = [
+  {
+    icon: <FaGraduationCap />,
+    number: 6,
+    label: "Faculties",
+  },
+  {
+    icon: <FaUniversity />,
+    number: 3,
+    label: "Main Campuses",
+  },
+  {
+    icon: <FaChalkboardTeacher />,
+    number: 400,
+    label: "Full-time Academics",
+    suffix: "+",
+  },
+  {
+    icon: <FaUserGraduate />,
+    number: 15000,
+    label: "Students",
+    suffix: "+",
+  },
 ];
 
-const CountUp = ({ end, duration = 1200, suffix = "" }: { end: number, duration?: number, suffix?: string }) => {
+const CountUp = ({
+  end,
+  duration = 1200,
+  suffix = "",
+}: {
+  end: number;
+  duration?: number;
+  suffix?: string;
+}) => {
   const [count, setCount] = useState(0);
   const [finished, setFinished] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -63,15 +102,7 @@ const StatsSection = () => {
       <div className="stats-container">
         {stats.map((item, index) => (
           <div key={index} className="stat-box">
-            <div className="stat-icon">
-              <Image
-                src={item.icon}
-                alt={item.label}
-                width={50}
-                height={50}
-                className="icon"
-              />
-            </div>
+            <div className="stat-icon">{item.icon}</div>
             <div className="stats-content">
               <div className="stat-number">
                 <CountUp end={item.number} suffix={item.suffix || ""} />
