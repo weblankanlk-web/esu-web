@@ -213,24 +213,24 @@ const Header = () => {
                                       University (UK)
                                     </Link>
                                   </li>
-                                  <li>
+                                  {/*              <li>
                                     <Link href="none"></Link>
                                   </li>
                                   <li>
                                     <Link href="none"></Link>
-                                  </li>
+                                  </li> */}
                                   <li>
                                     <Link href="/courses/foundation-year-in-engineering-kingston-university-uk?id=504&courseId=cG9zdDo0NjE0">
                                       Foundation Year in Engineering - Kingston
                                       University (UK)
                                     </Link>
                                   </li>
-                                  <li>
+                                  {/*              <li>
                                     <Link href="none"></Link>
                                   </li>
                                   <li>
                                     <Link href=""></Link>
-                                  </li>
+                                  </li> */}
                                 </ul>
                               </div>
 
@@ -270,9 +270,9 @@ const Header = () => {
                                       British Fashion Degree
                                     </Link>
                                   </li>
-                                  <li>
+                                  {/*   <li>
                                     <Link href=""></Link>
-                                  </li>
+                                  </li> */}
                                 </ul>
                               </div>
 
@@ -296,21 +296,21 @@ const Header = () => {
                                       (UK)
                                     </Link>
                                   </li>
-                                  <li>
+                                  {/*  <li>
                                     <Link href="none"></Link>
-                                  </li>
+                                  </li> */}
                                   <li>
                                     <Link href="https://esu.lk/courses/master-of-science-in-mechatronic-systems-kingston-university-uk?id=516&courseId=cG9zdDo1MTk0">
                                       Master of Science in Mechatronic Systems -
                                       Kingston University (UK)
                                     </Link>
                                   </li>
-                                  <li>
+                                  {/*      <li>
                                     <Link href="none"></Link>
                                   </li>
                                   <li>
                                     <Link href=""></Link>
-                                  </li>
+                                  </li> */}
                                 </ul>
                               </div>
                             </div>
