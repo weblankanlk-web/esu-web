@@ -15,7 +15,6 @@ const ContactCards = ({ about }: ContactCardsProps) => {
             <div className="address">
               <p className="label">Address</p>
               <p>
-                Block E<br></br>
                 No 03,<br></br>
                 De Fonseka Place, Colombo 4,<br></br> Sri Lanka.
               </p>
