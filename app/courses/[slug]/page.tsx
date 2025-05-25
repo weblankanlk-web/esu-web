@@ -325,6 +325,14 @@ const page = () => {
                 </li>
               </ul> */}
 
+              <div
+                className="the-content-div"
+                dangerouslySetInnerHTML={{
+                  __html: course?.description || "",
+                }}
+              />
+              <br />
+
               {course?.is_bundle_course === 1 && (
                 <div className="toggle-buttons mb-3">
                   {subCourses?.map((subCourse, index) => (
@@ -341,7 +349,9 @@ const page = () => {
                 </div>
               )}
 
-              <CourseOverview course={course || undefined} />
+              {selectCourse && (
+                <CourseOverview course={selectCourse || undefined} />
+              )}
 
               {course?.is_bundle_course !== 1 ? (
                 <CourseOutline
