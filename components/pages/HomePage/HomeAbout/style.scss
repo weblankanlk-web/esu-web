@@ -11,14 +11,16 @@
       margin-bottom: 0;
 
       .left {
-        padding: get-vw(0px) get-vw(80px) get-vw(80px);
+        /* padding: get-vw(0px) get-vw(80px) get-vw(80px); */
+        height: 50.49984375vw;
         border-radius: 20px;
         overflow: hidden;
 
         img {
           width: 100%;
           object-fit: cover;
-          height: 300px;
+
+             height: 50.49984375vw;
           border-radius: 20px;
           display: block;
         }
@@ -126,7 +128,7 @@
           overflow: hidden;
 
           img {
-            height: get-vw(739.197px);
+            height: get-vw(969.6px);
             border-radius: get-vw(20px);
           }
         }
