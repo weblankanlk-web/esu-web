@@ -1,10 +1,8 @@
 import CampusCards from "@/components/pages/AboutUs/CampusCards/CampusCards";
 import StatsSection from "@/components/pages/AboutUs/StatsSection/StatsSection";
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
-import OurCampus from "@/components/pages/AboutUs/OurCampus/OurCampus";
 import OurVision from "@/components/pages/AboutUs/OurVision/OurVision";
-import ContactHeadOffice from "@/components/pages/Contact/ContactHeadOffice/ContactHeadOffice";
-import HomeAbout from "@/components/pages/HomePage/HomeAbout/HomeAbout";
+import AboutSection from "@/components/pages/AboutUs/AboutSection/AboutSection";
 
 import React from "react";
 import OurStrategicTeam from "@/components/pages/AboutUs/OurStrategicTeam/OurStrategicTeam";
@@ -19,7 +17,7 @@ const page = () => {
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />
-      <HomeAbout
+      <AboutSection
         title="Empowering Minds With"
         subtitle="Global Education"
         image="https://esoft.lk/wp-content/uploads/2023/12/About-1.jpg"
