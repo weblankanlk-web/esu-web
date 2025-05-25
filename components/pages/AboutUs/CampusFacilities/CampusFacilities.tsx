@@ -93,7 +93,7 @@ const facilities: Facility[] = [
 
 const CampusFacilities = () => {
   return (
-    <section className="campus-facilities">
+    <section className="campus-facilities" data-aos="fade-up"  >
       <TitleLarge title="Our" subtitle=" Campus Facilities" />
       <br />
       <br />
