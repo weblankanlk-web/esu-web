@@ -207,38 +207,62 @@
   }
 }
 
+// POP UP
+
+.member-modal {
+  flex-direction: column;
+  overflow: hidden; // Prevent scrolling on the container
+  padding: 0;
+  max-height: 90vh;
+  display: flex;
+}
+
 .member-modal-content {
   display: flex;
   flex-direction: row;
   gap: 40px;
+  padding: 30px;
   height: 100%;
-  padding: 30px; // ✅ Add padding around the whole content
   box-sizing: border-box;
+  overflow-y: auto; // Only this should scroll
 }
 
-.member-modal-left {
-  flex: 0 0 25%;
+.member-modal-left,
+.member-modal-right {
+  flex: 1;
   padding: 20px;
-  overflow-y: auto;
-
-  .member-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-  }
+  // Remove overflow from children
 }
 
 .member-modal-right {
-  flex: 0 0 75%;
-  padding: 20px;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.member-modal-left .member-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+  .member-modal-content {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .member-modal-left,
+  .member-modal-right {
+    flex: 1 1 100%;
+    padding: 10px;
+  }
 }
