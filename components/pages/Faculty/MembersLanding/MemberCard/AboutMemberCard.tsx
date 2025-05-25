@@ -32,8 +32,12 @@ const AboutMemberCardItem: React.FC<Props> = ({ memberData }) => {
           </div>
           <div className="member-image">
             <Image
-              src={MemberFeaturedImage?.sourceUrl || "/images/default-profile.png"}
-              alt={MemberFeaturedImage?.altText || MemberName || "Profile image"}
+              src={
+                MemberFeaturedImage?.sourceUrl || "/images/default-profile.png"
+              }
+              alt={
+                MemberFeaturedImage?.altText || MemberName || "Profile image"
+              }
               width={352}
               height={352}
             />
@@ -43,20 +47,50 @@ const AboutMemberCardItem: React.FC<Props> = ({ memberData }) => {
 
       {/* Modal */}
       {showModal && (
-          <div className="member-modal-overlay" onClick={() => setShowModal(false)}>
-            <div className="member-modal" onClick={e => e.stopPropagation()}>
-              <button className="close-btn" onClick={() => setShowModal(false)}>×</button>
-              <div className="member-modal-header">
-                <h2>{MemberName}</h2>
-                <h4>{MemberDesignation}</h4>
-                <h4>{MemberQualifications}</h4>
+        <div
+          className="member-modal-overlay"
+          onClick={() => setShowModal(false)}
+        >
+          <div className="member-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setShowModal(false)}>
+              ×
+            </button>
+
+            <div className="member-modal-content">
+              <div className="member-modal-left">
+                <div className="member-image">
+                  <Image
+                    src={
+                      MemberFeaturedImage?.sourceUrl ||
+                      "/images/default-profile.png"
+                    }
+                    alt={
+                      MemberFeaturedImage?.altText ||
+                      MemberName ||
+                      "Profile image"
+                    }
+                    width={352}
+                    height={352}
+                  />
+                </div>
               </div>
-              <div className="member-modal-body">
-                <div className="member-message">{MemberMessage}</div>
+
+              <div className="member-modal-right">
+                <div className="member-info-wrapper">
+                  <div className="member-modal-header">
+                    <h2>{MemberName}</h2>
+                    <h4>{MemberDesignation}</h4>
+                    <h4>{MemberQualifications}</h4>
+                  </div>
+                  <div className="member-modal-body">
+                    <div className="member-message">{MemberMessage}</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        )}
+        </div>
+      )}
     </>
   );
 };
