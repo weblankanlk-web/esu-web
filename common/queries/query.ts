@@ -850,6 +850,29 @@ query GetNews($first: Int = 6, $after: String) {
 }
 `;
 
+export const GET_ALL_BLOGS = `
+  query Blogs($first: Int = 6, $after: String) {
+    news: blogs(first: $first, after: $after) {
+      nodes {
+        title
+        slug
+        content
+        date
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+    }
+  }
+`;
+
 export const GET_NEWS_BY_SLUG = `
 query($slug: ID!) {
   new(
@@ -862,6 +885,31 @@ query($slug: ID!) {
     slug
     news {
       date
+      gallery {
+        nodes {
+          altText
+          sourceUrl
+        }
+      }
+    }
+    featuredImage {
+      node {
+        altText
+        sourceUrl
+      }
+    }
+  }
+}
+`;
+
+export const GET_BLOGS_BY_SLUG = `
+query GetBlogBySlug($slug: ID!) {
+  blog(id: $slug, idType: SLUG) {
+    content
+    date
+    title
+    slug
+    blogs {
       gallery {
         nodes {
           altText

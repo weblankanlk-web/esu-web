@@ -103,7 +103,10 @@ const Header = () => {
               {/* Replace with dynamic menu data */}
               <ul className="navbar-nav navbardropdown" id="top-menu">
                 <li>
-                  <Link href="/news">news & events</Link>
+                  <Link href="/news">News & Events</Link>
+                </li>
+                  <li>
+                  <Link href="/blogs">Blogs</Link>
                 </li>
                 <li>
                   <Link href="/research">Research</Link>
