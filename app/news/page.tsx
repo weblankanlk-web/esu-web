@@ -7,6 +7,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 import { GET_ALL_NEWS } from "@/common/queries/query";
 import { NewsEvents } from "@/common/interfaces/interface";
 import Link from "next/link";
+import { useTheme } from "@/lib/ThemeContext";
 
 const PAGE_SIZE = 9;
 
@@ -16,6 +17,10 @@ const NewsPage = () => {
   const [cursors, setCursors] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
+  const { setColor } = useTheme();
+  useEffect(() => {
+    setColor("rgb(0, 174, 205)");
+  }, [setColor]);
 
   const fetchNewsEvents = async (
     first = PAGE_SIZE,

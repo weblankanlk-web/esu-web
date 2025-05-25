@@ -29,6 +29,8 @@ import { FaTimes } from "react-icons/fa";
 import TitleText from "../../components/common/TextColorChange/TextColorChange";
 
 export default function CoursesPage() {
+    const { setColor } = useTheme();
+  
   const [search, setSearch] = useState("");
 
   const [courseTypes, setCourseTypes] = useState<CourseType[]>([]);
@@ -58,7 +60,9 @@ export default function CoursesPage() {
     setSelectedBranches([]);
     setSearch("");
   };
-
+  useEffect(() => {
+    setColor("rgb(0, 174, 205)");
+  }, [setColor]);
   useEffect(() => {
     let results = [...allCourses];
 

@@ -10,13 +10,18 @@ import { graphQLClient } from "@/lib/graphql-client";
 import { GET_PUBLICATIONS_BY_SLUG } from "@/common/queries/query";
 import { Publication } from "@/common/interfaces/interface";
 import Image from "next/image";
+import { useTheme } from "@/lib/ThemeContext";
 
 const page = () => {
   const pathname = usePathname();
   const slug = pathname.split("/").pop();
 
   const [research, setResearch] = useState<Publication | null>(null);
-
+  const { setColor } = useTheme();
+  useEffect(() => {
+    setColor("rgb(0, 174, 205)");
+  }, [setColor]);
+  
   useEffect(() => {
     const fetchResearch = async () => {
       const data = await graphQLClient.request<{
