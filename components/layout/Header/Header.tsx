@@ -13,6 +13,8 @@ import { GET_MENU_COURSE_BY_SLUG_SELECTED } from "@/common/queries/query";
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showMegaMenu, setShowMegaMenu] = useState(false);
+  const [hideTimer, setHideTimer] = useState<NodeJS.Timeout | null>(null);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => !prev);
@@ -51,17 +53,12 @@ const Header = () => {
     const fetchCourseMenu = async (slug: string) => {
       const data = await graphQLClient.request<CourseMenuResponse>(
         GET_MENU_COURSE_BY_SLUG_SELECTED,
-        {
-          slug: slug,
-        }
+        { slug }
       );
 
       const enableCourse = data.schoolType?.courses?.nodes.filter(
         (course) => course.courses.enableCourseInTheMenu === true
       );
-
-      // console.log("Course Menu Data:", data);
-      // console.log("Filtered Courses:", enableCourse);
 
       switch (slug) {
         case "faculty-of-art-design":
@@ -79,20 +76,24 @@ const Header = () => {
         case "faculty-of-business-law":
           setFacultyBusinessLawMenu(enableCourse);
           break;
-        case "faculty-of-languages-education-sociology":
+        case "faculty-of-languages-education-and-sociology":
           setFacultyLanguagesEducationSociologyMenu(enableCourse);
-          break;
-        default:
           break;
       }
     };
 
-    for (const slug of slugs) {
-      fetchCourseMenu(slug);
-    }
+    slugs.forEach(fetchCourseMenu);
   }, []);
 
-  // console.log("facultyComputingMenu", facultyComputingMenu);
+  const handleMouseEnter = () => {
+    if (hideTimer) clearTimeout(hideTimer);
+    setShowMegaMenu(true);
+  };
+
+  const handleMouseLeave = () => {
+    const timer = setTimeout(() => setShowMegaMenu(false), 300);
+    setHideTimer(timer);
+  };
 
   return (
     <>
@@ -100,12 +101,11 @@ const Header = () => {
         <div className="top-bar">
           <div className="max-wrap">
             <nav className="navbar navbar-expand-lg nav-menu">
-              {/* Replace with dynamic menu data */}
               <ul className="navbar-nav navbardropdown" id="top-menu">
                 <li>
                   <Link href="/news">News & Events</Link>
                 </li>
-                  <li>
+                <li>
                   <Link href="/blogs">Blogs</Link>
                 </li>
                 <li>
@@ -113,44 +113,6 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
-            {/* <ul className="top-bar-menu">
-              <li>
-                <Link target="_blank" href="https://payments.esoft.lk/">
-                  <Image
-                    src="/images/payment.png"
-                    width={20}
-                    height={20}
-                    alt="Payments"
-                    style={{ objectFit: "contain" }}
-                  />
-                  <span>Payments</span>
-                </Link>
-              </li>
-              <li>
-                <Link target="_blank" href="https://learn.esoft.lk/login">
-                  <Image
-                    src="/images/user.png"
-                    width={20}
-                    height={20}
-                    alt="Students"
-                    style={{ objectFit: "contain" }}
-                  />
-                  <span>Students</span>
-                </Link>
-              </li> 
-               <li>
-                <Link target="_blank" href="https://esoft.lk/alumni/">
-                  <Image
-                    src="/images/alumni.png"
-                    width={20}
-                    height={20}
-                    alt="Alumni"
-                    style={{ objectFit: "contain" }}
-                  />
-                  <span>Alumni</span>
-                </Link>
-              </li>
-            </ul> */}
           </div>
         </div>
 
@@ -164,25 +126,20 @@ const Header = () => {
                     width={150}
                     height={50}
                     alt="Logo"
-                    style={{
-                      width: "100%",
-                      objectFit: "contain",
-                    }}
                     className="desktop-esu-logo"
+                    style={{ width: "100%", objectFit: "contain" }}
                   />
                   <Image
                     src="/images/logo/esu-header.png"
                     width={150}
                     height={50}
                     alt="Logo"
-                    style={{
-                      width: "100%",
-                      objectFit: "contain",
-                    }}
                     className="mobile-esu-logo"
+                    style={{ width: "100%", objectFit: "contain" }}
                   />
                 </Link>
               </div>
+
               <div className="middle-menu">
                 <nav className="navbar navbar-expand-lg nav-menu">
                   <ul className="navbar-nav navbardropdown" id="primary">
@@ -195,138 +152,169 @@ const Header = () => {
                     <li>
                       <Link href="/courses">Courses</Link>
                     </li>
-                    <li className="faculties-hover-menu">
+
+                    <li
+                      className="faculties-hover-menu"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       <Link href="/faculties">Faculties</Link>
-{/*                       <div className="mega-menu">
-                        <div className="mega-menu-panel">
-                          <div className="mega-column">
-                            <Link href="/faculties/faculty-of-art-design">
-                              <h4 style={{ color: "rgb(245, 131, 60)" }}>
-                                Faculty of Art & Design
-                                <i className="arrow">
-                                  <FaArrowRight
-                                    style={{ color: "rgb(245, 131, 60)" }}
-                                  />
-                                </i>
-                              </h4>
-                            </Link>
-                            <ul>
-                              {facultyArtDesignMenu.map((item, index) => (
-                                <li key={index}>
-                                  <a href={`/courses/${item.slug}`}>
-                                    {item.title}
-                                  </a>
+                      {showMegaMenu && (
+                        <div className="mega-menu">
+                          <div className="mega-menu-panel">
+                            <div className="mega-column">
+                              <h4>Faculties</h4>
+                              <ul>
+                                <li>
+                                  <Link href="/faculties/faculty-of-computing">
+                                    Faculty of Computing
+                                  </Link>
                                 </li>
-                              ))}
-                            </ul>
+                                <li>
+                                  <Link href="/faculties/faculty-of-business-law">
+                                    Faculty of Business & Law
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/faculties/faculty-of-life-science">
+                                    Faculty of Life Science
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/faculties/faculty-of-engineering">
+                                    Faculty of Engineering
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/faculties/faculty-of-art-design">
+                                    Faculty of Art & Design
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/faculties/faculty-of-languages-education-sociology">
+                                    Faculty of Languages, Education & Sociology
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
 
-                            <Link href="/faculties/faculty-of-life-science">
-                              <h4 style={{ color: "rgb(191, 215, 48)" }}>
-                                Faculty of Life Science
-                                <i className="arrow">
-                                  <FaArrowRight
-                                    style={{ color: "rgb(191, 215, 48)" }}
-                                  />
-                                </i>
-                              </h4>
-                            </Link>
-                            <ul>
-                              {facultyLifeScienceMenu.map((item, index) => (
-                                <li key={index}>
-                                  <a href={`/courses/${item.slug}`}>
-                                    {item.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div className="mega-column">
-                            <Link href="/faculties/faculty-of-computing">
-                              <h4 style={{ color: "rgb(0, 174, 205)" }}>
-                                Faculty of Computing
-                                <i className="arrow">
-                                  <FaArrowRight
-                                    style={{ color: "rgb(0, 174, 205)" }}
-                                  />
-                                </i>
-                              </h4>
-                            </Link>
-                            <ul>
-                              {facultyComputingMenu.map((item, index) => (
-                                <li key={index}>
-                                  <a href={`/courses/${item.slug}`}>
-                                    {item.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
+                            <div className="mega-column">
+                              <h4>Foundation</h4>
+                              <ul>
+                                {/*                                 {facultyComputingMenu.map((item, index) => (
+                                  <li key={index}><Link href={`/courses/${item.slug}`}>{item.title}</Link></li>
+                                ))} */}
 
-                            <Link href="/faculties/faculty-of-engineering">
-                              <h4 style={{ color: "rgb(0, 80, 160)" }}>
-                                Faculty of Engineering
-                                <i className="arrow">
-                                  <FaArrowRight
-                                    style={{ color: "rgb(0, 80, 160)" }}
-                                  />
-                                </i>
-                              </h4>
-                            </Link>
-                            <ul>
-                              {facultyEngineeringMenu.map((item, index) => (
-                                <li key={index}>
-                                  <a href={`/courses/${item.slug}`}>
-                                    {item.title}
-                                  </a>
+                                <li>
+                                  <Link href="/courses/foundation-year-in-it-kingston-university-uk?id=503&courseId=cG9zdDo0NjEy">
+                                    Foundation Year in IT - Kingston University
+                                    (UK)
+                                  </Link>
                                 </li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div className="mega-column">
-                            <Link href="/faculties/faculty-of-business-law">
-                              <h4 style={{ color: "rgb(210, 35, 50)" }}>
-                                Faculty of Business & Law
-                                <i className="arrow">
-                                  <FaArrowRight
-                                    style={{ color: "rgb(210, 35, 50)" }}
-                                  />
-                                </i>
-                              </h4>
-                            </Link>
-                            <ul>
-                              {facultyBusinessLawMenu.map((item, index) => (
-                                <li key={index}>
-                                  <a href={`/courses/${item.slug}`}>
-                                    {item.title}
-                                  </a>
+                                <li>
+                                  <Link href="none"></Link>
                                 </li>
-                              ))}
-                            </ul>
+                                <li>
+                                  <Link href="none"></Link>
+                                </li>
+                                <li>
+                                  <Link href="/courses/foundation-year-in-engineering-kingston-university-uk?id=504&courseId=cG9zdDo0NjE0">
+                                    Foundation Year in Engineering - Kingston
+                                    University (UK)
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="none"></Link>
+                                </li>
+                                <li>
+                                  <Link href=""></Link>
+                                </li>
+                              </ul>
+                            </div>
 
-                            <Link href="/faculties/faculty-of-languages-education-sociology">
-                              <h4 style={{ color: "rgb(255, 203, 5)" }}>
-                                Faculty of Languages, Education & Sociology
-                                <i className="arrow">
-                                  <FaArrowRight
-                                    style={{ color: "rgb(255, 203, 5)" }}
-                                  />
-                                </i>
-                              </h4>
-                            </Link>
-                            <ul>
-                              {facultyLanguagesEducationSociologyMenu.map(
-                                (item, index) => (
-                                  <li key={index}>
-                                    <a href={`/courses/${item.slug}`}>
-                                      {item.title}
-                                    </a>
-                                  </li>
-                                )
-                              )}
-                            </ul>
+                            <div className="mega-column">
+                              <h4>Undergraduate</h4>
+                              <ul>
+                                {/*            {facultyBusinessLawMenu.map((item, index) => (
+                                  <li key={index}><Link href={`/courses/${item.slug}`}>{item.title}</Link></li>
+                                ))} */}
+                                <li>
+                                  <Link href="/courses/bsc-hons-in-computing-london-metropolitan-university-uk?id=548&courseId=cG9zdDo1Nzg1">
+                                    BSc (Hons) in Computing - London
+                                    Metropolitan University (UK)
+                                  </Link>
+                                </li>
+
+                                <li>
+                                  <Link href="/courses/bsc-hons-in-banking-and-finance-london-metropolitan-university-uk?id=552&courseId=cG9zdDo1Nzg3">
+                                    BSc (Hons) in Banking and Finance - London
+                                    Metropolitan University (UK)
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/courses/bsc-hons-in-nursing-top-up-london-metropolitan-university-uk?id=519&courseId=cG9zdDo1MTU3">
+                                    BSc (Hons) in Nursing (TOP UP) - London
+                                    Metropolitan University (UK)
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/courses/beng-hons-in-mechanical-engineering-kingston-university-uk?id=556&courseId=cG9zdDo1Nzkx">
+                                    BEng (Hons) in Mechanical Engineering -
+                                    Kingston University (UK)
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="https://esu.lk/courses/british-fashion-degree-hnd-top-up-bundle?id=470&courseId=cG9zdDo0MDgy">
+                                    British Fashion Degree
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href=""></Link>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div className="mega-column">
+                              <h4>Postgraduate</h4>
+                              <ul>
+                                {/*                                 {facultyLanguagesEducationSociologyMenu.map((item, index) => (
+                                  <li key={index}><Link href={`/courses/${item.slug}`}>{item.title}</Link></li>
+                                ))} */}
+
+                                <li>
+                                  <Link href="courses/master-of-science-in-software-engineering-kingston-university?id=61&courseId=cG9zdDoyMjU4">
+                                    Master of Science in Software Engineering -
+                                    Kingston University (UK)
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/courses/master-of-business-administration-fintech-london-metropolitan-university-uk?id=342&courseId=cG9zdDoyMzg2">
+                                    Master of Business Administration (Fintech)
+                                    - London Metropolitan University (UK)
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="none"></Link>
+                                </li>
+                                <li>
+                                  <Link href="https://esu.lk/courses/master-of-science-in-mechatronic-systems-kingston-university-uk?id=516&courseId=cG9zdDo1MTk0">
+                                    Master of Science in Mechatronic Systems -
+                                    Kingston University (UK)
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="none"></Link>
+                                </li>
+                                <li>
+                                  <Link href=""></Link>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
-                      </div> */}
+                      )}
                     </li>
+
                     <li>
                       <Link href="/academics">Academics</Link>
                     </li>
@@ -336,6 +324,7 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
+
               <div className="mobile-div hamburger-wrap">
                 <button
                   className="navnavbar-toggler hamburger classic navoffcanvas-header d-flex flex-wrap"
@@ -350,7 +339,7 @@ const Header = () => {
                   <span className="ham-title">MENU</span>
                 </button>
               </div>
-              {/* desktop */}
+
               <div className="apply-now-wrap desktop-only-view">
                 <Modal>
                   <InquireForm />
@@ -358,7 +347,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          {/* mobile */}
+
           <div className="apply-now-wrap mobile-only-view">
             <Modal>
               <InquireForm />
@@ -377,80 +366,22 @@ const Header = () => {
           <nav className="navbar navbar-expand-lg nav-menu">
             <ul className="navbar-nav navbardropdown" id="mobile">
               <li>
-                <Link href="/" onClick={() => (window.location.href = "/")}>
-                  Home
-                </Link>
+                <Link href="/">Home</Link>
               </li>
               <li>
-                <Link
-                  href="/about-us"
-                  onClick={() => (window.location.href = "/about-us")}
-                >
-                  About Us
-                </Link>
+                <Link href="/about-us">About Us</Link>
               </li>
               <li>
-                <Link
-                  href="/courses"
-                  onClick={() => (window.location.href = "/courses")}
-                >
-                  Courses
-                </Link>
+                <Link href="/courses">Courses</Link>
               </li>
               <li>
-                <Link
-                  href="/faculties"
-                  onClick={() => (window.location.href = "/faculties")}
-                >
-                  Faculties
-                </Link>
+                <Link href="/faculties">Faculties</Link>
               </li>
               <li>
-                <Link
-                  href="/contact-us"
-                  onClick={() => (window.location.href = "/contact-us")}
-                >
-                  Contact Us
-                </Link>
+                <Link href="/contact-us">Contact Us</Link>
               </li>
             </ul>
           </nav>
-          {/* <ul className="top-bar-menu">
-            <li>
-              <Link target="_blank" href="https://register.esoft.lk/">
-                <Image
-                  src="/images/payment.png"
-                  width={20}
-                  height={20}
-                  alt="Payments"
-                  style={{ objectFit: "contain" }}
-                />
-                <span>Payments</span>
-              </Link>
-            </li>
-            <li>
-              <Link target="_blank" href="/students">
-                <Image
-                  src="/images/user.png"
-                  width={20}
-                  height={20}
-                  alt=""
-                />
-                <span>Students</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/alumni">
-                <Image
-                  src="/images/alumni.png"
-                  width={20}
-                  height={20}
-                  alt=""
-                />
-                <span>Alumni</span>
-              </Link>
-            </li>
-          </ul> */}
         </div>
       </nav>
     </>
