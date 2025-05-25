@@ -80,7 +80,7 @@ const Blogs = () => {
   return (
     <>
       <InnerBanner
-        innerPageTitlePrimary={""}
+        innerPageTitlePrimary={"ESU"}
         innerPageTitleSecondary={"Blogs"}
         innerPageDescription=""
         innerBgDesk="/images/inner-banner.gif"
