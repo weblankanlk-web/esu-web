@@ -231,7 +231,8 @@ git pull origin main
 git fetch origin
 
 4.	Merge staging into main
-git merge origin/staging --no-ff -m "Merge staging into main for release"
+git merge origin/staging --no-ff -m "Merge staging into the current branch"
+git merge origin/anuja --no-ff -m "Merge anuja into the current branch"
 
 5.	Resolve any merge conflicts
 

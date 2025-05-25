@@ -4,22 +4,28 @@ import React from "react";
 import CustomAccordion from "../../../common/Accordion/Accordion";
 import { useTheme } from "@/lib/ThemeContext";
 
-interface CourseOutlineProps {
-  modules: {
-    id: number;
-    is_enabled: number;
-    is_mandatory: number;
-    code: string;
-    name: string;
-    description: string | null;
-  }[];
+interface Module {
+  id: number;
+  name: string;
+  is_mandatory: number;
+  code: string;
 }
 
-const CourseOutline: React.FC<CourseOutlineProps> = ({ modules }) => {
-  const { color, setColor } = useTheme();
+interface Classification {
+  id: number;
+  classification_name: string;
+  modules: Module[];
+}
+
+interface CourseOutlineProps {
+  classifications: Classification[];
+}
+
+const CourseOutline: React.FC<CourseOutlineProps> = ({ classifications }) => {
+  const { color } = useTheme();
 
   return (
-    <div className="course-details-wrapper">
+    <div className="course-details-wrapper" data-aos="zoom-in">
       <div id="section3">
         <div className="related-coures-div course-title">
           <h5>
@@ -29,7 +35,7 @@ const CourseOutline: React.FC<CourseOutlineProps> = ({ modules }) => {
           </h5>
         </div>
         <div className="course-outline-wrap">
-          <CustomAccordion modules={modules} />
+          <CustomAccordion classifications={classifications} />
         </div>
       </div>
     </div>

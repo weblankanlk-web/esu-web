@@ -117,6 +117,30 @@ body {
   display: none;
 }
 
+
+.the-content-div ul li,
+.date-archive li {
+  position: relative;
+  padding-left: 40px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #d8d8d8;
+    margin-right: 10px;
+    background-image: url("/images/tick-red.png"); // Clean relative path
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    padding: 10px;
+  }
+}
+
 @media only screen and (max-width: 992px) {
   .mobile-filter-btn {
     background-color: red;
