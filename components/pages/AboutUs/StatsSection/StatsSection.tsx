@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { JSX, useEffect, useRef, useState } from "react";
 import "./style.scss";
 
 import {
