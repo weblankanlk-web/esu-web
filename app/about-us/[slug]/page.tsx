@@ -46,10 +46,12 @@ const page = () => {
         }>(CAMPUS_VICE_CHANCELLOR_QUERY, { slug: campusSlug });
 
         const vc = data.staffType?.staffs?.nodes?.[0];
+        //console.log("Vice Chancellor Data:", vc); // ✅ log the fetched VC data
         setViceChancellor(vc);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
+
     };
 
     var campusSlug = null;
@@ -88,7 +90,7 @@ const page = () => {
           title="Pro Vice Chancellor's"
           DeanName={viceChancellor.title}
           designation={viceChancellor.staffAcf.designation || ""}
-          message={viceChancellor.staffAcf.message || ""}
+          message={viceChancellor.staffAcf.viceChancellorMessage || ""}
           featuredImage={{
             sourceUrl:
               viceChancellor.featuredImage?.node?.sourceUrl ||

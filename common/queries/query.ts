@@ -489,6 +489,7 @@ export const VICE_CHANCELLOR_QUERY = `
           staffAcf {
             designation
             message
+            viceChancellorMessage
           }
           title
           featuredImage {
@@ -511,6 +512,7 @@ query($slug: ID!) {
         staffAcf {
           designation
           message
+          viceChancellorMessage
         }
         title
         featuredImage {
@@ -827,7 +829,7 @@ query($slug: ID!) {
 }
 `;
 
-export const HOME_LATEST_NEWS =`
+export const HOME_LATEST_NEWS = `
 query MyQuery {
   news(first: 6) {
     nodes {
@@ -963,7 +965,6 @@ query($slug: ID!) {
 }
 `;
 
-
 // export const GET_MENU_COURSE_BY_SLUG_SELECTED = `
 // query($slug: ID!) {
 //   staffType(id: $slug, idType: SLUG) {
@@ -985,5 +986,3 @@ query($slug: ID!) {
 //   }
 // }
 // `;
-
-
