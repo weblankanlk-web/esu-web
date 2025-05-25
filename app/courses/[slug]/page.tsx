@@ -186,7 +186,7 @@ const page = () => {
                 />
               )}
             </div>
-            <div className="left-course-details">
+            <div className="left-course-details" data-aos="fade-up">
               <div className="d-flex justify-content-center course-btn-wrap">
                 <Modal>
                   <InquireForm />
