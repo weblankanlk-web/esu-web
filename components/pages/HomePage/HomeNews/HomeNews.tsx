@@ -45,7 +45,7 @@ const mainNews = news[activeIndex];
         <div className="title-wrap text-center" data-aos="flip-down" >
           <TitleLarge title="Latest" subtitle="&nbsp; News" />
         </div>
-        <div className="news-container" data-aos="fade-right" >
+        <div className="news-container" data-aos="fade-up" >
           {mainNews && (
             <div className="news-main pos-relative">
               <a href={`/news/${mainNews.slug}`}>
@@ -67,7 +67,7 @@ const mainNews = news[activeIndex];
           )}
 
           {/* Sidebar News */}
-          <div className="news-sidebar" data-aos="fade-left">
+          <div className="news-sidebar" data-aos="fade-up">
             {news.map((item, idx) => {
               // if (idx === activeIndex) return null; // Don't show main news in sidebar
               return (

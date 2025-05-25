@@ -82,12 +82,12 @@ const HomeTestimonials: React.FC = () => {
   };
 
   return (
-    <section className="home-testimonials">
-      <div className="title-wrap" data-aos="flip-down" >
+    <section className="home-testimonials" data-aos="fade-up">
+      <div className="title-wrap" >
         <TitleLarge title="Student" subtitle="&nbsp; Testimonials" />
         
       </div>
-      <div className="slider-wrap " data-aos="fade-left" >
+      <div className="slider-wrap ">
         
         <Slider {...settings} className="testimonial-slider pb-0"  ref={sliderRef}  >
           {testimonials.map((testimonial) => (

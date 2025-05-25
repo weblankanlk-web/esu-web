@@ -178,7 +178,7 @@ const page = () => {
       <section className="simple-padding-bottom dark-lightmode dark-font-change">
         <div className="course-wrap">
           <div className="left-course">
-            <div className="left-course-img">
+            <div className="left-course-img" data-aos="flip-left">
               {courseDetails?.featuredImage?.node?.mediaItemUrl && (
                 <img
                   src={courseDetails.featuredImage.node.mediaItemUrl}

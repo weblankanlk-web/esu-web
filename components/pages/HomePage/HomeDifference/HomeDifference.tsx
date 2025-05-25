@@ -13,7 +13,7 @@ const HomeDifference: React.FC = () => {
     <>
       <section className="home-difference-section">
         <div className="home-difference-wrap">
-          <div className="single-difference" data-aos="fade-up-right">
+          <div className="single-difference" data-aos="fade-up">
             <div className="difference-text">
               <div className="title-wrap">
                 <TitleExtraSmall
@@ -67,7 +67,7 @@ const HomeDifference: React.FC = () => {
               />
             </div>
           </div>
-          <div className="single-difference" data-aos="fade-up-left" >
+          <div className="single-difference" data-aos="fade-up" >
             <div className="difference-text">
               <div className="title-wrap">
                 <TitleExtraSmall
