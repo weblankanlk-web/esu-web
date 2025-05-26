@@ -102,6 +102,14 @@ const Footer = () => {
             <div className="copyright">
               <p>Copyright © 2025 ESOFT UNI</p>
             </div>
+            <div>
+              <p>
+                Website Designed And Developed By{" "}
+                <Link href="https://www.weblankan.com/" target="_blank">
+                  <strong>Web Lankan</strong>
+                </Link>
+              </p>
+            </div>
           </div>
           <div className="column links">
             <h4>QUICK LINKS</h4>
@@ -188,14 +196,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer-bottom" style={{ backgroundColor: color }}>
-        <p>
-          Website Designed And Developed By{" "}
-          <Link href="https://www.weblankan.com/" target="_blank">
-            <strong>Web Lankan</strong>
-          </Link>
-        </p>
-      </div>
+      {/*       <div className="footer-bottom" style={{ backgroundColor: color }}></div> */}
     </footer>
   );
 };

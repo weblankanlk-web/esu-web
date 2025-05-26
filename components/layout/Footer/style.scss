@@ -127,7 +127,9 @@
     }
 
     .background-logo {
-      display: none;
+      display: block;
+      transform: scale(0.9); // 30% smaller
+      transform-origin: bottom right; // ensures scaling starts from bottom right
     }
   }
 
