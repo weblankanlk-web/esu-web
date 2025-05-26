@@ -20,6 +20,7 @@
   gap: 5%;
   text-align: left;
   padding: 5% 3%;
+  flex-direction: column;
 
   .member-image {
     flex-shrink: 0;
@@ -30,7 +31,6 @@
 
     h2 {
       font-size: 16px;
-
     }
 
     .qualification {
@@ -56,7 +56,8 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   height: 90vh;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
+  flex-direction: row;
 }
 
 .member-modal-header {
@@ -312,7 +313,7 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     height: 90vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;;
   }
 
   .member-modal-header {
@@ -337,7 +338,7 @@
     .single-image-wrap {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-between;
 
       .member-details {
         padding: get-vw(50px) get-vw(50px) get-vw(50px) get-vw(50px) !important;

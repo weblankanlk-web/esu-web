@@ -469,7 +469,7 @@ input:focus {
   font-size: var(--font-25);
   line-height: var(--font-34);
 }
-.related-coures-div h5::after {
+/* .related-coures-div h5::after {
   content: "";
   height: 2px;
   width: 80px;
@@ -483,7 +483,7 @@ input:focus {
   background: #eaeaea;
   position: absolute;
   bottom: 0;
-}
+} */
 
 .course-details-bar {
   background: var(--dark-blck);

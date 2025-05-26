@@ -33,6 +33,7 @@ const CourseOutline: React.FC<CourseOutlineProps> = ({ classifications }) => {
               Course <span style={{ color }}>Outline</span>
             </span>
           </h5>
+          <hr className="course-title-hr" />
         </div>
         <div className="course-outline-wrap">
           <CustomAccordion classifications={classifications} />

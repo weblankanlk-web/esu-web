@@ -3,6 +3,7 @@
 .course-title {
   padding-top: 30px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  flex-direction: column;
 }

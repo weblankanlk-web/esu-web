@@ -326,15 +326,7 @@ const page = () => {
                   <button className="nav-btn-in">Fees</button>
                 </li>
               </ul> */}
-              <div className="course-details-wrapper course-description-wrapper" data-aos="zoom-in">
-                <div
-                  className="the-content-div"
-                  dangerouslySetInnerHTML={{
-                    __html: course?.description || "",
-                  }}
-                />
-              </div>
-              <br />
+
               {course?.is_bundle_course === 1 && (
                 <div className="hnd-top-up-toogle">
                   <div className="toggle-buttons mb-3">
@@ -375,9 +367,29 @@ const page = () => {
                 </div>
               )}
 
-              {selectCourse && (
+              <div
+                className="course-details-wrapper course-description-wrapper"
+                data-aos="zoom-in"
+              >
+                <div id="section1" className="related-coures-div course-title">
+                  <h5>
+                    <span>
+                      Course <span style={{ color }}>Overview</span>
+                    </span>
+                  </h5>
+                  <hr className="course-title-hr" />
+                </div>
+                <div
+                  className="the-content-div"
+                  dangerouslySetInnerHTML={{
+                    __html: course?.description || "",
+                  }}
+                />
+              </div>
+
+              {/* {selectCourse && (
                 <CourseOverview course={selectCourse || undefined} />
-              )}
+              )} */}
 
               {course?.is_bundle_course !== 1 ? (
                 <CourseOutline
