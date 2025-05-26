@@ -206,19 +206,28 @@ const Header = () => {
           <nav className="navbar navbar-expand-lg nav-menu">
             <ul className="navbar-nav navbardropdown" id="mobile">
               <li>
-                <Link href="/">Home</Link>
+                <Link href="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
               </li>
               <li>
-                <Link href="/about-us">About Us</Link>
+                <Link href="/about-us" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
               </li>
               <li>
-                <Link href="/courses">Courses</Link>
+                <Link href="/courses" onClick={() => setMobileMenuOpen(false)}>Courses</Link>
               </li>
               <li>
-                <Link href="/faculties">Faculties</Link>
+                <Link href="/faculties" onClick={() => setMobileMenuOpen(false)}>Faculties</Link>
               </li>
               <li>
-                <Link href="/contact-us">Contact Us</Link>
+                <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
+              </li>
+              <li>
+                <Link href="/news" onClick={() => setMobileMenuOpen(false)}>News & Events</Link>
+              </li>
+              <li>
+                <Link href="/blogs" onClick={() => setMobileMenuOpen(false)}>Blogs</Link>
+              </li>
+              <li>
+                <Link href="/research" onClick={() => setMobileMenuOpen(false)}>Research</Link>
               </li>
             </ul>
           </nav>
