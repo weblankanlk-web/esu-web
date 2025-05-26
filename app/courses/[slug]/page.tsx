@@ -48,6 +48,7 @@ const page = () => {
   const [relatedCourses, setRelatedCourses] = useState<RelatedCourses[]>([]);
 
   const [subCourses, setSubCourses] = useState<any[]>([]);
+  const [subCourseFees, setSubCourseFees] = useState<any[]>([]);
 
   const [selectedSubCourse, setSelectedSubCourse] = useState(null);
 
@@ -99,6 +100,32 @@ const page = () => {
     }
   };
 
+  const fetchCourseFees = async (courseId: any) => {
+    try {
+      const response = await axios.get(
+        `https://publicapi.esoft.lk/api/v1/courses/${courseId}/fees?for_entity=esu`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Bearer ${
+              process.env.NEXT_PUBLIC_API_KEY ||
+              "1100626|VPJcv2Y6wFiHPw4i60xdc1WQ2NMPUQgerXlYhOyI3a07cd1c"
+            }`,
+          },
+        }
+      );
+
+      if (Array.isArray(response.data.data)) {
+        setCourseFees({ fee_plans: response.data.data });
+      } else {
+        setCourseFees(response.data.data);
+      }
+    } catch (error) {
+      console.error("Error fetching course fees:", error);
+    }
+  };
+
   useEffect(() => {
     if (!courseId) return;
 
@@ -113,34 +140,6 @@ const page = () => {
         setCourseDetails(response.course);
       } catch (error) {
         console.error("Error fetching course details:", error);
-      }
-    };
-
-    const fetchCourseFees = async () => {
-      try {
-        const response = await axios.get(
-          `https://publicapi.esoft.lk/api/v1/courses/${courseId}/fees?for_entity=esu`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-              Authorization: `Bearer ${
-                process.env.NEXT_PUBLIC_API_KEY ||
-                "1100626|VPJcv2Y6wFiHPw4i60xdc1WQ2NMPUQgerXlYhOyI3a07cd1c"
-              }`,
-            },
-          }
-        );
-
-        // setCourseFees(response.data.data);
-        // setCourseFees({ fee_plans: response.data.data });
-        if (Array.isArray(response.data.data)) {
-          setCourseFees({ fee_plans: response.data.data });
-        } else {
-          setCourseFees(response.data.data);
-        }
-      } catch (error) {
-        console.error("Error fetching course fees:", error);
       }
     };
 
@@ -184,7 +183,7 @@ const page = () => {
 
     fetchCourse(courseId, true);
     fetchCourseDetails();
-    fetchCourseFees();
+    fetchCourseFees(courseId);
     fetchSchedule();
     fetchRelatedCourses();
   }, [courseId]);
@@ -217,16 +216,9 @@ const page = () => {
   // console.log("Main course:", course);
   // console.log("Bundle sub-courses:", subCourses);
 
-  // console.log(
-  //   "selected course",
-  //   subCourses
-  //     .find((sc) => sc.name === selectedSubCourse)
-  //     ?.course_content?.classifications?.flatMap((c) => c.modules) || []
-  // );
-
   const selectCourse = subCourses.find((sc) => sc.name === selectedSubCourse);
 
-  console.log("subCourses", subCourses);
+  // console.log("subCourses", subCourses);
 
   // console.log("selectCourse insaf", selectCourse);
 

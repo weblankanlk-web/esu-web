@@ -56,7 +56,7 @@ const AboutMemberCardItem: React.FC<Props> = ({ memberData }) => {
             <button className="close-btn" onClick={() => setShowModal(false)}>
               ×
             </button>
-            <div className="member-modal-header member-modal-header-flex">
+            {/* <div className="member-modal-header member-modal-header-flex">
               <div className="member-image" style={{ marginBottom: 0 }}>
                 <Image
                   src={
@@ -82,6 +82,34 @@ const AboutMemberCardItem: React.FC<Props> = ({ memberData }) => {
             </div>
             <div className="member-modal-body">
               <div className="member-message">{MemberMessage}</div>
+            </div> */}
+            <div className="member-modal-header member-modal-header-flex">
+              <div className="member-image">
+                <Image
+                  src={
+                    MemberFeaturedImage?.sourceUrl ||
+                    "/images/default-profile.png"
+                  }
+                  alt={
+                    MemberFeaturedImage?.altText ||
+                    MemberName ||
+                    "Profile image"
+                  }
+                  width={300}
+                  height={300}
+                  layout="responsive"
+                  className="member-image-modal"
+                />
+              </div>
+              <div className="member-modal-content">
+                <div className="member-modal-details">
+                  <h2>{MemberName}</h2>
+                  <h4 className="qualification">{MemberDesignation}</h4>
+                </div>
+                <div className="member-modal-body">
+                  <div className="member-message">{MemberMessage}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -14,37 +14,37 @@
   justify-content: center;
 }
 
-.member-modal-header-flex {
-  display: flex;
-  align-items: center;
-  gap: 5%;
-  text-align: left;
-  padding: 5% 3%;
-  flex-direction: column;
+// .member-modal-header-flex {
+//   display: flex;
+//   align-items: center;
+//   gap: 5%;
+//   text-align: left;
+//   padding: 5% 3%;
+//   flex-direction: column;
 
-  .member-image {
-    flex-shrink: 0;
-  }
+//   .member-image {
+//     flex-shrink: 0;
+//   }
 
-  .member-modal-details {
-    flex: 1;
+//   .member-modal-details {
+//     flex: 1;
 
-    h2 {
-      font-size: 16px;
-    }
+//     h2 {
+//       font-size: 16px;
+//     }
 
-    .qualification {
-      font-size: 16px;
-      color: #949494 !important;
-    }
+//     .qualification {
+//       font-size: 16px;
+//       color: #949494 !important;
+//     }
 
-  }
-}
+//   }
+// }
 
-.member-image-modal {
-  width: 65px !important;
-  height: 65px !important;
-}
+// .member-image-modal {
+//   width: 65px !important;
+//   height: 65px !important;
+// }
 
 .member-modal {
   background: #fff;
@@ -60,16 +60,16 @@
   flex-direction: row;
 }
 
-.member-modal-header {
-  flex-shrink: 0;
-}
+// .member-modal-header {
+//   flex-shrink: 0;
+// }
 
 .member-modal-body {
   overflow-y: auto;
   max-height: 60vh; // Adjust as needed
   margin-top: 20px;
   flex-grow: 1;
-  padding: 0% 5%;
+  // padding: 0% 5%;
 }
 
 .close-btn {
@@ -125,7 +125,7 @@
       .qualification {
         font-family: var(--font-space-grotesk);
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 16px;
       }
     }
@@ -153,17 +153,17 @@
     width: 49%;
   }
 
-  .member-image-modal {
-    width: 95px !important;
-    height: 95px !important;
-  }
+  // .member-image-modal {
+  //   width: 95px !important;
+  //   height: 95px !important;
+  // }
 }
 
 @media only screen and (min-width: 992px) {
-  .member-image-modal {
-    width: 105px !important;
-    height: 105px !important;
-  }
+  // .member-image-modal {
+  //   width: 105px !important;
+  //   height: 105px !important;
+  // }
 
   .member-card {
     border-radius: get-vw(19.938px);
@@ -225,31 +225,31 @@
     }
   }
 
-  .member-modal-header-flex {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    text-align: left;
-    padding: 2% 3%;
+  // .member-modal-header-flex {
+  //   display: flex;
+  //   align-items: center;
+  //   gap: 24px;
+  //   text-align: left;
+  //   padding: 2% 3%;
 
-    .member-image {
-      flex-shrink: 0;
-    }
+  //   .member-image {
+  //     flex-shrink: 0;
+  //   }
 
-    .member-modal-details {
-      flex: 1;
+  //   .member-modal-details {
+  //     flex: 1;
 
-      h2 {
-        font-size: 21px;
+  //     h2 {
+  //       font-size: 21px;
 
-      }
+  //     }
 
-      .qualification {
-        font-size: 21px;
-        color: #949494 !important;
-      }
-    }
-  }
+  //     .qualification {
+  //       font-size: 21px;
+  //       color: #949494 !important;
+  //     }
+  //   }
+  // }
 
   .member-message {
     margin-top: 20px;
@@ -259,10 +259,10 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .member-image-modal {
-    width: 135px !important;
-    height: 135px !important;
-  }
+  // .member-image-modal {
+  //   width: 135px !important;
+  //   height: 135px !important;
+  // }
 
   .member-modal-overlay {
     position: fixed;
@@ -277,28 +277,110 @@
     justify-content: center;
   }
 
+  // .member-modal-header-flex {
+  //   display: flex;
+  //   align-items: center;
+  //   gap: 24px;
+  //   text-align: left;
+  //   padding: 2% 3%;
+
+  //   .member-image {
+  //     flex-shrink: 0;
+  //   }
+
+  //   .member-modal-details {
+  //     flex: 1;
+
+  //     h2 {
+  //       font-size: 25px;
+
+  //     }
+
+  //     .qualification {
+  //       font-size: 25px;
+  //       color: #949494 !important;
+  //     }
+  //   }
+  // }
+
+  .member-modal {
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+    width: 90%;
+    max-width: 1200px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
   .member-modal-header-flex {
     display: flex;
-    align-items: center;
-    gap: 24px;
-    text-align: left;
-    padding: 2% 3%;
+    width: 100%;
+    height: 100%;
 
     .member-image {
-      flex-shrink: 0;
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img,
+      .member-image-modal {
+        width: 100%;
+        height: 100% !important;
+        border-radius: 12px;
+        object-fit: cover;
+      }
     }
 
-    .member-modal-details {
-      flex: 1;
+    .member-modal-content {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      padding-left: 30px;
+      overflow: hidden;
 
-      h2 {
-        font-size: 25px;
+      .member-modal-details {
+        h2 {
+          font-size: 24px;
+          margin-bottom: 10px;
+          font-weight: 800;
+        }
 
+        .qualification {
+          font-size: 16px;
+          color: #949494;
+          font-weight: 500;
+        }
       }
 
-      .qualification {
-        font-size: 25px;
-        color: #949494 !important;
+      .member-modal-body {
+        overflow-y: auto;
+        flex-grow: 1;
+        margin-top: 20px;
+        padding-right: 10px;
+        scrollbar-width: thin;
+        scrollbar-color: #999 transparent;
+
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #999;
+          border-radius: 10px;
+        }
+
+        .member-message {
+          font-size: 14px;
+          color: #333;
+          text-align: justify;
+          line-height: 1.6;
+        }
       }
     }
   }
@@ -311,21 +393,22 @@
     width: 90%;
     position: relative;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    height: 90vh;
+    height: auto;
     display: flex;
-    flex-direction: row;;
+    flex-direction: row;
+    ;
   }
 
-  .member-modal-header {
-    flex-shrink: 0;
-  }
+  // .member-modal-header {
+  //   flex-shrink: 0;
+  // }
 
   .member-modal-body {
     overflow-y: auto;
     max-height: 60vh; // Adjust as needed
     margin-top: 20px;
     flex-grow: 1;
-    padding: 0% 5%;
+    // padding: 0% 5%;
   }
 
   .landing-results-inner.academics-mamber-group .member-card {
