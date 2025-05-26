@@ -1168,9 +1168,9 @@ body.single-esoft-jobs {
 .inquiry-now-btn {
   border: 0;
 }
-.see-job-all {
+/* .see-job-all {
   padding-top: 30px;
-}
+} */
 .branch-facility-mapp iframe {
   width: 100%;
 }
@@ -1208,9 +1208,9 @@ body.single-esoft-jobs {
   font-weight: bold;
   padding-bottom: 15px;
 }
-.page-template-scholarships .form-title {
+/* .page-template-scholarships .form-title {
   padding-top: 20px;
-}
+} */
 .form-title a {
   color: var(--btn-blue);
   text-decoration: none;
@@ -1236,9 +1236,9 @@ body.single-esoft-jobs {
 /* .related-job-wrap {
   display: flex;
 } */
-.map-wrap iframe {
+/* .map-wrap iframe {
   width: 100%;
-}
+} */
 .blog-filter {
   padding-right: 0 !important;
   padding-left: 5% !important;
@@ -1359,7 +1359,7 @@ body.single-esoft-jobs {
 .module-table tr:nth-child(2n + 1) {
   background: var(--light-ash-color);
 }
-.awrds-box {
+/* .awrds-box {
   display: flex;
   flex-direction: column;
 }
@@ -1368,7 +1368,7 @@ body.single-esoft-jobs {
 }
 .awrds-box h6 {
   font-size: var(--font-18);
-}
+} */
 .center-td {
   text-align: center;
 }
@@ -1539,13 +1539,13 @@ body.single-esoft-jobs {
     height: 100%;
     object-fit: cover;
   }
-  .venoratio.vbox-child {
+  /* .venoratio.vbox-child {
     width: 100%;
   }
   .vbox-container iframe,
   .venoratio.vbox-child {
     height: 400px;
-  }
+  } */
   /* .intern-slider,
   .testimonial-slider-school {
     padding: 0 5%;
@@ -2293,10 +2293,10 @@ body.single-esoft-jobs {
     height: 500px;
   }
 
-  .banne-cap-div {
+  /* .banne-cap-div {
     bottom: 50vh;
-  }
-  .lecture-slider,
+  } */
+  /* .lecture-slider,
   .lecture-slider-st {
     padding-left: 5%;
     padding-right: 5%;
@@ -2306,10 +2306,10 @@ body.single-esoft-jobs {
   }
   .lecture-slider-st .slide-item {
     width: 33.3%;
-  }
-  .lecture-slider .slide-item {
+  } */
+  /* .lecture-slider .slide-item {
     width: 33.3%;
-  }
+  } */
   .banner-image-only {
     min-height: unset !important;
     padding-bottom: 0;
@@ -2477,7 +2477,7 @@ body.single-esoft-jobs {
   .course-box-wrap {
     padding: 0 0 15px;
   }
-  .single-course-modal .course-box-wrap {
+  /* .single-course-modal .course-box-wrap {
     width: 100%;
   }
   .single-course-modal .modal-body {
@@ -2485,7 +2485,7 @@ body.single-esoft-jobs {
   }
   .single-course-modal .modal-dialog {
     max-width: 100%;
-  }
+  } */
   .category-wrap-box {
     width: 100%;
     padding: 10px;
@@ -2494,16 +2494,16 @@ body.single-esoft-jobs {
     width: 100%;
   }
 
-  .awrds-box img {
+  /* .awrds-box img {
     height: 200px !important;
-  }
+  } */
   .course-inner-details-box {
     padding-top: 30px;
   }
-  #myTabContent {
+  /* #myTabContent {
     padding: 10px;
-  }
-  .whatsapp-btn {
+  } */
+  /* .whatsapp-btn {
     position: fixed;
     right: 10px;
     bottom: 10%;
@@ -2511,7 +2511,7 @@ body.single-esoft-jobs {
   }
   .whatsapp-btn img {
     height: 45px;
-  }
+  } */
   .the-content-div,
   .the-content-div a,
   .the-content-div p,
@@ -2529,27 +2529,27 @@ body.single-esoft-jobs {
   .the-content-div li p {
     text-align: left !important;
   }
-  .banne-cap-div {
+  /* .banne-cap-div {
     bottom: auto;
     top: 50px;
-  }
+  } */
   .banner-image-only {
     padding-bottom: 0;
     min-height: unset;
   }
-  .lecture-slider-st {
+  /* .lecture-slider-st {
     width: 100%;
-  }
+  } */
   .staff-box-img {
     width: 120px;
     height: 120px;
   }
-  .lecture-slider-st .slide-item {
+  /* .lecture-slider-st .slide-item {
     width: 50%;
-  }
-  .lecture-slider .slide-item {
+  } */
+  /* .lecture-slider .slide-item {
     width: 50%;
-  }
+  } */
   /* .staff-modal .modal-body {
     padding: 20px;
   } */
@@ -2677,13 +2677,13 @@ body.single-esoft-jobs {
   .testimonial-slider .slide-item {
     padding: 0;
   }
-  .intern-slider .slide-item {
+  /* .intern-slider .slide-item {
     padding: 0 5px;
-  }
-  .address-div {
+  } */
+  /* .address-div {
     display: flex;
     flex-direction: column;
-  }
+  } */
   .branch-details-btn {
     justify-content: flex-start !important;
     padding-top: 15px;
@@ -2693,10 +2693,10 @@ body.single-esoft-jobs {
   .related-slider .slide-item {
     padding: 0;
   }
-  .careers-job-wrap .counter-box h6 {
+  /* .careers-job-wrap .counter-box h6 {
     font-size: 25px;
     line-height: 35px;
-  }
+  } */
   /* .result-div-final #search-breif {
     padding-right: 0;
   } */
