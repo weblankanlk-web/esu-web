@@ -40,8 +40,8 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
                 <Image
                   src={featuredImage.sourceUrl}
                   alt={featuredImage.altText}
-                  width={240}
-                  height={240}
+                  width={500}
+                  height={500}
                 />
               </div>
             </div>
