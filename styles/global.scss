@@ -71,6 +71,32 @@
   }
 }
 
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-title-color, #00aecd) transparent;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--main-title-color, #00aecd);
+    border-radius: 6px;
+    border: none;
+  }
+}
+
+html,
+body {
+  @extend .custom-scrollbar;
+}
+
+
 body {
   font-family: var(--font-family-secondary);
   background: #f4f4f6;
@@ -140,6 +166,9 @@ body {
     padding: 10px;
   }
 }
+
+
+
 
 @media only screen and (max-width: 992px) {
   .mobile-filter-btn {
