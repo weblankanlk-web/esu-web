@@ -10,6 +10,10 @@
   font-family: var(--font-poppins);
 }
 
+.course-description-wrapper {
+  padding: 50px;
+}
+
 .left-course {
   .course-box-wrap {
     width: 100% !important;
@@ -46,6 +50,12 @@
       font-size: 12px;
     }
   }
+}
+
+.hnd-top-up-toogle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .toggle-buttons {

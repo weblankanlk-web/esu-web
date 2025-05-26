@@ -326,47 +326,52 @@ const page = () => {
                   <button className="nav-btn-in">Fees</button>
                 </li>
               </ul> */}
-
-              <div
-                className="the-content-div"
-                dangerouslySetInnerHTML={{
-                  __html: course?.description || "",
-                }}
-              />
+              <div className="course-details-wrapper course-description-wrapper" data-aos="zoom-in">
+                <div
+                  className="the-content-div"
+                  dangerouslySetInnerHTML={{
+                    __html: course?.description || "",
+                  }}
+                />
+              </div>
               <br />
               {course?.is_bundle_course === 1 && (
-                <div className="toggle-buttons mb-3">
-                  {subCourses
-                    ?.slice() // make a shallow copy so we can sort
-                    .sort((a, b) => {
-                      const aName = a.name.toLowerCase();
-                      const bName = b.name.toLowerCase();
+                <div className="hnd-top-up-toogle">
+                  <div className="toggle-buttons mb-3">
+                    {subCourses
+                      ?.slice() // make a shallow copy so we can sort
+                      .sort((a, b) => {
+                        const aName = a.name.toLowerCase();
+                        const bName = b.name.toLowerCase();
 
-                      const aIsHND = aName.includes("hnd") ? -1 : 1;
-                      const bIsHND = bName.includes("hnd") ? -1 : 1;
+                        const aIsHND = aName.includes("hnd") ? -1 : 1;
+                        const bIsHND = bName.includes("hnd") ? -1 : 1;
 
-                      return aIsHND - bIsHND; // HND comes before others
-                    })
-                    .map((subCourse, index) => {
-                      const name = subCourse.name.toLowerCase();
-                      const label = name.includes("hnd")
-                        ? "Year 1 & 2"
-                        : name.includes("top up") || name.includes("top-up")
-                        ? "Year 3 (TOP UP)"
-                        : subCourse.name;
+                        return aIsHND - bIsHND; // HND comes before others
+                      })
+                      .map((subCourse, index) => {
+                        const name = subCourse.name.toLowerCase();
+                        const label = name.includes("hnd")
+                          ? "Year 1 & 2"
+                          : name.includes("top up") || name.includes("top-up")
+                          ? "Year 3 (TOP UP)"
+                          : subCourse.name;
 
-                      return (
-                        <button
-                          key={index}
-                          className={
-                            selectedSubCourse === subCourse.name ? "active" : ""
-                          }
-                          onClick={() => setSelectedSubCourse(subCourse.name)}
-                        >
-                          {label}
-                        </button>
-                      );
-                    })}
+                        return (
+                          <button
+                            key={index}
+                            className={
+                              selectedSubCourse === subCourse.name
+                                ? "active"
+                                : ""
+                            }
+                            onClick={() => setSelectedSubCourse(subCourse.name)}
+                          >
+                            {label}
+                          </button>
+                        );
+                      })}
+                  </div>
                 </div>
               )}
 

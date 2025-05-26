@@ -801,19 +801,19 @@ select:focus {
   overflow: hidden;
 }
 
-canvas {
+/* canvas {
   position: absolute;
   top: -125px;
   left: 0;
   bottom: 0;
   right: 0;
   width: 100% !important;
-}
-.canvas-section {
+} */
+/* .canvas-section {
   background: #171717;
   height: 70vh;
   overflow: hidden;
-}
+} */
 .branch-dropdown {
   padding: 0;
   border: 0 !important;
@@ -878,7 +878,7 @@ canvas {
   font-size: var(--font-34);
   font-weight: bold;
 }
-.staff-box-img {
+/* .staff-box-img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -904,11 +904,11 @@ canvas {
 .staff-box .staff-box-img {
   transform: scale(1);
   transition: all 0.5s;
-}
-.modal-staff {
+} */
+/* .modal-staff {
   padding-left: 20px;
-}
-.staff-box:hover .staff-box-img {
+} */
+/* .staff-box:hover .staff-box-img {
   transform: scale(0.9);
   transition: all 0.5s;
 }
@@ -920,14 +920,14 @@ canvas {
   padding-top: 15px;
   margin: 0;
   color: #000;
-}
-.modal-staff-img a {
+} */
+/* .modal-staff-img a {
   margin: auto;
   display: flex;
   justify-content: center;
   color: #000;
-}
-.staff-box a {
+} */
+/* .staff-box a {
   display: flex;
   justify-content: center;
   position: absolute;
@@ -935,21 +935,21 @@ canvas {
   left: 0;
   right: 0;
   color: #000;
-}
-.deisgnatio-p,
+} */
+/* .deisgnatio-p,
 .staff-box p {
   color: #000;
-}
-.leader-slider .slide-item {
+} */
+/* .leader-slider .slide-item {
   padding: 0 10px;
 }
 .leader-slider {
   padding-top: 50px;
-}
-.lecture-slider {
+} */
+/* .lecture-slider {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 .not-ava {
   padding-top: 20px;
   font-size: var(--font-16);
@@ -970,7 +970,7 @@ body.single-esoft-jobs {
 .single-esoft-jobs .header {
   height: 40px;
 }
-#loadMore,
+/* #loadMore,
 #loadMorest {
   margin-left: auto;
   margin-right: auto;
@@ -990,7 +990,7 @@ body.single-esoft-jobs {
   height: 1px;
   width: 100%;
   background: #000;
-}
+} */
 .gal-div-btn,
 .gal-div-btn-st {
   display: none;
@@ -1001,7 +1001,7 @@ body.single-esoft-jobs {
 .display {
   display: flex !important;
 }
-.lecture-slider-st {
+/* .lecture-slider-st {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1024,23 +1024,23 @@ body.single-esoft-jobs {
 .lecture-slider-st {
   padding-left: 7%;
   padding-right: 7%;
-}
-.intern-slider .slick-arrow,
+} */
+/* .intern-slider .slick-arrow,
 .leader-slider .slick-arrow,
 .lecture-slider .slick-arrow,
 .lecture-slider-st .slick-arrow {
   top: 45%;
-}
-.vbox-container iframe,
+} */
+/* .vbox-container iframe,
 .venoratio.vbox-child {
   height: 60vh;
 }
 .venoratio.vbox-child {
   width: 50%;
-}
-.branch-con {
+} */
+/* .branch-con {
   width: 35%;
-}
+} */
 .branch-facility {
   width: 55%;
 }
@@ -1050,15 +1050,15 @@ body.single-esoft-jobs {
 .branch-inner-title {
   padding-top: 0;
 }
-.branch-con-inner {
+/* .branch-con-inner {
   background: var(--dark-blck);
   padding: 10%;
   border-radius: 10px;
-}
+} */
 .branch-facility-wrap {
   justify-content: space-between;
 }
-.branch-con-inner ul {
+/* .branch-con-inner ul {
   margin: 0;
 }
 .branch-con-inner li {
@@ -1067,7 +1067,7 @@ body.single-esoft-jobs {
 }
 .branch-con-inner li:last-child {
   border: 0 !important;
-}
+} */
 .facility-ul ul {
   display: flex;
   flex-wrap: wrap;
@@ -1119,7 +1119,7 @@ body.single-esoft-jobs {
   background: var(--btn-blue);
 }
 
-.branch-select-wrap {
+/* .branch-select-wrap {
   display: flex;
   align-items: center;
 }
@@ -1128,7 +1128,7 @@ body.single-esoft-jobs {
 }
 .branch-select-wrap select {
   background-repeat: no-repeat !important;
-}
+} */
 
 .result-div-final #search-breif {
   padding-right: 50px;
@@ -1233,9 +1233,9 @@ body.single-esoft-jobs {
   display: flex;
   flex-direction: column;
 }
-.related-job-wrap {
+/* .related-job-wrap {
   display: flex;
-}
+} */
 .map-wrap iframe {
   width: 100%;
 }
@@ -1265,10 +1265,10 @@ body.single-esoft-jobs {
   margin: 0 -10px;
 }
 
-.material-item {
+/* .material-item {
   padding-left: 15px;
   font-weight: bold;
-}
+} */
 #selected-checks {
   list-style: none;
   padding: 0;
@@ -1287,11 +1287,11 @@ body.single-esoft-jobs {
 .main-li {
   margin: 0 10px;
 }
-.social-li {
+/* .social-li {
   width: 0;
   opacity: 0;
   transition: all 0.5s;
-}
+} */
 .sp-ban-right h6 {
   color: #fff;
   font-size: var(--font-25);
@@ -1301,7 +1301,7 @@ body.single-esoft-jobs {
 .banner-apply-wrap {
   margin-left: auto;
 }
-.social-li div {
+/* .social-li div {
   width: 0;
   opacity: 0;
   transition: all 0.5s;
@@ -1309,7 +1309,7 @@ body.single-esoft-jobs {
 
 .social-li div {
   padding-left: 5px;
-}
+} */
 
 .close-arr {
   position: absolute;
@@ -1325,9 +1325,9 @@ body.single-esoft-jobs {
   display: flex;
   align-items: center;
 }
-.quick-float:hover .first-li img {
+/* .quick-float:hover .first-li img {
   animation: none !important;
-}
+} */
 .first-li img {
   animation: scaleUpDown 2s infinite alternate;
 }
@@ -1449,18 +1449,18 @@ body.single-esoft-jobs {
 .modal-land .course-box-wrap {
   width: 33.3%;
 }
-.post-testimonials {
+/* .post-testimonials {
   padding: 0;
-}
+} */
 
 /**********************************************************************************/
 @media (min-width: 991px) and (max-width: 1600px) {
-  .modal-staff-img {
+  /* .modal-staff-img {
     flex-direction: column;
   }
   .modal-staff-img h5 {
     text-align: center;
-  }
+  } */
   .braedcumb-section {
     padding-bottom: 10px;
   }
@@ -1497,20 +1497,20 @@ body.single-esoft-jobs {
     height: 100px;
     padding: 5px;
   }
-  .scroltopIcon.topScroll {
+  /* .scroltopIcon.topScroll {
     width: 3%;
     margin-top: -11%;
     left: auto;
     right: 5%;
-  }
+  } */
 }
 @media (min-width: 991px) and (max-width: 1200px) {
   .small-wrap {
     width: 90%;
   }
-  .scroltopIcon.topScroll {
+  /* .scroltopIcon.topScroll {
     margin-top: -14%;
-  }
+  } */
 }
 @media only screen and (min-width: 991px) {
   .mobile-div,
@@ -1546,15 +1546,11 @@ body.single-esoft-jobs {
   .venoratio.vbox-child {
     height: 400px;
   }
-  .intern-slider,
+  /* .intern-slider,
   .testimonial-slider-school {
     padding: 0 5%;
-  }
+  } */
   .course-slider,
-  .intern-slider,
-  .leader-slider,
-  .lecture-slider,
-  .lecture-slider-st,
   .news-inner-slider,
   .related-slider,
   .testimonial-slider,
@@ -1584,9 +1580,9 @@ body.single-esoft-jobs {
     width: 30px;
     font-size: 15px;
   }
-  .material-item {
+  /* .material-item {
     padding-left: 0;
-  }
+  } */
   .landing-results-inner {
     margin: 0;
   }
@@ -1940,7 +1936,7 @@ body.single-esoft-jobs {
     text-align: center;
   }
 
-  .footer-menu-div {
+  /* .footer-menu-div {
     flex-wrap: wrap;
     padding-bottom: 0;
   }
@@ -1956,19 +1952,19 @@ body.single-esoft-jobs {
   .footer-copy-div a,
   .footer-copy-div p {
     font-size: 12px;
-  }
-  .contact-ul li a,
+  } */
+  /* .contact-ul li a,
   .contact-ul li p,
   .menu-col a,
   .menu-col a:hover {
     font-size: 14px;
-  }
-  #footer h6 {
+  } */
+  /* #footer h6 {
     font-size: 18px;
     padding-top: 15px;
-  }
+  } */
 
-  .footer-logo {
+  /* .footer-logo {
     margin-bottom: 15px;
     text-align: center;
   }
@@ -1977,24 +1973,24 @@ body.single-esoft-jobs {
     justify-content: center;
     display: flex;
     margin: auto;
-  }
+  } */
   .social-ul {
     justify-content: center;
   }
-  .footer-logo-div,
+  /* .footer-logo-div,
   .footer-logo-div-con {
     width: 100%;
-  }
-  .menu-col {
+  } */
+  /* .menu-col {
     width: 50%;
     padding-right: 5px;
-  }
-  .footer-logo-div ul {
+  } */
+  /* .footer-logo-div ul {
     padding-bottom: 20px;
-  }
-  #footer .main-wrap {
+  } */
+  /* #footer .main-wrap {
     width: 85%;
-  }
+  } */
   .school-box h6 {
     margin: 0;
     padding: 15px 0;
@@ -2007,9 +2003,9 @@ body.single-esoft-jobs {
     height: 100%;
   }
 
-  .canvas-section {
+  /* .canvas-section {
     height: 400px;
-  }
+  } */
   .school-box-single {
     width: 100%;
     padding: 0 5px 10px;
@@ -2076,7 +2072,7 @@ body.single-esoft-jobs {
   /* .staff-modal {
     max-width: 100%;
   } */
-  .modal-staff-img {
+  /* .modal-staff-img {
     flex-direction: column;
     text-align: center;
   }
@@ -2086,16 +2082,16 @@ body.single-esoft-jobs {
   .modal-staff-img {
     padding-bottom: 30px;
     margin: auto;
-  }
+  } */
 
   .banner-con h2 {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
-  .branch-con {
+  /* .branch-con {
     width: 100%;
-  }
+  } */
   .branch-facility {
     width: 100%;
   }
@@ -2109,20 +2105,20 @@ body.single-esoft-jobs {
     font-size: 25px;
     line-height: 35px;
   }
-  .branch-con-inner {
+  /* .branch-con-inner {
     padding: 20px;
-  }
+  } */
   .related-coures-div {
     padding: 10px 0;
   }
-  .opportunity-wrap h2 {
+  /* .opportunity-wrap h2 {
     font-size: 25px;
     line-height: 35px;
   }
   .opportunity-wrap p {
     font-size: 18px;
     line-height: 30px;
-  }
+  } */
   .news-slider-box-wrap img {
     height: 250px;
   }
@@ -2251,9 +2247,9 @@ body.single-esoft-jobs {
     font-size: 15px;
     line-height: 30px;
   }
-  .testimonial-slider-single .slide-item {
+  /* .testimonial-slider-single .slide-item {
     padding: 0;
-  }
+  } */
   .landing-wrap-top {
     padding-top: 30px;
   }
@@ -2318,20 +2314,20 @@ body.single-esoft-jobs {
     min-height: unset !important;
     padding-bottom: 0;
   }
-  .canvas-section {
+  /* .canvas-section {
     height: auto;
-  }
-  .view-course {
+  } */
+  /* .view-course {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
   .view-course h3 {
     padding-bottom: 20px;
-  }
-  .branch-select-wrap {
+  } */
+  /* .branch-select-wrap {
     padding: 15px 0;
-  }
+  } */
   .search-form-ajax {
     flex-direction: row !important;
   }
@@ -2372,12 +2368,12 @@ body.single-esoft-jobs {
     width: 25%;
     padding-right: 5px;
   }
-  .footer-logo-div-con {
+  /* .footer-logo-div-con {
     width: 25%;
-  }
-  #footer .main-wrap {
+  } */
+  /* #footer .main-wrap {
     width: 95%;
-  }
+  } */
 
   .course-box-wrap {
     width: 100%;
@@ -2397,9 +2393,9 @@ body.single-esoft-jobs {
     width: 50%;
     padding: 10px;
   }
-  .scroltopIcon.topScroll {
+  /* .scroltopIcon.topScroll {
     margin-top: -17%;
-  }
+  } */
 }
 @media only screen and (max-width: 600px) {
   .banner-search-bar {
@@ -2444,14 +2440,14 @@ body.single-esoft-jobs {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  .post-banner h2 {
+  /* .post-banner h2 {
     font-size: 35px;
     line-height: 45px;
   }
   .post-banner h5 {
     font-size: 18px;
     line-height: 30px;
-  }
+  } */
   .banner-apply-wrap {
     width: 100%;
     position: absolute;
@@ -2459,7 +2455,7 @@ body.single-esoft-jobs {
     right: 0;
     text-align: center;
   }
-  .post-banner {
+  /* .post-banner {
     background-color: #252525;
     padding: 10px 0 0 10px;
     background-repeat: no-repeat;
@@ -2468,7 +2464,7 @@ body.single-esoft-jobs {
 
   .post-banner .main-wrap {
     flex-wrap: wrap;
-  }
+  } */
   .related-coures-div h5::after {
     display: block;
     margin-left: auto;
@@ -2557,7 +2553,7 @@ body.single-esoft-jobs {
   /* .staff-modal .modal-body {
     padding: 20px;
   } */
-  .lecture-slider .staff-box,
+  /* .lecture-slider .staff-box,
   .lecture-slider-st .staff-box {
     overflow: hidden;
   }
@@ -2575,24 +2571,24 @@ body.single-esoft-jobs {
   .lecture-slider-st p {
     font-size: 13px;
     line-height: 25px;
-  }
-  .leader-slidere .slide-item {
+  } */
+  /* .leader-slidere .slide-item {
     width: 50% !important;
-  }
-  .quick-float {
+  } */
+  /* .quick-float {
     bottom: 90px;
-  }
-  .canvas-section {
+  } */
+  /* .canvas-section {
     height: auto;
-  }
+  } */
   #inquiryModal .form-wrap {
     padding: 10px;
   }
-  .quick-float .first-li img,
+  /* .quick-float .first-li img,
   .quick-float .social-li img {
     height: 40px;
     width: 40px;
-  }
+  } */
   .batch-table thead {
     display: none;
   }
@@ -2618,10 +2614,10 @@ body.single-esoft-jobs {
   .job-wrap-single {
     flex-direction: column;
   }
-  .branch-select-wrap h6 {
+  /* .branch-select-wrap h6 {
     padding-bottom: 15px;
-  }
-  .job-landing-wrap select {
+  } */
+  /* .job-landing-wrap select {
     height: 45px;
     width: 100%;
     font-size: 15px;
@@ -2631,27 +2627,27 @@ body.single-esoft-jobs {
     width: 100%;
     flex-direction: column;
     text-align: center;
-  }
-  .branch-select-wrap {
+  } */
+  /* .branch-select-wrap {
     padding-top: 20px;
-  }
-  .job-box {
+  } */
+  /* .job-box {
     width: 100%;
-  }
+  } */
 
-  .head-msg-wrap {
+  /* .head-msg-wrap {
     flex-direction: column;
   }
   .head-msg-img {
     width: 100%;
-  }
+  } */
   .dean-msg {
     width: 100%;
     padding-left: 0;
     padding-right: 0;
     text-align: center;
   }
-  .view-course {
+  /* .view-course {
     flex-direction: column;
     justify-content: center !important;
     align-items: center;
@@ -2662,7 +2658,7 @@ body.single-esoft-jobs {
     line-height: 35px;
     padding-bottom: 15px;
     padding-right: 0;
-  }
+  } */
 
   .branch-select {
     height: 45px;
@@ -2701,17 +2697,17 @@ body.single-esoft-jobs {
     font-size: 25px;
     line-height: 35px;
   }
-  .result-div-final #search-breif {
+  /* .result-div-final #search-breif {
     padding-right: 0;
-  }
+  } */
   #search-breif {
     text-align: center;
   }
 
-  .scroltopIcon.topScroll {
+  /* .scroltopIcon.topScroll {
     width: 10%;
     margin-top: -45%;
-  }
+  } */
 }
 
 @media (min-width: 991px) and (max-width: 1300px) {
