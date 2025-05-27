@@ -136,45 +136,45 @@ const Footer = () => {
             </ul>
           </div>
           <div className="column links">
-            {/*   <h4>IMPORTANT LINKS</h4> */}
-            {/* <ul>
-              <li>
+              <h4>IMPORTANT LINKS</h4>
+            <ul>
+              {/* <li>
                 <Link href="/courses">Courses</Link>
               </li>
               <li>
                 <Link href="/facilities">Faculties</Link>
               </li>
               <li>
-                <Link href="https://esoft.lk/transfer-programmes/">
+                <Link href="/transfer-programmes/">
                   Transfer Programmes
                 </Link>
-              </li>
+              </li> */}
               <li>
-                <Link href="https://esoft.lk/privacy-policy/">
+                <Link href="/privacy-policy/">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="https://esoft.lk/payment-policy/">
+                <Link href="/payment-policy/">
                   Payment Policy
                 </Link>
               </li>
               <li>
-                <Link href="https://esoft.lk/refund-policy/">
+                <Link href="/refund-policy/">
                   Refund Policy
                 </Link>
               </li>
               <li>
-                <Link href="https://esoft.lk/cookie-policy/">
+                <Link href="/quality-policy/">
                   Quality Policy
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="https://referrals.esoft.lk/referrer/login">
                   Referrals
                 </Link>
-              </li>
-            </ul> */}
+              </li> */}
+            </ul>
           </div>
           <div className="background-logo">
             <Image
