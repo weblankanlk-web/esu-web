@@ -20,6 +20,7 @@ import Button from "@/components/common/Button/Button";
 import { FeePlanInterface } from "@/common/interfaces/interface";
 import Modal from "@/components/common/Modal/Modal";
 import InquireForm from "@/components/sections/InquireForm/InquireForm";
+import Image from "next/image";
 
 type SubCourseFee = {
   id: number;
@@ -271,14 +272,19 @@ const page = () => {
         <div className="course-wrap">
           <div className="left-course">
             <div className="left-course-img" data-aos="flip-left">
-              {courseDetails?.featuredImage?.node?.mediaItemUrl && (
-                <img
-                  src={courseDetails.featuredImage.node.mediaItemUrl}
-                  alt={courseDetails.title}
-                />
-              )}
+              {/* {courseDetails?.featuredImage?.node?.mediaItemUrl && ( */}
+              <Image
+                src={
+                  courseDetails?.featuredImage?.node?.mediaItemUrl ||
+                  "/images/loading-placeholder.gif"
+                }
+                alt={courseDetails?.title || ""}
+                width={500}
+                height={600}
+              />
+              {/* )} */}
             </div>
-            <div className="left-course-details" data-aos="fade-up">
+            <div className="left-course-details">
               <div className="d-flex justify-content-center course-btn-wrap">
                 <Modal>
                   <InquireForm />
@@ -321,7 +327,13 @@ const page = () => {
                 <div className="course-details-partner-logo">
                   {course?.image &&
                     course?.image != "/images/placeholder.png" && (
-                      <img src={course?.image || ""} alt={course?.name || ""} />
+                      <Image
+                        src={course?.image || ""}
+                        alt={course?.name || ""}
+                        width={100}
+                        height={100}
+                        layout="responsive"
+                      />
                     )}
                 </div>
                 <div>
