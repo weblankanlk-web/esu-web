@@ -52,7 +52,7 @@ const CourseFees: React.FC<FeesProps> = ({ fees }) => {
   );
 
   return (
-    <div className="course-details-wrapper">
+    <div className="course-details-wrapper" data-aos="zoom-in">
       <div id="section6" className="related-coures-div course-title">
         <div className="d-flex justify-content-between align-items-center w-100 mb-3">
           <h5>

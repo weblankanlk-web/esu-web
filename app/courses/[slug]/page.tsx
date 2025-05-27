@@ -21,6 +21,11 @@ import { FeePlanInterface } from "@/common/interfaces/interface";
 import Modal from "@/components/common/Modal/Modal";
 import InquireForm from "@/components/sections/InquireForm/InquireForm";
 
+type SubCourseFee = {
+  id: number;
+  fee_plans: FeePlanInterface[] | any[];
+};
+
 const page = () => {
   const searchParams = useSearchParams();
   const courseId = searchParams.get("id");
@@ -36,6 +41,7 @@ const page = () => {
     bundle_items: any;
     course_content?: {
       modules?: [];
+      classifications?: [];
     };
   } | null>(null);
   // const [courseFees, setCourseFees] = useState([]);0
@@ -48,7 +54,7 @@ const page = () => {
   const [relatedCourses, setRelatedCourses] = useState<RelatedCourses[]>([]);
 
   const [subCourses, setSubCourses] = useState<any[]>([]);
-  const [subCourseFees, setSubCourseFees] = useState<any[]>([]);
+  const [subCourseFees, setSubCourseFees] = useState<SubCourseFee[]>([]);
 
   const [selectedSubCourse, setSelectedSubCourse] = useState(null);
 
@@ -100,7 +106,7 @@ const page = () => {
     }
   };
 
-  const fetchCourseFees = async (courseId: any) => {
+  const fetchCourseFees = async (courseId: any, main_course: boolean) => {
     try {
       const response = await axios.get(
         `https://publicapi.esoft.lk/api/v1/courses/${courseId}/fees?for_entity=esu`,
@@ -116,10 +122,38 @@ const page = () => {
         }
       );
 
-      if (Array.isArray(response.data.data)) {
-        setCourseFees({ fee_plans: response.data.data });
+      const feePlans = Array.isArray(response.data.data?.fee_plans)
+        ? response.data.data.fee_plans
+        : [];
+
+      if (main_course) {
+        setCourseFees({ fee_plans: feePlans });
+
+        // if (Array.isArray(response.data.data)) {
+        //   setCourseFees({ fee_plans: response.data.data });
+        //   console.log("main course fees", courseId, response.data.data);
+        // } else {
+        //   setCourseFees(response.data.data);
+        //   console.log(
+        //     "main course fees (object)",
+        //     courseId,
+        //     response.data.data
+        //   );
+        // }
       } else {
-        setCourseFees(response.data.data);
+        console.log("sub course fees", courseId, response.data.data);
+
+        setSubCourseFees((prev) => {
+          const alreadyExists = prev.some((item) => item.id === courseId);
+          if (alreadyExists) return prev;
+          return [
+            ...prev,
+            {
+              id: courseId,
+              fee_plans: feePlans,
+            },
+          ];
+        });
       }
     } catch (error) {
       console.error("Error fetching course fees:", error);
@@ -183,7 +217,7 @@ const page = () => {
 
     fetchCourse(courseId, true);
     fetchCourseDetails();
-    fetchCourseFees(courseId);
+    fetchCourseFees(courseId, true);
     fetchSchedule();
     fetchRelatedCourses();
   }, [courseId]);
@@ -200,6 +234,7 @@ const page = () => {
         if (item?.course_id && !fetchedIds.has(item.course_id)) {
           fetchedIds.add(item.course_id);
           fetchCourse(item.course_id, false);
+          fetchCourseFees(item.course_id, false);
         }
       });
     };
@@ -221,6 +256,12 @@ const page = () => {
   // console.log("subCourses", subCourses);
 
   // console.log("selectCourse insaf", selectCourse);
+
+  // console.log("fees course fees", subCourseFees);
+
+  const selectedSubCourseFees = subCourseFees.find(
+    (fee) => fee.id === selectCourse?.id
+  )?.fee_plans;
 
   return (
     <>
@@ -384,15 +425,32 @@ const page = () => {
               )} */}
 
               {course?.is_bundle_course !== 1 ? (
-                <CourseOutline
-                  classifications={[
-                    {
-                      id: 0,
-                      classification_name: "Modules",
-                      modules: course?.course_content?.modules || [],
-                    },
-                  ]}
-                />
+                course?.course_content?.classifications ? (
+                  <CourseOutline
+                    classifications={
+                      Array.isArray(course?.course_content?.classifications) &&
+                      course?.course_content?.classifications.length > 0
+                        ? course?.course_content?.classifications
+                        : [
+                            {
+                              id: 0,
+                              classification_name: "Modules",
+                              modules: course?.course_content?.modules || [],
+                            },
+                          ]
+                    }
+                  />
+                ) : (
+                  <CourseOutline
+                    classifications={[
+                      {
+                        id: 0,
+                        classification_name: "Modules",
+                        modules: course?.course_content?.modules || [],
+                      },
+                    ]}
+                  />
+                )
               ) : (
                 <CourseOutline
                   classifications={
@@ -415,7 +473,13 @@ const page = () => {
               <CourseSchedule schedule={schedule} />
               {/* ------------------------------------------------ */}
 
-              <CourseFees fees={courseFees} />
+              {/* <CourseFees fees={courseFees} /> */}
+
+              {course?.is_bundle_course !== 1 ? (
+                <CourseFees fees={courseFees} />
+              ) : (
+                <CourseFees fees={{ fee_plans: selectedSubCourseFees || [] }} />
+              )}
               {/* ------------------------------------------------ */}
 
               {courseDetails?.courses?.lecturePanelDescription && (
