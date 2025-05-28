@@ -134,7 +134,11 @@ const page = () => {
                         />
                       </Link>
                       <div className="school-box-inner-details">
+                        
                         <p className="m-0 aragraph paragraph--black date-p">
+                              <span className="calendar-icon" style={{ marginRight: "8px" }}>
+                      📅
+                    </span>
                           {new Intl.DateTimeFormat("en-US", {
                             year: "numeric",
                             month: "long",

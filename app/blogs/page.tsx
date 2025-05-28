@@ -102,6 +102,9 @@ const Blogs = () => {
                 </Link>
                 <div className="school-box-inner-details">
                   <p className="m-0 aragraph paragraph--black date-p">
+                        <span className="calendar-icon" style={{ marginRight: "8px" }}>
+                      📅
+                    </span>
                     {new Date(news.date).toLocaleDateString("en-US", {
                       day: "2-digit",
                       month: "short",
