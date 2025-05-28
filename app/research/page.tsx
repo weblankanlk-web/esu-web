@@ -145,7 +145,7 @@ const page = () => {
                           href={`/research/${publication.slug}`}
                           className="school-box-details d-flex"
                         >
-                          <span style={{ color: color }}>
+                          <span>
                             {publication.title}
                           </span>
                         </Link>
