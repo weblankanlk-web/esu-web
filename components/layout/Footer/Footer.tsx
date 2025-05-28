@@ -102,7 +102,7 @@ const Footer = () => {
             <div className="copyright">
               <p>Copyright © 2025 ESOFT UNI</p>
               <p>
-                Website Designed And Developed By{" "}
+                Website Designed and Developed by{" "}
                 <Link href="https://www.weblankan.com/" target="_blank">
                   <strong>Web Lankan</strong>
                 </Link>
