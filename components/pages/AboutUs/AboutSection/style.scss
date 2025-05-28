@@ -45,14 +45,14 @@
           font-weight: 600;
           line-height: 20px;
           text-align: center;
-          color: #9a9090;
+          color: #333 !important;
 
           p {
-            color: #9a9090;
+            color: #333 !important;
           }
 
           span {
-            color: #4d4d4d;
+            color: #333 !important;
           }
         }
       }
@@ -145,8 +145,8 @@
           }
 
           .the-content-div {
-            font-size: get-vw(22px);
-            line-height: get-vw(30px);
+            font-size: get-vw(16px);
+            line-height: get-vw(20px);
             text-align: left;
 
             span {

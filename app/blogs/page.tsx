@@ -17,7 +17,7 @@ const Blogs = () => {
   const [cursors, setCursors] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
-  const { setColor } = useTheme();
+  const { setColor, color } = useTheme();
   useEffect(() => {
     setColor("rgb(0, 174, 205)");
   }, [setColor]);
@@ -82,7 +82,7 @@ const Blogs = () => {
       <InnerBanner
         innerPageTitlePrimary={"ESU"}
         innerPageTitleSecondary={"Blogs"}
-        innerPageDescription=""
+        innerPageDescription="Explore stories, insights, and updates from our campus. From research highlights to student experiences, the ESU Blog keeps you connected and informed."
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />
@@ -113,7 +113,7 @@ const Blogs = () => {
                   >
                     <span>
                       {news.title.length > 50
-                        ? news.title.substring(0, 50) + "[...]"
+                        ? news.title.substring(0, 50) + "..."
                         : news.title}
                     </span>
                   </Link>
@@ -122,14 +122,20 @@ const Blogs = () => {
                       dangerouslySetInnerHTML={{
                         __html:
                           news.content.length > 200
-                            ? news.content.substring(0, 200) + "[...]"
+                            ? news.content.substring(0, 200) + "..."
                             : news.content,
                       }}
                     />
                   </div>
                   <Link className="btnn-next" href={`/blogs/${news.slug}`}>
-                    Read More
-                  </Link>
+                    <span
+                      className="campus-arrow"
+                      style={{
+                        background: color || "rgb(0, 174, 205)",
+                      }}
+                    >
+                      ➜
+                    </span>                  </Link>
                 </div>
               </div>
             </div>
@@ -140,9 +146,8 @@ const Blogs = () => {
           {[...Array(currentPage + (hasNextPage ? 1 : 0))].map((_, i) => (
             <button
               key={i}
-              className={`page-numbers ${
-                currentPage === i + 1 ? "current" : ""
-              }`}
+              className={`page-numbers ${currentPage === i + 1 ? "current" : ""
+                }`}
               onClick={() => handlePageChange(i + 1)}
             >
               {i + 1}

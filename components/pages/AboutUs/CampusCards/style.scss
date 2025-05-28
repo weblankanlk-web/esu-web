@@ -150,6 +150,9 @@
 @media screen and (min-width: 1200px) {
   .campus-section {
     padding: get-vw(80px) get-vw(100px);
+    p{
+      font-size: get-vw(16px);
+    }
   }
 
   .campus-grid {

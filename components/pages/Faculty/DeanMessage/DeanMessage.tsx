@@ -54,7 +54,7 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
                   Message
                 </span>
               </h2>
-              <div dangerouslySetInnerHTML={{ __html: message }}></div>
+              <div className="dean-message-content" dangerouslySetInnerHTML={{ __html: message }}></div>
             </div>
           </div>
         </div>
