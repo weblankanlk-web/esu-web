@@ -8,16 +8,16 @@ import { TitleInterface } from "@/common/interfaces/interface";
 const TitleSmall: React.FC<TitleInterface> = ({ title, subtitle }) => {
   const { color } = useTheme();
   return (
-    <div className="title-wrapper">
-      <div className="main-title-small">
-        {title && <h2> {title} </h2>}
-        {subtitle && (
+    <>
+      <div className="title-wrapper">
+        <div className="main-title-small">
+          <h2> { title } </h2>
           <h2>
-            <span style={{ color: color }}> {subtitle}</span>
+          <span style={{ color: color }}> {subtitle }</span>
           </h2>
-        )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

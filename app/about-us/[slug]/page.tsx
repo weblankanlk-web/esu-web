@@ -42,11 +42,11 @@ const page = () => {
   const facultyTitle = sentenceCaseWords.join(" ");
   // console.log("facultySlug", facultySlug);
 
-  // console.log("slug", slug);
+  console.log("slug", slug);
 
   useEffect(() => {
     const fetchData = async (campusSlug: any) => {
-      // console.log("campus slug", campusSlug);
+      console.log("campus slug", campusSlug);
 
       try {
         const data = await graphQLClient.request<{
@@ -109,6 +109,7 @@ const page = () => {
             altText:
               viceChancellor.featuredImage?.node?.altText || "Vice Chancellor",
           }}
+          slugUrl={viceChancellor?.slug}
           fontFamily={"inherit"} // You can update this if you add font in VC fields
           fontColor={color} // Update if VC fields include color
         />
