@@ -142,7 +142,7 @@ const page = () => {
         //   );
         // }
       } else {
-        console.log("sub course fees", courseId, response.data.data);
+        // console.log("sub course fees", courseId, response.data.data);
 
         setSubCourseFees((prev) => {
           const alreadyExists = prev.some((item) => item.id === courseId);

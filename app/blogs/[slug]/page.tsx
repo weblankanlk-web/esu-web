@@ -31,7 +31,7 @@ const Page = () => {
         slug,
       });
 
-      console.log("📥 Fetched blog:", data.blog);
+      // console.log("📥 Fetched blog:", data.blog);
       setBlog(data.blog);
     };
 
@@ -48,7 +48,7 @@ const Page = () => {
     autoplay: true,
   };
 
-  console.log("📦 blog response:", blog);
+  // console.log("📦 blog response:", blog);
 
   /*   const galleryImages =
     blog?.blogs?.gallery?.nodes?.map((item: any) => item.sourceUrl) || [];
@@ -62,7 +62,7 @@ const Page = () => {
       ? [blog.featuredImage.node.sourceUrl]
       : [];
 
-  console.log("🖼️ Gallery Images:", galleryImages);
+  // console.log("🖼️ Gallery Images:", galleryImages);
 
   return (
     <>

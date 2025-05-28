@@ -25,7 +25,7 @@ const HomeTestimonials: React.FC = () => {
           testimonials: { nodes: Testimonial[] };
         }>(TESTIMONIALS_QUERY);
 
-        console.log("✅ Raw testimonials:", data.testimonials.nodes);
+        // console.log("✅ Raw testimonials:", data.testimonials.nodes);
 
         const filtered = data.testimonials.nodes.filter((item) => {
           // const types = item.testimonials?.testimonialType || [];
@@ -33,7 +33,7 @@ const HomeTestimonials: React.FC = () => {
           return item.testimonials !== null;
         });
 
-        console.log("✅ Filtered testimonials (excluding video):", filtered);
+        // console.log("✅ Filtered testimonials (excluding video):", filtered);
 
         setTestimonials(filtered);
       } catch (error) {

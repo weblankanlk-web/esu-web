@@ -27,11 +27,11 @@ const Blogs = () => {
     after: string | null = null
   ) => {
     try {
-      console.log("📡 Fetching News & Events with:", { first, after });
+      // console.log("📡 Fetching News & Events with:", { first, after });
 
       const data = await graphQLClient.request(GET_ALL_BLOGS, { first, after });
 
-      console.log("✅ Raw GraphQL Response:", data);
+      // console.log("✅ Raw GraphQL Response:", data);
 
       const typedData = data as {
         news: {

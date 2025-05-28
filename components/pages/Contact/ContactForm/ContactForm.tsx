@@ -104,7 +104,7 @@ const ContactForm = () => {
       form.append("documents[]", file);
     });
 
-    console.log("Form Data:", form);
+    // console.log("Form Data:", form);
 
     try {
       const response = await fetch(
@@ -142,10 +142,10 @@ const ContactForm = () => {
     }
   };
 
-  console.log("Payload values:", {
-    ...formData,
-    documents,
-  });
+  // console.log("Payload values:", {
+  //   ...formData,
+  //   documents,
+  // });
 
   return (
     <>

@@ -58,7 +58,7 @@ const InquireForm: React.FC<InquireFormProps> = () => {
               self.findIndex((c: { slug: any }) => c.slug === course.slug)
           );
 
-        console.log("Combined Courses:", combinedCourses);
+        // console.log("Combined Courses:", combinedCourses);
         setCourses(combinedCourses);
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -68,7 +68,7 @@ const InquireForm: React.FC<InquireFormProps> = () => {
     fetchCourses();
   }, []);
 
-  console.log("Courses:", courses);
+  // console.log("Courses:", courses);
 
   const filterslugcourse = courses.filter((course) => course.slug === slug);
   // console.log("Filtered Slug Course:", filterslugcourse);

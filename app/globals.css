@@ -447,6 +447,7 @@ input:focus {
   object-fit: cover;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
+  object-position: top;
 }
 .left-course-details {
   box-shadow: 0 4px 10px 0 #0000002e;
