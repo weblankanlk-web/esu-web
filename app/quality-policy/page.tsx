@@ -15,7 +15,7 @@ export default function QualityPolicyPage() {
   return (
     <>
       <Breadrumb />
-      <section className="simple-padding-bottom dark-lightmode dark-font-change">
+      <section className="simple-padding-bottom">
         <div className="small-middle-wrap">
           <h2 className="pb-small section-heading section-heading--black" data-aos="flip-down">
             Quality <span>Policy</span>

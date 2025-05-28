@@ -17,21 +17,22 @@ const Blogs = () => {
   const [cursors, setCursors] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
-  const { setColor, color } = useTheme();
-  useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+  const { setColor } = useTheme();
+  
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
 
   const fetchNewsEvents = async (
     first = PAGE_SIZE,
     after: string | null = null
   ) => {
     try {
-      console.log("📡 Fetching News & Events with:", { first, after });
+      // console.log("📡 Fetching News & Events with:", { first, after });
 
       const data = await graphQLClient.request(GET_ALL_BLOGS, { first, after });
 
-      console.log("✅ Raw GraphQL Response:", data);
+      // console.log("✅ Raw GraphQL Response:", data);
 
       const typedData = data as {
         news: {

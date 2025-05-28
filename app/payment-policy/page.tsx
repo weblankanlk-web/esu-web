@@ -15,7 +15,7 @@ export default function PaymentPolicyPage() {
   return (
     <>
       <Breadrumb />
-      <section className="simple-padding-bottom dark-lightmode dark-font-change">
+      <section className="simple-padding-bottom">
         <div className="small-middle-wrap">
           <h2
             className="pb-small section-heading section-heading--black"

@@ -104,7 +104,7 @@ const ContactForm = () => {
       form.append("documents[]", file);
     });
 
-    console.log("Form Data:", form);
+    // console.log("Form Data:", form);
 
     try {
       const response = await fetch(
@@ -142,10 +142,10 @@ const ContactForm = () => {
     }
   };
 
-  console.log("Payload values:", {
-    ...formData,
-    documents,
-  });
+  // console.log("Payload values:", {
+  //   ...formData,
+  //   documents,
+  // });
 
   return (
     <>
@@ -518,8 +518,8 @@ const ContactForm = () => {
               required
             >
               <option value="">Select Branch</option>
-              <option value="Colombo">Colombo</option>
-              <option value="Kandy">Kandy</option>
+              <option value="Colombo">ESU Colombo</option>
+              <option value="Kandy">ESU Kandy</option>
             </select>
           </div>
           <div className="form-group">

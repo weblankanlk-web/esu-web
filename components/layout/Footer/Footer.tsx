@@ -101,6 +101,12 @@ const Footer = () => {
             </div>
             <div className="copyright">
               <p>Copyright © 2025 ESOFT UNI</p>
+              <p>
+                Website Designed and Developed by{" "}
+                <Link href="https://www.weblankan.com/" target="_blank">
+                  <strong>Web Lankan</strong>
+                </Link>
+              </p>
             </div>
           </div>
           <div className="column links">
@@ -136,7 +142,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="column links">
-              <h4>IMPORTANT LINKS</h4>
+            <h4>IMPORTANT LINKS</h4>
             <ul>
               {/* <li>
                 <Link href="/courses">Courses</Link>
@@ -150,24 +156,16 @@ const Footer = () => {
                 </Link>
               </li> */}
               <li>
-                <Link href="/privacy-policy/">
-                  Privacy Policy
-                </Link>
+                <Link href="/privacy-policy/">Privacy Policy</Link>
               </li>
               <li>
-                <Link href="/payment-policy/">
-                  Payment Policy
-                </Link>
+                <Link href="/payment-policy/">Payment Policy</Link>
               </li>
               <li>
-                <Link href="/refund-policy/">
-                  Refund Policy
-                </Link>
+                <Link href="/refund-policy/">Refund Policy</Link>
               </li>
               <li>
-                <Link href="/quality-policy/">
-                  Quality Policy
-                </Link>
+                <Link href="/quality-policy/">Quality Policy</Link>
               </li>
               {/* <li>
                 <Link href="https://referrals.esoft.lk/referrer/login">
@@ -188,14 +186,14 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer-bottom" style={{ backgroundColor: color }}>
+      {/* <div className="footer-bottom" style={{ backgroundColor: color }}>
         <p>
           Website Designed And Developed By{" "}
           <Link href="https://www.weblankan.com/" target="_blank">
             <strong>Web Lankan</strong>
           </Link>
         </p>
-      </div>
+      </div> */}
     </footer>
   );
 };

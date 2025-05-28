@@ -27,10 +27,11 @@ import {
 } from "@/components/pages/Courses";
 import { FaTimes } from "react-icons/fa";
 import TitleText from "../../components/common/TextColorChange/TextColorChange";
+import Filter from "@/components/pages/Courses/Filter/Filter";
 
 export default function CoursesPage() {
-    const { setColor } = useTheme();
-  
+  const { setColor } = useTheme();
+
   const [search, setSearch] = useState("");
 
   const [courseTypes, setCourseTypes] = useState<CourseType[]>([]);
@@ -49,20 +50,43 @@ export default function CoursesPage() {
   const [selectedBranches, setSelectedBranches] = useState<string[]>([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const coursesPerPage = 12;
 
-  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+  const [coursesPerPage, setCoursesPerPage] = useState(12);
 
-  const handleClearFilters = () => {
-    setSelectedSchools([]);
-    setSelectedPrograms([]);
-    setSelectedModes([]);
-    setSelectedBranches([]);
-    setSearch("");
-  };
   useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+    const updatedCoursesPerPage = () => {
+      if (window.innerWidth <= 768) {
+        setCoursesPerPage(6);
+      } else {
+        setCoursesPerPage(12);
+      }
+    };
+
+    updatedCoursesPerPage();
+
+    window.addEventListener("resize", updatedCoursesPerPage);
+
+    return () => {
+      window.removeEventListener("resize", updatedCoursesPerPage);
+    };
+  }, []);
+
+  // const coursesPerPage = 12;
+
+  // const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+
+  // const handleClearFilters = () => {
+  //   setSelectedSchools([]);
+  //   setSelectedPrograms([]);
+  //   setSelectedModes([]);
+  //   setSelectedBranches([]);
+  //   setSearch("");
+  // };
+
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
+
   useEffect(() => {
     let results = [...allCourses];
 
@@ -204,11 +228,11 @@ export default function CoursesPage() {
     fetchDeliveryModeTypes();
   }, []);
 
-  const { color } = useTheme();
+  // const { color } = useTheme();
 
-  const toggleMobileFilter = () => {
-    setMobileFilterOpen((prev) => !prev);
-  };
+  // const toggleMobileFilter = () => {
+  //   setMobileFilterOpen((prev) => !prev);
+  // };
 
   const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
 
@@ -218,9 +242,12 @@ export default function CoursesPage() {
     <>
       <Breadrumb />
 
-      <section className="simple-padding-bottom dark-lightmode dark-font-change">
+      <section className="simple-padding-bottom course-section">
         <div className="small-middle-wrap">
-          <h2 className="section-heading section-heading--black" data-aos="flip-down">
+          <h2
+            className="section-heading section-heading--black"
+            data-aos="flip-down"
+          >
             our <span>courses</span>
           </h2>
 
@@ -230,145 +257,22 @@ export default function CoursesPage() {
             </div>
           </div>
 
-          <div className="landing-wrap" >
+          <div className="landing-wrap">
             {/* Filter Section */}
-            <div className="landing-filter" data-aos="fade-up" >
-              {search ||
-              selectedSchools.length ||
-              selectedPrograms.length ||
-              selectedModes.length ||
-              selectedBranches.length ? (
-                <div  >
-                  <p id="search-breif">
-                    <span id="result-count">{filteredCourses.length} </span>
-                    {search && <span id="result-keyword">"{search}"</span>}
-                    Search Results Found for
-                    {selectedSchools.length > 0 && (
-                      <span>
-                        {" "}
-                        {selectedSchools.map((slug) => {
-                          const school = schoolTypes.find(
-                            (s) => s.slug === slug
-                          );
-                          return school ? school.name : slug;
-                        })}
-                      </span>
-                    )}
-                    {selectedPrograms.length > 0 && (
-                      <span>
-                        {" "}
-                        {selectedPrograms.map((slug) => {
-                          const program = courseTypes.find(
-                            (c) => c.slug === slug
-                          );
-                          return program ? program.name : slug;
-                        })}
-                      </span>
-                    )}
-                    {selectedBranches.length > 0 && (
-                      <span>
-                        {" "}
-                        {selectedBranches.map((slug) => {
-                          const branches = branchTypes.find(
-                            (c) => c.slug === slug
-                          );
-                          return branches ? branches.name : slug;
-                        })}
-                      </span>
-                    )}
-                  </p>
-                </div>
-              ) : null}
-
-              <div className="d-flex filter-clear-wrap justify-content-between align-items-center"  >
-                <h5 className="desktop-div">filter by</h5>
-                <button
-                  id="filter-toggle"
-                  className="mobile-div"
-                  style={{ backgroundColor: color }}
-                  onClick={toggleMobileFilter}
-                >
-                  Select Filter
-                </button>
-                <button
-                  className="clear-filter-btn"
-                  id="clear-filters-btn"
-                  onClick={handleClearFilters}
-                >
-                  Clear
-                </button>
-              </div>
-
-              <ul id="selected-checks"></ul>
-              <div
-                className={`att-box-wrapper ${
-                  mobileFilterOpen ? "show-mobile-filter" : "hide-mobile-filter"
-                }`}
-              >
-                <button
-                  className="mobile-filter-btn"
-                  onClick={toggleMobileFilter}
-                >
-                  <FaTimes />
-                </button>
-
-                {/* 
-                    ---
-                    Faculties Filter  
-                    ---
-                */}
-
-                <div className="title-wrap">
-                  <TitleText title="" subtitle="Faculties" />
-                </div>
-
-                <FilterPanel
-                  title="" // overridden by the above <div>
-                  options={schoolTypes}
-                  selected={selectedSchools}
-                  setSelected={setSelectedSchools}
-                  loading={false}
-                />
-
-                {/* 
-                    ---
-                    Academic Level Filter  
-                    ---
-                */}
-
-                <div className="title-wrap">
-                  <TitleText title="" subtitle="Academic Level" />
-                </div>
-
-                <FilterPanel
-                  title="" // overridden by the above <div>
-                  options={courseTypes}
-                  selected={selectedPrograms}
-                  setSelected={setSelectedPrograms}
-                  loading={false}
-                />
-
-                {/* 
-                    ---
-                    Campuses Filter  
-                    ---
-                */}
-
-                <div className="title-wrap">
-                  <TitleText title="" subtitle="Campuses" />
-                </div>
-
-                <FilterPanel
-                  title=""
-                  options={branchTypes}
-                  selected={selectedBranches}
-                  setSelected={setSelectedBranches}
-                  loading={false}
-                />
-              </div>
-            </div>
-
-            <div className="landing-results"  >
+            <Filter
+              setSelectedSchools={setSelectedSchools}
+              setSelectedPrograms={setSelectedPrograms}
+              setSelectedModes={setSelectedModes}
+              setSelectedBranches={setSelectedBranches}
+              setSearch={setSearch}
+              search={search}
+              selectedSchools={selectedSchools}
+              selectedPrograms={selectedPrograms}
+              selectedModes={selectedModes}
+              selectedBranches={selectedBranches}
+              filteredCourses={filteredCourses}
+            />
+            <div className="landing-results">
               <div className="landing-results-inner">
                 {/* Course List */}
                 <CourseList

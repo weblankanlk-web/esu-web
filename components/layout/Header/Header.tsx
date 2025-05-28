@@ -218,6 +218,9 @@ const Header = () => {
                 <Link href="/faculties" onClick={() => setMobileMenuOpen(false)}>Faculties</Link>
               </li>
               <li>
+                <Link href="/academics" onClick={() => setMobileMenuOpen(false)}>Academics</Link>
+              </li>
+              <li>
                 <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
               </li>
               <li>

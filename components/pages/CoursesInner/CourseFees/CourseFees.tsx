@@ -54,26 +54,26 @@ const CourseFees: React.FC<FeesProps> = ({ fees }) => {
   return (
     <div className="course-details-wrapper" data-aos="zoom-in">
       <div id="section6" className="related-coures-div course-title">
-        <div className="d-flex justify-content-between align-items-center w-100 mb-3">
+        <div className="d-flex flex-column justify-content-start align-items-start flex-md-row justify-content-md-between align-items-md-center w-100 mb-3">
           <h5>
-          <span>
-            Course <span style={{ color }}>Fees</span>
-          </span>
-        </h5>
-        <div className="toggle-buttons m-0">
-          <button
-            className={selectedType === "local" ? "active" : ""}
-            onClick={() => setSelectedType("local")}
-          >
-            Local
-          </button>
-          <button
-            className={selectedType === "foreign" ? "active" : ""}
-            onClick={() => setSelectedType("foreign")}
-          >
-            International
-          </button>
-        </div>
+            <span>
+              Course <span style={{ color }}>Fees</span>
+            </span>
+          </h5>
+          <div className="toggle-buttons m-0">
+            <button
+              className={selectedType === "local" ? "active" : ""}
+              onClick={() => setSelectedType("local")}
+            >
+              Local
+            </button>
+            <button
+              className={selectedType === "foreign" ? "active" : ""}
+              onClick={() => setSelectedType("foreign")}
+            >
+              International
+            </button>
+          </div>
         </div>
         <hr className="course-title-hr" />
       </div>

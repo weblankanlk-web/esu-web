@@ -20,9 +20,10 @@ const Page = () => {
   );
 
   const { color, setColor } = useTheme();
-  useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+  
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
 
   useEffect(() => {
     const fetchData = async () => {
