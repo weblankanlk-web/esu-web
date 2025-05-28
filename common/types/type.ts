@@ -75,6 +75,7 @@ export type FacultyInner = {
 // app/faculties/[slug]/page.tsx
 export type StaffMemberDetails = {
   title: string;
+  slug: string;
   staffAcf: {
     designation: string;
     message: string;
@@ -127,6 +128,7 @@ export type StaffMemberDetails = {
 
 export type ViceChancellor = {
   title: string;
+  slug: string;
   staffAcf: {
     designation: string;
     message: string;
@@ -400,5 +402,25 @@ export type CoursesInquire = {
         };
       };
     };
+  };
+};
+
+// Event type for GraphQL events query
+export type EventNode = {
+  eventId: number;
+  date: string;
+  slug: string;
+  title: string;
+  events: {
+    color: string;
+    date: string;
+    isUpcommingEvent: boolean;
+  };
+  link: string;
+};
+
+export type Events = {
+  events: {
+    nodes: EventNode[];
   };
 };

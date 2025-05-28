@@ -5,6 +5,8 @@
         .dean-message-title {
             text-transform: uppercase;
             text-align: center;
+             font-family: var(--font-poppins) !important;
+             font-weight: 700;
             margin-bottom: 0;
             padding: 0 20px 30px;
             font-size: 35px;
@@ -36,10 +38,6 @@
                 line-height: get-vw(90px);
                 letter-spacing: get-vw(-4px);
                 padding-bottom: get-vw(75px);
-                .dean-message-content{
-                    font-size: get-vw(16px) !important;
-                    line-height: get-vw(24px) !important;
-                }
             }
             .members-wrap {
                 width: 100%;

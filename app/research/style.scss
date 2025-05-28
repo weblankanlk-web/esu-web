@@ -50,7 +50,6 @@
         overflow: hidden;
         transition: all 0.3s ease;
         border: 1px solid #e0e2ed;
-        background-color: #fff;
 
         &:hover {
           transform: translateY(-5px);
@@ -64,8 +63,6 @@
 
         .school-box-inner-details {
           padding: 15px;
-          position: relative;
-          padding-bottom: 60px !important;
 
 
           .date-p {
@@ -106,22 +103,19 @@
 
           .btnn-next {
             color: #fff;
-            // background: #0073e6;
-            // padding: 8px 14px;
-            // border-radius: 5px;
-            // font-size: 14px;
-            // display: inline-block;
+            background: #0073e6;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: inline-block;
             text-decoration: none;
-            right: 5%;
-            bottom: 4%;
-            position: absolute;
           }
         }
       }
     }
 
     .publication-content {
-      // min-height: 200px;
+      min-height: 200px;
     }
   }
 
@@ -180,12 +174,6 @@
     align-items: center !important;
   }
 
-  .search-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .search-form-ajax {
     background: transparent;
 
@@ -201,7 +189,7 @@
     align-items: flex-start;
 
     .search-form-ajax {
-      margin-top: 0px;
+      margin-top: 15px;
       width: 100%;
     }
   }
@@ -232,6 +220,7 @@
   position: absolute;
   left: 0;
 }
+<<<<<<< HEAD
 
 @media screen and (max-width: 768px) {
   .landing-wrap {
@@ -361,3 +350,5 @@
     }
   }
 }
+=======
+>>>>>>> 3f2c5972807c5f32be41d22b3295d8a018aaf03c

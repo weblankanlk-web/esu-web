@@ -229,7 +229,9 @@
   align-items: center;
   justify-content: center;
 }
-
+.course-box-wrap {
+  width: 33.3%;
+}
 .landing-results-inner {
   display: flex;
   flex-wrap: wrap;
@@ -438,7 +440,24 @@ input:focus {
 .course-btn-wrap a {
   width: 48%;
 }
-
+.left-course-img img {
+  width: 100%;
+  border-radius: 10px;
+  max-height: 500px;
+  object-fit: cover;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.left-course-details {
+  box-shadow: 0 4px 10px 0 #0000002e;
+}
+.left-course-details h2 {
+  font-size: var(--font-24);
+  line-height: var(--font-40);
+}
+.left-course-details h2 span {
+  font-weight: bold;
+}
 .related-coures-div {
   padding: 50px 0 20px;
 }
@@ -1465,9 +1484,9 @@ body.single-esoft-jobs {
     padding: 50px 2%;
   }
 
-  /* .left-course-details {
+  .left-course-details {
     padding: 20px;
-  } */
+  }
   .news-slider-box-wrap img {
     height: 350px;
   }
@@ -2169,9 +2188,9 @@ body.single-esoft-jobs {
     margin: auto;
     flex-wrap: wrap;
   }
-  /* .left-course-details {
+  .left-course-details {
     padding: 20px;
-  } */
+  }
   .course-details-bar-details {
     padding-right: 20px;
     padding-left: 20px;
@@ -2201,7 +2220,6 @@ body.single-esoft-jobs {
   .schedule-table-wrap {
     width: 100%;
     overflow: auto;
-
   }
   .fee-box {
     width: 100%;
@@ -2733,4 +2751,3 @@ body.single-esoft-jobs {
     width: 90%;
   }
 }
-

@@ -99,7 +99,9 @@
       border-radius: 50%;
       width: 40px;
       height: 40px;
+      display: flex;
       align-items: center;
+      transform: rotate(315deg); // ⬅️ Rotates to point northeast
     }
   }
 }
@@ -148,9 +150,6 @@
 @media screen and (min-width: 1200px) {
   .campus-section {
     padding: get-vw(80px) get-vw(100px);
-    p{
-      font-size: get-vw(16px);
-    }
   }
 
   .campus-grid {

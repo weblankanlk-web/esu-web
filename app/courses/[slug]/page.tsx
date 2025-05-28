@@ -20,12 +20,6 @@ import Button from "@/components/common/Button/Button";
 import { FeePlanInterface } from "@/common/interfaces/interface";
 import Modal from "@/components/common/Modal/Modal";
 import InquireForm from "@/components/sections/InquireForm/InquireForm";
-import Image from "next/image";
-
-type SubCourseFee = {
-  id: number;
-  fee_plans: FeePlanInterface[] | any[];
-};
 
 const page = () => {
   const searchParams = useSearchParams();
@@ -42,7 +36,6 @@ const page = () => {
     bundle_items: any;
     course_content?: {
       modules?: [];
-      classifications?: [];
     };
   } | null>(null);
   // const [courseFees, setCourseFees] = useState([]);0
@@ -55,7 +48,7 @@ const page = () => {
   const [relatedCourses, setRelatedCourses] = useState<RelatedCourses[]>([]);
 
   const [subCourses, setSubCourses] = useState<any[]>([]);
-  const [subCourseFees, setSubCourseFees] = useState<SubCourseFee[]>([]);
+  const [subCourseFees, setSubCourseFees] = useState<any[]>([]);
 
   const [selectedSubCourse, setSelectedSubCourse] = useState(null);
 
@@ -107,7 +100,7 @@ const page = () => {
     }
   };
 
-  const fetchCourseFees = async (courseId: any, main_course: boolean) => {
+  const fetchCourseFees = async (courseId: any) => {
     try {
       const response = await axios.get(
         `https://publicapi.esoft.lk/api/v1/courses/${courseId}/fees?for_entity=esu`,
@@ -123,38 +116,10 @@ const page = () => {
         }
       );
 
-      const feePlans = Array.isArray(response.data.data?.fee_plans)
-        ? response.data.data.fee_plans
-        : [];
-
-      if (main_course) {
-        setCourseFees({ fee_plans: feePlans });
-
-        // if (Array.isArray(response.data.data)) {
-        //   setCourseFees({ fee_plans: response.data.data });
-        //   console.log("main course fees", courseId, response.data.data);
-        // } else {
-        //   setCourseFees(response.data.data);
-        //   console.log(
-        //     "main course fees (object)",
-        //     courseId,
-        //     response.data.data
-        //   );
-        // }
+      if (Array.isArray(response.data.data)) {
+        setCourseFees({ fee_plans: response.data.data });
       } else {
-        // console.log("sub course fees", courseId, response.data.data);
-
-        setSubCourseFees((prev) => {
-          const alreadyExists = prev.some((item) => item.id === courseId);
-          if (alreadyExists) return prev;
-          return [
-            ...prev,
-            {
-              id: courseId,
-              fee_plans: feePlans,
-            },
-          ];
-        });
+        setCourseFees(response.data.data);
       }
     } catch (error) {
       console.error("Error fetching course fees:", error);
@@ -218,7 +183,7 @@ const page = () => {
 
     fetchCourse(courseId, true);
     fetchCourseDetails();
-    fetchCourseFees(courseId, true);
+    fetchCourseFees(courseId);
     fetchSchedule();
     fetchRelatedCourses();
   }, [courseId]);
@@ -235,7 +200,6 @@ const page = () => {
         if (item?.course_id && !fetchedIds.has(item.course_id)) {
           fetchedIds.add(item.course_id);
           fetchCourse(item.course_id, false);
-          fetchCourseFees(item.course_id, false);
         }
       });
     };
@@ -258,33 +222,22 @@ const page = () => {
 
   // console.log("selectCourse insaf", selectCourse);
 
-  // console.log("fees course fees", subCourseFees);
-
-  const selectedSubCourseFees = subCourseFees.find(
-    (fee) => fee.id === selectCourse?.id
-  )?.fee_plans;
-
   return (
     <>
       <Breadrumb />
 
-      <section className="simple-padding-bottom course-inner-section">
+      <section className="simple-padding-bottom dark-lightmode dark-font-change">
         <div className="course-wrap">
           <div className="left-course">
             <div className="left-course-img" data-aos="flip-left">
-              {/* {courseDetails?.featuredImage?.node?.mediaItemUrl && ( */}
-              <Image
-                src={
-                  courseDetails?.featuredImage?.node?.mediaItemUrl ||
-                  "/images/loading-placeholder.gif"
-                }
-                alt={courseDetails?.title || ""}
-                width={500}
-                height={600}
-              />
-              {/* )} */}
+              {courseDetails?.featuredImage?.node?.mediaItemUrl && (
+                <img
+                  src={courseDetails.featuredImage.node.mediaItemUrl}
+                  alt={courseDetails.title}
+                />
+              )}
             </div>
-            <div className="left-course-details">
+            <div className="left-course-details" data-aos="fade-up">
               <div className="d-flex justify-content-center course-btn-wrap">
                 <Modal>
                   <InquireForm />
@@ -327,13 +280,7 @@ const page = () => {
                 <div className="course-details-partner-logo">
                   {course?.image &&
                     course?.image != "/images/placeholder.png" && (
-                      <Image
-                        src={course?.image || ""}
-                        alt={course?.name || ""}
-                        width={100}
-                        height={100}
-                        layout="responsive"
-                      />
+                      <img src={course?.image || ""} alt={course?.name || ""} />
                     )}
                 </div>
                 <div>
@@ -437,32 +384,15 @@ const page = () => {
               )} */}
 
               {course?.is_bundle_course !== 1 ? (
-                course?.course_content?.classifications ? (
-                  <CourseOutline
-                    classifications={
-                      Array.isArray(course?.course_content?.classifications) &&
-                      course?.course_content?.classifications.length > 0
-                        ? course?.course_content?.classifications
-                        : [
-                            {
-                              id: 0,
-                              classification_name: "Modules",
-                              modules: course?.course_content?.modules || [],
-                            },
-                          ]
-                    }
-                  />
-                ) : (
-                  <CourseOutline
-                    classifications={[
-                      {
-                        id: 0,
-                        classification_name: "Modules",
-                        modules: course?.course_content?.modules || [],
-                      },
-                    ]}
-                  />
-                )
+                <CourseOutline
+                  classifications={[
+                    {
+                      id: 0,
+                      classification_name: "Modules",
+                      modules: course?.course_content?.modules || [],
+                    },
+                  ]}
+                />
               ) : (
                 <CourseOutline
                   classifications={
@@ -485,13 +415,7 @@ const page = () => {
               <CourseSchedule schedule={schedule} />
               {/* ------------------------------------------------ */}
 
-              {/* <CourseFees fees={courseFees} /> */}
-
-              {course?.is_bundle_course !== 1 ? (
-                <CourseFees fees={courseFees} />
-              ) : (
-                <CourseFees fees={{ fee_plans: selectedSubCourseFees || [] }} />
-              )}
+              <CourseFees fees={courseFees} />
               {/* ------------------------------------------------ */}
 
               {courseDetails?.courses?.lecturePanelDescription && (

@@ -143,7 +143,6 @@
         .uni-content {
           padding-top: get-vw(40px);
           padding-bottom: 0;
-          font-size: get-vw(16px);
         }
       }
 
@@ -153,14 +152,12 @@
         margin-top: 40px;
 
         .slick-dots {
-          width: 80%;
+          width: 70%;
           height: 8px;
-
         }
 
         .uni-image-slider {
           .single-slider {
-                margin-bottom: get-vw(14px);
             .uni-image-wrapper {
               .uni-main-image {
                 height: get-vw(400px);
@@ -253,7 +250,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  // margin-top: 15px;
+  margin-top: 15px;
 
   .slider-btn {
     background-color: #fff;

@@ -70,7 +70,7 @@ const page = () => {
       <InnerBanner
         innerPageTitlePrimary={"Research"}
         innerPageTitleSecondary={"Publications"}
-        innerPageDescription="At ESU, research is at the heart of what we do. We’re driven by curiosity and a passion for solving real-world problems, whether it's in sustainability, robotics, global affairs, or social issues. Our collaborative, hands-on approach brings together diverse fields to create meaningful impact. Join us in shaping a better future through bold ideas and innovative research."
+        innerPageDescription="Research is a vital pillar of ESU’s identity and mission. We foster a research culture that pushes the boundaries of knowledge while solving real-world problems through collaboration and innovation. From sustainability and robotics to international relations and social sciences, our research is defined by its practical application, interdisciplinary scope, and partnerships that create real impact. Through this work, we aim to transform lives and advance society. Welcome to the dynamic realm of research at ESU, where innovation knows no bounds."
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />
@@ -93,7 +93,7 @@ const page = () => {
                   </p>
                 )}
               </div>
-              <div className="search-wrap">
+              <div>
                 <div className="search-form-ajax">
                   <input
                     type="text"
@@ -134,11 +134,7 @@ const page = () => {
                         />
                       </Link>
                       <div className="school-box-inner-details">
-                        
                         <p className="m-0 aragraph paragraph--black date-p">
-                              <span className="calendar-icon" style={{ marginRight: "8px" }}>
-                      📅
-                    </span>
                           {new Intl.DateTimeFormat("en-US", {
                             year: "numeric",
                             month: "long",
@@ -155,28 +151,19 @@ const page = () => {
                         </Link>
                         <div className="paragraph paragraph--black publication-content">
                           <div
-                          dangerouslySetInnerHTML={{
-                            __html: publication.content
-                            .split(/<\/?[^p][^>]*>/g)
-                            .join("")
-                            .substring(0, 180) + "...",
-                          }}
+                            dangerouslySetInnerHTML={{
+                              __html:
+                                publication.content.length > 600
+                                  ? publication.content.substring(0, 600) +
+                                    "..."
+                                  : "",
+                            }}
                           />
                         </div>
-                        {/* <Button
+                        <Button
                           buttonUrl={`/research/${publication.slug}`}
                           buttonName={"Read More"}
-
-                        /> */}
-                        <Link className="btnn-next" href={`/research/${publication.slug}`}>
-                          <span
-                            className="campus-arrow"
-                            style={{
-                              background: color || "rgb(0, 174, 205)",
-                            }}
-                          >
-                            ➜
-                          </span>                  </Link>
+                        />
                         {/* <Link
                           className="btnn-next"
                           href={`/research/${publication.slug}`}
@@ -188,10 +175,10 @@ const page = () => {
                     </div>
                   </div>
                 ))}
-                {/* <div className="pagination-div" /> */}
+                <div className="pagination-div" />
               </div>
             </div>
-            {/* <div className="landing-filter blog-filter">
+            <div className="landing-filter blog-filter">
               <div className="archive-div">
                 <div className="related-coures-div course-title">
                   <h5>Featured Publications</h5>
@@ -221,10 +208,10 @@ const page = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="related-coures-div course-title">
+{/*                 <div className="related-coures-div course-title">
                   <h5>Archives</h5>
-                </div>
-                <ul className="date-archive">
+                </div> */}
+{/*                 <ul className="date-archive">
                   {Object.entries(archives).map(([month, count]) => {
                     const [year, mon] = month.split("-");
 
@@ -239,13 +226,13 @@ const page = () => {
                       <li key={month}>
                         <a href={`#`}>{monthName}</a>
                         &nbsp;
-                      ({count})
-                      </li>
-                    );
-                  })}
-               </ul>
+                        {/* ({count}) */}
+                      {/* </li> */}
+                 {/*    ); */}
+               {/*    })}
+             /*    </ul> */}
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>

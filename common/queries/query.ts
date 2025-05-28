@@ -421,6 +421,7 @@ export const FACULTY_INNER_QUERY = `
       staffs {
         nodes {
           title
+          slug
           staffAcf {
             designation
             message
@@ -452,6 +453,7 @@ export const FACULTY_INNER_QUERY = `
       staffs {
         nodes {
           title
+          slug
           staffAcf {
             designation
             message
@@ -491,6 +493,7 @@ export const VICE_CHANCELLOR_QUERY = `
             message
             viceChancellorMessage
           }
+          slug
           title
           featuredImage {
             node {
@@ -986,3 +989,22 @@ query($slug: ID!) {
 //   }
 // }
 // `;
+
+export const EVENTS = `
+query {
+  events {
+    nodes {
+      eventId
+      date
+      slug
+      title
+      events {
+        color
+        date
+        isUpcommingEvent
+      }
+      link
+    }
+  }
+}
+`;

@@ -20,10 +20,9 @@ const Page = () => {
   );
 
   const { color, setColor } = useTheme();
-  
-  // useEffect(() => {
-  //   setColor("rgb(0, 174, 205)");
-  // }, [setColor]);
+  useEffect(() => {
+    setColor("rgb(0, 174, 205)");
+  }, [setColor]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,8 +59,8 @@ const Page = () => {
           innerPageTitlePrimary={"Our"}
           innerPageTitleSecondary={"Faculties"}
           innerPageDescription=""
-          innerBgDesk="/images/faculties-inner-banner.png"
-          innerBgMobi="/images/faculties-inner-banner.png"
+          innerBgDesk="/images/inner-banner.gif"
+          innerBgMobi="/images/inner-banner.gif"
         />
       }
 
@@ -81,6 +80,7 @@ const Page = () => {
                 viceChancellor.featuredImage?.node?.altText ||
                 "Vice Chancellor",
             }}
+            slugUrl={viceChancellor?.slug}
             fontFamily={"inherit"} // You can update this if you add font in VC fields
             fontColor={color} // Update if VC fields include color
           />
