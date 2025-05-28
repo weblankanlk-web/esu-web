@@ -17,8 +17,8 @@ const Blogs = () => {
   const [cursors, setCursors] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
-  const { setColor } = useTheme();
-  
+  const { color, setColor } = useTheme();
+
   // useEffect(() => {
   //   setColor("rgb(0, 174, 205)");
   // }, [setColor]);
