@@ -526,8 +526,8 @@ const InquireForm: React.FC<InquireFormProps> = () => {
               required
             >
               <option value="">Select Branch</option>
-              <option value="Colombo">Colombo</option>
-              <option value="Kandy">Kandy</option>
+              <option value="Colombo">ESU Colombo</option>
+              <option value="Kandy">ESU Kandy</option>
             </select>
           </div>
 
