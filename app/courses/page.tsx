@@ -27,10 +27,11 @@ import {
 } from "@/components/pages/Courses";
 import { FaTimes } from "react-icons/fa";
 import TitleText from "../../components/common/TextColorChange/TextColorChange";
+import Filter from "@/components/pages/Courses/Filter/Filter";
 
 export default function CoursesPage() {
-    const { setColor } = useTheme();
-  
+  const { setColor } = useTheme();
+
   const [search, setSearch] = useState("");
 
   const [courseTypes, setCourseTypes] = useState<CourseType[]>([]);
@@ -60,9 +61,11 @@ export default function CoursesPage() {
     setSelectedBranches([]);
     setSearch("");
   };
-  useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
+
   useEffect(() => {
     let results = [...allCourses];
 
@@ -218,9 +221,12 @@ export default function CoursesPage() {
     <>
       <Breadrumb />
 
-      <section className="simple-padding-bottom dark-lightmode dark-font-change">
+      <section className="simple-padding-bottom course-section">
         <div className="small-middle-wrap">
-          <h2 className="section-heading section-heading--black" data-aos="flip-down">
+          <h2
+            className="section-heading section-heading--black"
+            data-aos="flip-down"
+          >
             our <span>courses</span>
           </h2>
 
@@ -230,15 +236,15 @@ export default function CoursesPage() {
             </div>
           </div>
 
-          <div className="landing-wrap" >
+          <div className="landing-wrap">
             {/* Filter Section */}
-            <div className="landing-filter" data-aos="fade-up" >
+            {/* <div className="landing-filter" data-aos="fade-up">
               {search ||
               selectedSchools.length ||
               selectedPrograms.length ||
               selectedModes.length ||
               selectedBranches.length ? (
-                <div  >
+                <div>
                   <p id="search-breif">
                     <span id="result-count">{filteredCourses.length} </span>
                     {search && <span id="result-keyword">"{search}"</span>}
@@ -280,7 +286,7 @@ export default function CoursesPage() {
                 </div>
               ) : null}
 
-              <div className="d-flex filter-clear-wrap justify-content-between align-items-center"  >
+              <div className="d-flex filter-clear-wrap justify-content-between align-items-center">
                 <h5 className="desktop-div">filter by</h5>
                 <button
                   id="filter-toggle"
@@ -299,7 +305,6 @@ export default function CoursesPage() {
                 </button>
               </div>
 
-              <ul id="selected-checks"></ul>
               <div
                 className={`att-box-wrapper ${
                   mobileFilterOpen ? "show-mobile-filter" : "hide-mobile-filter"
@@ -312,47 +317,29 @@ export default function CoursesPage() {
                   <FaTimes />
                 </button>
 
-                {/* 
-                    ---
-                    Faculties Filter  
-                    ---
-                */}
-
                 <div className="title-wrap">
                   <TitleText title="" subtitle="Faculties" />
                 </div>
 
                 <FilterPanel
-                  title="" // overridden by the above <div>
+                  title=""
                   options={schoolTypes}
                   selected={selectedSchools}
                   setSelected={setSelectedSchools}
                   loading={false}
                 />
 
-                {/* 
-                    ---
-                    Academic Level Filter  
-                    ---
-                */}
-
                 <div className="title-wrap">
                   <TitleText title="" subtitle="Academic Level" />
                 </div>
 
                 <FilterPanel
-                  title="" // overridden by the above <div>
+                  title=""
                   options={courseTypes}
                   selected={selectedPrograms}
                   setSelected={setSelectedPrograms}
                   loading={false}
                 />
-
-                {/* 
-                    ---
-                    Campuses Filter  
-                    ---
-                */}
 
                 <div className="title-wrap">
                   <TitleText title="" subtitle="Campuses" />
@@ -366,9 +353,22 @@ export default function CoursesPage() {
                   loading={false}
                 />
               </div>
-            </div>
-
-            <div className="landing-results"  >
+            </div> */}
+            
+            <Filter
+              setSelectedSchools={setSelectedSchools}
+              setSelectedPrograms={setSelectedPrograms}
+              setSelectedModes={setSelectedModes}
+              setSelectedBranches={setSelectedBranches}
+              setSearch={setSearch}
+              search={search}
+              selectedSchools={selectedSchools}
+              selectedPrograms={selectedPrograms}
+              selectedModes={selectedModes}
+              selectedBranches={selectedBranches}
+              filteredCourses={filteredCourses}
+            />
+            <div className="landing-results">
               <div className="landing-results-inner">
                 {/* Course List */}
                 <CourseList

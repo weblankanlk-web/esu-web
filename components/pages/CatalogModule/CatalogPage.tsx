@@ -71,7 +71,7 @@ const CatalogPage: React.FC<Props> = ({ heading, items, filters, renderItem }) =
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
 
   return (
-    <section className="simple-padding-bottom dark-lightmode dark-font-change">
+    <section className="simple-padding-bottom">
       <div className="small-middle-wrap">
         <h2 className="section-heading section-heading--black">
           our <span>{heading}</span>

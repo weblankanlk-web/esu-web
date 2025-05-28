@@ -18,9 +18,10 @@ const Blogs = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
   const { setColor } = useTheme();
-  useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+  
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
 
   const fetchNewsEvents = async (
     first = PAGE_SIZE,

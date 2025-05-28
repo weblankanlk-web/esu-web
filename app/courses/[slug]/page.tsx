@@ -268,7 +268,7 @@ const page = () => {
     <>
       <Breadrumb />
 
-      <section className="simple-padding-bottom dark-lightmode dark-font-change">
+      <section className="simple-padding-bottom course-inner-section">
         <div className="course-wrap">
           <div className="left-course">
             <div className="left-course-img" data-aos="flip-left">

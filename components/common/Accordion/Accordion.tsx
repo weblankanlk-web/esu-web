@@ -17,7 +17,11 @@ interface Classification {
   modules: Module[];
 }
 
-const CustomAccordion = ({ classifications }: { classifications: Classification[] }) => {
+const CustomAccordion = ({
+  classifications,
+}: {
+  classifications: Classification[];
+}) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const { color } = useTheme();
 
@@ -25,13 +29,19 @@ const CustomAccordion = ({ classifications }: { classifications: Classification[
     setActiveIndex((prev) => (prev === index ? null : index));
   };
 
+  const hasModuleCode = classifications.some((classification) =>
+    classification.modules.some((module) => module.code?.trim())
+  );
+
   return (
     <div className="accordion" id="accordionExample">
       {classifications.map((classification, index) => (
         <div className="accordion-item" key={classification.id}>
           <h2 className="accordion-header" id={`heading${index}`}>
             <button
-              className={`accordion-button ${activeIndex === index ? "" : "collapsed"}`}
+              className={`accordion-button ${
+                activeIndex === index ? "" : "collapsed"
+              }`}
               type="button"
               onClick={() => toggleAccordion(index)}
               aria-expanded={activeIndex === index}
@@ -43,7 +53,9 @@ const CustomAccordion = ({ classifications }: { classifications: Classification[
           </h2>
           <div
             id={`collapse${index}`}
-            className={`accordion-collapse collapse ${activeIndex === index ? "show" : ""}`}
+            className={`accordion-collapse collapse ${
+              activeIndex === index ? "show" : ""
+            }`}
             aria-labelledby={`heading${index}`}
           >
             <div className="accordion-body">
@@ -51,7 +63,7 @@ const CustomAccordion = ({ classifications }: { classifications: Classification[
                 <table className="module-table">
                   <thead>
                     <tr>
-                      <th>Module Code</th>
+                      {hasModuleCode && <th>Module Code</th>}
                       <th>Module Name</th>
                       <th className="center-td">Mandatory/Optional</th>
                     </tr>
@@ -59,7 +71,7 @@ const CustomAccordion = ({ classifications }: { classifications: Classification[
                   <tbody>
                     {classification.modules.map((module) => (
                       <tr key={module.id}>
-                        <td>{module.code || "-"}</td>
+                        {hasModuleCode && <td>{module.code || "-"}</td>}
                         <td>{module.name}</td>
                         <td className="center-td">
                           {module.is_mandatory ? "Mandatory" : "Optional"}

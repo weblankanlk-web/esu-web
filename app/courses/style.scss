@@ -1,25 +1,21 @@
 @import "@/styles/global.scss";
 
-.accordion-button,
-.accordion-button:not(.collapsed) {
-  color: #fff;
-  font-weight: bold;
-}
+.course-section {
+  .section-heading--underline {
+    text-align: center;
+    color: #14549f;
+  }
 
-.section-heading--underline {
-  text-align: center;
-  color: #14549f;
-}
+  .show-mobile-filter {
+    transform: translateX(0);
+    visibility: visible;
+  }
 
-.show-mobile-filter {
-  transform: translateX(0);
-  visibility: visible;
-}
+  .course-box-wrap {
+    width: 100%; // Mobile default (≤ 499px)
+  }
 
-.mobile-filter-btn {
-  display: none;
-
-  @media only screen and (max-width: 992px) {
+  .mobile-filter-btn {
     background-color: red;
     color: #fff;
     width: 30px;
@@ -32,5 +28,27 @@
     right: 20px;
     top: 15px;
     border: none;
+
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
+}
+
+// Tablet small (≥ 500px): 50% width (2 columns)
+@media (min-width: 500px) {
+  .course-section {
+    .course-box-wrap {
+      width: 50%;
+    }
+  }
+}
+
+// Tablet medium (≥ 768px): 33.3% width (3 columns)
+@media (min-width: 768px) {
+  .course-section {
+    .course-box-wrap {
+      width: 33.3%;
+    }
   }
 }
