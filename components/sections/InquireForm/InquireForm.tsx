@@ -10,8 +10,7 @@ import { CoursesInquire } from "@/common/types/type";
 import { GET_COURSES_FOR_INQUIRE_FORM } from "@/common/queries/query";
 import { usePathname } from "next/navigation";
 
-interface InquireFormProps {
-}
+interface InquireFormProps {}
 
 const InquireForm: React.FC<InquireFormProps> = () => {
   const { color } = useTheme();
@@ -44,11 +43,15 @@ const InquireForm: React.FC<InquireFormProps> = () => {
           courses: { nodes: CoursesInquire[] };
         }>(GET_COURSES_FOR_INQUIRE_FORM);
 
+        console.log("course data", data);
+
         const branchNodes = data.branchTypes.nodes;
 
         const filteredBranches = branchNodes.filter((branch: any) =>
-          ["Kandy Campus", "Colombo Campus"].includes(branch.name)
+          ["ESU Kandy", "ESU Colombo"].includes(branch.name)
         );
+
+        console.log("filtered branches", filteredBranches);
 
         const combinedCourses = filteredBranches
           .flatMap((branch: any) => branch.courses.nodes)
@@ -58,7 +61,7 @@ const InquireForm: React.FC<InquireFormProps> = () => {
               self.findIndex((c: { slug: any }) => c.slug === course.slug)
           );
 
-        // console.log("Combined Courses:", combinedCourses);
+        console.log("Combined Courses:", combinedCourses);
         setCourses(combinedCourses);
       } catch (error) {
         console.error("Error fetching courses:", error);
