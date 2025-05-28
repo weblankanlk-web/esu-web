@@ -203,13 +203,13 @@
 
         .school-box-inner-details {
             padding: get-vw(23px) !important;
-
+  font-size: get-vw(18px) !important;
             .school-box-details {
-                font-size: get-vw(16px);
+                font-size: get-vw(18px) !important;
             }
 
             .paragraph {
-                font-size: get-vw(14px);
+                font-size: get-vw(16px) !important;
             }
         }
 

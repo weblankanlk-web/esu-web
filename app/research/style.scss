@@ -296,6 +296,29 @@
     justify-content: flex-end !important;
   }
 }
+@media screen and (min-width: 1200px) {
+  .landing-wrap{
+.landing-results {
+  .landing-results-inner {
+    .school-box-single {
+      .school-box-inner-details{
+        .date-p{
+          font-size: get-vw(15px) !important;
+        }
+        .school-box-details {
+          font-size: get-vw(18px) !important;
+        }
+        .publication-content{
+          font-size: get-vw(16px) !important;
+        }
+
+      }
+    }
+  }
+}
+  } 
+}
+
 
 @media screen and (min-width: 1600px) {
   .landing-results {
