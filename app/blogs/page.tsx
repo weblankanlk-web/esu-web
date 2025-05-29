@@ -134,7 +134,7 @@ const Blogs = () => {
                       }}
                     />
                   </div>
-                  <Link className="btnn-next" href={`/blogs/${news.slug}`}>
+                  <Link className="d-flex align-items-center justify-content-between"  href={`/blogs/${news.slug}`}>
                     <span
                       className="campus-arrow"
                       style={{
@@ -144,6 +144,7 @@ const Blogs = () => {
                       ➜
                     </span>{" "}
                   </Link>
+                  
                 </div>
               </div>
             </div>

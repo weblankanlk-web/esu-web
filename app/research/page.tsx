@@ -149,7 +149,7 @@ const page = () => {
                           href={`/research/${publication.slug}`}
                           className="school-box-details d-flex"
                         >
-                          <span style={{ color: color }}>
+                          <span >
                             {publication.title}
                           </span>
                         </Link>
@@ -168,7 +168,7 @@ const page = () => {
                           buttonName={"Read More"}
 
                         /> */}
-                        <Link className="btnn-next" href={`/research/${publication.slug}`}>
+                        <Link className="d-flex align-items-center justify-content-between" href={`/research/${publication.slug}`}>
                           <span
                             className="campus-arrow"
                             style={{

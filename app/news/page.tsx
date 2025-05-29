@@ -190,11 +190,12 @@ const NewsPage = () => {
                       }}
                     />
                   </div>
-                  <Link className="btnn-next" href={`/news/${news.slug}`}>
+                  <Link className="d-flex align-items-center justify-content-between" href={`/news/${news.slug}`}>
                     <span className="campus-arrow" style={{ background: color }}>
                       ➜
                     </span>
                   </Link>
+                  
                 </div>
               </div>
             </div>
