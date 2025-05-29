@@ -272,8 +272,8 @@ const InquireForm: React.FC<InquireFormProps> = () => {
             label="Branch:"
             placeholder="Select Branch"
             options={[
-              { label: "ESU Colombo", value: "ESU Colombo" },
-              { label: "ESU Kandy", value: "ESU Kandy" },
+              { label: "ESU Colombo", value: "Colombo" },
+              { label: "ESU Kandy", value: "Kandy" },
             ]}
             value={selectedBranch}
             onChange={setSelectedBranch}
