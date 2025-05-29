@@ -22,9 +22,9 @@ const page = () => {
   );
 
   const { color, setColor } = useTheme();
-  useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
 
   const pathname = usePathname();
   const slug = pathname.split("/").pop();

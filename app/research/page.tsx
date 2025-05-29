@@ -46,9 +46,9 @@ const page = () => {
     return acc;
   }, {} as Record<string, number>);
   const { setColor } = useTheme();
-  useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
 
   useEffect(() => {
     const fetchPublications = async () => {

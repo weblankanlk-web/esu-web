@@ -19,9 +19,9 @@ const page = () => {
 
   const [news, setNews] = useState<NewsEvents | null>(null);
   const { setColor } = useTheme();
-  useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
 
   useEffect(() => {
     const fetchNews = async () => {

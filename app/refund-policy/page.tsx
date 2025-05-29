@@ -8,9 +8,9 @@ import { useTheme } from "@/lib/ThemeContext";
 export default function RefundPolicyPage() {
   const { setColor } = useTheme();
 
-  useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
 
   return (
     <>

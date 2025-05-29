@@ -18,9 +18,9 @@ const page = () => {
 
   const [research, setResearch] = useState<Publication | null>(null);
   const { setColor } = useTheme();
-  useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
   
   useEffect(() => {
     const fetchResearch = async () => {

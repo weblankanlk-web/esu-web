@@ -113,7 +113,7 @@ body {
   text-align: center;
 
   span {
-    color: #02aec9;
+    color: var(--main-title-color, #00aecd);
   }
 }
 
