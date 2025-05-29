@@ -1065,11 +1065,11 @@ body.single-esoft-jobs {
   height: 600px;
   object-fit: contain;
 }
-.news-con,
+/* .news-con,
 .news-inner-slider {
   padding-left: 5%;
   padding-right: 5%;
-}
+} */
 .news-inner-slider .slick-arrow {
   top: 50%;
 }
@@ -2123,11 +2123,11 @@ body.single-esoft-jobs {
     height: 200px;
     object-fit: contain;
   }
-  .news-con,
+  /* .news-con,
   .news-inner-slider {
     padding-left: 0;
     padding-right: 0;
-  }
+  } */
   .breadcrumbs {
     display: flex;
     justify-content: center;
