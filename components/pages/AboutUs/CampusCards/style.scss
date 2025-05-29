@@ -39,7 +39,7 @@
 
     &::after {
       opacity: 1;
-      border-color: #c2d647;
+      border-color: var(--main-title-color, red);
     }
 
     .campus-image {
@@ -87,14 +87,14 @@
 
     .campus-description {
       font-size: 14px;
-      color: #c2d647;
+      color: var(--main-title-color, red);
       margin-bottom: 10px;
     }
 
     .campus-arrow {
       font-size: 20px;
       color: #000;
-      background: #c2d647;
+      background: var(--main-title-color, red);
       padding: 10px;
       border-radius: 50%;
       width: 40px;
