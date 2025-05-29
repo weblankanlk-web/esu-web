@@ -147,7 +147,7 @@ const HomeUpcomingEvents = () => {
 				</div>
 				<div className="image-block">
 					<Image
-						src="/images/student.png" // replace with actual image path
+						src="/images/student-1.png" // replace with actual image path
 						alt="Event Student"
 						width={500}
 						height={600}

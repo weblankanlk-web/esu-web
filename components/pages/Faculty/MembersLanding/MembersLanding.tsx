@@ -6,6 +6,7 @@ import MemberCardItem from "./MemberCard/MemberCard";
 import { graphQLClient } from "@/lib/graphql-client";
 import { MEMBERS_QUERY } from "@/common/queries/query";
 import { StaffMember } from "@/common/types/type";
+import TitleLarge from "@/components/common/TitleLarge/TitleLarge";
 
 interface MembersLandingProps {
   slug: string;
@@ -55,10 +56,13 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
   return (
     <section className="faculty-member-section">
       <div className="faculty-member-wrap">
-        <h2 className="dean-message-title">
+        {/* <h2 className="dean-message-title">
           {sectinTitle1}{" "}
           <span style={{ color: fontColor }}>{sectinTitle2}</span>
-        </h2>
+        </h2> */}
+        <div className="members-wrap title-wrap mb-5">
+          <TitleLarge title={sectinTitle1} subtitle={sectinTitle2}/>
+        </div>
         <div className="members-wrap d-flex flex-wrap justify-content-start gap-1">
           {facultyMembers.length === 0 ? (
             <p>No staff members found for this department.</p>
