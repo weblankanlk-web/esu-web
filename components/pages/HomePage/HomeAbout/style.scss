@@ -145,13 +145,15 @@
           }
 
           .the-content-div {
-            font-size: get-vw(22px);
-            line-height: get-vw(30px);
+            font-size: get-vw(16px);
+            line-height: get-vw(28px);
             text-align: left;
-p{
-  font-size: get-vw(16px);
-  line-height: get-vw(24px);
-}
+
+            p {
+              font-size: get-vw(16px);
+              line-height: get-vw(24px);
+            }
+
             span {
               font-size: get-vw(22px);
               line-height: get-vw(30px);
