@@ -1,5 +1,4 @@
 @import "@/styles/global.scss";
-// Add at the end of your style.scss
 
 .member-modal-overlay {
   position: fixed;
@@ -13,86 +12,10 @@
   align-items: center;
   justify-content: center;
 }
-.member-modal-header-flex {
-  display: flex;
-  align-items: center;
-  gap: 5%;
-  text-align: left;
-  padding: 5% 3%;
-
-  .member-image {
-    flex-shrink: 0;
-  }
-  .member-modal-details {
-    flex: 1;
-    h2{
-      font-size: 16px;
-      
-    }
-    .qualification {
-       font-size: 16px;
-          color: #949494 !important;
-      }
-  
-  }
-}
-.member-image-modal{
-  width:65px !important;
-  height:65px !important;
-}
-.member-modal {
-  background: #fff;
-  padding: 40px 30px;
-  border-radius: 16px;
-  max-width: 90vw;
-  width: 90%;
-  position: relative;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.member-modal-header {
-  flex-shrink: 0;
-}
-
-.member-modal-body {
-  overflow-y: auto;
-  max-height: 60vh; // Adjust as needed
-  margin-top: 20px;
-  flex-grow: 1;
-    padding: 0% 5%;
-}
-.close-btn {
-  position: absolute;
-  top: 0%;
-  right: 2%;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-}
-.member-message {
-  margin-top: 20px;
-  font-size: 0.8rem;
-  color: #333;
-  text-align: justify;
-}
-
-.member-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+.member-image-modal {
+          max-width: 250px !important;
+          border-radius: 15%;
+        }
 .member-modal {
   background: #fff;
   padding: 40px 30px;
@@ -104,7 +27,20 @@
   height: 90vh;
   display: flex;
   flex-direction: row;
+  .member-modal-details {
+    text-align: center;
+        h2 {
+          font-size: 24px;
+          margin-bottom: 10px;
+          font-weight: 800;
+        }
 
+        .qualification {
+          font-size: 16px;
+          color: #949494;
+          font-weight: 500;
+        }
+      }
   .member-modal-content {
     height: 50%;
     padding-top: 20px;
@@ -113,10 +49,13 @@
 
   .member-image {
     height: 50%;
-
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
     img {
       height: 100% !important;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
 }
@@ -151,7 +90,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-    .about{
+  .about{
     background: #333c40 !important;
     color: #fff !important;
   }
@@ -214,23 +153,15 @@
   .member-card {
     width: 49%;
   }
-  .member-image-modal{
-    width:95px !important;
-    height:95px !important;
-  }
 }
 
 @media only screen and (min-width: 992px) {
-   .member-image-modal{
-    width:105px !important;
-    height:105px !important;
-  }
   .member-card {
     border-radius: get-vw(19.938px);
     border: get-vw(0.997px) solid #d9d9d9;
     width: 48%;
     margin-bottom: get-vw(40px);
-
+    max-width:350px;
     .single-image-wrap {
       border: 0 solid #d9d9d9;
       margin: 0;
@@ -268,10 +199,14 @@
       }
 
       .member-image {
+        
         img {
           height: 350px;
-          object-fit: contain;
+         
+          object-fit: cover;
+         
         }
+       
       }
     }
 
@@ -326,7 +261,7 @@
     height: 100%;
 
     .member-image {
-      width: 20%;
+      width: 30%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -336,6 +271,9 @@
       .member-image-modal {
         width: 100%;
         height: 100% !important;
+  
+          max-width: 450px !important;
+        
         border-radius: 12px;
         object-fit: cover;
       }
@@ -349,6 +287,7 @@
       overflow: hidden;
 
       .member-modal-details {
+         text-align: left;
         h2 {
           font-size: 24px;
           margin-bottom: 10px;
