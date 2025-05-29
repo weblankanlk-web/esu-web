@@ -23,8 +23,7 @@ const AboutMemberCardItem: React.FC<Props> = ({ memberData }) => {
       <div
         className="single-massage-card d-flex member-card "
         data-aos="flip-left"
-        onClick={() => setShowModal(true)}
-        style={{ cursor: "pointer" }}
+        
       >
         <div className="about single-image-wrap">
           <div className="member-details">
@@ -43,9 +42,10 @@ const AboutMemberCardItem: React.FC<Props> = ({ memberData }) => {
               width={500}
               height={500}
             />
-             <div className="d-flex align-items-center justify-content-between">
+             <div className="d-flex align-items-center justify-content-between" onClick={() => setShowModal(true)}
+                  style={{ cursor: "pointer" }}>
               
-                  <Link href={`/academics/${SlugUrl}`}>
+                 
                     <span
                       className="campus-arrow"
                       style={{
@@ -54,7 +54,7 @@ const AboutMemberCardItem: React.FC<Props> = ({ memberData }) => {
                     >
                       ➜
                     </span>
-                 </Link>
+               
               </div>
           </div>
         </div>
@@ -70,33 +70,7 @@ const AboutMemberCardItem: React.FC<Props> = ({ memberData }) => {
             <button className="close-btn" onClick={() => setShowModal(false)}>
               ×
             </button>
-            {/* <div className="member-modal-header member-modal-header-flex">
-              <div className="member-image" style={{ marginBottom: 0 }}>
-                <Image
-                  src={
-                    MemberFeaturedImage?.sourceUrl ||
-                    "/images/default-profile.png"
-                  }
-                  alt={
-                    MemberFeaturedImage?.altText ||
-                    MemberName ||
-                    "Profile image"
-                  }
-                  width={70}
-                  height={70}
-                  layout="responsive"
-                  className="member-image-modal"
-                  style={{ borderRadius: "20px" }}
-                />
-              </div>
-              <div className="member-modal-details">
-                <h2>{MemberName}</h2>
-                <h4 className="qualification">{MemberDesignation}</h4>
-              </div>
-            </div>
-            <div className="member-modal-body">
-              <div className="member-message">{MemberMessage}</div>
-            </div> */}
+           
             <div className="member-modal-header member-modal-header-flex">
               <div className="member-image">
                 <Image
