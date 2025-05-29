@@ -3,6 +3,7 @@
 .home-courses {
   margin-bottom: 40px;
   overflow: hidden;
+
   .main-wrap-title {
     display: flex;
     flex-direction: column;
@@ -25,9 +26,10 @@
               position: relative;
 
               .course-box-img {
-                img{
+                img {
                   object-position: top;
                 }
+
                 .course-box-img-content-inner {
                   h6 {
                     font-family: var(--font-poppins);
@@ -92,10 +94,11 @@
 
   @media only screen and (min-width: 992px) {
     .course-box-wrap {
-    width: 100% !important;
-}
+      width: 100% !important;
+    }
 
   }
+
   @media only screen and (min-width: 1200px) {
     margin-bottom: get-vw(100px);
 
@@ -113,26 +116,41 @@
               z-index: 5;
 
               &::before {
-                font-size: get-vw(60px);
-                padding: 20px;
-                color: rgba(173, 173, 173, 0.8);
-                opacity: 1;
-                // backdrop-filter: blur(45px);
-                // border: get-vw(2px) solid rgba(255, 255, 255, 0.10);
+              font-size: get-vw(60px);
+              padding: 20px;
+              color: rgba(173, 173, 173, 0.8);
+              opacity: 1;
+              transition: color 0.3s ease, opacity 0.3s ease;
+              }
+
+              &:hover {
+              &::before {
+                color: var(--main-title-color, #00aecd);
+                opacity: 0.9;
+              }
               }
             }
+
+           
 
             &.slick-next {
               right: get-vw(60px);
               top: get-vw(300px);
 
-              // border: get-vw(2px) solid rgba(255, 255, 255, 0.10);
               &::before {
                 font-size: get-vw(60px);
                 color: rgba(173, 173, 173, 0.45);
-                opacity: 1;
-                // backdrop-filter: blur(45px);
+                opacity: 0.9;
+
               }
+               &:hover {
+                &::before {
+                  color: var(--main-title-color, #00aecd);
+                  opacity: 0.9;
+                }
+              
+            }
+
             }
           }
         }
@@ -153,7 +171,7 @@
                 .course-box-img {
                   img {
                     height: get-vw(736px);
-                    object-position: top !important; 
+                    object-position: top !important;
                   }
                 }
 
