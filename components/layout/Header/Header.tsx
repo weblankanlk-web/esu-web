@@ -10,11 +10,12 @@ import { FaArrowRight } from "react-icons/fa";
 import { graphQLClient } from "@/lib/graphql-client";
 import { CourseMenuResponse, CourseNode } from "@/common/interfaces/interface";
 import { GET_MENU_COURSE_BY_SLUG_SELECTED } from "@/common/queries/query";
+import MegaMenu from "./MegaMenu";
+import TopBarMenu from "./TopBarMenu";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showMegaMenu, setShowMegaMenu] = useState(false);
-  const [hideTimer, setHideTimer] = useState<NodeJS.Timeout | null>(null);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => !prev);
@@ -53,12 +54,17 @@ const Header = () => {
     const fetchCourseMenu = async (slug: string) => {
       const data = await graphQLClient.request<CourseMenuResponse>(
         GET_MENU_COURSE_BY_SLUG_SELECTED,
-        { slug }
+        {
+          slug: slug,
+        }
       );
 
       const enableCourse = data.schoolType?.courses?.nodes.filter(
         (course) => course.courses.enableCourseInTheMenu === true
       );
+
+      // console.log("Course Menu Data:", data);
+      // console.log("Filtered Courses:", enableCourse);
 
       switch (slug) {
         case "faculty-of-art-design":
@@ -76,45 +82,25 @@ const Header = () => {
         case "faculty-of-business-law":
           setFacultyBusinessLawMenu(enableCourse);
           break;
-        case "faculty-of-languages-education-and-sociology":
+        case "faculty-of-languages-education-sociology":
           setFacultyLanguagesEducationSociologyMenu(enableCourse);
+          break;
+        default:
           break;
       }
     };
 
-    slugs.forEach(fetchCourseMenu);
+    for (const slug of slugs) {
+      fetchCourseMenu(slug);
+    }
   }, []);
 
-  const handleMouseEnter = () => {
-    if (hideTimer) clearTimeout(hideTimer);
-    setShowMegaMenu(true);
-  };
-
-  const handleMouseLeave = () => {
-    const timer = setTimeout(() => setShowMegaMenu(false), 300);
-    setHideTimer(timer);
-  };
+  // console.log("facultyComputingMenu", facultyComputingMenu);
 
   return (
     <>
       <header id="header" className="header">
-        <div className="top-bar">
-          <div className="max-wrap">
-            <nav className="navbar navbar-expand-lg nav-menu">
-              <ul className="navbar-nav navbardropdown" id="top-menu">
-                <li>
-                  <Link href="/news">News & Events</Link>
-                </li>
-                <li>
-                  <Link href="/blogs">Blogs</Link>
-                </li>
-                <li>
-                  <Link href="/research">Research</Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+        <TopBarMenu />
 
         <div className="bottom-bar">
           <div className="main-wrap d-flex justify-content-between main-menu-wrap">
@@ -126,45 +112,86 @@ const Header = () => {
                     width={150}
                     height={50}
                     alt="Logo"
+                    style={{
+                      width: "100%",
+                      objectFit: "contain",
+                    }}
                     className="desktop-esu-logo"
-                    style={{ width: "100%", objectFit: "contain" }}
                   />
                   <Image
                     src="/images/logo/esu-header.png"
                     width={150}
                     height={50}
                     alt="Logo"
+                    style={{
+                      width: "100%",
+                      objectFit: "contain",
+                    }}
                     className="mobile-esu-logo"
-                    style={{ width: "100%", objectFit: "contain" }}
                   />
                 </Link>
               </div>
-
               <div className="middle-menu">
                 <nav className="navbar navbar-expand-lg nav-menu">
                   <ul className="navbar-nav navbardropdown" id="primary">
-                    <li>
-                      <Link href="/">Home</Link>
-                    </li>
-                    <li>
-                      <Link href="/about-us">About Us</Link>
-                    </li>
-                    <li>
-                      <Link href="/courses">Courses</Link>
-                    </li>
-                    <li>
-                      <Link href="/faculties">Faculties</Link>
-                    </li>
-                    <li>
-                      <Link href="/academics">Academics</Link>
-                    </li>
-                    <li>
-                      <Link href="/contact-us">Contact Us</Link>
-                    </li>
+                    <MegaMenu
+                      facultyArtDesignMenu={facultyArtDesignMenu}
+                      facultyLifeScienceMenu={facultyLifeScienceMenu}
+                      facultyComputingMenu={facultyComputingMenu}
+                      facultyEngineeringMenu={facultyEngineeringMenu}
+                      facultyBusinessLawMenu={facultyBusinessLawMenu}
+                      facultyLanguagesEducationSociologyMenu={
+                        facultyLanguagesEducationSociologyMenu
+                      }
+                      menuName="Faculties"
+                      courseMenuName=""
+                      courseMenuSlug=""
+                    />
+
+                    <MegaMenu
+                      facultyArtDesignMenu={facultyArtDesignMenu}
+                      facultyLifeScienceMenu={facultyLifeScienceMenu}
+                      facultyComputingMenu={facultyComputingMenu}
+                      facultyEngineeringMenu={facultyEngineeringMenu}
+                      facultyBusinessLawMenu={facultyBusinessLawMenu}
+                      facultyLanguagesEducationSociologyMenu={
+                        facultyLanguagesEducationSociologyMenu
+                      }
+                      menuName="Foundations"
+                      courseMenuName="Foundations"
+                      courseMenuSlug="foundation-level"
+                    />
+
+                    <MegaMenu
+                      facultyArtDesignMenu={facultyArtDesignMenu}
+                      facultyLifeScienceMenu={facultyLifeScienceMenu}
+                      facultyComputingMenu={facultyComputingMenu}
+                      facultyEngineeringMenu={facultyEngineeringMenu}
+                      facultyBusinessLawMenu={facultyBusinessLawMenu}
+                      facultyLanguagesEducationSociologyMenu={
+                        facultyLanguagesEducationSociologyMenu
+                      }
+                      menuName="Undergraduate"
+                      courseMenuName="Undergraduate"
+                      courseMenuSlug="undergraduate-level"
+                    />
+
+                    <MegaMenu
+                      facultyArtDesignMenu={facultyArtDesignMenu}
+                      facultyLifeScienceMenu={facultyLifeScienceMenu}
+                      facultyComputingMenu={facultyComputingMenu}
+                      facultyEngineeringMenu={facultyEngineeringMenu}
+                      facultyBusinessLawMenu={facultyBusinessLawMenu}
+                      facultyLanguagesEducationSociologyMenu={
+                        facultyLanguagesEducationSociologyMenu
+                      }
+                      menuName="Postgraduate"
+                      courseMenuName="Postgraduate"
+                      courseMenuSlug="postgraduate"
+                    />
                   </ul>
                 </nav>
               </div>
-
               <div className="mobile-div hamburger-wrap">
                 <button
                   className="navnavbar-toggler hamburger classic navoffcanvas-header d-flex flex-wrap"
@@ -179,7 +206,7 @@ const Header = () => {
                   <span className="ham-title">MENU</span>
                 </button>
               </div>
-
+              {/* desktop */}
               <div className="apply-now-wrap desktop-only-view">
                 <Modal>
                   <InquireForm />
@@ -187,7 +214,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-
+          {/* mobile */}
           <div className="apply-now-wrap mobile-only-view">
             <Modal>
               <InquireForm />
@@ -196,46 +223,7 @@ const Header = () => {
         </div>
       </header>
 
-      <nav
-        id="navbar_main_nav"
-        className={`navmobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary ${
-          isMobileMenuOpen ? "show-mobile-menu" : "hide-mobile-menu"
-        }`}
-      >
-        <div className="main-wrap">
-          <nav className="navbar navbar-expand-lg nav-menu">
-            <ul className="navbar-nav navbardropdown" id="mobile">
-              <li>
-                <Link href="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-              </li>
-              <li>
-                <Link href="/about-us" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
-              </li>
-              <li>
-                <Link href="/courses" onClick={() => setMobileMenuOpen(false)}>Courses</Link>
-              </li>
-              <li>
-                <Link href="/faculties" onClick={() => setMobileMenuOpen(false)}>Faculties</Link>
-              </li>
-              <li>
-                <Link href="/academics" onClick={() => setMobileMenuOpen(false)}>Academics</Link>
-              </li>
-              <li>
-                <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
-              </li>
-              <li>
-                <Link href="/news" onClick={() => setMobileMenuOpen(false)}>News & Events</Link>
-              </li>
-              <li>
-                <Link href="/blogs" onClick={() => setMobileMenuOpen(false)}>Blogs</Link>
-              </li>
-              <li>
-                <Link href="/research" onClick={() => setMobileMenuOpen(false)}>Research</Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </nav>
+      <MobileNav isMobileMenuOpen={isMobileMenuOpen} />
     </>
   );
 };
