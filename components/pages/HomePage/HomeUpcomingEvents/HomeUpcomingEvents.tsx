@@ -6,38 +6,45 @@ import 'react-calendar/dist/Calendar.css';
 import Image from "next/image";
 import "./style.scss";
 import TitleLarge from "@/components/common/TitleLarge/TitleLarge";
-import { Events } from "@/common/interfaces/interface";
 import { EVENTS } from "@/common/queries/query";
 import { graphQLClient } from "@/lib/graphql-client";
 
-const events = [
-	{
-		date: new Date(2025, 6, 12),
-		title: "The Inaugural Ceremony of ESOFT BIT & BBM Programmes 2022",
-		color: "#7B61FF",
-	},
-	{
-		date: new Date(2025, 5, 21),
-		title: "Inaugural Ceremony Kingston University BSc. Top-Up Programme",
-		color: "#F7B733",
-	},
-];
+// Define a local type for a single event item
+type EventItem = {
+  date: Date;
+  title: string;
+  color: string;
+  slug: string;
+  link: string;
+};
 
 const HomeUpcomingEvents = () => {
-  // const [events, setEvents] = useState<Events[]>([]);
-  // const fetchNewsEvents = async () => {
-  //     const data = await graphQLClient.request<{
-  //       news: {
-  //         nodes: Events[];
-  //         pageInfo: { endCursor: string; hasNextPage: boolean };
-  //       };
-  //     }>(EVENTS);
-  //     setEvents(data.news.nodes);
-  //   };
+  const [events, setEvents] = useState<EventItem[]>([]);
+  const fetchNewsEvents = async () => {
+    const data = await graphQLClient.request<{
+      events: {
+        nodes: any[];
+        pageInfo: { endCursor: string; hasNextPage: boolean };
+      };
+    }>(EVENTS);
+
+    // Map API data to EventItem[]
+    const mappedEvents: EventItem[] = data.events.nodes
+      .filter((node) => node.events?.isUpcommingEvent)
+      .map((node) => ({
+        date: new Date(node.events?.date || node.date),
+        title: node.title,
+        color: node.events?.color || "#000",
+        slug: node.slug,
+        link: node.link,
+      }));
+
+    setEvents(mappedEvents);
+  };
   
-  // useEffect(() => {
-  //   fetchNewsEvents();
-  // }, []);
+  useEffect(() => {
+    fetchNewsEvents();
+  }, []);
 
 
 	const [selectedDate, setSelectedDate] = useState(() => {
@@ -51,22 +58,45 @@ const HomeUpcomingEvents = () => {
 	});
 
 	const tileContent = ({ date, view }: { date: Date; view: string }) => {
-    // No bullet, just return null
-    return null;
-  };
+  if (view === "month") {
+    const event = events.find(ev =>
+      ev.date.getFullYear() === date.getFullYear() &&
+      ev.date.getMonth() === date.getMonth() &&
+      ev.date.getDate() === date.getDate()
+    );
+    if (event) {
+      return (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: event.color,
+            borderRadius: "10px", // match your .react-calendar__tile
+            zIndex: -1,
+          }}
+        />
+      );
+    }
+  }
+  return null;
+};
 
   const tileClassName = ({ date, view }: { date: Date; view: string }) => {
-    if (view === "month") {
-      const event = events.find(ev =>
-        ev.date.getFullYear() === date.getFullYear() &&
-        ev.date.getMonth() === date.getMonth() &&
-        ev.date.getDate() === date.getDate()
-      );
-      // Return a unique class for each event color
-      return event ? `has-event has-event-${event.color.replace('#', '')}` : null;
+  if (view === "month") {
+    const event = events.find(ev =>
+      ev.date.getFullYear() === date.getFullYear() &&
+      ev.date.getMonth() === date.getMonth() &&
+      ev.date.getDate() === date.getDate()
+    );
+    if (event) {
+      return `has-event has-event-${event.color.replace("#", "")}`;
     }
-    return null;
-  };
+  }
+  return null;
+};
 
 	return (
 		<section className="upcoming-events-section">
@@ -88,30 +118,30 @@ const HomeUpcomingEvents = () => {
 						</div>
 						<div className="event-list">
 							{events.map((event, idx) => {
-                const dayNum = event.date.getDate();
-                const weekday = event.date.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase();
-                const month = event.date.toLocaleDateString("en-US", { month: "short" }).toUpperCase();
-                const year = event.date.getFullYear();
-                return (
-                  <React.Fragment key={idx}>
-                    <div className="event-item">
-                      <div className="dot" style={{ backgroundColor: event.color }}></div>
-                      <div className="event-date-label">
-                        <span className="event-day">{dayNum}</span>
-                        {/* <span className="event-weekday" style={{ marginLeft: 4 }}>{weekday}</span> */}
-                        <span className="event-month" style={{ marginLeft: 8 }}>{month}</span>
-                        {/* <span className="event-year" style={{ marginLeft: 4 }}>{year}</span> */}
-                      </div>
-                      <div className="details">
-                        <strong>{event.title}</strong>
-                      </div>
-                    </div>
-                    {idx !== events.length - 1 && (
-                      <div className="event-divider" />
-                    )}
-                  </React.Fragment>
-                );
-              })}
+								const dayNum = event.date.getDate();
+								const weekday = event.date.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase();
+								const month = event.date.toLocaleDateString("en-US", { month: "short" }).toUpperCase();
+								const year = event.date.getFullYear();
+								return (
+								<React.Fragment key={idx}>
+									<div className="event-item">
+									<div className="dot" style={{ backgroundColor: event.color }}></div>
+									<div className="event-date-label">
+									<span className="event-day">{dayNum}</span>
+									{/* <span className="event-weekday" style={{ marginLeft: 4 }}>{weekday}</span> */}
+									<span className="event-month" style={{ marginLeft: 8 }}>{month}</span>
+									{/* <span className="event-year" style={{ marginLeft: 4 }}>{year}</span> */}
+									</div>
+									<div className="details">
+									<strong>{event.title}</strong>
+									</div>
+									</div>
+									{idx !== events.length - 1 && (
+									<div className="event-divider" />
+									)}
+								</React.Fragment>
+								);
+							})}
 						</div>
 					</div>
 				</div>

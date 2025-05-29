@@ -92,6 +92,7 @@
         font-size: 15px;
         color: #222;
         padding: 25px 0;
+        
 
         @media (max-width: 991px) {
           font-size: 13px;
@@ -117,9 +118,7 @@
       .react-calendar__tile.has-event {
         color: #fff !important;
       }
-      .react-calendar__tile.has-event-7B61FF {
-        background: #7B61FF !important;
-      }
+
       .react-calendar__tile.has-event-F7B733 {
         background: #F7B733 !important;
         color: #222 !important;
@@ -179,6 +178,9 @@
       @media (max-width: 991px) {
         max-width: 100%;
       }
+      max-height: 250px; // adjust as needed
+      overflow-y: auto;
+      padding-right: 8px; // optional, for scrollbar space
 
       .event-item {
         display: flex;
@@ -186,15 +188,16 @@
         margin-bottom: 0;
 
         .dot {
-          width: 18px;
-          height: 18px;
-          border-radius: 10%;
-          margin-right: 12px;
-          margin-top: 0;
-          @media (max-width: 991px) {
-            width: 12px;
-            height: 12px;
-          }
+          width: 12px;
+          height: 12px;
+          // border-radius: 50%;
+          margin-right: 1%;
+          display: inline-block;
+          min-width: 12px;
+          min-height: 12px;
+          max-width: 12px;
+          max-height: 12px;
+          /* Optionally add border or box-shadow if needed */
         }
 
         .event-date-label {
@@ -261,9 +264,13 @@
         }
         .event-list {
           margin: 0;
-          padding-top:5%;
+          margin-top:5%;
           flex: 1 1 0;
           max-width: 500px;
+           max-height: 450px; // adjust as needed
+          overflow-y: auto;
+          padding-right: 8px; // optional, for scrollbar space
+
         }
       }
     }
@@ -325,3 +332,15 @@
     display: none;
   }
 }
+.react-calendar__tile {
+  position: relative;
+  z-index: 1;
+}
+
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px; // adjust gap as needed
+}
+
+// Add more as needed for other event colors
