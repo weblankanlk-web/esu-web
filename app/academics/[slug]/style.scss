@@ -212,14 +212,16 @@
   .profile {
     padding: get-vw(100px);
     gap: get-vw(80px);
-
+    .profile__card{
+       padding-top: 0; 
+    }
     &__card {
       padding: get-vw(40px);
     }
 
     &__content {
       .profile__header {
-        margin-left: get-vw(40px);
+        margin-left: get-vw(0px);
 
         h2 {
           font-size: get-vw(36px);
@@ -227,10 +229,16 @@
       }
 
       .profile__section {
-        padding: get-vw(50px);
+        padding: get-vw(50px); 
 
         h3 {
           font-size: get-vw(24px);
+        }
+        p{
+          font-size: get-vw(16px);
+        }
+        li{
+          font-size: get-vw(16px) !important;
         }
       }
     }

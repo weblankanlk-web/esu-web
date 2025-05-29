@@ -70,13 +70,13 @@
           .date-p {
             font-size: 14px;
             color: #888;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
           }
 
           .school-box-details {
             font-weight: 600;
             font-size: 18px;
-            color: #000;
+            color: #000 !important;
             text-decoration: none !important;
             margin-bottom: 10px;
             pointer-events: none;
@@ -100,18 +100,18 @@
             }
           }
 
-          .btnn-next {
-            color: #fff;
-            // background: #0073e6;
-            // padding: 8px 14px;
-            // border-radius: 5px;
-            // font-size: 14px;
-            // display: inline-block;
-            text-decoration: none;
-            right: 5%;
-            bottom: 4%;
-            position: absolute;
-          }
+          // .btnn-next {
+          //   color: #fff;
+          //   // background: #0073e6;
+          //   // padding: 8px 14px;
+          //   // border-radius: 5px;
+          //   // font-size: 14px;
+          //   // display: inline-block;
+          //   text-decoration: none;
+          //   right: 5%;
+          //   bottom: 4%;
+          //   position: absolute;
+          // }
         }
       }
     }
@@ -320,10 +320,10 @@
                 transition: transform 0.8s ease-in-out;
                 color: #fff !important;
 
-                .campus-arrow {
-                  color: #ffffffec;
-                  transition: transform 0.5s ease-in-out;
-                }
+                // .campus-arrow {
+                //   color: #ffffffec;
+                //   transition: transform 0.5s ease-in-out;
+                // }
 
               }
             }
