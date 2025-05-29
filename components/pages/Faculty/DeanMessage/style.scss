@@ -138,7 +138,11 @@
           padding-bottom: get-vw(60px);
           font-family: var(--font-poppins);
           text-align: left;
-
+          
+          .dean-message-content{
+            font-size: get-vw(16px);
+            line-height: get-vw(24px);
+          }
         }
 
         .single-massage-card {
