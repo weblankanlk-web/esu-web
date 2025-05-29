@@ -962,6 +962,12 @@ query($slug: ID!) {
         courses {
           enableCourseInTheMenu
         }
+        courseTypes {
+          nodes {
+            name
+            slug
+          }
+        }
       }
     }
   }

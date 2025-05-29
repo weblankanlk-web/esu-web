@@ -138,6 +138,12 @@ export interface CourseNode {
   courses: {
     enableCourseInTheMenu: boolean;
   };
+  courseTypes: {
+    nodes: {
+      slug: string;
+      name: string;
+    }[];
+  };
 }
 
 export interface CourseMenuResponse {
