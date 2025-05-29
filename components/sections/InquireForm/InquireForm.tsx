@@ -106,7 +106,17 @@ const InquireForm: React.FC<InquireFormProps> = () => {
     label: string;
     value: string;
   } | null>(null);
+
   const [status, setStatus] = useState("");
+
+  useEffect(() => {
+    if (isCoursePage && filterslugcourse.length > 0 && !selectedCourse) {
+      setSelectedCourse({
+        label: filterslugcourse[0]?.title || "Course",
+        value: filterslugcourse[0]?.courses?.courseCode || "",
+      });
+    }
+  }, [isCoursePage, filterslugcourse, selectedCourse]);
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
@@ -262,8 +272,8 @@ const InquireForm: React.FC<InquireFormProps> = () => {
             label="Branch:"
             placeholder="Select Branch"
             options={[
-              { label: "Colombo", value: "ESU Colombo" },
-              { label: "Kandy", value: "ESU Kandy" },
+              { label: "ESU Colombo", value: "ESU Colombo" },
+              { label: "ESU Kandy", value: "ESU Kandy" },
             ]}
             value={selectedBranch}
             onChange={setSelectedBranch}
@@ -273,26 +283,12 @@ const InquireForm: React.FC<InquireFormProps> = () => {
           <CustomSelect
             label="Course:"
             placeholder="Select Course"
-            options={
-              isCoursePage
-                ? filterslugcourse.map((course) => ({
-                    label: course.title,
-                    value: course.courses?.courseCode || "",
-                  }))
-                : courses.map((course) => ({
-                    label: course.title,
-                    value: course.courses?.courseCode || "",
-                  }))
-            }
-            value={
-              isCoursePage
-                ? {
-                    label: filterslugcourse[0]?.title || "Course",
-                    value: filterslugcourse[0]?.courses?.courseCode || "",
-                  }
-                : selectedCourse
-            }
-            onChange={!isCoursePage ? setSelectedCourse : () => {}}
+            options={courses.map((course) => ({
+              label: course.title,
+              value: course.courses?.courseCode || "",
+            }))}
+            value={selectedCourse}
+            onChange={setSelectedCourse}
             required
           />
 

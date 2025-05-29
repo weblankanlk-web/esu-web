@@ -77,7 +77,7 @@
                     font-weight: 700;
                     line-height: normal;
                     letter-spacing: -0.8px;
-                    color: #00AECD;
+                    color:  var(--main-title-color, #00aecd);
                     margin-bottom: 20px;
                     text-align: center;
                 }

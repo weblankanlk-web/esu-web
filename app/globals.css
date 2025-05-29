@@ -558,7 +558,7 @@ input:focus {
 .the-content-div p,
 .the-content-div span,
 .the-content-div strong {
-  font-size: var(--font-16);
+  /* font-size: var(--font-16); */
   line-height: var(--font-30);
   text-align: left !important;
   background: transparent !important;

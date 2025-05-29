@@ -7,12 +7,12 @@ const ContactHeadOffice = () => {
     <section className="headoffice-section position-relative" >
       <div className="headoffice-section-wrap">
         <div className="headoffice-title-wrap" data-aos="zoom-in">
-          <h2 className="headoffice-title">
-            BUILD <br></br>{" "}
+          {/* <h2 className="headoffice-title">
+            BUILD <br></br>
             <span>
               Your Career with <strong>us</strong>
             </span>
-          </h2>
+          </h2> */}
           <Image
             src="/images/contact-head-office.png"
             alt="Head Office"

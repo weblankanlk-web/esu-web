@@ -8,10 +8,10 @@ import ContactHeadOffice from "@/components/pages/Contact/ContactHeadOffice/Cont
 import { useTheme } from "@/lib/ThemeContext";
 
 const page = () => {
-  const { setColor } = useTheme();
-  useEffect(() => {
-    setColor("rgb(0, 174, 205)");
-  }, [setColor]);
+  // const { setColor } = useTheme();
+  // useEffect(() => {
+  //   setColor("rgb(0, 174, 205)");
+  // }, [setColor]);
 
   return (
     <>
