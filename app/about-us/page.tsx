@@ -11,9 +11,9 @@ import { useTheme } from "@/lib/ThemeContext";
 
 const page = () => {
   const { setColor } = useTheme();
-  // useEffect(() => {
-  //   setColor("rgb(0, 174, 205)");
-  // }, [setColor]);
+  useEffect(() => {
+    setColor("rgb(0, 174, 205)");
+  }, [setColor]);
 
   return (
     <>

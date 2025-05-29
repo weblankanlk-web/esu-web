@@ -23,10 +23,9 @@ export default function CoursesPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 12;
   const { setColor } = useTheme();
-  
-  // useEffect(() => {
-  //   setColor("rgb(0, 174, 205)");
-  // }, [setColor]);
+  useEffect(() => {
+    setColor("rgb(0, 174, 205)");
+  }, [setColor]);
 
   useEffect(() => {
     let results = [...allAcademics];

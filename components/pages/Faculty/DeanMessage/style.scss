@@ -19,11 +19,15 @@
       .single-massage-card {
         flex-wrap: wrap;
         justify-content: space-between;
-
+        position: relative; // Add this to enable absolute positioning for children
+        background: #fff;
+         margin: 0 get-vw(160px);
+          border: get-vw(0.997px) solid #d9d9d9;
+          border-radius: get-vw(40px);
         .single-image-wrap {
           border-radius: 19.938px;
-          border: 0.997px solid #d9d9d9;
-          background: #fff;
+          // border: 0.997px solid #d9d9d9;
+          
           margin: 0 auto 20px;
           width: 90%;
 
@@ -55,10 +59,10 @@
           .member-image {
             img {
               width: 100%;
-              max-width: 240px;
+              // max-width: 240px;
               height: auto;
               max-height: 300px;
-              object-fit: cover;
+              object-fit: contain;
               // border-radius: 12px;
               margin: 0 auto;
               display: block;
@@ -78,7 +82,8 @@
         .single-massage {
           font-style: normal;
           font-weight: 400;
-          padding: 0 20px;
+         text-align: justify;
+            padding: get-vw(170px) get-vw(120px);
         }
       }
     }
@@ -96,9 +101,13 @@
             .member-image {
               img {
                 height: 400px;
-                object-fit: cover;
+                object-fit: contain;
               }
             }
+          }
+          .single-massage {
+            
+            padding: get-vw(90px) get-vw(90px);
           }
         }
       }
@@ -114,7 +123,7 @@
       .massage-wrap {
         .single-massage-card {
           .single-massage {
-            padding: 40px 40px 0;
+            padding: get-vw(90px) get-vw(90px);
           }
         }
       }
@@ -128,21 +137,18 @@
 
     .dean-massage-wrap {
       .massage-wrap {
-        .dean-message-title {
+        .dean-message-title { 
           font-style: normal;
           font-size: 50px;
           font-weight: 700;
-          line-height: get-vw(48px);
+          line-height: get-vw(72px);
+          
           letter-spacing: get-vw(-4px);
           padding: 0;
           padding-bottom: get-vw(60px);
           font-family: var(--font-poppins);
           text-align: left;
-          
-          .dean-message-content{
-            font-size: get-vw(16px);
-            line-height: get-vw(24px);
-          }
+         
         }
 
         .single-massage-card {
@@ -212,4 +218,37 @@
       }
     }
   }
+}
+
+// Position the campus-arrow as a floating button over the image (top-right)
+.campus-arrow {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  z-index: 2;
+  font-size: 20px;
+  color: #000;
+  background: var(--main-title-color, red);
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(315deg);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(194,214,71,0.13);
+  cursor: pointer;
+}
+
+// Ensure the parent is positioned relative for absolute positioning
+.member-image {
+  position: relative;
+}
+
+// On hover, animate the arrow (optional, for consistency)
+.member-card:hover .campus-arrow {
+  transform: rotate(315deg) scale(1.08);
+  box-shadow: 0 2px 8px rgba(194,214,71,0.13);
 }

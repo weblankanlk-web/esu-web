@@ -31,7 +31,7 @@ const page = () => {
       });
 
       setResearch(data.publication);
-      // console.log("data", data.publication);
+      console.log("data", data.publication);
     };
 
     fetchResearch();
@@ -40,7 +40,7 @@ const page = () => {
   const galleryImages =
     research?.blogs?.gallery?.nodes?.map((item) => item.sourceUrl) || [];
 
-  // console.log("gallery", galleryImages);
+  console.log("gallery", galleryImages);
 
   const settings = {
     dots: true,

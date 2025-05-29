@@ -17,29 +17,3 @@
         }
     }
 }
-
-@media screen and (max-width: 768px) {
-    .news-inner-page {
-        .small-middle-wrap{
-            .heading-wrap{
-                width: 100% !important;
-                .section-heading {
-                      font-size: 18px !important;
-                    span{
-                        font-size: 18px !important;
-                    }
-                }
-            }
-        }
-        .small-wrap {
-            width: 100% !important;
-        }
-        .section-heading {}
-
-        .slick-dots {}
-
-        .news-inner-slider {
-            img {}
-        }
-    }
-}

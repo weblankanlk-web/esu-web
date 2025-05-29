@@ -71,8 +71,8 @@ const CourseSchedule: React.FC<ScheduleProps> = ({ schedule }) => {
             onChange={(e) => setSelectedBranch(e.target.value)}
           >
             <option value="">Select Branch</option>
-            <option value="Colombo">ESU Colombo</option>
-            <option value="Kandy">ESU Kandy</option>
+            <option value="Colombo">Colombo</option>
+            <option value="Kandy">Kandy</option>
           </select>
           <span className="custom-icon">
             <FaChevronDown />

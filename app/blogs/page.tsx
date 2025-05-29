@@ -102,7 +102,10 @@ const Blogs = () => {
                 </Link>
                 <div className="school-box-inner-details">
                   <p className="m-0 aragraph paragraph--black date-p">
-                        <span className="calendar-icon" style={{ marginRight: "8px" }}>
+                    <span
+                      className="calendar-icon"
+                      style={{ marginRight: "8px" }}
+                    >
                       📅
                     </span>
                     {new Date(news.date).toLocaleDateString("en-US", {
@@ -139,7 +142,8 @@ const Blogs = () => {
                       }}
                     >
                       ➜
-                    </span>                  </Link>
+                    </span>{" "}
+                  </Link>
                 </div>
               </div>
             </div>
@@ -150,8 +154,9 @@ const Blogs = () => {
           {[...Array(currentPage + (hasNextPage ? 1 : 0))].map((_, i) => (
             <button
               key={i}
-              className={`page-numbers ${currentPage === i + 1 ? "current" : ""
-                }`}
+              className={`page-numbers ${
+                currentPage === i + 1 ? "current" : ""
+              }`}
               onClick={() => handlePageChange(i + 1)}
             >
               {i + 1}
