@@ -101,19 +101,19 @@
       }
       .react-calendar__tile--active,
       .react-calendar__tile:focus {
-        background: #02AEC9 !important;
+        background: var(--main-title-color, red) !important;
         color: #fff !important;
       }
       .react-calendar__tile--now {
         background: #f7fafd;
-        color: #02AEC9;
+        color: var(--main-title-color, red);
       }
       .react-calendar__tile--hasActive {
         background: #e0f7fa;
       }
       .react-calendar__tile.calendar-has-event {
         background: #e0f7fa;
-        border: 1.5px solid #02AEC9;
+        border: 1.5px solid var(--main-title-color, red);
       }
       .react-calendar__tile.has-event {
         color: #fff !important;
@@ -148,7 +148,7 @@
         button {
           border-radius: 8px;
           background: #f7fafd;
-          color: #02AEC9;
+          color: var(--main-title-color, red);
           font-weight: 700;
           font-size: 16px;
           border: none;
