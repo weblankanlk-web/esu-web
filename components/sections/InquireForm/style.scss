@@ -1,8 +1,6 @@
 @function get-vw($target) {
-    $vw-context: (
-        1920 * 0.01) * 1px;
-    $res: (
-        calc($target / $vw-context)) * 1vw;
+    $vw-context: (1920 * 0.01) * 1px;
+    $res: (calc($target / $vw-context)) * 1vw;
     @return $res;
 }
 
@@ -10,118 +8,117 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1
-    );
-width: 100%;
-margin: auto;
-position: sticky;
-left: 0;
-right: 0;
-top: 20%;
-z-index: 999;
-height: 600px;
-background-color: #fff;
-border-radius: 20px;
-
-&__image-section {
-    background-color: #e6f0f6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // padding: 40px 0;
-
-    img {
-        width: 100%;
-        object-fit: cover;
-        object-position: right center;
-        height: 100%;
-    }
-
-    .inquire__icon {
-        width: 80px;
-        height: 60px;
-        background: url('/images/mail-icon.svg') no-repeat center/contain;
-    }
-}
-
-&__form-section {
-    padding: 20px;
-    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: auto;
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 20%;
+    z-index: 999;
     height: 600px;
-    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 20px;
 
-    .inquire__title {
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: #222;
-    }
-
-    .inquire__form {
+    &__image-section {
+        background-color: #e6f0f6;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // padding: 40px 0;
 
-        .inquire__row {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .inquire__field {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 16px;
-
-            .custom-select-dropdown {
-                font-size: 14px;
-            }
-
-            label {
-                font-size: 14px;
-                margin-bottom: 6px;
-                color: #555;
-            }
-
-            input,
-            select,
-            textarea {
-                padding: 10px;
-                font-size: 14px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-
-            textarea {
-                resize: none;
-            }
-        }
-
-        button {
-            border-radius: 15px;
-            background: #02AEC9;
-            padding: 10px 30px;
+        img {
             width: 100%;
-            color: #fff;
-            font-family: var(--font-manrope);
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            text-transform: capitalize;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border: none;
+            object-fit: cover;
+            object-position: right center;
+            height: 100%;
+        }
 
-            &:hover {
-                background-color: #b2d0ea;
+        .inquire__icon {
+            width: 80px;
+            height: 60px;
+            background: url('/images/mail-icon.svg') no-repeat center/contain;
+        }
+    }
+
+    &__form-section {
+        padding: 20px;
+        background-color: #fff;
+        height: 600px;
+        overflow-y: auto;
+
+        .inquire__title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .inquire__form {
+            display: flex;
+            flex-direction: column;
+
+            .inquire__row {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin-bottom: 16px;
+            }
+
+            .inquire__field {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 16px;
+
+                .custom-select-dropdown {
+                    font-size: 14px;
+                }
+
+                label {
+                    font-size: 14px;
+                    margin-bottom: 6px;
+                    color: #555;
+                }
+
+                input,
+                select,
+                textarea {
+                    padding: 10px;
+                    font-size: 14px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+
+                textarea {
+                    resize: none;
+                }
+            }
+
+            button {
+                border-radius: 15px;
+                background: #02AEC9;
+                padding: 10px 30px;
+                width: 100%;
+                color: #fff;
+                font-family: var(--font-manrope);
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                text-transform: capitalize;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                border: none;
+
+                &:hover {
+                    background-color: #b2d0ea;
+                }
             }
         }
     }
-}
 }
 
 .inquire__error {
@@ -238,5 +235,17 @@ border-radius: 20px;
                 font-size: get-vw(20px);
             }
         }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .inquire__image-section {
+        img {
+            display: none;
+        }
+    }
+    .inquire__form-section{
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 }
