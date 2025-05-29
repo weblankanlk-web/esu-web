@@ -109,6 +109,7 @@ export default function HomeCourses() {
                 }}
               />
             </div>
+            
           ))}
         </Slider>
       </div>
