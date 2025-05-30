@@ -411,6 +411,7 @@ body {
     .small-middle-wrap{
       .content{
         padding-top: get-vw(80px);
+                font-size: get-vw(16px) !important;
          p {
         font-size: get-vw(16px) !important;
         text-align: left !important;
@@ -452,8 +453,7 @@ body {
           }
         }
       }
-      }
-     
+      }     
     }
   }
 }
