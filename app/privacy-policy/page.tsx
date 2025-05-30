@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import Breadrumb from "@/components/common/Breadcrumb/Breadcrumb";
+import BannerTitleWithOutImage from "@/components/common/BannerTitleWithOutImage/BannerTitleWithOutImage";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 
@@ -15,13 +16,14 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <Breadrumb />
-      <section className="simple-padding-bottom">
-        <div className="small-middle-wrap">
-          <h2 className="pb-small section-heading section-heading--black" data-aos="flip-down">
-            Payment <span>Policy</span>
-          </h2>
+      <BannerTitleWithOutImage
+        title="Privacy Policy"
+        subtitle=""
+      />
 
-          <div className="content the-content-div simple-padding-top">
+      <section className="simple-padding-bottom impornent-pages">
+        <div className="small-middle-wrap">
+          <div className="content  simple-padding-top">
             <p>
               We respect and are committed to protecting your privacy. That is why we have adopted this Privacy Policy.
               This Privacy Policy lets you know how your personal information is processed and explains data collection and use practices for the ESOFT Uni Network.

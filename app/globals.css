@@ -588,7 +588,7 @@ input:focus {
   flex-wrap: wrap;
   padding-left: 30px;
 }
-.date-archive li::before,
+/* .date-archive li::before,
 .the-content-div ul li::before {
   content: "";
   height: 20px;
@@ -603,7 +603,7 @@ input:focus {
   padding: 10px;
   position: absolute;
   left: 0;
-}
+} */
 
 .fee-box {
   width: 25%;

@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Breadrumb from "@/components/common/Breadcrumb/Breadcrumb";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
+import BannerTitleWithOutImage from "@/components/common/BannerTitleWithOutImage/BannerTitleWithOutImage";
 
 export default function RefundPolicyPage() {
   const { setColor } = useTheme();
@@ -15,14 +16,10 @@ export default function RefundPolicyPage() {
   return (
     <>
       <Breadrumb />
-      <section className="simple-padding-bottom">
+      <section className="simple-padding-bottom impornent-pages">
         <div className="small-middle-wrap">
-          <h2
-            className="pb-small section-heading section-heading--black"
-            data-aos="flip-down"
-          >
-            Refund <span>Policy</span>
-          </h2>
+         
+           <BannerTitleWithOutImage title="Refund Policy" subtitle="" />
           <div className="content">
             <div className="elementor-text-editor elementor-clearfix">
               <p>
