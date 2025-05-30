@@ -63,7 +63,7 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
         <div className="members-wrap title-wrap mb-5">
           <TitleLarge title={sectinTitle1} subtitle={sectinTitle2}/>
         </div>
-        <div className="members-wrap d-flex flex-wrap justify-content-start gap-1">
+        <div className="members-wrap d-flex flex-wrap  ">
           {facultyMembers.length === 0 ? (
             <p>No staff members found for this department.</p>
           ) : (

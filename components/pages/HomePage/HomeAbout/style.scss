@@ -38,7 +38,7 @@
           padding-bottom: 30px;
         }
 
-        .the-content-div {
+        .the-content-div-about {
           font-family: var(--font-manrope);
           font-size: 14px;
           font-style: normal;
@@ -144,9 +144,9 @@
             padding-bottom: get-vw(50px);
           }
 
-          .the-content-div {
+          .the-content-div-about {
             font-size: get-vw(16px);
-            line-height: get-vw(28px);
+            line-height: get-vw(28px) !important;
             text-align: left;
 
             p {

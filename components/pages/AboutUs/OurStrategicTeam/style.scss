@@ -13,9 +13,10 @@
 .members-wrap {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; // Center the cards
+  // justify-content: center; // Center the cards
   gap: 32px;               // Adjust gap as needed
   margin-top: 32px;
+      justify-content: start;
 }
 
 .member-card-item {

@@ -160,7 +160,7 @@
     border: get-vw(0.997px) solid #d9d9d9;
     width: 48%;
     margin-bottom: get-vw(40px);
-    max-width:350px;
+    // max-width:350px;
     .single-image-wrap {
       border: 0 solid #d9d9d9;
       margin: 0;
@@ -318,7 +318,7 @@
         }
 
         .member-message {
-          font-size: 14px;
+          font-size: get-vw(16px);
           color: #333;
           text-align: justify;
           line-height: 1.6;
@@ -354,6 +354,7 @@
 
   .member-card {
     width: 24%;
+    margin: 0 0.5% 2%;
 
     .single-image-wrap {
       display: flex;
