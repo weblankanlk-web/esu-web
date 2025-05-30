@@ -167,7 +167,7 @@ const NewsPage = () => {
                   </p>
                   <Link
                     href={`/news/${news.slug}`}
-                    className="school-box-details d-flex"
+                    className="school-box-details d-flex pointer-event-none"
                   >
                     <span>
                       {news.title.length > 60

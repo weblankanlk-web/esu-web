@@ -11,6 +11,8 @@ import { GET_PUBLICATIONS_BY_SLUG } from "@/common/queries/query";
 import { Publication } from "@/common/interfaces/interface";
 import Image from "next/image";
 import { useTheme } from "@/lib/ThemeContext";
+import Breadrumb from "@/components/common/Breadcrumb/Breadcrumb";
+
 
 const page = () => {
   const pathname = usePathname();
@@ -53,10 +55,11 @@ const page = () => {
   };
   return (
     <>
-      <section className="simple-padding-bottom research-inner-page">
+      <Breadrumb />
+      <section className="simple-padding-bottom research-inner-page news-inner-page">
         <div className="small-middle-wrap">
           <div className="heading-wrap d-flex small-wrap">
-            <h2 className="section-heading section-heading--black section-heading--underline section-heading--underline--center">
+            <h2 className="section-heading section-heading--black section-heading--underline section-heading--underline--center blog-post-title">
               <span>{research?.title}</span>
             </h2>
           </div>

@@ -83,7 +83,7 @@
                         padding-bottom: 25px;
                         font-weight: 600;
                         font-size: 16px;
-                        pointer-events: none;
+                        // pointer-events: none;
                         margin-bottom: 0 !important;
                         text-decoration: none;
                     }
@@ -107,7 +107,9 @@
                         }
                     }
 
-
+ .research-link {
+                            pointer-events: auto !important;
+                        }
                 }
             }
         }
@@ -231,6 +233,9 @@
             .school-box-single {
                 .school-box-inner-details {
                     .btnn-next {}
+                    .research-link {
+                            pointer-events: auto !important;
+                        }
                 }
             }
         }
@@ -307,7 +312,7 @@
                 .school-box-inner {
 
                     .school-box-inner-details {
-                        position: inherit;
+                        // position: inherit;
                         padding: get-vw(23px) !important;
 
                         a {

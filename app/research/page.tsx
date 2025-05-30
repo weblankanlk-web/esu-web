@@ -160,7 +160,7 @@ const page = () => {
                           />
                         </div>
 
-                        <Link className="d-flex align-items-center justify-content-between" href={`/research/${publication.slug}`}>
+                        <Link className="d-flex align-items-center justify-content-between research-link" href={`/research/${publication.slug}`}>
                           <span
                             className="campus-arrow"
                             style={{
@@ -168,7 +168,8 @@ const page = () => {
                             }}
                           >
                             ➜
-                          </span>                  </Link>
+                          </span>                  
+                        </Link>
 
                       </div>
                     </div>
