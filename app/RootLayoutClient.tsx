@@ -8,6 +8,7 @@ import Preloader from "@/components/common/Preloader/Preloader";
 import Chatbot from "@/components/sections/Chatbot/Chatbot";
 import InquireForm from "@/components/sections/InquireForm/InquireForm";
 import Modal from "@/components/common/Modal/Modal";
+import { usePathname } from "next/navigation";
 // import AOS from 'aos';
 // import 'aos/dist/aos.css';
 
@@ -17,6 +18,9 @@ export default function RootLayoutClient({
   children: React.ReactNode;
 }) {
   const [isLoading, setIsLoading] = useState(true);
+
+  const pathname = usePathname();
+  const isAdmin = pathname?.startsWith("/admin");
 
   useEffect(() => {
     // Preloader logic
@@ -38,12 +42,12 @@ export default function RootLayoutClient({
   }, []);
 
   return isLoading ? (
-    <Preloader />
+    !isAdmin && <Preloader />
   ) : (
     <ThemeProvider>
-      <Header />
+      {!isAdmin && <Header />}
       {children}
-      <Footer />
+      {!isAdmin && <Footer />}
       {/* <Chatbot /> */}
     </ThemeProvider>
   );

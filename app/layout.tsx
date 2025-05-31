@@ -65,10 +65,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title:
-    "ESU - Sri Lanka's Premier Uni for Higher Education Excellence!",
-  description:
-    "ESU - Sri Lanka's Premier Uni for Higher Education Excellence!",
+  title: "ESU - Sri Lanka's Premier Uni for Higher Education Excellence!",
+  description: "ESU - Sri Lanka's Premier Uni for Higher Education Excellence!",
 };
 
 export default function RootLayout({
@@ -89,7 +87,6 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-KLC9HT5X');
           `}
         </Script>
-        
       </head>
       <body
         className={`
@@ -104,7 +101,6 @@ export default function RootLayout({
         `}
       >
         <RootLayoutClient>{children}</RootLayoutClient>
-
         {/* GTM noscript for body */}
         <noscript>
           <iframe
