@@ -1,5 +1,5 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 
 interface Props {
   currentPage: number;
@@ -7,25 +7,44 @@ interface Props {
   setCurrentPage: (val: number) => void;
 }
 
-export default function Pagination({ currentPage, totalPages, setCurrentPage }: Props) {
+export default function Pagination({
+  currentPage,
+  totalPages,
+  setCurrentPage,
+}: Props) {
+  const handlePageChange = (val: number) => {
+    setCurrentPage(val);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="pagination-div">
       {currentPage > 1 && (
-        <button className="page-numbers" onClick={() => setCurrentPage(currentPage - 1)}>&lt;&lt;</button>
+        <button
+          className="page-numbers"
+          onClick={() => handlePageChange(currentPage - 1)}
+        >
+          &lt;&lt;
+        </button>
       )}
 
       {Array.from({ length: totalPages }, (_, i) => (
         <button
           key={i}
-          className={`page-numbers ${currentPage === i + 1 ? 'current' : ''}`}
-          onClick={() => setCurrentPage(i + 1)}
+          className={`page-numbers ${currentPage === i + 1 ? "current" : ""}`}
+          onClick={() => handlePageChange(i + 1)}
         >
           {i + 1}
         </button>
       ))}
 
       {currentPage < totalPages && (
-        <button className="page-numbers next" onClick={() => setCurrentPage(currentPage + 1)}>&gt;&gt;</button>
+        <button
+          className="page-numbers next"
+          onClick={() => setCurrentPage(currentPage + 1)}
+        >
+          &gt;&gt;
+        </button>
       )}
     </div>
   );
