@@ -12,8 +12,9 @@ const HomeDifference: React.FC = () => {
   return (
     <>
       <section className="home-difference-section">
-        <div className="home-difference-wrap">
-          <div className="single-difference" data-aos="fade-up">
+        <div className="home-difference-wrap ">
+
+          <div className="single-difference single-slider-item" data-aos="fade-up">
             <div className="difference-text">
               <div className="title-wrap">
                 <TitleExtraSmall
@@ -28,7 +29,7 @@ const HomeDifference: React.FC = () => {
                 feel part of something bigger every step of the way.
               </p>
             </div>
-            <div className="difference-image">
+            <div className="difference-image single-slider-item">
               <Image
                 src="/images/1.png"
                 alt="Students sitting together on stairs"
@@ -39,7 +40,7 @@ const HomeDifference: React.FC = () => {
             </div>
           </div>
           <div
-            className="single-difference reverse"
+            className="single-difference reverse single-slider-item"
             style={{ backgroundColor: color }}
             data-aos="fade-up"
           >
@@ -92,6 +93,7 @@ const HomeDifference: React.FC = () => {
               />
             </div>
           </div>
+
         </div>
       </section>
     </>
