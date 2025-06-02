@@ -245,8 +245,7 @@ export default function CoursesPage() {
 
       <section className="simple-padding-bottom course-section">
         <div className="small-middle-wrap">
-          
-           <BannerTitleWithOutImage title="our courses" subtitle="" />
+          <BannerTitleWithOutImage title="our courses" subtitle="" />
 
           <div className="landing-wrap-top" data-aos="fade-up">
             <div className="landing-results landing-results-top">

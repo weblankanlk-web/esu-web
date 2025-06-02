@@ -157,7 +157,7 @@
 @media screen and (min-width: 1200px) {
     .contact-form {
         padding: get-vw(80px);
-        margin: get-vw(150px) get-vw(300px);
+        margin: get-vw(0px) get-vw(300px) get-vw(150px);
 
         &__title {
             font-size: get-vw(32px);
