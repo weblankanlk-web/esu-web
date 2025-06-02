@@ -1,25 +1,26 @@
 @import "@/styles/global.scss";
 
 
-  .banner-text-without-image {
-    font-size: 40px !important;
-    letter-spacing: -3px !important;
-    line-height: 40px !important;
-    color: #383636;
-    font-family: var(--font-poppins);
-    font-style: normal;
-    font-weight: 700;
+.banner-text-without-image {
+  font-size: 40px !important;
+  letter-spacing: -3px !important;
+  line-height: 40px !important;
+  color: #383636;
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+  text-transform: capitalize;
 
-    text-align: center;
+  span {
 
-    span {
+    color: var(--main-title-color, #00aecd);
 
-      color: var(--main-title-color, #00aecd);
-
-    }
   }
+}
+
 @media screen and (min-width: 992px) {
- .banner-text-without-image {
+  .banner-text-without-image {
     font-size: get-vw(100px) !important;
     letter-spacing: get-vw(-8px) !important;
     line-height: get-vw(90px) !important;
@@ -28,11 +29,13 @@
     font-style: normal;
     font-weight: 700;
     text-align: center;
+
     span {
       color: var(--main-title-color, #00aecd);
     }
-    .ul-importent-pages{
-      li{
+
+    .ul-importent-pages {
+      li {
         font-size: get-vw(16px);
         line-height: get-vw(20px);
       }

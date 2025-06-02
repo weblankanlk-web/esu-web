@@ -1,95 +1,15 @@
 @import "@/styles/global.scss";
 
-.member-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.member-image-modal {
-          max-width: 250px !important;
-          border-radius: 15%;
-        }
-.member-modal {
-  background: #fff;
-  padding: 40px 20px;
-  border-radius: 16px;
-  max-width: 90vw;
-  width: 90%;
-  position: relative;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  height: 90vh;
-  display: flex;
-  flex-direction: row;
-  .member-modal-details {
-    text-align: center;
-        h2 {
-          font-size: 24px;
-          margin-bottom: 10px;
-          font-weight: 800;
-        }
-
-        .qualification {
-          font-size: 16px;
-          color: #949494;
-          font-weight: 500;
-        }
-      }
-  .member-modal-content {
-    height: 50%;
-    padding-top: 20px;
-    overflow: hidden;
-  }
-
-  .member-image {
-    display: flex;
-      align-items: center;
-      justify-content: center;
-      height: auto;
-    img {
-      height: 100% !important;
-      object-fit: cover;
-    }
-  }
-}
-
-.member-modal-body {
-  overflow-y: scroll;
-  /* max-height: 60vh; */
-  margin-top: 20px;
-  flex-grow: 1;
-  height: 100%;
-}
-
-.close-btn {
-  position: absolute;
-  top: 0%;
-  right: 2%;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.member-message {
-  margin-top: 20px;
-  font-size: 0.8rem;
-  color: #333;
-  text-align: justify;
-  padding-right: 10px;
-}
+/* =======================
+  Member Card Base Styles
+========================== */
 
 .member-card {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  .about{
+
+  .about {
     background: #333c40 !important;
     color: #fff !important;
   }
@@ -105,6 +25,16 @@
     display: flex;
     flex-direction: column;
 
+    .member-image {
+      img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 19.938px;
+      }
+    }
+
     .member-details {
       text-align: center;
       padding: 20px 10px;
@@ -116,27 +46,14 @@
       }
 
       .position {
-        font-style: normal;
         font-weight: 700;
-        line-height: normal;
         font-size: 16px;
       }
 
       .qualification {
         font-family: var(--font-space-grotesk);
-        font-style: normal;
         font-weight: 500;
         font-size: 16px;
-      }
-    }
-
-    .member-image {
-      img {
-        width: 100%;
-        object-fit: cover;
-        object-position: top;
-        border-radius: 19.938px;
-        height: 300px;
       }
     }
   }
@@ -147,6 +64,101 @@
     padding: 0 20px;
   }
 }
+
+/* =======================
+  Modal Overlay & Content
+========================== */
+
+.member-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .member-modal {
+    background: #fff;
+    padding: 40px 20px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 90vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+    .member-modal-details {
+      text-align: center;
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: 800;
+      }
+
+      .qualification {
+        font-size: 16px;
+        color: #949494;
+        font-weight: 500;
+      }
+    }
+
+    .member-modal-content {
+      height: 50%;
+      padding-top: 20px;
+      overflow: hidden;
+    }
+
+    .member-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+
+      img {
+        height: 100% !important;
+        object-fit: cover;
+        max-width: 250px !important;
+        border-radius: 15%;
+      }
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 0%;
+    right: 2%;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .member-message {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #333;
+    text-align: justify;
+    padding-right: 10px;
+  }
+
+  .member-modal-body {
+    overflow-y: scroll;
+    margin-top: 20px;
+    flex-grow: 1;
+    height: 100%;
+  }
+}
+
+/* =======================
+  Responsive Styles
+========================== */
 
 @media only screen and (min-width: 600px) {
   .member-card {
@@ -160,12 +172,11 @@
     border: get-vw(0.997px) solid #d9d9d9;
     width: 48%;
     margin-bottom: get-vw(40px);
-    // max-width:350px;
+
     .single-image-wrap {
       border: 0 solid #d9d9d9;
       margin: 0;
       width: 100%;
-      display: flex;
       flex-direction: column;
 
       .member-details {
@@ -174,178 +185,135 @@
 
         .name {
           font-size: get-vw(25px);
-          font-style: normal;
           font-weight: 500;
           line-height: get-vw(28px);
           letter-spacing: get-vw(-0.997px);
         }
 
-        .position {
+        .position,
+        .qualification {
           font-size: get-vw(16px);
-          font-style: normal;
-          font-weight: 700;
-          line-height: normal;
           letter-spacing: get-vw(-0.32px);
+          font-weight: 700;
         }
 
         .qualification {
-          font-size: get-vw(16px);
-          font-style: normal;
-          letter-spacing: get-vw(-0.32px);
           font-weight: 400;
-          line-height: normal;
         }
       }
 
-      .member-image {
-        
-        img {
-          height: 350px;
-         
-          object-fit: cover;
-         
-        }
-       
+      .member-image img {
+        height: 350px;
+        object-fit: cover;
       }
     }
 
     .single-massage {
       width: calc(100% - get-vw(500px));
       font-size: get-vw(18px);
-      font-style: normal;
-      font-weight: 400;
       line-height: get-vw(25px);
       padding: get-vw(90px) get-vw(151px);
     }
   }
 
-  .member-message {
-    margin-top: 20px;
-    font-size: 1rem;
-    color: #333;
+  .member-modal-overlay {
+    .member-message {
+      font-size: 1rem;
+      margin-top: 20px;
+    }
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .member-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .member-modal {
-    display: flex;
-    flex-direction: row;
-    height: 90vh;
-    width: 90%;
-    max-width: 1200px;
-    padding: 30px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .member-modal-header-flex {
-    display: flex;
-    width: 100%;
-    height: 100%;
-
-    .member-image {
-      width: 30%;
+    .member-modal {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: row;
       height: auto;
-
-      img,
-      .member-image-modal {
-        width: 100%;
-        height: 100% !important;
-  
-          max-width: 450px !important;
-        
-        border-radius: 12px;
-        object-fit: cover;
-      }
-    }
-
-    .member-modal-content {
-      width: 80%;
-      display: flex;
-      flex-direction: column;
-      padding-left: 30px;
+      width: 90%;
+      max-width: 1200px;
+      padding: 30px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      position: relative;
       overflow: hidden;
 
-      .member-modal-details {
-         text-align: left;
-        h2 {
-          font-size: 24px;
-          margin-bottom: 10px;
-          font-weight: 800;
+      .member-modal-header-flex {
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        .member-image {
+          width: 30%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img,
+          .member-image-modal {
+            width: 100%;
+            height: auto !important;
+            max-width: 450px !important;
+            border-radius: 12px;
+            object-fit: cover;
+          }
         }
 
-        .qualification {
-          font-size: 16px;
-          color: #949494;
-          font-weight: 500;
-        }
-      }
+        .member-modal-content {
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          padding-left: 30px;
 
-      .member-modal-body {
-        overflow-y: auto;
-        flex-grow: 1;
-        margin-top: 20px;
-        padding-right: 10px;
-        scrollbar-width: thin;
-        scrollbar-color: #999 transparent;
+          .member-modal-details {
+            text-align: left;
 
-        &::-webkit-scrollbar {
-          width: 6px;
-        }
+            h2 {
+              font-size: 24px;
+              font-weight: 800;
+              margin-bottom: 10px;
+            }
 
-        &::-webkit-scrollbar-thumb {
-          background-color: #999;
-          border-radius: 10px;
-        }
+            .qualification {
+              font-size: 16px;
+              color: #949494;
+              font-weight: 500;
+            }
+          }
 
-        .member-message {
-          font-size: get-vw(16px);
-          color: #333;
-          text-align: justify;
-          line-height: 1.6;
+          .member-modal-body {
+            overflow-y: auto;
+            flex-grow: 1;
+            margin-top: 20px;
+            padding-right: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #999 transparent;
+
+            &::-webkit-scrollbar {
+              width: 6px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background-color: #999;
+              border-radius: 10px;
+            }
+
+            .member-message {
+              font-size: get-vw(16px);
+              line-height: 1.6;
+              text-align: justify;
+            }
+          }
         }
       }
     }
-  }
-
-  .member-modal {
-    background: #fff;
-    padding: 40px 30px;
-    border-radius: 16px;
-    max-width: 90vw;
-    width: 90%;
-    position: relative;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    height: auto;
-    display: flex;
-    flex-direction: row;
   }
 
   .member-modal-body {
-    overflow-y: auto;
-    max-height: 60vh; // Adjust as needed
+    max-height: 60vh;
     margin-top: 20px;
     flex-grow: 1;
-    // padding: 0% 5%;
   }
 
   .landing-results-inner.academics-mamber-group .member-card {
@@ -354,7 +322,7 @@
 
   .member-card {
     width: 24%;
-    margin: 0 0.5% 2%;
+    margin: 0;
 
     .single-image-wrap {
       display: flex;
@@ -362,48 +330,21 @@
       justify-content: space-between;
 
       .member-details {
-        padding: get-vw(50px) get-vw(50px) get-vw(50px) get-vw(50px) !important;
+        padding: get-vw(50px) !important;
         min-height: 170px;
       }
 
-      .member-image {
-        img {
-          height: get-vw(350px);
-        }
+      .member-image img {
+        height: get-vw(350px);
       }
     }
   }
 }
 
-// Position the campus-arrow as a floating button over the image (top-right)
-// .campus-arrow {
-//   position: absolute;
-//   bottom: 11px;
-//   right: 11px;
-//   z-index: 2;
-//   font-size: 20px;
-//   color: #000;
-//   background: var(--main-title-color, red);
-//   padding: 10px;
-//   border-radius: 50%;
-//   width: 40px;
-//   height: 40px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   transform: rotate(315deg);
-//   transition: transform 0.2s, box-shadow 0.2s;
-//   box-shadow: 0 2px 8px rgba(194,214,71,0.13);
-//   cursor: pointer;
-// }
+/* =======================
+  Shared Utility Styles
+========================== */
 
-// Ensure the parent is positioned relative for absolute positioning
 .member-image {
   position: relative;
 }
-
-// On hover, animate the arrow (optional, for consistency)
-// .member-card:hover .campus-arrow {
-//   transform: rotate(315deg) scale(1.08);
-//   box-shadow: 0 2px 8px rgba(194,214,71,0.13);
-// }

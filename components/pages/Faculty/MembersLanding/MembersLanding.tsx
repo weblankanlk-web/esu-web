@@ -7,6 +7,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 import { MEMBERS_QUERY } from "@/common/queries/query";
 import { StaffMember } from "@/common/types/type";
 import TitleLarge from "@/components/common/TitleLarge/TitleLarge";
+import { Pagination } from "../../Courses";
 
 interface MembersLandingProps {
   slug: string;
@@ -24,6 +25,10 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
   sectinTitle2,
 }) => {
   const [facultyMembers, setFacultyMembers] = useState<StaffMember[]>([]);
+
+  const facultyMembersPerPage = 6;
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchFacultyMembers = async () => {
@@ -53,6 +58,13 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
     fetchFacultyMembers();
   }, [slug]);
 
+  const totalPages = Math.ceil(facultyMembers.length / facultyMembersPerPage);
+
+  const paginationMembers = facultyMembers.slice(
+    (currentPage - 1) * facultyMembersPerPage,
+    currentPage * facultyMembersPerPage
+  );
+
   return (
     <section className="faculty-member-section">
       <div className="faculty-member-wrap">
@@ -61,15 +73,23 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
           <span style={{ color: fontColor }}>{sectinTitle2}</span>
         </h2> */}
         <div className="members-wrap title-wrap mb-5">
-          <TitleLarge title={sectinTitle1} subtitle={sectinTitle2}/>
+          <TitleLarge title={sectinTitle1} subtitle={sectinTitle2} />
         </div>
         <div className="members-wrap d-flex flex-wrap  ">
-          {facultyMembers.length === 0 ? (
+          {paginationMembers.length === 0 ? (
             <p>No staff members found for this department.</p>
           ) : (
-            facultyMembers.map((member, index) => (
+            paginationMembers.map((member, index) => (
               <MemberCardItem key={index} memberData={member} />
             ))
+          )}
+
+          {totalPages && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              setCurrentPage={setCurrentPage}
+            />
           )}
         </div>
       </div>

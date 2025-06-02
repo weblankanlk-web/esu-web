@@ -11,6 +11,7 @@ import Filter from "@/components/pages/Courses/Filter/Filter";
 import FaculityCard from "@/components/pages/Faculty/FaculityCard/FaculityCard";
 import MemberCardItem from "@/components/pages/Faculty/MembersLanding/MemberCard/MemberCard";
 import { useTheme } from "@/lib/ThemeContext";
+import BannerTitleWithOutImage from "@/components/common/BannerTitleWithOutImage/BannerTitleWithOutImage";
 
 export default function CoursesPage() {
   const [search, setSearch] = useState("");
@@ -81,9 +82,7 @@ export default function CoursesPage() {
 
       <section className="simple-padding-bottom academics-page-section">
         <div className="small-middle-wrap">
-          <h2 className="section-heading section-heading--black">
-            our <span style={{ color: color }}>academics</span>
-          </h2>
+          <BannerTitleWithOutImage title="our academics" subtitle="" />
 
           <div className="landing-wrap-top">
             <div className="landing-results landing-results-top">

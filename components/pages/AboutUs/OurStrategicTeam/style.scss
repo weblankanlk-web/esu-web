@@ -1,25 +1,29 @@
 @import "@/styles/global.scss";
 
+
 .our-strategic-team {
     padding: 20px 16px;
+
+    .members-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        margin-top: 32px;
+        justify-content: center;
+    }
+
+    .member-card-item {
+        flex: 0 1 320px;
+        max-width: 100%;
+    }
 }
 
 @media screen and (min-width: 1200px) {
     .our-strategic-team {
-        padding: get-vw(80px) get-vw(100px);
+        padding: get-vw(0px) get-vw(100px) get-vw(80px);
+
+        .members-wrap {
+            justify-content: start;
+        }
     }
-}
-
-.members-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  // justify-content: center; // Center the cards
-  gap: 32px;               // Adjust gap as needed
-  margin-top: 32px;
-      justify-content: start;
-}
-
-.member-card-item {
-  flex: 0 1 320px;         // Or your preferred card width
-  max-width: 100%;
 }
