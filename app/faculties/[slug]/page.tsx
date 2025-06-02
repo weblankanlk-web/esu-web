@@ -73,7 +73,7 @@ const FacultyInnerPage = () => {
   }, [faculty, setColor]);
   
   return (
-    <>
+    <div className="faculty-inner-page">
       {faculty && (
         <>
           <div
@@ -169,7 +169,7 @@ const FacultyInnerPage = () => {
           <HomeTestimonials />
         </>
       )}
-    </>
+    </div>
   );
 };
 

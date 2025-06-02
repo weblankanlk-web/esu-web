@@ -14,7 +14,12 @@ export default function Pagination({
 }: Props) {
   const handlePageChange = (val: number) => {
     setCurrentPage(val);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const section = document.querySelector(".faculty-member-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
