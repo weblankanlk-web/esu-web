@@ -1,98 +1,16 @@
-// .news-inner-page {
-//   .heading-wrap {
-//     margin-left: 0;
-//     width: 100%;
-//   }
 
-//   .section-heading {
-//     width: 100%;
-//     line-height: normal;
-//     letter-spacing: normal;
-//     font-size: 20px;
-//     text-align: left;
-//     flex-direction: row;
+.inner-banner-title {
+  color: var(--faculty-color);
+  font-family: var(--faculty-font);
+  font-weight: bold;
+}
 
-//     span {
-//       text-align: left;
-//     }
-//   }
-
-//   .the-content-div {
-//     p {
-//       text-align: left !important;
-//     }
-//   }
-
-//   .slick-dots {
-//     position: relative;
-//     bottom: 0;
-//   }
-
-//   .news-inner-slider {
-//     img {
-//       height: 350px;
-//       object-fit: cover;
-//     }
-//   }
-// }
-
-// .the-content-div ul li,
-// .date-archive li {
-//   position: relative;
-//   padding-left: 40px;
-
-//   &::before {
-//     content: "";
-//     position: absolute;
-//     left: 0;
-//     top: 5px;
-//     height: 20px;
-//     width: 20px;
-//     border-radius: 50%;
-//     border: 1px solid #d8d8d8;
-//     margin-right: 10px;
-//     background-image: url("/images/tick-red.png"); // Clean relative path
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     background-size: 50%;
-//     padding: 10px;
-//   }
-// }
-
-// @media screen and (min-width: 1200px) {
-//   .news-inner-page {
-//      .blog-post-title{
-//   font-size: get-vw(32px) !important;
-//           line-height: get-vw(40px) !important;
-//      }
-//     .small-middle-wrap {
-//       .heading-wrap {
-//         padding-bottom: get-vw(20px);
-//         .section-heading{
-//            font-size: get-vw(32px) !important;
-//           line-height: get-vw(40px) !important;
-//           span{
-//           font-size: get-vw(32px) !important;
-//           line-height: get-vw(40px) !important;
-//         }
-//         }
-//       }
-//       .news-inner-slider {
-//         padding-left: 0;
-//         padding-right: 0;
-
-//         img {
-//           height: get-vw(600px) !important;
-//           object-fit: cover;
-//         }
-//       }
-//       .the-content-div{
-//         padding: get-vw(40px) 0px !important;
-//         .the-content{
-//           padding-top: get-vw(60px) !important;
-//         }
-//       }
-//     }
-//   }
-// }
-
+.faculty-overview-title {
+  font-family: var(--faculty-font);
+  background: linear-gradient(
+    90deg,
+    var(--faculty-color) 0%,
+    rgba(124, 124, 124, 0.7) 100%
+  );
+  font-weight: bold;
+}

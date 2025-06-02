@@ -21,7 +21,7 @@ const NewsPage = () => {
   const { setColor, color } = useTheme();
 
   useEffect(() => {
-    setColor("rgb(0, 174, 205)");
+    // setColor("rgb(0, 174, 205)");
 
     const loadInitialNews = async () => {
       const data = await graphQLClient.request<{

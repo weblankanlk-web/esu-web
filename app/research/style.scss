@@ -47,14 +47,24 @@
             gap: 30px;
 
             .school-box-single {
-                overflow: hidden;
-                transition: all 0.3s ease;
-                border: 1px solid #e0e2ed;
-                background-color: #fff;
-                border-radius: 20px 20px;
+
+                // overflow: hidden;
+                // transition: all 0.3s ease;
+                // border: 1px solid #e0e2ed;
+                // background-color: #fff;
+                // border-radius: 20px 20px;
                 // &:hover {
                 //   transform: translateY(-5px);
                 // }
+                .school-box-inner {
+                    overflow: hidden;
+                    transition: all 0.3s ease;
+                    border: 1px solid #e0e2ed;
+                    background-color: #fff;
+                    border-radius: 20px 20px;
+
+                }
+
 
                 .feature-img-school {
                     width: 100%;
@@ -107,9 +117,9 @@
                         }
                     }
 
- .research-link {
-                            pointer-events: auto !important;
-                        }
+                    .research-link {
+                        pointer-events: auto !important;
+                    }
                 }
             }
         }
@@ -233,9 +243,10 @@
             .school-box-single {
                 .school-box-inner-details {
                     .btnn-next {}
+
                     .research-link {
-                            pointer-events: auto !important;
-                        }
+                        pointer-events: auto !important;
+                    }
                 }
             }
         }
@@ -306,7 +317,7 @@
 
             .news-box-landing {
                 width: 32% !important;
-                border-radius: 20px 20px;
+                border-radius: get-vw(20px);
                 position: relative;
 
                 .school-box-inner {
@@ -314,6 +325,8 @@
                     .school-box-inner-details {
                         // position: inherit;
                         padding: get-vw(23px) !important;
+                                            
+ min-height: get-vw(300px) !important;
 
                         a {
                             span {
@@ -351,10 +364,8 @@
 
                         .publication-content {
                             font-size: get-vw(16px) !important;
+                            min-height: get-vw(120px);
                         }
-
-
-
                         .btnn-next {
                             right: get-vw(50px);
                             bottom: get-vw(30px);
