@@ -40,19 +40,19 @@
 
         .the-content-div-about {
           font-family: var(--font-manrope);
-          font-size: 14px;
+          font-size: 16px;
           font-style: normal;
-          font-weight: 600;
-          line-height: 20px;
+          font-weight: 400;
+          line-height: 26px;
           text-align: center;
-          color: #9a9090;
+          color: #333;
 
           p {
-            color: #9a9090;
+            color: #333;
           }
 
           span {
-            color: #4d4d4d;
+            color: #333;
           }
         }
       }
@@ -148,6 +148,8 @@
             font-size: get-vw(16px);
             line-height: get-vw(28px) !important;
             text-align: left;
+            font-style: normal;
+            font-weight: 600;
 
             p {
               font-size: get-vw(16px);

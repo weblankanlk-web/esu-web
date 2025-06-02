@@ -175,21 +175,21 @@ const NewsPage = () => {
                         : news.title}
                     </span>
                   </Link>
-                  <div className="paragraph paragraph--black">
+                    <div className="paragraph paragraph--black">
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: (() => {
-                          const tempDiv = document.createElement("div");
-                          tempDiv.innerHTML = news.content;
-                          const textContent =
-                            tempDiv.textContent || tempDiv.innerText || "";
-                          return textContent.length > 180
-                            ? textContent.substring(0, 180) + "..."
-                            : textContent;
-                        })(),
+                      __html: (() => {
+                        const tempDiv = document.createElement("div");
+                        tempDiv.innerHTML = news.content.replace(/&nbsp;/g, " ");
+                        const textContent =
+                        tempDiv.textContent || tempDiv.innerText || "";
+                        return textContent.length > 180
+                        ? textContent.substring(0, 180) + "..."
+                        : textContent;
+                      })(),
                       }}
                     />
-                  </div>
+                    </div>
                   <Link className="d-flex align-items-center justify-content-between" href={`/news/${news.slug}`}>
                     <span className="campus-arrow" style={{ background: color }}>
                       ➜

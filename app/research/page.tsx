@@ -78,7 +78,7 @@ const page = () => {
       <section className="simple-padding-bottom simple-padding-top">
         <div className="small-middle-wrap">
 
-          <div className="landing-wrap-top">
+          {/* <div className="landing-wrap-top">
             <div className="landing-results w-100 landing-results-top">
               <div>
                 {searchTerm && (
@@ -109,7 +109,7 @@ const page = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="landing-wrap">
             <div className="landing-results">
               <div className="landing-results-inner blog-results-inner">
