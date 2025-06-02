@@ -75,7 +75,8 @@ const HomeTestimonials: React.FC = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: true,
+          arrows: false,
+            adaptiveHeight: true,
         },
       },
     ],
