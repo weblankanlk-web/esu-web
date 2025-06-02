@@ -280,7 +280,7 @@ const ContactForm = () => {
             placeholder="Select Branch"
             options={[
               { label: "ESU Colombo", value: "Colombo" },
-              { label: "ESU Kandy", value: "Kandy" },
+              { label: "ESU Kandy", value: "ESU-Kandy" },
             ]}
             value={selectedBranch}
             onChange={setSelectedBranch}
