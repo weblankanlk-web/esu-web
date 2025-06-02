@@ -109,7 +109,8 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div className="column links">
+          
+          <div className="column links quick-links">
             <h4>QUICK LINKS</h4>
             <ul>
               <li>
@@ -141,7 +142,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="column links">
+          <div className="column links important-links">
             <h4>IMPORTANT LINKS</h4>
             <ul>
               {/* <li>
