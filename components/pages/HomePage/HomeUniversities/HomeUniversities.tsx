@@ -17,7 +17,7 @@ const universitySlides = [
     img: "https://cms.esu.lk/wp-content/uploads/2025/05/Goulston-Street-Etrance.webp",
     alt: "Goulston Street Entrance",
     url: "https://www.londonmet.ac.uk/",
-    logo: ["https://cms.esu.lk/wp-content/uploads/2025/05/KingstonUniLogo.png"],
+    logo: ["https://cms.esu.lk/wp-content/uploads/2024/12/LMU-logo-1.jpeg"],
   },
   {
     img: "https://cms.esu.lk/wp-content/uploads/2025/05/78e9ec80-c82e-49e4-b42c-827d5a0a1438.jpg",
