@@ -4,7 +4,7 @@
   .main-title-large {
     font-family: var(--font-poppins);
     color: #383636;
-    font-size: 50px;
+    font-size: 0px;
     font-style: normal;
     font-weight: 800;
     line-height: 45px;
@@ -18,14 +18,22 @@
     gap: 10px;
 
     h2 {
-      // text-align: center;
-      color: #383636;
-      font-size: 50px;
-      font-style: normal;
-      font-weight: 800;
-      line-height: 45px;
-      /* 90% */
-      letter-spacing: -2px;
+      // // text-align: center;
+      // color: #383636;
+      // font-size: 50px;
+      // font-style: normal;
+      // font-weight: 800;
+      // line-height: 45px;
+      // /* 90% */
+      // letter-spacing: -2px;
+
+    font-size: 40px ;
+    letter-spacing: -3px;
+    line-height: 40px;
+    color: #383636;
+    font-family: var(--font-poppins);
+    font-style: normal;
+    font-weight: 700;
     }
 
     span {
