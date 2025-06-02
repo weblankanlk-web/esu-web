@@ -97,6 +97,7 @@ const page = () => {
                   }
                   rel="noopener noreferrer"
                   className="scholar-link"
+                  style={{ color }}
                 >
                   <FaGraduationCap />
                   {academicStaff.staffAcf.googleScholarUrl.title ||
@@ -112,6 +113,7 @@ const page = () => {
                   }
                   rel="noopener noreferrer"
                   className="scholar-link"
+                  style={{ color }}
                 >
                   <FaResearchgate />
                   {academicStaff.staffAcf.researchGateUrl.title ||
