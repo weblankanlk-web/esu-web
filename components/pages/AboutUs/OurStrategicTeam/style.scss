@@ -21,6 +21,14 @@
 @media screen and (min-width: 1200px) {
     .our-strategic-team {
         padding: get-vw(0px) get-vw(100px) get-vw(80px);
+        .full-wrap{
+            .title-wrap{
+                p{
+                    font-size: get-vw(16px);
+                    font-weight: 600;
+                }
+            }
+        }
 
         .members-wrap {
             justify-content: start;
