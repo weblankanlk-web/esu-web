@@ -71,7 +71,7 @@ const Page = () => {
       <section className="simple-padding-bottom news-inner-page">
         <div className="small-middle-wrap">
           <div className="heading-wrap d-flex small-middle-wrap">
-            <h2 className="section-heading section-heading--black section-heading--underline section-heading--underline--center">
+            <h2 className="section-heading section-heading--black section-heading--underline section-heading--underline--center  blog-post-title">
               <span>{blog?.title}</span>
             </h2>
           </div>

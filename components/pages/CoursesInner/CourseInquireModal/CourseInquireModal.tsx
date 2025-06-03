@@ -471,7 +471,7 @@ const CourseInquireModal = () => {
                         </option>
                         <option value="ESOFT-BBM">
                           Bachelor of Business Management (BBM Hons Degree) –
-                          ESOFT Metro Campus
+                          ESOFT Uni
                         </option>
                         <option value="UCSC-BIT-PRJ">
                           Bachelor of Information Technology (BIT External
@@ -503,7 +503,7 @@ const CourseInquireModal = () => {
                         </option>
                         <option value="ESOFT-BIT">
                           Bachelor of Information Technology Honours Degree (
-                          BIT Hons Degree ) – ESOFT Metro Campus
+                          BIT Hons Degree ) – ESOFT Uni
                         </option>
                         <option value="LMU-T-BENG-CNCS">
                           BEng (Hons) Computer Networking and Cloud Security

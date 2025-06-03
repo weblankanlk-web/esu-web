@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import Breadrumb from "@/components/common/Breadcrumb/Breadcrumb";
+import BannerTitleWithOutImage from "@/components/common/BannerTitleWithOutImage/BannerTitleWithOutImage";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 
@@ -15,16 +16,14 @@ export default function QualityPolicyPage() {
   return (
     <>
       <Breadrumb />
-      <section className="simple-padding-bottom">
+      <BannerTitleWithOutImage title="Quality Policy" subtitle="" />
+      
+      <section className="simple-padding-bottom impornent-pages">
         <div className="small-middle-wrap">
-          <h2 className="pb-small section-heading section-heading--black" data-aos="flip-down">
-            Quality <span>Policy</span>
-          </h2>
-
-          <div className="content the-content-div simple-padding-top">
+          <div className="content simple-padding-top">
             <h3><strong>Centre for Quality Assurance (CQA)</strong></h3>
             <p>
-              Welcome to the Centre for Quality Assurance (CQA) of Esoft Uni
+              Welcome to the Centre for Quality Assurance (CQA) of Esoft Uni.
               The CQA is responsible for enhancing the quality of education in all study programs of Esoft Uni.
               It was established under the instruction of the Non-State Higher Education Division of the Ministry of Education to control and manage QA functions.
               The CQA operates under the direction of the Head of CQA and implements best practices in quality assurance at Esoft Uni.

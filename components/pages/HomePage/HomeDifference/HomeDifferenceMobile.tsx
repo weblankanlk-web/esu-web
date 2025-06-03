@@ -2,25 +2,31 @@
 
 import React from "react";
 import Image from "next/image";
+import Slider from "react-slick";
 import TitleExtraSmall from "../../../common/TitleExtraSmall/TitleExtraSmall";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
 
-const HomeDifference: React.FC = () => {
+const HomeDifferenceMobile: React.FC = () => {
   const { color } = useTheme();
 
-  return (
-    <>
-      <section className="home-difference-section">
-        <div className="home-difference-wrap ">
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
+  return (
+    <section className="home-difference-section HomeDifferenceMobile">
+      <div className="home-difference-wrap">
+        <Slider {...settings} className="home-difference-slider">
           <div className="single-difference single-slider-item" data-aos="fade-up">
             <div className="difference-text">
               <div className="title-wrap">
-                <TitleExtraSmall
-                  title="A Space To "
-                  subtitle=" &nbsp; Grow, Lead, and Belong"
-                />
+                <TitleExtraSmall title="A Space To " subtitle=" &nbsp; Grow, Lead, and Belong" />
               </div>
               <p>
                 From meaningful friendships to memorable moments, our
@@ -39,6 +45,7 @@ const HomeDifference: React.FC = () => {
               />
             </div>
           </div>
+
           <div
             className="single-difference reverse single-slider-item"
             style={{ backgroundColor: color }}
@@ -46,10 +53,7 @@ const HomeDifference: React.FC = () => {
           >
             <div className="difference-text">
               <div className="title-wrap">
-                <TitleExtraSmall
-                  title="Turning "
-                  subtitle="&nbsp; Ambition Into Direction"
-                />
+                <TitleExtraSmall title="Turning " subtitle="&nbsp; Ambition Into Direction" />
               </div>
               <p>
                 We don’t just talk about goals; we help shape them. With
@@ -68,13 +72,11 @@ const HomeDifference: React.FC = () => {
               />
             </div>
           </div>
-          <div className="single-difference" data-aos="fade-up" >
+
+          <div className="single-difference" data-aos="fade-up">
             <div className="difference-text">
               <div className="title-wrap">
-                <TitleExtraSmall
-                  title="Learning  "
-                  subtitle="&nbsp; Beyond The Classroom"
-                />
+                <TitleExtraSmall title="Learning  " subtitle="&nbsp; Beyond The Classroom" />
               </div>
               <p>
                 We bring the real world to our students through collaboration
@@ -93,11 +95,10 @@ const HomeDifference: React.FC = () => {
               />
             </div>
           </div>
-
-        </div>
-      </section>
-    </>
+        </Slider>
+      </div>
+    </section>
   );
 };
 
-export default HomeDifference;
+export default HomeDifferenceMobile;

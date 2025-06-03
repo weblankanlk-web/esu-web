@@ -7,6 +7,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 import { MEMBERS_QUERY } from "@/common/queries/query";
 import { StaffMember } from "@/common/types/type";
 import TitleLarge from "@/components/common/TitleLarge/TitleLarge";
+import { Pagination } from "../../Courses";
 
 interface MembersLandingProps {
   slug: string;
@@ -25,6 +26,10 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
 }) => {
   const [facultyMembers, setFacultyMembers] = useState<StaffMember[]>([]);
 
+  const facultyMembersPerPage = 6;
+
+  const [currentPage, setCurrentPage] = useState(1);
+
   useEffect(() => {
     const fetchFacultyMembers = async () => {
       try {
@@ -38,11 +43,24 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
 
         const allMembers = data.schoolType?.staffs?.nodes || [];
 
-        const filteredMembers = allMembers.filter(
-          (member) =>
-            !member.slug.toLowerCase().includes("dean") &&
-            member.title.toLowerCase() !== "dean"
-        );
+        console.log("All members", allMembers);
+
+        const filteredMembers = allMembers.filter((member) => {
+          const slugs = member.staffTypes?.nodes?.map((node: any) =>
+            node.slug.toLowerCase()
+          );
+
+          const title = member.title.toLowerCase();
+
+          const isDean = slugs?.includes("dean") || title === "dean";
+          const isHead =
+            slugs?.includes("head-of-department") ||
+            title === "head-of-department";
+
+          return !isDean && !isHead;
+        });
+
+        console.log("Filtered Member", filteredMembers);
 
         setFacultyMembers(filteredMembers);
       } catch (err) {
@@ -53,6 +71,13 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
     fetchFacultyMembers();
   }, [slug]);
 
+  const totalPages = Math.ceil(facultyMembers.length / facultyMembersPerPage);
+
+  const paginationMembers = facultyMembers.slice(
+    (currentPage - 1) * facultyMembersPerPage,
+    currentPage * facultyMembersPerPage
+  );
+
   return (
     <section className="faculty-member-section">
       <div className="faculty-member-wrap">
@@ -61,15 +86,23 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
           <span style={{ color: fontColor }}>{sectinTitle2}</span>
         </h2> */}
         <div className="members-wrap title-wrap mb-5">
-          <TitleLarge title={sectinTitle1} subtitle={sectinTitle2}/>
+          <TitleLarge title={sectinTitle1} subtitle={sectinTitle2} />
         </div>
-        <div className="members-wrap d-flex flex-wrap justify-content-start gap-1">
-          {facultyMembers.length === 0 ? (
+        <div className="members-wrap d-flex flex-wrap  ">
+          {paginationMembers.length === 0 ? (
             <p>No staff members found for this department.</p>
           ) : (
-            facultyMembers.map((member, index) => (
+            paginationMembers.map((member, index) => (
               <MemberCardItem key={index} memberData={member} />
             ))
+          )}
+
+          {totalPages && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              setCurrentPage={setCurrentPage}
+            />
           )}
         </div>
       </div>

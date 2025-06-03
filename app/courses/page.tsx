@@ -27,6 +27,7 @@ import {
 } from "@/components/pages/Courses";
 import { FaTimes } from "react-icons/fa";
 import TitleText from "../../components/common/TextColorChange/TextColorChange";
+import BannerTitleWithOutImage from "@/components/common/BannerTitleWithOutImage/BannerTitleWithOutImage";
 import Filter from "@/components/pages/Courses/Filter/Filter";
 
 export default function CoursesPage() {
@@ -244,12 +245,8 @@ export default function CoursesPage() {
 
       <section className="simple-padding-bottom course-section">
         <div className="small-middle-wrap">
-          <h2
-            className="section-heading section-heading--black"
-            data-aos="flip-down"
-          >
-            our <span>courses</span>
-          </h2>
+          
+           <BannerTitleWithOutImage title="Our Courses" subtitle="" />
 
           <div className="landing-wrap-top" data-aos="fade-up">
             <div className="landing-results landing-results-top">

@@ -116,7 +116,7 @@ const Blogs = () => {
                   </p>
                   <Link
                     href={`/news/${news.slug}`}
-                    className="school-box-details d-flex"
+                    className="school-box-details d-flex pointer-event-none"
                   >
                     <span>
                       {news.title.length > 50
@@ -125,12 +125,17 @@ const Blogs = () => {
                     </span>
                   </Link>
                   <div className="paragraph paragraph--black">
-                    <div
+                   <div
                       dangerouslySetInnerHTML={{
-                        __html:
-                          news.content.length > 200
-                            ? news.content.substring(0, 200) + "..."
-                            : news.content,
+                      __html: (() => {
+                        const tempDiv = document.createElement("div");
+                        tempDiv.innerHTML = news.content.replace(/&nbsp;/g, " ");
+                        const textContent =
+                        tempDiv.textContent || tempDiv.innerText || "";
+                        return textContent.length > 180
+                        ? textContent.substring(0, 180) + "..."
+                        : textContent;
+                      })(),
                       }}
                     />
                   </div>

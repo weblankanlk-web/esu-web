@@ -33,7 +33,7 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ title, subtitle, content, image }
                 {/* <Button buttonName="About Us" buttonUrl="#" /> */}
               </div>
               <div
-                className="the-content-div"
+                className="the-content-div-about"
                 dangerouslySetInnerHTML={{ __html: content }}
               />
             </div>

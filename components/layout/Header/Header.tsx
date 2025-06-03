@@ -119,7 +119,7 @@ const Header = () => {
                     className="desktop-esu-logo"
                   />
                   <Image
-                    src="/images/logo/esu-header.png"
+                    src="https://cms.esu.lk/wp-content/uploads/2025/05/esu-home-banner-logo.png"
                     width={150}
                     height={50}
                     alt="Logo"

@@ -165,10 +165,36 @@
     }
   }
 }
+
 @media only screen and (min-width: 1200px) {
-.course-inner-section {
-  .course-details-wrapper {
-    font-size: get-vw(16px);
+  .course-inner-section {
+    .course-details-wrapper {
+      font-size: get-vw(16px);
+    }
   }
 }
+
+@media only screen and (max-width: 769px) {
+  .course-inner-section {
+    .course-wrap {
+      // .left-course {}
+
+      .right-course {
+        // .course-details-bar {}
+
+        .course-inner-details-box {
+          .course-details-wrapper {
+            padding: 15px !important;
+            .course-outline-wrap{
+              .accordion{
+                .accordion-body{
+                      padding: 10px 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

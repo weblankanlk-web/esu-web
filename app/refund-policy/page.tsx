@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Breadrumb from "@/components/common/Breadcrumb/Breadcrumb";
 import "./style.scss";
 import { useTheme } from "@/lib/ThemeContext";
+import BannerTitleWithOutImage from "@/components/common/BannerTitleWithOutImage/BannerTitleWithOutImage";
 
 export default function RefundPolicyPage() {
   const { setColor } = useTheme();
@@ -15,14 +16,10 @@ export default function RefundPolicyPage() {
   return (
     <>
       <Breadrumb />
-      <section className="simple-padding-bottom">
+      <section className="simple-padding-bottom impornent-pages">
         <div className="small-middle-wrap">
-          <h2
-            className="pb-small section-heading section-heading--black"
-            data-aos="flip-down"
-          >
-            Refund <span>Policy</span>
-          </h2>
+         
+           <BannerTitleWithOutImage title="Refund Policy" subtitle="" />
           <div className="content">
             <div className="elementor-text-editor elementor-clearfix">
               <p>
@@ -31,29 +28,31 @@ export default function RefundPolicyPage() {
                 to ESOFT Uni only under special circumstances, which fall under the following criteria:
               </p>
 
-              <p><strong>Category A:</strong> Failure by ESOFT Uni to offer the course as advertised. Specifically:</p>
+              <h3><strong>Category A:</strong></h3>
+              <p>Failure by ESOFT Uni to offer the course as advertised. Specifically:</p>
               <ul>
-                <li><u><strong>Discontinued the program</strong></u> at the Student’s registered branch.</li>
-                <li><u><strong>Not to commence the scheduled batch</strong></u>.</li>
-                <li><u><strong>Postponed the commencement</strong></u> of the batch and the Student does not agree to wait.</li>
-                <li><u><strong>Significantly changed the schedule</strong></u> of the batch and the Student cannot attend.</li>
+                <li><strong>Discontinued the program</strong> at the Student’s registered branch.</li>
+                <li><strong>Not to commence the scheduled batch</strong>.</li>
+                <li><strong>Postponed the commencement</strong> of the batch and the Student does not agree to wait.</li>
+                <li><strong>Significantly changed the schedule</strong> of the batch and the Student cannot attend.</li>
               </ul>
 
+              <h3>
+                <strong>Category B:</strong>  </h3>
+                <p>The Student reverses the decision to pursue the course. Full refund claims
+                under this clause are acceptable only if such request is made in writing, at least 7 days
+                <strong>prior to the scheduled commencement</strong> of the course. Documentary evidence and other
+                prescribed documents as specified in this policy will be required to support the claim.</p>
+             
+<h3><strong>Category C:</strong> </h3>
               <p>
-                <strong>Category B:</strong> The Student reverses the decision to pursue the course. Full refund claims
-                under this clause are acceptable only if such request is made in writing, at least 7 days{" "}
-                <u><strong>prior to the scheduled commencement</strong></u> of the course. Documentary evidence and other
-                prescribed documents as specified in this policy will be required to support the claim.
-              </p>
-
-              <p>
-                <strong>Category C:</strong> Medical reasons – The Student is unable to continue the course due to personal
+                Medical reasons – The Student is unable to continue the course due to personal
                 medical reasons of a serious nature, which manifested AFTER the registration with ESOFT. Relevant
                 medical expert should confirm the diagnosis and certify that the student is unable to continue studies,
                 by signing the attached document.
               </p>
 
-              <p><strong>Important Notes:</strong></p>
+              <h3><strong>Important Notes:</strong></h3>
               <ol>
                 <li>
                   Refund requests under <strong>Category A</strong> must be made prior to commencement or within 7 days of commencement.
@@ -87,7 +86,6 @@ export default function RefundPolicyPage() {
 
               <p><strong>Revised on 2025.05.20</strong></p>
             </div>
-
           </div>
         </div>
       </section>

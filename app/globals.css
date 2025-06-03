@@ -588,7 +588,7 @@ input:focus {
   flex-wrap: wrap;
   padding-left: 30px;
 }
-.date-archive li::before,
+/* .date-archive li::before,
 .the-content-div ul li::before {
   content: "";
   height: 20px;
@@ -603,7 +603,7 @@ input:focus {
   padding: 10px;
   position: absolute;
   left: 0;
-}
+} */
 
 .fee-box {
   width: 25%;
@@ -2182,7 +2182,7 @@ body.single-esoft-jobs {
     padding-left: 0;
   }
   .course-details-bar-details h1 {
-    font-size: 25px;
+    font-size: 20px;
     line-height: 35px;
     padding: 5px 0;
   }
@@ -2194,8 +2194,8 @@ body.single-esoft-jobs {
   }
   .module-table td,
   .module-table th {
-    font-size: 15px;
-    line-height: 30px;
+    font-size: 12px;
+    line-height: 26px;
     padding: 5px;
   }
   .schedule-table-wrap {
@@ -2708,13 +2708,13 @@ body.single-esoft-jobs {
 
   .course-box-details-left,
   .course-box-details-right {
-    font-size: 12px;
+    font-size: 12px !important;
   }
   .course-box-details-partner {
     font-size: 12px;
   }
   .attribute-box .attribute-box-check label {
-    font-size: 15px;
+    font-size: 12px;
   }
   .course-box-img-content-inner h6 {
     font-size: 14px;

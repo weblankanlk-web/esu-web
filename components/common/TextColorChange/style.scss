@@ -38,9 +38,9 @@
       }
 
       h2 {
-        font-size: 14px;
+        font-size: get-vw(14px);
         text-transform: capitalize;
-        letter-spacing: -1px;
+        letter-spacing: get-vw(-1px);
       }
     }
   }

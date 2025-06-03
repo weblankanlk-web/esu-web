@@ -22,7 +22,7 @@
       img {
         height: 300px;
         object-fit: cover;
-        border-radius: 35px;
+        border-radius: 10px;
       }
 
       &::after {
@@ -35,7 +35,7 @@
         right: 0;
         height: 100%;
         width: 100%;
-        border-radius: 35px;
+        border-radius: 20px;
       }
     }
 
@@ -130,7 +130,9 @@
         .faculity-intro {
           width: calc(100% - get-vw(640px));
           padding-right: get-vw(128px);
-          font-size: get-vw(20px);
+          font-size: get-vw(16px);
+          line-height: get-vw(26px);
+          font-weight: 600;
 
           p {
             font-style: normal;

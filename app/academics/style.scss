@@ -49,3 +49,68 @@
     }
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .acadamic-member-section {
+    .landing-results-inner {
+      .academics-mamber-group {
+        .member-card {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .academics-page-section {
+    .landing-wrap {
+      .landing-results {
+        .academics-mamber-group {
+          // gap: get-vw(24px);
+
+          .member-card {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1366px) {
+  .academics-page-section {
+    .landing-wrap {
+      .landing-filter {
+        width: 25% !important;
+        padding-right: 2% !important;
+
+        .att-box-wrapper {
+          .attribute-box {
+            .attribute-box-check {
+              align-items: baseline;
+
+              label {
+                font-size: 12px !important;
+              }
+              input[type=checkbox]{
+                &::before{
+                  top: 5px;
+                }        
+              }
+            }
+          }
+        }
+      }
+
+      .landing-results {
+
+        width: 74% !important;
+
+        .academics-mamber-group {}
+      }
+    }
+  }
+}

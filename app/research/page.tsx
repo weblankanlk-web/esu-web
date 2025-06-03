@@ -77,12 +77,8 @@ const page = () => {
 
       <section className="simple-padding-bottom simple-padding-top">
         <div className="small-middle-wrap">
-          {/* <div className="center-text">
-            <h2 className="section-heading section-heading--underline section-heading--underline--center">
-              <span style={{ color: color }}>Publications</span>
-            </h2>
-          </div> */}
-          <div className="landing-wrap-top">
+
+          {/* <div className="landing-wrap-top">
             <div className="landing-results w-100 landing-results-top">
               <div>
                 {searchTerm && (
@@ -113,7 +109,7 @@ const page = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="landing-wrap">
             <div className="landing-results">
               <div className="landing-results-inner blog-results-inner">
@@ -134,11 +130,11 @@ const page = () => {
                         />
                       </Link>
                       <div className="school-box-inner-details">
-                        
+
                         <p className="m-0 aragraph paragraph--black date-p">
-                              <span className="calendar-icon" style={{ marginRight: "8px" }}>
-                      📅
-                    </span>
+                          <span className="calendar-icon" style={{ marginRight: "8px" }}>
+                            📅
+                          </span>
                           {new Intl.DateTimeFormat("en-US", {
                             year: "numeric",
                             month: "long",
@@ -155,20 +151,16 @@ const page = () => {
                         </Link>
                         <div className="paragraph paragraph--black publication-content">
                           <div
-                          dangerouslySetInnerHTML={{
-                            __html: publication.content
-                            .split(/<\/?[^p][^>]*>/g)
-                            .join("")
-                            .substring(0, 180) + "...",
-                          }}
+                            dangerouslySetInnerHTML={{
+                              __html: publication.content
+                                .split(/<\/?[^p][^>]*>/g)
+                                .join("")
+                                .substring(0, 180) + "...",
+                            }}
                           />
                         </div>
-                        {/* <Button
-                          buttonUrl={`/research/${publication.slug}`}
-                          buttonName={"Read More"}
 
-                        /> */}
-                        <Link className="d-flex align-items-center justify-content-between" href={`/research/${publication.slug}`}>
+                        <Link className="d-flex align-items-center justify-content-between research-link" href={`/research/${publication.slug}`}>
                           <span
                             className="campus-arrow"
                             style={{
@@ -176,76 +168,16 @@ const page = () => {
                             }}
                           >
                             ➜
-                          </span>                  </Link>
-                        {/* <Link
-                          className="btnn-next"
-                          href={`/research/${publication.slug}`}
-                          style={{ background: color }}
-                        >
-                          Read More
-                        </Link> */}
+                          </span>                  
+                        </Link>
+
                       </div>
                     </div>
                   </div>
                 ))}
-                {/* <div className="pagination-div" /> */}
               </div>
             </div>
-            {/* <div className="landing-filter blog-filter">
-              <div className="archive-div">
-                <div className="related-coures-div course-title">
-                  <h5>Featured Publications</h5>
-                </div>
-                <div className="the-content-div recent-post-lists">
-                  <ul>
-                    {featuredPublications.map((publication, index) => (
-                      <li key={index}>
-                        <a href={`/research/${publication.slug}`}>
-                          {publication.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="related-coures-div course-title">
-                  <h5>Categories</h5>
-                </div>
-                <div className="the-content-div recent-post-lists">
-                  <ul>
-                    {categories.map((category, index) => (
-                      <li key={index}>
-                        <a href={`/research/${category.slug}`}>
-                          {category.name} ({category.count})
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="related-coures-div course-title">
-                  <h5>Archives</h5>
-                </div>
-                <ul className="date-archive">
-                  {Object.entries(archives).map(([month, count]) => {
-                    const [year, mon] = month.split("-");
 
-                    const monthName = new Date(
-                      `${year}-${mon}-01`
-                    ).toLocaleString("default", {
-                      month: "long",
-                      year: "numeric",
-                    });
-
-                    return (
-                      <li key={month}>
-                        <a href={`#`}>{monthName}</a>
-                        &nbsp;
-                      ({count})
-                      </li>
-                    );
-                  })}
-               </ul>
-              </div>
-            </div> */}
           </div>
         </div>
       </section>

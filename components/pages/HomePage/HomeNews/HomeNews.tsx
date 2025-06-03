@@ -72,7 +72,7 @@ const HomeNews = () => {
                       dangerouslySetInnerHTML={{
                         __html:
                           mainNews.content.length > 200
-                            ? mainNews.content.substring(0, 200) + "[...]"
+                            ? mainNews.content.substring(0, 200) + "..."
                             : mainNews.content,
                       }}
                     />
