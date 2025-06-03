@@ -167,6 +167,11 @@
     }
 
     .form-group {
+         input::placeholder,
+        select::placeholder,
+        textarea::placeholder {
+            color: #333 !important;
+        }
         label {
             font-size: get-vw(20px) !important;
         }
@@ -176,7 +181,10 @@
         textarea {
             font-size: get-vw(14px);
             padding: get-vw(10px) get-vw(6px);
+            color: #333 !important;
         }
+
+       
     }
 
     .upload-box {
