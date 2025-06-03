@@ -43,11 +43,24 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
 
         const allMembers = data.schoolType?.staffs?.nodes || [];
 
-        const filteredMembers = allMembers.filter(
-          (member) =>
-            !member.slug.toLowerCase().includes("dean") &&
-            member.title.toLowerCase() !== "dean"
-        );
+        console.log("All members", allMembers);
+
+        const filteredMembers = allMembers.filter((member) => {
+          const slugs = member.staffTypes?.nodes?.map((node: any) =>
+            node.slug.toLowerCase()
+          );
+
+          const title = member.title.toLowerCase();
+
+          const isDean = slugs?.includes("dean") || title === "dean";
+          const isHead =
+            slugs?.includes("head-of-department") ||
+            title === "head-of-department";
+
+          return !isDean && !isHead;
+        });
+
+        console.log("Filtered Member", filteredMembers);
 
         setFacultyMembers(filteredMembers);
       } catch (err) {

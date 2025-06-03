@@ -349,6 +349,11 @@ query($slug: ID!) {
               sourceUrl
             }
           }
+          staffTypes {
+            nodes {
+              slug
+            }
+          }
         }
       }
     }

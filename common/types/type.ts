@@ -16,6 +16,11 @@ export type StaffMember = {
       altText?: string;
     };
   };
+  staffTypes?: {
+    nodes?: {
+      slug: string;
+    }[];
+  };
 };
 
 // app/faculties/page.tsx
