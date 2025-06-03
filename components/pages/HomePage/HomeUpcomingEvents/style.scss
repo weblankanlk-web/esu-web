@@ -454,37 +454,23 @@
     }
   }
 }
-@media (min-width: 1360px) {
+@media (min-width: 1536px) {
   .upcoming-events-section {
     .upcoming-events-wrap {
-      .calendar-block {
-        .react-calendar {
-          .react-calendar__tile {
-                padding: get-vw(20px) 0;
-          }
-        }
-
-        .calendar-event-row {
-          .calendar {
-            .react-calendar {}
-          }
-
-          .event-list {
-            margin-top: 0 !important;
-            width: 50% !important;
-            max-height: get-vw(500px);
-
-            .details {
-              strong {
-                font-size: get-vw(16px);
-              }
-            }
-          }
+      .image-block {
+     
+        .event-image{
+          min-height: get-vw(740px);
         }
       }
-
+    }
+  }
+}
+@media (min-width: 1900px) {
+  .upcoming-events-section {
+    .upcoming-events-wrap {
       .image-block {
-        display: block !important;
+     
         .event-image{
           min-height: get-vw(680px);
         }
