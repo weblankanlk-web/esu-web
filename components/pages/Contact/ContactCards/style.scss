@@ -22,7 +22,7 @@
       text-align: left;
 
       .branch-title {
-        font-size: 23px;
+        font-size: 24px;
         font-weight: 700;
         color: var(--main-title-color, red);
         margin-bottom: 25px;
@@ -52,7 +52,7 @@
 
         p,
         a {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 600;
           line-height: 1.6;
           color: #000;
@@ -104,13 +104,13 @@
         padding: get-vw(40px) get-vw(80px);
 
         .branch-title {
-          font-size: get-vw(42px);
+          font-size: get-vw(40px);
           letter-spacing: get-vw(-0.8px);
         }
 
         .branch-details {
           .label {
-            font-size: get-vw(18px);
+            font-size: get-vw(20px);
             line-height: 103%;
             letter-spacing: get-vw(0.4px);
             padding-bottom: get-vw(10px);
@@ -118,7 +118,7 @@
 
           p,
           a {
-            font-size: get-vw(25px);
+            font-size: get-vw(26px);
             line-height: 1.5;
             letter-spacing: get-vw(-1.5px);
           }

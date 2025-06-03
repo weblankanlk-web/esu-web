@@ -69,11 +69,7 @@
 
       .single-branch {
         border-radius: 20px;
-        // border: 1px solid #D9D9D9;
-        // background: #FFF;
-        // padding: 20px;
-        // margin-bottom: 20px;
-        // text-align: center;
+      
 
         .branch-title {
           text-align: center;
@@ -91,15 +87,9 @@
         }
 
         .branch-details {
-
           text-align: center;
-
           .address {
             padding-bottom: 10px;
-
-            p {
-              margin-bottom: 0;
-            }
 
             .label {
               font-size: 14px;
@@ -112,11 +102,12 @@
             }
 
             p {
-              font-size: 22px;
+              margin-bottom: 0;
+              font-size: 20px;
               font-style: normal;
               font-weight: 600;
               line-height: normal;
-              letter-spacing: -1.5px;
+              letter-spacing: -0.75px;
               text-decoration: none;
               color: #000;
             }
@@ -131,11 +122,11 @@
             }
 
             a {
-              font-size: 22px;
+              font-size: 20px;
               font-style: normal;
               font-weight: 600;
               line-height: normal;
-              letter-spacing: -1.5px;
+              letter-spacing: -0.75px;
               text-decoration: none;
               color: #000;
               cursor: pointer !important;
@@ -398,6 +389,15 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
+      .headoffice-details{
+  .single-branch{
+    .branch-details{
+      a{
+        font-size: get-vw(26px) !important;
+      }
+    }
+  }
+}
 
       .headoffice-title-wrap {
         width: 50%;
@@ -511,8 +511,8 @@
     min-height: get-vw(780px);
 
     &::after {
-      height: get-vw(340px);
-      top: get-vw(275px);
+      height: get-vw(350px);
+      top: get-vw(300px);
 
     }
 
@@ -559,7 +559,7 @@
       .headoffice-details {
         .single-branch {
           .branch-title {
-            font-size: 40px;
+            font-size: get-vw(40px);
           }
 
           .address {
@@ -570,7 +570,7 @@
             }
 
             p {
-              font-size: 30px !important;
+              font-size: get-vw(26px) !important;
             }
           }
 
@@ -582,7 +582,7 @@
             }
 
             a {
-              font-size: 30px !important;
+              font-size: get-vw(26px) !important;
             }
           }
 
@@ -594,7 +594,7 @@
             }
 
             a {
-              font-size: 30px !important;
+              font-size: get-vw(26px) !important;
             }
           }
         }

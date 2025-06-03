@@ -15,7 +15,7 @@
 
     &__title {
         text-align: center;
-        font-size: 20px;
+        font-size: 24px;
         margin-bottom: 20px;
     }
 
@@ -160,14 +160,15 @@
         margin: get-vw(0px) get-vw(300px) get-vw(150px);
 
         &__title {
-            font-size: get-vw(32px);
+            font-size: get-vw(40px);
             margin-bottom: get-vw(40px);
+            font-weight: 700;
         }
     }
 
     .form-group {
         label {
-            font-size: get-vw(14px);
+            font-size: get-vw(20px) !important;
         }
 
         input,
