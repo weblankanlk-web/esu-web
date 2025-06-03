@@ -282,3 +282,55 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    .footer-content {
+      .contact {
+        order: 3;
+
+
+        p {
+          margin-bottom: 18px !important;
+
+        }
+
+
+      }
+
+      .quick-links {
+        order: 1;
+        padding-top: 40px;
+
+        ul {
+
+          column-count: 2;
+          justify-content: space-between;
+
+          li {
+            width: 44%;
+
+            a {
+              text-align: left;
+              margin: auto;
+            }
+          }
+        }
+
+      }
+
+      .important-links {
+        order: 2;
+
+        ul {
+          column-count: 2;
+          justify-content: space-between;
+
+          li {
+            width: 44%;
+          }
+        }
+      }
+    }
+  }
+}
