@@ -2182,7 +2182,7 @@ body.single-esoft-jobs {
     padding-left: 0;
   }
   .course-details-bar-details h1 {
-    font-size: 25px;
+    font-size: 20px;
     line-height: 35px;
     padding: 5px 0;
   }
@@ -2194,8 +2194,8 @@ body.single-esoft-jobs {
   }
   .module-table td,
   .module-table th {
-    font-size: 15px;
-    line-height: 30px;
+    font-size: 12px;
+    line-height: 26px;
     padding: 5px;
   }
   .schedule-table-wrap {
