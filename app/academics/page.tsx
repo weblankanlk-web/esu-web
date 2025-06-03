@@ -80,7 +80,7 @@ export default function CoursesPage() {
     <>
       <Breadrumb />
 
-      <section className="simple-padding-bottom academics-page-section">
+      <section className="simple-padding-bottom academics-page-section acadamic-member-section">
         <div className="small-middle-wrap">
           <BannerTitleWithOutImage title="our academics" subtitle="" />
 
