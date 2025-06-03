@@ -54,7 +54,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
         )
       );
 
-    console.log(filterCourses(facultyArtDesignMenu));
+    // console.log(filterCourses(facultyArtDesignMenu));
 
     if (courseMenuSlug) {
       setFacultyArtDesignMenuSec(filterCourses(facultyArtDesignMenu));

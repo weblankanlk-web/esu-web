@@ -42,11 +42,11 @@ const page = () => {
   const facultyTitle = sentenceCaseWords.join(" ");
   // console.log("facultySlug", facultySlug);
 
-  console.log("slug", slug);
+  // console.log("slug", slug);
 
   useEffect(() => {
     const fetchData = async (campusSlug: any) => {
-      console.log("campus slug", campusSlug);
+      // console.log("campus slug", campusSlug);
 
       try {
         const data = await graphQLClient.request<{

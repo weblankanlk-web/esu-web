@@ -44,7 +44,7 @@ const InquireForm: React.FC<InquireFormProps> = () => {
           courses: { nodes: CoursesInquire[] };
         }>(GET_COURSES_FOR_INQUIRE_FORM);
 
-        console.log("course data", data);
+        // console.log("course data", data);
 
         const branchNodes = data.branchTypes.nodes;
 
@@ -52,7 +52,7 @@ const InquireForm: React.FC<InquireFormProps> = () => {
           ["ESU Kandy", "ESU Colombo"].includes(branch.name)
         );
 
-        console.log("filtered branches", filteredBranches);
+        // console.log("filtered branches", filteredBranches);
 
         const combinedCourses = filteredBranches
           .flatMap((branch: any) => branch.courses.nodes)
@@ -62,7 +62,7 @@ const InquireForm: React.FC<InquireFormProps> = () => {
               self.findIndex((c: { slug: any }) => c.slug === course.slug)
           );
 
-        console.log("Combined Courses:", combinedCourses);
+        // console.log("Combined Courses:", combinedCourses);
         setCourses(combinedCourses);
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -140,17 +140,13 @@ const InquireForm: React.FC<InquireFormProps> = () => {
     };
 
     try {
-      const response = await fetch(
-        "https://publicapi.esoft.lk/api/v1/inquiries",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer 1100626|VPJcv2Y6wFiHPw4i60xdc1WQ2NMPUQgerXlYhOyI3a07cd1c`,
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      const response = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
       if (response.ok) {
         setStatus("success");
