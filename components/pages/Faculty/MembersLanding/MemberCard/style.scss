@@ -331,7 +331,11 @@
 
       .member-details {
         padding: get-vw(50px) !important;
-        min-height: 170px;
+        min-height: get-vw(170px);
+        .position{
+          font-size: get-vw(18px);
+          line-height: get-vw(28px);
+        }
       }
 
       .member-image img {

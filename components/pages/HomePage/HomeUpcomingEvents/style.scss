@@ -402,10 +402,10 @@
         .event-list {
           margin-top: 5%;
           flex: 1 1 0;
-          max-width: 500px;
-          max-height: 450px;
+          max-width: get-vw(500px);
+          max-height: get-vw(450px);
           overflow-y: auto;
-          padding-right: 8px;
+          padding-right: get-vw(8px);
         }
       }
     }
@@ -438,7 +438,7 @@
 
             .details {
               strong {
-                font-size: get-vw(16px);
+                font-size: get-vw(18px);
               }
             }
           }

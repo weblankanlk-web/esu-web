@@ -60,6 +60,11 @@
                 .title-wrap {
                     align-items: flex-start;
                 }
+                p{
+                    font-size: get-vw(18px);
+                    line-height: get-vw(28px);
+                
+                }
             }
 
         }
