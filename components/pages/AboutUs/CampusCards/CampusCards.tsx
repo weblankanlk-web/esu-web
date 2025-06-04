@@ -11,13 +11,13 @@ const campuses = [
   {
     name: "Colombo",
     image: "/images/about/colombo.jpg",
-    description: "Explore ESU Colombo Campus",
+    description: "Explore ESU Colombo",
     link: "/colombo-campus",
   },
   {
     name: "Kandy",
     image: "/images/about/kandy.jpg",
-    description: "Explore ESU Kandy Campus",
+    description: "Explore ESU Kandy",
     link: "/kandy-campus",
   },
   {
