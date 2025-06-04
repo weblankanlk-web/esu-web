@@ -13,7 +13,11 @@
         right: 0;
         bottom: 20%;
         width: 100%;
-        background: linear-gradient(90deg, rgba(176, 216, 226, 0.00) 0%, #B0D8E2 28.37%, #ADD5DF 100%);
+        // background: linear-gradient(90deg, rgba(176, 216, 226, 0.00) 0%, #B0D8E2 28.37%, #ADD5DF 100%);
+        background: linear-gradient(90deg,
+        rgba(176, 216, 226, 0.00) 0%,
+        var(--main-title-color, #00aecd) 28.37%,
+        var(--main-title-color, #00aecd) 100%);
         background-size: cover;
     }
 
