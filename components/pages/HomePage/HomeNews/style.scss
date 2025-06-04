@@ -1,4 +1,5 @@
 @import "@/styles/global.scss";
+
 .home-news-section {
   padding: 40px 20px;
   // padding-top: 0;
@@ -159,6 +160,7 @@
           color: #222;
         }
 
+
         &.active {
           background-color: var(--main-title-color, red);
           color: #fff;
@@ -178,9 +180,11 @@
 @media (min-width: 992px) {
   .home-news-section {
     padding: 0 get-vw(40px) get-vw(50px);
-    .title-wrap{
+
+    .title-wrap {
       padding-bottom: get-vw(30px);
     }
+
     .news-container {
       flex-direction: row;
       gap: 20px;
@@ -189,18 +193,21 @@
         flex-direction: row;
         width: 65%;
         max-height: 600px;
-        .image-wrap{
-            align-items: flex-start;
-         img{
-           height: get-vw(400px) !important;
-         }
+
+        .image-wrap {
+          align-items: flex-start;
+
+          img {
+            height: get-vw(400px) !important;
+          }
         }
 
         .news-content {
           padding: get-vw(40px) get-vw(20px) get-vw(40px) get-vw(30px) !important;
           padding-left: 8px;
           padding-top: 32px;
-          .news-date{
+
+          .news-date {
             font-size: 14px;
           }
 
@@ -221,10 +228,12 @@
     }
   }
 }
+
 // ---- MEDIA QUERIES BELOW ----
 @media (min-width: 1200px) {
   .home-news-section {
     padding: 0 get-vw(120px) get-vw(50px);
+
     .news-container {
       flex-direction: row;
       gap: 20px;
@@ -232,34 +241,54 @@
       .news-main {
         flex-direction: row;
         width: 65%;
-        max-height: get-vw(480px);
-        .image-wrap{
-          img{
-            height: get-vw(500px) !important;
+        max-height: get-vw(570px);
+
+        .image-wrap {
+          img {
+            height: get-vw(570px) !important;
           }
         }
 
         .news-content {
-          padding: 32px 24px;
-          padding-left: 8px;
-          padding-top: 32px;
-          .news-date{
-            font-size: get-vw(16px);
+          padding: get-vw(32px) get-vw(24px);
+          padding-left: get-vw(8px);
+          padding-top: get-vw(32px);
+
+          .news-date {
+            font-size: get-vw(18px);
+            line-height: get-vw(28px);
           }
 
           .news-title {
-            font-size: get-vw(16px);
+            font-size: get-vw(18px);
+            line-height: get-vw(28px);
           }
 
           .paragraph {
-            font-size: get-vw(16px);
+            font-size: get-vw(18px);
+            line-height: get-vw(28px);
           }
+
         }
       }
 
       .news-sidebar {
         width: 35%;
-        max-height: get-vw(480px);
+        max-height: get-vw(570px);
+
+        &::-webkit-scrollbar-track {
+          background: #f0f0f0;
+        }
+
+        .news-sidebar-item {
+          .news-subtitle {
+            font-size: get-vw(18px);
+          }
+
+          .news-date {
+            font-size: get-vw(16px);
+          }
+        }
       }
     }
   }
