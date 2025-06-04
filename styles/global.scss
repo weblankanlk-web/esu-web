@@ -288,6 +288,10 @@ body {
       overflow: hidden;
       text-align: left !important;
 
+      sup {
+        top: 0;
+      }
+
       p {
         font-size: 14px !important;
         text-align: left !important;
@@ -306,9 +310,13 @@ body {
           text-align: left;
           font-size: 20px;
           line-height: 30px;
+          font-size: 20px;
+          line-height: 30px;
         }
 
         span {
+          font-size: 20px;
+          line-height: 30px;
           font-size: 20px;
           line-height: 30px;
         }
@@ -319,6 +327,7 @@ body {
   .slick-dots {
     position: relative;
     bottom: 0;
+    display: none !important;
   }
 
   .news-inner-slider {
@@ -326,6 +335,51 @@ body {
       height: 300px !important;
       object-fit: cover;
     }
+
+    .slick-prev {
+      left: 10px;
+      z-index: 999;
+
+      &::before {
+        content: '←';
+        font-size: 3.125vw;
+        color: rgba(173, 173, 173, 0.45);
+        opacity: 0.9 !important;
+      }
+
+      &:hover {
+        &::before {
+          color: var(--main-title-color, #00aecd);
+          opacity: 0.9;
+        }
+      }
+    }
+
+    .slick-next {
+      right: 35px;
+      z-index: 999;
+
+      &::before {
+        content: '→';
+        font-size: 3.125vw;
+        color: rgba(173, 173, 173, 0.45);
+        opacity: 0.9 !important;
+      }
+
+      &:hover {
+        &::before {
+          color: var(--main-title-color, #00aecd);
+          opacity: 0.9;
+        }
+      }
+    }
+
+    // .slick-prev:before {
+    //   content: '←';
+    //   font-size: 3.125vw;
+    //   color: rgba(173, 173, 173, 0.45);
+    //   opacity: 0.9 !important;
+    // }
   }
 }
 
@@ -376,17 +430,20 @@ body {
         img {
           height: get-vw(600px) !important;
           object-fit: cover;
+          object-position: top;
         }
       }
 
       .the-content-div {
         padding: get-vw(40px) 0px !important;
-        ul{
-           list-style: disc;
 
-          li{
+        ul {
+          list-style: disc;
+
+          li {
             padding-left: 0;
-            &::before{
+
+            &::before {
               display: none;
             }
           }
@@ -410,7 +467,10 @@ body {
 
 
 
-          p, li, strong, sup{
+          p,
+          li,
+          strong,
+          sup {
             font-size: get-vw(16px) !important;
             text-align: left !important;
           }

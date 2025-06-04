@@ -14,7 +14,7 @@ export default function SearchBar({ search, setSearch }: Props) {
         type="text"
         name="search-keyword"
         className="type-check"
-        placeholder="Search Courses"
+        placeholder="Search Here"
         id="search-key"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
