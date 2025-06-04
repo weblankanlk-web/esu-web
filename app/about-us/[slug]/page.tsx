@@ -15,6 +15,7 @@ import { graphQLClient } from "@/lib/graphql-client";
 import { useTheme } from "@/lib/ThemeContext";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import "./style.scss";
 
 const page = () => {
   const [viceChancellor, setViceChancellor] = useState<ViceChancellor | null>(
@@ -87,39 +88,42 @@ const page = () => {
   return (
     <>
       <InnerBanner
-        innerPageTitlePrimary={"ESU " + firstWord}
+        innerPageTitlePrimary={"ESU "}
         innerPageTitleSecondary={
-          <span className="inner-banner-title">{secondWord}</span>
+          <span className="inner-banner-title">{firstWord}</span>
         }
         innerPageDescription="Welcome to ESU – Sri Lanka's premier uni for higher education excellence! Since our inception in 2000, we have evolved into a leading private uni, offering industry-relevant, globally recognised academic programmes. Our growing academic network spans multiple campuses, empowering students to achieve their full potential across a wide range of disciplines."
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />
 
-      {viceChancellor && (
-        <DeanMessage
-          title="Pro Vice Chancellor's"
-          DeanName={viceChancellor.title}
-          designation={viceChancellor.staffAcf.designation || ""}
-          message={viceChancellor.staffAcf.viceChancellorMessage || ""}
-          featuredImage={{
-            sourceUrl:
-              viceChancellor.featuredImage?.node?.sourceUrl ||
-              "/images/placeholder.jpg",
-            altText:
-              viceChancellor.featuredImage?.node?.altText || "Vice Chancellor",
-          }}
-          slugUrl={viceChancellor?.slug}
-          fontFamily={"inherit"} // You can update this if you add font in VC fields
-          fontColor={color} // Update if VC fields include color
-        />
-      )}
+      <div className="campus-inner-page">
+        {viceChancellor && (
+          <DeanMessage
+            title="Pro Vice Chancellor's"
+            DeanName={viceChancellor.title}
+            designation={viceChancellor.staffAcf.designation || ""}
+            message={viceChancellor.staffAcf.viceChancellorMessage || ""}
+            featuredImage={{
+              sourceUrl:
+                viceChancellor.featuredImage?.node?.sourceUrl ||
+                "/images/placeholder.jpg",
+              altText:
+                viceChancellor.featuredImage?.node?.altText ||
+                "Vice Chancellor",
+            }}
+            slugUrl={viceChancellor?.slug}
+            fontFamily={"inherit"} // You can update this if you add font in VC fields
+            fontColor={color} // Update if VC fields include color
+          />
+        )}
 
-      <CampusFacilities />
+        <CampusFacilities />
 
-      {/* <CreativeCollage slug={slug || ""} /> */}
+        {/* <CreativeCollage slug={slug || ""} /> */}
 
-      <ContactHeadOffice />
+        <ContactHeadOffice />
+      </div>
     </>
   );
 };
