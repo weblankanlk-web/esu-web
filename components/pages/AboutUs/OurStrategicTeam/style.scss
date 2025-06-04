@@ -7,7 +7,7 @@
     .members-wrap {
         display: flex;
         flex-wrap: wrap;
-        gap: 32px;
+        // gap: 32px;
         margin-top: 32px;
         justify-content: center;
     }
@@ -21,9 +21,10 @@
 @media screen and (min-width: 1200px) {
     .our-strategic-team {
         padding: get-vw(0px) get-vw(100px) get-vw(80px);
-        .full-wrap{
-            .title-wrap{
-                p{
+
+        .full-wrap {
+            .title-wrap {
+                p {
                     font-size: get-vw(16px);
                     font-weight: 600;
                 }
@@ -32,6 +33,17 @@
 
         .members-wrap {
             justify-content: start;
+             .member-card {
+            .single-image-wrap {
+                .member-image {
+                    img {
+                        object-fit: contain;
+                    }
+                }
+            }
         }
+        }
+
+       
     }
 }
