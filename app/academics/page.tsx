@@ -12,6 +12,7 @@ import FaculityCard from "@/components/pages/Faculty/FaculityCard/FaculityCard";
 import MemberCardItem from "@/components/pages/Faculty/MembersLanding/MemberCard/MemberCard";
 import { useTheme } from "@/lib/ThemeContext";
 import BannerTitleWithOutImage from "@/components/common/BannerTitleWithOutImage/BannerTitleWithOutImage";
+import Preloader from "@/components/common/Preloader/Preloader";
 
 export default function CoursesPage() {
   const [search, setSearch] = useState("");
@@ -23,10 +24,8 @@ export default function CoursesPage() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 12;
-  const { setColor } = useTheme();
-  // useEffect(() => {
-  //   setColor("rgb(0, 174, 205)");
-  // }, [setColor]);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let results = [...allAcademics];
@@ -64,6 +63,7 @@ export default function CoursesPage() {
         );
 
         setAllAcademics(filteredAcademics);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching academics:", error);
       }
@@ -74,7 +74,7 @@ export default function CoursesPage() {
 
   const totalPages = Math.ceil(filteredAcademics.length / coursesPerPage);
 
-  const { color } = useTheme();
+  if (isLoading) return <Preloader />;
 
   return (
     <>

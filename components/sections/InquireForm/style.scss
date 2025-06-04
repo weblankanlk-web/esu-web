@@ -63,6 +63,7 @@
                 flex-direction: column;
                 gap: 16px;
                 margin-bottom: 16px;
+                flex-wrap: wrap;
             }
 
             .inquire__field {
@@ -238,7 +239,7 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .inquire__image-section {
         img {
             display: none;

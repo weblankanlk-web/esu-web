@@ -42,7 +42,7 @@ export default function RootLayoutClient({
   }, []);
 
   return isLoading ? (
-    !isAdmin && <Preloader />
+    <Preloader />
   ) : (
     <ThemeProvider>
       {!isAdmin && <Header />}

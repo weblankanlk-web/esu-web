@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./style.scss";
 import Image from "next/image";
 import { useTheme } from "@/lib/ThemeContext";
@@ -74,7 +74,11 @@ const InquireForm: React.FC<InquireFormProps> = () => {
 
   // console.log("Courses:", courses);
 
-  const filterslugcourse = courses.filter((course) => course.slug === slug);
+  const filterslugcourse = useMemo(
+    () => courses.filter((course) => course.slug === slug),
+    [courses, slug]
+  );
+
   // console.log("Filtered Slug Course:", filterslugcourse);
 
   const findCourseCode = filterslugcourse[0]?.courses?.courseCode;
@@ -109,14 +113,20 @@ const InquireForm: React.FC<InquireFormProps> = () => {
 
   const [status, setStatus] = useState("");
 
+  const didAutoSelect = useRef(false);
+
   useEffect(() => {
-    if (isCoursePage && filterslugcourse.length > 0 && !selectedCourse) {
+    if (!didAutoSelect.current && isCoursePage && filterslugcourse.length > 0) {
       setSelectedCourse({
         label: filterslugcourse[0]?.title || "Course",
         value: filterslugcourse[0]?.courses?.courseCode || "",
       });
+
+      didAutoSelect.current = true;
     }
-  }, [isCoursePage, filterslugcourse, selectedCourse]);
+
+    // if (!isCoursePage) setSelectedCourse(null);
+  }, [isCoursePage, filterslugcourse]);
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;

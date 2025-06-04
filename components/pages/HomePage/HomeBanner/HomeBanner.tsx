@@ -5,6 +5,7 @@ import "./style.scss";
 import TabsWithImages from "./Tabs";
 import { graphQLClient } from "@/lib/graphql-client";
 import { HOME_BANNER_QUERY } from "@/common/queries/query";
+import Preloader from "@/components/common/Preloader/Preloader";
 
 type HomeBannerTypes = {
   page: {
@@ -66,6 +67,8 @@ const HomeBanner = () => {
     HomeBannerTypes["page"]["homeBanner"]["bannerImages"]
   >([]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     async function fetchHomeBanners() {
       try {
@@ -74,6 +77,7 @@ const HomeBanner = () => {
         );
         const banners = response.page?.homeBanner?.bannerImages || [];
         sethomeBanners(banners);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching home banners:", error);
       }
@@ -81,6 +85,8 @@ const HomeBanner = () => {
 
     fetchHomeBanners();
   }, []);
+
+  if (isLoading) return <Preloader />;
 
   return (
     <section className="home-banner">
@@ -97,9 +103,11 @@ const HomeBanner = () => {
               "/images/home-banner-blue.png",
             ImgLogo: item.logo?.node?.sourceUrl || "/images/logo-esu.png",
             text: item.bannerText || "Default description",
-            color: item?.button?.nodes?.[0]?.schoolTypesColorFontFields?.color || "#000000",
+            color:
+              item?.button?.nodes?.[0]?.schoolTypesColorFontFields?.color ||
+              "#000000",
             buttonName: item?.button?.nodes?.[0]?.name || "Default Button Name",
-            buttonUrl: item?.button?.nodes?.[0]?.slug || ""
+            buttonUrl: item?.button?.nodes?.[0]?.slug || "",
           }))}
         />
       </div>

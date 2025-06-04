@@ -92,7 +92,7 @@ const FacultyInnerPage = () => {
                   {faculty.schoolTypesColorFontFields.facultyName}
                 </span>
               }
-              innerPageDescription={`Welcome to the Faculty of ${faculty.schoolTypesColorFontFields.facultyName}.`}
+              innerPageDescription={``}
               innerBgDesk={
                 faculty.schoolTypesColorFontFields.facultyDesktop?.node?.link ||
                 ""

@@ -42,7 +42,7 @@ const ContactCards = ({ about }: ContactCardsProps) => {
               <p>
                 No 479,
                 <br />
-                William Gopallawa mawatha, <br />
+                William Gopallawa mawatha, 
                 Kandy,<br /> Srilanka
               </p>
             </div>

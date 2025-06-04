@@ -12,11 +12,13 @@
     bottom: 20%;
     width: 100%;
     // background: linear-gradient(90deg, rgba(176, 216, 226, 0.00) 0%, #B0D8E2 28.37%, #ADD5DF 100%);
-    background: linear-gradient(90deg,
-        rgba(176, 216, 226, 0.00) 0%,
-        var(--main-title-color, #00aecd) 28.37%,
-        var(--main-title-color, #00aecd) 100%);
-    background-size: cover;
+    // background: linear-gradient(90deg,
+    //     rgba(176, 216, 226, 0.00) 0%,
+    //     var(--main-title-color, #00aecd) 28.37%,
+    //     var(--main-title-color, #00aecd) 100%);
+    background: var(--main-title-color, #00aecd);
+    opacity: 0.5;
+    // background-size: cover;
   }
 
   .headoffice-section-wrap {
@@ -69,7 +71,7 @@
 
       .single-branch {
         border-radius: 20px;
-      
+
 
         .branch-title {
           text-align: center;
@@ -88,6 +90,7 @@
 
         .branch-details {
           text-align: center;
+
           .address {
             padding-bottom: 10px;
 
@@ -197,10 +200,10 @@
       bottom: 20%;
       width: 100%;
       // background: linear-gradient(90deg, rgba(176, 216, 226, 0.00) 0%, #B0D8E2 28.37%, #ADD5DF 100%);
-      background: linear-gradient(90deg,
-          rgba(176, 216, 226, 0.00) 0%,
-          var(--main-title-color, #00aecd) 28.37%,
-          var(--main-title-color, #00aecd) 100%);
+      // background: linear-gradient(90deg,
+      //     rgba(176, 216, 226, 0.00) 0%,
+      //     var(--main-title-color, #00aecd) 28.37%,
+      //     var(--main-title-color, #00aecd) 100%);
       background-size: cover;
     }
 
@@ -389,15 +392,16 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      .headoffice-details{
-  .single-branch{
-    .branch-details{
-      a{
-        font-size: get-vw(26px) !important;
+
+      .headoffice-details {
+        .single-branch {
+          .branch-details {
+            a {
+              font-size: get-vw(26px) !important;
+            }
+          }
+        }
       }
-    }
-  }
-}
 
       .headoffice-title-wrap {
         width: 50%;

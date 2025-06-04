@@ -1,0 +1,17 @@
+@import "@/styles/global.scss";
+
+@media only screen and (min-width: 1200px) {
+    .campus-inner-page {
+        .dean-massage {
+            padding: get-vw(40px) get-vw(100px) !important;
+
+            .dean-massage-wrap {
+                .massage-wrap {
+                    .single-massage-card {
+                        margin: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+}

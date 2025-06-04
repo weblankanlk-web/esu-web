@@ -29,6 +29,7 @@ import { FaTimes } from "react-icons/fa";
 import TitleText from "../../components/common/TextColorChange/TextColorChange";
 import BannerTitleWithOutImage from "@/components/common/BannerTitleWithOutImage/BannerTitleWithOutImage";
 import Filter from "@/components/pages/Courses/Filter/Filter";
+import Preloader from "@/components/common/Preloader/Preloader";
 
 export default function CoursesPage() {
   const { setColor } = useTheme();
@@ -53,6 +54,8 @@ export default function CoursesPage() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const [coursesPerPage, setCoursesPerPage] = useState(12);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const updatedCoursesPerPage = () => {
@@ -149,6 +152,7 @@ export default function CoursesPage() {
         );
 
         setAllCourses(filteredByBranch);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching course types:", error);
       }
@@ -239,14 +243,15 @@ export default function CoursesPage() {
 
   //console.log("selectedBranches", branchTypes);
 
+  if (isLoading) return <Preloader />;
+
   return (
     <>
       <Breadrumb />
 
       <section className="simple-padding-bottom course-section">
         <div className="small-middle-wrap">
-          
-           <BannerTitleWithOutImage title="Our Courses" subtitle="" />
+          <BannerTitleWithOutImage title="Our Courses" subtitle="" />
 
           <div className="landing-wrap-top" data-aos="fade-up">
             <div className="landing-results landing-results-top">
