@@ -15,7 +15,7 @@
       justify-content: center;
       width: 80%;
 
-      .academics-mamber-group {
+      .academics-member-group {
         justify-content: flex-start;
         width: 100%;
         gap: 5px;
@@ -78,6 +78,15 @@
     }
   }
 
+  .academics-page-section.academics-member-section {
+    .landing-results-inner {
+      .academics-member-group {
+        .member-card {
+          width: 100% !important;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1366px) {
@@ -95,10 +104,11 @@
               label {
                 font-size: 12px !important;
               }
-              input[type=checkbox]{
-                &::before{
+
+              input[type=checkbox] {
+                &::before {
                   top: 5px;
-                }        
+                }
               }
             }
           }
@@ -109,7 +119,7 @@
 
         width: 74% !important;
 
-        .academics-mamber-group {}
+        .academics-member-group {}
       }
     }
   }
