@@ -94,7 +94,7 @@ const facilities: Facility[] = [
 const CampusFacilities = () => {
   return (
     <section className="campus-facilities" data-aos="fade-up"  >
-      <TitleLarge title="Our" subtitle=" Campus Facilities" />
+      <TitleLarge title="Our" subtitle=" Facilities" />
       <br />
       <br />
       <div className="facility-grid">
