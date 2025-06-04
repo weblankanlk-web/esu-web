@@ -168,11 +168,15 @@
                   }
                 }
 
-                .course-box-img-content-inner h6 {
-                  font-size: get-vw(28px);
-                  line-height: get-vw(30px);
-                  /* 107.143% */
-                  letter-spacing: get-vw(-0.84px);
+                .course-box-img-content-inner {
+                  h6 {
+                    font-size: get-vw(28px);
+                    line-height: get-vw(30px);
+                    letter-spacing: get-vw(-0.84px);
+                  }
+                  P{
+                    font-size: get-vw(18px) !important;
+                  }
                 }
               }
             }
