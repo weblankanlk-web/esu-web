@@ -324,8 +324,7 @@
 
                     .school-box-inner-details {
                         // position: inherit;
-                        padding: get-vw(23px) !important;
-                                            
+                        padding: get-vw(23px) !important;                                            
  min-height: get-vw(300px) !important;
 
                         a {
@@ -350,7 +349,8 @@
                         }
 
                         .date-p {
-                            font-size: get-vw(16px) !important;
+                            font-size: get-vw(18px) !important;
+
                             font-weight: 400 !important;
                         }
 
@@ -363,7 +363,8 @@
                         }
 
                         .publication-content {
-                            font-size: get-vw(16px) !important;
+                            font-size: get-vw(18px) !important;
+                            line-height: get-vw(28px);
                             min-height: get-vw(120px);
                         }
                         .btnn-next {

@@ -102,9 +102,11 @@
           color: #777;
           padding-bottom: 10px;
         }
-.pointer-event-none{
-  pointer-events: none;
-}
+
+        .pointer-event-none {
+          pointer-events: none;
+        }
+
         .school-box-details {
           text-decoration: none !important;
           color: #000;
@@ -200,40 +202,43 @@
     padding: get-vw(60px) get-vw(40px);
 
     .next-btn {
-      font-size: get-vw(14px) ;
+      font-size: get-vw(14px);
     }
 
     .school-box-inner-details {
       padding: get-vw(23px) !important;
-      min-height: get-vw(330px) !important;      
+      min-height: get-vw(330px) !important;
     }
 
     .btnn-next {
       font-size: get-vw(18px);
     }
-    .school-box-single{
-      .school-box-inner{
-        
-          .school-box-inner-details{
-            .date-p{
-              font-size: get-vw(16px);
-            }
-            .school-box-details {
-        font-size: get-vw(20px);
-      }
 
-      .paragraph {
-        font-size: get-vw(16px);
-      }
+    .school-box-single {
+      .school-box-inner {
+
+        .school-box-inner-details {
+          .date-p {
+            font-size: get-vw(18px);
+          }
+
+          .school-box-details {
+            font-size: get-vw(20px);
+          }
+
+          .paragraph {
+            font-size: get-vw(18px);
+            line-height: get-vw(26px);
           }
         }
-
       }
-    }
-  
 
-  
-  
+    }
+  }
+
+
+
+
 }
 
 .page-numbers.ellipsis {
