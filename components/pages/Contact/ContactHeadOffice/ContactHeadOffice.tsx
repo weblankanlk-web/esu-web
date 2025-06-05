@@ -41,13 +41,6 @@ const ContactHeadOffice = () => {
             </div>
           </div>
         </div>
-        {/* <div className="social-media">
-            <ul>
-              <li><a href="#"><Image src="/images/facebook-icon.png" alt="Facebook" width={24} height={24} /></a></li>
-              <li><a href="#"><Image src="/images/youtube-icon.png" alt="Youtube" width={24} height={24} /></a></li>
-              <li><a href="#"><Image src="/images/instagram-icon.png" alt="Instagram" width={24} height={24} /></a></li>
-            </ul>
-          </div> */}
       </div>
     </section>
   );
