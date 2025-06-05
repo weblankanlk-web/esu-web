@@ -243,7 +243,7 @@ export default function CoursesPage() {
     <>
       <Breadrumb />
 
-      <section className="simple-padding-bottom course-section">
+      <section className="simple-padding-bottom course-section our-couses-section">
         <div className="small-middle-wrap">
           
            <BannerTitleWithOutImage title="Our Courses" subtitle="" />

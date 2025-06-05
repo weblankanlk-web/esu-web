@@ -1,5 +1,5 @@
 /*****************************Header**********************************/
-
+@import "@/styles/global.scss";
 #header {
   width: 100%;
   top: 0;
@@ -352,6 +352,15 @@ ul#top-menu a {
         padding-left: 0; // If you had internal spacing
         margin-left: 0;
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  ul#top-menu{
+    a{
+      font-size: get-vw(16px);
+      line-height: get-vw(26px);
     }
   }
 }

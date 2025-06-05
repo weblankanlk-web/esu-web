@@ -659,12 +659,20 @@ body {
              line-height: get-vw(28px);
           }
         }
+        ol{
+          li{
+              font-size: get-vw(18px) !important;
+             line-height: get-vw(28px);
+          }
+        }
 
         .ul-importent-pages {
           list-style: disc !important;
           list-style-type: disc !important;
 
           li {
+              font-size: get-vw(18px) !important;
+             line-height: get-vw(28px);
             &::before {
               display: none;
             }
