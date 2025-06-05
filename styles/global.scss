@@ -425,7 +425,7 @@ body {
         padding-right: 0;
 
         img {
-          height: get-vw(600px) !important;
+          height: get-vw(650px) !important;
           object-fit: cover;
           object-position: top;
         }
@@ -448,27 +448,26 @@ body {
 
         p {
           text-align: left !important;
-          font-size: get-vw(16px);
-          line-height: get-vw(26px);
+          font-size: get-vw(18px);
+          line-height: get-vw(28px);
 
           strong,
           span {
-            font-size: get-vw(16px);
-            line-height: get-vw(26px);
+            font-size: get-vw(18px);
+            line-height: get-vw(28px);
           }
         }
 
         .the-content {
           padding-top: get-vw(60px) !important;
-
-
-
-
+          .contact-box-left{
+            padding-right: get-vw(25px);
+          }
           p,
           li,
           strong,
           sup {
-            font-size: get-vw(16px) !important;
+            font-size: get-vw(18px) !important;
             text-align: left !important;
           }
 
@@ -490,16 +489,16 @@ body {
               font-size: get-vw(20px);
               line-height: get-vw(30px);
             }
+
+          }
+          table{
+            td, tr{
+               font-size: get-vw(20px);
+              line-height: get-vw(30px);
+            }
           }
 
         }
-
-
-
-
-
-
-
       }
     }
   }
@@ -638,7 +637,8 @@ body {
 
 
         p {
-          font-size: get-vw(16px) !important;
+          font-size: get-vw(18px) !important;
+          line-height: get-vw(28px);
           text-align: left !important;
         }
 
@@ -650,11 +650,13 @@ body {
 
           strong {
 
-            font-size: get-vw(16px);
+            font-size: get-vw(18px);
+             line-height: get-vw(28px);
           }
 
           span {
-            font-size: get-vw(16px);
+            font-size: get-vw(18px);
+             line-height: get-vw(28px);
           }
         }
 
@@ -668,11 +670,13 @@ body {
             }
 
             padding: 0;
-            font-size: get-vw(16px) !important;
+            font-size: get-vw(18px) !important;
+             line-height: get-vw(28px);
             text-align: left !important;
 
             a {
-              font-size: get-vw(16px) !important;
+              font-size: get-vw(18px) !important;
+               line-height: get-vw(28px);
               text-align: left !important;
             }
 

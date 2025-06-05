@@ -14,7 +14,7 @@ interface HomeAboutProps {
 
 const HomeAbout: React.FC<HomeAboutProps> = ({ title, subtitle, content, image }) => {
   return (
-      <section className="home-about"  >
+      <section className="home-about about-intro-section"  >
         <div className="full-wrap">
           <div className="image-detail-wrap">
             <div className="left" data-aos="fade-up" >

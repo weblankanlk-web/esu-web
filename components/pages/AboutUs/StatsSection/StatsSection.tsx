@@ -19,7 +19,7 @@ type Stat = {
 
 const stats: Stat[] = [
   {
-    icon: <FaGraduationCap />,
+    icon: <FaChalkboardTeacher />,
     number: 6,
     label: "Faculties",
   },
@@ -29,7 +29,7 @@ const stats: Stat[] = [
     label: "Main Campuses",
   },
   {
-    icon: <FaChalkboardTeacher />,
+    icon: <FaGraduationCap />,
     number: 400,
     label: "Full-time Academics",
     suffix: "+",

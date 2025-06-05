@@ -107,9 +107,10 @@
       }
     }
   }
-
+}
   // Desktop
   @media only screen and (min-width: 1200px) {
+   .about-intro-section{
     margin-bottom: 0.25vw;
     padding-top: 0;
 
@@ -152,7 +153,7 @@
             font-weight: 600;
 
             p {
-              font-size: get-vw(16px);
+              font-size: get-vw(18px);
               line-height: get-vw(24px);
             }
 
