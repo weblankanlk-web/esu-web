@@ -8,7 +8,6 @@ import {
 import { Faculty, ViceChancellor } from "@/common/types/type";
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 import CampusFacilities from "@/components/pages/AboutUs/CampusFacilities/CampusFacilities";
-import CreativeCollage from "@/components/pages/AboutUs/CreativeCollage/CreativeCollage";
 import ContactHeadOffice from "@/components/pages/Contact/ContactHeadOffice/ContactHeadOffice";
 import DeanMessage from "@/components/pages/Faculty/DeanMessage/DeanMessage";
 import { graphQLClient } from "@/lib/graphql-client";
@@ -119,8 +118,6 @@ const page = () => {
         )}
 
         <CampusFacilities />
-
-        {/* <CreativeCollage slug={slug || ""} /> */}
 
         <ContactHeadOffice />
       </div>
