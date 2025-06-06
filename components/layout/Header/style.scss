@@ -1,5 +1,6 @@
 /*****************************Header**********************************/
 @import "@/styles/global.scss";
+
 #header {
   width: 100%;
   top: 0;
@@ -209,16 +210,22 @@ ul#primary {
 }
 
 .faculties-hover-menu {
+  &:hover .mega-menu {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
   .mega-menu {
     position: absolute;
-    top: 65%;
+    top: 100%;
     left: 0;
     width: 100%;
     background: #fff;
     z-index: 1000;
     padding: 40px 60px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 
     .mega-menu-course-title {
       max-width: 1200px;
@@ -290,9 +297,10 @@ ul#primary {
     }
   }
 
-  &:hover .mega-menu {
-    display: block;
-  }
+  // &:hover .mega-menu {
+  //   opacity: 1;
+  //   transition: opacity 0.3s ease;
+  // }
 }
 
 @keyframes arrowMoveRight {
@@ -331,6 +339,7 @@ ul#top-menu a {
 }
 
 @media (min-width: 991px) {
+
   .desktop-only-view,
   .desktop-esu-logo {
     display: block;
@@ -410,8 +419,8 @@ ul#top-menu a {
 }
 
 @media only screen and (min-width: 1200px) {
-  ul#top-menu{
-    a{
+  ul#top-menu {
+    a {
       font-size: get-vw(16px);
       line-height: get-vw(26px);
     }
