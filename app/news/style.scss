@@ -220,7 +220,7 @@
 
         .school-box-inner-details {
           .date-p {
-            font-size: get-vw(16px);
+            font-size: get-vw(18px);
           }
 
           .school-box-details {
@@ -228,7 +228,8 @@
           }
 
           .paragraph {
-            font-size: get-vw(16px);
+            font-size: get-vw(18px);
+            line-height: get-vw(28px);
           }
         }
       }

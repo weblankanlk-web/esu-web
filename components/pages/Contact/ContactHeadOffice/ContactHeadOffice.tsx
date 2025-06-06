@@ -34,20 +34,13 @@ const ContactHeadOffice = () => {
               </div>
               <div className="call-us">
                 <p className="label">Call Us on</p>
-                <a href="tel:+94 117 572 572" className="">
-                  +94 117 572 572
+                <a href="tel:+94766000400" className="">
+                  +94 766 000 400
                 </a>
               </div>
             </div>
           </div>
         </div>
-        {/* <div className="social-media">
-            <ul>
-              <li><a href="#"><Image src="/images/facebook-icon.png" alt="Facebook" width={24} height={24} /></a></li>
-              <li><a href="#"><Image src="/images/youtube-icon.png" alt="Youtube" width={24} height={24} /></a></li>
-              <li><a href="#"><Image src="/images/instagram-icon.png" alt="Instagram" width={24} height={24} /></a></li>
-            </ul>
-          </div> */}
       </div>
     </section>
   );

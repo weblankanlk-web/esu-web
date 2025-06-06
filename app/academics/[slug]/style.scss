@@ -24,6 +24,10 @@
         display: inline-block;
        
       }
+
+      strong{
+        font-weight: 400 !important;
+      }
        a{
           color: #333;
         }
@@ -235,10 +239,12 @@
           font-size: get-vw(24px);
         }
         p{
-          font-size: get-vw(16px);
+          font-size: get-vw(18px);
+          line-height: get-vw(28px);
         }
         li{
-          font-size: get-vw(16px) !important;
+          font-size: get-vw(18px) !important;
+          line-height: get-vw(28px) !important;
         }
       }
     }

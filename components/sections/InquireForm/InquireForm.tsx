@@ -197,7 +197,7 @@ const InquireForm: React.FC<InquireFormProps> = () => {
         {status === "error" && (
           <p className="inquire__error">
             Oops! Something went wrong. Please try again. <br />
-            Reach us at Hotline: +94 117 572 572 or Email: info@esu.lk
+            Reach us at Hotline: +94 766 000 400 or Email: info@esu.lk
           </p>
         )}
 

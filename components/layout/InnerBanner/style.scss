@@ -1,8 +1,30 @@
 @import "@/styles/global.scss";
 
 .inner-banner {
+  position: relative;
+
   .full-wrap {
+    position: relative;
+
     .inner-banner-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      picture {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center; // or "top" if preferred
+          display: block;
+        }
+      }
+
       &::after {
         content: "";
         position: absolute;
@@ -15,41 +37,26 @@
           #0a0a0c -5.45%,
           rgba(10, 10, 12, 0) 69.54%
         );
-      }
-      picture {
-        img {
-          height: 400px;
-          object-fit: cover;
-          object-position: top;
-        }
+        z-index: 1;
       }
     }
+
     .inner-banner-content {
       position: absolute;
+      z-index: 2;
       bottom: 0;
       width: 100%;
       padding: 0 20px 40px;
-      h1 {
-        position: relative;
-        color: #fff;
-        text-align: center;
-        font-weight: 700;
-        font-family: var(--font-poppins);
-        span {
-          // color: #02aec9;
-          font-weight: 700;
-          font-family: var(--font-poppins);
-        }
-      }
+
+      h1,
       div {
-        position: relative;
         color: #fff;
         text-align: center;
-        font-family: var(--font-manrope);
       }
     }
   }
 }
+
 @media screen and (min-width: 1200px) {
   .inner-banner {
     .full-wrap {
@@ -75,7 +82,7 @@
           padding-top: get-vw(30px);
           width: get-vw(909px);
           color: #fff;
-          font-size: get-vw(16px);
+          font-size: get-vw(18px);
           line-height: get-vw(26px);
           letter-spacing: get-vw(-0.4px);
           margin: 0 auto;
@@ -86,5 +93,8 @@
 }
 
 .highlighted-text {
-  color: var(--main-title-color, #00aecd) !important; // adjust this color as needed
+  color: var(
+    --main-title-color,
+    #00aecd
+  ) !important; // adjust this color as needed
 }

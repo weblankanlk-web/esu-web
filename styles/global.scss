@@ -96,7 +96,6 @@ body {
   @extend .custom-scrollbar;
 }
 
-
 body {
   font-family: var(--font-family-secondary);
   background: #f4f4f6;
@@ -135,7 +134,7 @@ body {
   // transform: rotate(315deg);
   // transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 2px 8px rgba(194, 214, 71, 0.13);
-  transform: rotate(315deg) scale(1.0);
+  transform: rotate(315deg) scale(1);
   //   box-shadow: 0 2px 8px rgba(194,214,71,0.13);
   cursor: pointer;
   transition: transform 0.8s ease-in-out;
@@ -150,7 +149,6 @@ body {
       color: #ffffffec;
       transition: transform 0.5s ease-in-out;
     }
-
   }
 }
 
@@ -166,7 +164,6 @@ body {
   }
 }
 
-
 @media screen and (min-width: 1024px) {
   .section-heading {
     font-size: 100px;
@@ -175,7 +172,6 @@ body {
 }
 
 @media screen and (min-width: 1200px) {
-
   .campus-arrow {
     font-size: get-vw(24px);
 
@@ -183,9 +179,7 @@ body {
       padding: 0px !important;
     }
   }
-
 }
-
 
 .accordion-button,
 .accordion-button:not(.collapsed) {
@@ -205,7 +199,6 @@ body {
 .mobile-filter-btn {
   display: none;
 }
-
 
 .the-content-div ul li,
 .date-archive li {
@@ -229,9 +222,6 @@ body {
     padding: 10px;
   }
 }
-
-
-
 
 @media only screen and (max-width: 992px) {
   .mobile-filter-btn {
@@ -315,7 +305,6 @@ body {
         span {
           font-size: 20px;
           line-height: 30px;
-     
         }
       }
     }
@@ -338,7 +327,7 @@ body {
       z-index: 999;
 
       &::before {
-        content: '←';
+        content: "←";
         font-size: 3.125vw;
         color: rgba(173, 173, 173, 0.45);
         opacity: 0.9 !important;
@@ -357,7 +346,7 @@ body {
       z-index: 999;
 
       &::before {
-        content: '→';
+        content: "→";
         font-size: 3.125vw;
         color: rgba(173, 173, 173, 0.45);
         opacity: 0.9 !important;
@@ -425,7 +414,7 @@ body {
         padding-right: 0;
 
         img {
-          height: get-vw(600px) !important;
+          height: get-vw(650px) !important;
           object-fit: cover;
           object-position: top;
         }
@@ -448,27 +437,26 @@ body {
 
         p {
           text-align: left !important;
-          font-size: get-vw(16px);
-          line-height: get-vw(26px);
+          font-size: get-vw(18px);
+          line-height: get-vw(28px);
 
           strong,
           span {
-            font-size: get-vw(16px);
-            line-height: get-vw(26px);
+            font-size: get-vw(18px);
+            line-height: get-vw(28px);
           }
         }
 
         .the-content {
           padding-top: get-vw(60px) !important;
-
-
-
-
+          .contact-box-left {
+            padding-right: get-vw(25px);
+          }
           p,
           li,
           strong,
           sup {
-            font-size: get-vw(16px) !important;
+            font-size: get-vw(18px) !important;
             text-align: left !important;
           }
 
@@ -491,34 +479,24 @@ body {
               line-height: get-vw(30px);
             }
           }
-
+          table {
+            td,
+            tr {
+              font-size: get-vw(20px);
+              line-height: get-vw(30px);
+            }
+          }
         }
-
-
-
-
-
-
-
       }
     }
   }
 }
 
-
-
-
 // refund privacy quality payent all styles
 
-
 .impornent-pages {
-
   .small-middle-wrap {
-
-
     .content {
-
-
       p {
         font-size: 14px !important;
         text-align: left !important;
@@ -588,7 +566,7 @@ body {
         h2,
         h3,
         h4 {
-          font-size: get-vw(20px); 
+          font-size: get-vw(20px);
           padding-top: get-vw(20px);
 
           strong {
@@ -630,15 +608,11 @@ body {
 
 @media screen and (min-width: 1024px) {
   .impornent-pages {
-
     .small-middle-wrap {
-
-
       .content {
-
-
         p {
-          font-size: get-vw(16px) !important;
+          font-size: get-vw(18px) !important;
+          line-height: get-vw(28px);
           text-align: left !important;
         }
 
@@ -646,15 +620,20 @@ body {
         h2,
         h3,
         h4 {
-
-
           strong {
-
-            font-size: get-vw(16px);
+            font-size: get-vw(18px);
+            line-height: get-vw(28px);
           }
 
           span {
-            font-size: get-vw(16px);
+            font-size: get-vw(18px);
+            line-height: get-vw(28px);
+          }
+        }
+        ol {
+          li {
+            font-size: get-vw(18px) !important;
+            line-height: get-vw(28px);
           }
         }
 
@@ -663,28 +642,25 @@ body {
           list-style-type: disc !important;
 
           li {
+            font-size: get-vw(18px) !important;
+            line-height: get-vw(28px);
             &::before {
               display: none;
             }
 
             padding: 0;
-            font-size: get-vw(16px) !important;
+/*             font-size: get-vw(18px) !important;
+            line-height: get-vw(28px); */
             text-align: left !important;
 
             a {
-              font-size: get-vw(16px) !important;
+              font-size: get-vw(18px) !important;
+              line-height: get-vw(28px);
               text-align: left !important;
             }
-
-
           }
         }
       }
     }
   }
-}
-
-// playwright testing libary - insaf
-.global-preloader {
-  background: #000 !important;
 }

@@ -19,13 +19,15 @@ const OurVision = () => {
 
             <div className="our-vision-content" data-aos="fade-up">
               <p>
-                To be a nationally leading, globally benchmarked private uni
-                that fosters academic excellence, drives research and
-                innovation, and prepares students for meaningful careers through
-                strong industry integration, contributing to a knowledgeable,
-                future-ready society.
-              </p>
+  <span className="right-comma">&#10077; </span>
+  To be a nationally leading, globally benchmarked private university that fosters academic excellence, drives research and
+  innovation, and prepares students for meaningful careers through strong industry integration, contributing to a knowledgeable,
+  future-ready society.
+  <span className="left-comma"> &#10078;</span>
+</p>
+
             </div>
+
           </div>
         </div>
       </div>
