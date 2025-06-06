@@ -75,7 +75,7 @@ const Footer = () => {
             <h4>CONTACT DETAILS</h4>
             <p>
               <strong>Hotline</strong> <br />
-              <Link href="tel:+94117572572">+94 117 572 572</Link>
+              <Link href="tel+94766000400">+94 766 000 400</Link>
             </p>
             <p>
               <strong>Email</strong> <br />

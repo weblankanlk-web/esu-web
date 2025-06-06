@@ -34,8 +34,8 @@ const ContactHeadOffice = () => {
               </div>
               <div className="call-us">
                 <p className="label">Call Us on</p>
-                <a href="tel:+94 117 572 572" className="">
-                  +94 117 572 572
+                <a href="tel:+94766000400" className="">
+                  +94 766 000 400
                 </a>
               </div>
             </div>

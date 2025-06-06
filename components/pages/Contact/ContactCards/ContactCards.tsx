@@ -26,8 +26,8 @@ const ContactCards = ({ about }: ContactCardsProps) => {
               </div>
               <div className="call-us">
                 <p className="label">Call Us on</p>
-                <a href="tel:+94 117 572 572" className="">
-                  +94 117 572 572
+                <a href="tel:+94769000400" className="">
+                  +94 769 000 400
                 </a>
               </div>
             </div>
@@ -53,8 +53,8 @@ const ContactCards = ({ about }: ContactCardsProps) => {
               </div>
               <div className="call-us">
                 <p className="label">Call Us on</p>
-                <a href="tel:+94 117 572 572" className="">
-                  +94 117 572 572
+                <a href="tel:+94768800400" className="">
+                  +94 768 800 400
                 </a>
               </div>
             </div>
