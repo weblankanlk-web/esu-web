@@ -321,8 +321,8 @@
   }
 
   .member-card {
-           width: 32%;
-        margin: 0.5%;
+    width: 32%;
+    margin: 0.5%;
 
     .single-image-wrap {
       display: flex;
@@ -332,7 +332,8 @@
       .member-details {
         padding: get-vw(50px) !important;
         min-height: get-vw(170px);
-        .position{
+
+        .position {
           font-size: get-vw(18px);
           line-height: get-vw(28px);
         }
@@ -352,5 +353,3 @@
 .member-image {
   position: relative;
 }
-
-

@@ -75,41 +75,8 @@ const page = () => {
         innerBgMobi="/images/inner-banner.gif"
       />
 
-      <section className="simple-padding-bottom simple-padding-top">
+      <section className="research-page-section">
         <div className="small-middle-wrap">
-
-          {/* <div className="landing-wrap-top">
-            <div className="landing-results w-100 landing-results-top">
-              <div>
-                {searchTerm && (
-                  <p id="search-breif">
-                    <span id="result-count" />
-                    {filteredPublications.length} Search Results for :
-                    <span id="result-keyword">{searchTerm || "All"}</span>
-                  </p>
-                )}
-              </div>
-              <div className="search-wrap">
-                <div className="search-form-ajax">
-                  <input
-                    type="text"
-                    name="search-keyword"
-                    className="type-check"
-                    placeholder="Search Publications"
-                    id="search-key"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                  <button id="search-form-ajax-submit" type="submit">
-                    <img
-                      src="https://esoft.lk/wp-content/themes/esoft_metro_campus/assets/img/ser.png"
-                      alt=""
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div> */}
           <div className="landing-wrap">
             <div className="landing-results">
               <div className="landing-results-inner blog-results-inner">
