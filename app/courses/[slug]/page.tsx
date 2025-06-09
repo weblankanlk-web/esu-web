@@ -271,18 +271,22 @@ const page = () => {
       <section className="simple-padding-bottom course-inner-section">
         <div className="course-wrap">
           <div className="left-course">
-            <div className="left-course-img" data-aos="flip-left">
-              {/* {courseDetails?.featuredImage?.node?.mediaItemUrl && ( */}
-              <Image
-                src={
-                  courseDetails?.featuredImage?.node?.mediaItemUrl ||
-                  "/images/loading-placeholder.gif"
-                }
-                alt={courseDetails?.title || ""}
-                width={500}
-                height={600}
-              />
-              {/* )} */}
+            <div className="left-course-img">
+              {!courseDetails?.featuredImage?.node?.mediaItemUrl ? (
+                <div className="ph-item">
+                  <div
+                    className="ph-picture"
+                    style={{ width: 500, height: 600 }}
+                  ></div>
+                </div>
+              ) : (
+                <Image
+                  src={courseDetails.featuredImage.node.mediaItemUrl}
+                  alt={courseDetails.title}
+                  width={500}
+                  height={600}
+                />
+              )}
             </div>
             <div className="left-course-details">
               <div className="d-flex justify-content-center course-btn-wrap">
