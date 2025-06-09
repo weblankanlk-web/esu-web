@@ -17,7 +17,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 90% !important;
+      // width: 90% !important;
+      width: 100%;
+      padding: 10px 50px;
     }
   }
 
@@ -241,11 +243,13 @@ ul#primary {
 
     .mega-title-content {
       background: #fff;
-      padding: 40px 20px;
+      // padding: 40px 20px;
+      width: 100%;
+      padding: 10px 50px;
     }
 
     .mega-menu-course-title {
-      max-width: 1590px;
+      max-width: 100%;
       margin: 0 auto;
       padding-bottom: 20px;
 
@@ -255,7 +259,7 @@ ul#primary {
     }
 
     .mega-menu-panel {
-      max-width: 1590px;
+      max-width: 100%;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -272,7 +276,8 @@ ul#primary {
         font-weight: 900;
         margin-bottom: 12px;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 20px;
         align-items: center;
         color: #000;
 
@@ -411,7 +416,6 @@ ul#top-menu a {
 }
 
 @media (min-width: 991px) {
-
   .desktop-only-view,
   .desktop-esu-logo {
     display: block;

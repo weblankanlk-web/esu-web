@@ -121,7 +121,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         {facultyArtDesignMenuSec.map((item, index) => (
                           <li key={index}>
                             <Link
-                              href={`/courses/${item.slug}`}
+                              href={{
+                                pathname: `/courses/${item.slug}`,
+                                query: {
+                                  id: item.courses.courseId,
+                                  courseId: item.id,
+                                },
+                              }}
                               className="faculty-art-design-link"
                             >
                               {item.title}
@@ -147,7 +153,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         {facultyLifeScienceMenuSec.map((item, index) => (
                           <li key={index}>
                             <Link
-                              href={`/courses/${item.slug}`}
+                              href={{
+                                pathname: `/courses/${item.slug}`,
+                                query: {
+                                  id: item.courses.courseId,
+                                  courseId: item.id,
+                                },
+                              }}
                               className="faculty-life-science-link"
                             >
                               {item.title}
@@ -178,7 +190,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         {facultyComputingMenuSec.map((item, index) => (
                           <li key={index}>
                             <Link
-                              href={`/courses/${item.slug}`}
+                              href={{
+                                pathname: `/courses/${item.slug}`,
+                                query: {
+                                  id: item.courses.courseId,
+                                  courseId: item.id,
+                                },
+                              }}
                               className="faculty-computing-link"
                             >
                               {item.title}
@@ -204,7 +222,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         {facultyEngineeringMenuSec.map((item, index) => (
                           <li key={index}>
                             <Link
-                              href={`/courses/${item.slug}`}
+                              href={{
+                                pathname: `/courses/${item.slug}`,
+                                query: {
+                                  id: item.courses.courseId,
+                                  courseId: item.id,
+                                },
+                              }}
                               className="faculty-engineering-link"
                             >
                               {item.title}
@@ -235,7 +259,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         {facultyBusinessLawMenuSec.map((item, index) => (
                           <li key={index}>
                             <Link
-                              href={`/courses/${item.slug}`}
+                              href={{
+                                pathname: `/courses/${item.slug}`,
+                                query: {
+                                  id: item.courses.courseId,
+                                  courseId: item.id,
+                                },
+                              }}
                               className="faculty-business-law-link"
                             >
                               {item.title}
@@ -262,7 +292,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                           (item, index) => (
                             <li key={index}>
                               <Link
-                                href={`/courses/${item.slug}`}
+                                href={{
+                                  pathname: `/courses/${item.slug}`,
+                                  query: {
+                                    id: item.courses.courseId,
+                                    courseId: item.id,
+                                  },
+                                }}
                                 className="faculty-languages-education-link"
                               >
                                 {item.title}
