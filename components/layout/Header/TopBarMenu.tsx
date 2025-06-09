@@ -18,13 +18,16 @@ const TopBarMenu = () => {
               <Link href="/courses">Courses</Link>
             </li>
             <li>
+              <Link href="/academics">Academics</Link>
+            </li>
+            <li>
               <Link href="/news">news & events</Link>
             </li>
             <li>
-              <Link href="/research">Research</Link>
+              <Link href="/blogs">Blogs</Link>
             </li>
             <li>
-              <Link href="/academics">Academics</Link>
+              <Link href="/research">Research</Link>
             </li>
             <li>
               <Link href="/contact-us">Contact Us</Link>

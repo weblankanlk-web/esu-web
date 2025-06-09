@@ -39,10 +39,42 @@ const MobileNav: React.FC<MobileNavProps> = ({ isMobileMenuOpen }) => {
             </li>
             <li>
               <Link
+                href="/academics"
+                onClick={() => (window.location.href = "/academics")}
+              >
+                Academics
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/faculties"
                 onClick={() => (window.location.href = "/faculties")}
               >
                 Faculties
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/news"
+                onClick={() => (window.location.href = "/news")}
+              >
+                news & events
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/blogs"
+                onClick={() => (window.location.href = "/blogs")}
+              >
+                Blogs
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/research"
+                onClick={() => (window.location.href = "/research")}
+              >
+                Research
               </Link>
             </li>
             <li>
