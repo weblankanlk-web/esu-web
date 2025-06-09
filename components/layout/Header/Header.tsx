@@ -131,7 +131,7 @@ const Header = () => {
                   />
                 </Link>
               </div>
-              <div className="middle-menu">
+              <div className="middle-menu navbar-ml-menu">
                 <nav className="navbar navbar-expand-lg nav-menu">
                   <ul className="navbar-nav navbardropdown" id="primary">
                     <MegaMenu

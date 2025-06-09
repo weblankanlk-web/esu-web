@@ -85,6 +85,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     facultyLanguagesEducationSociologyMenu,
   ]);
 
+  // const [hoveredFacultyArtDesign, setHoveredFacultyArtDesign] = useState(false);
+  // const [hoveredFacultyComputing, setHoveredFacultyComputing] = useState(false);
+  // const [hoveredFacultyLifeScience, setHoveredFacultyLifeScience] =
+  //   useState(false);
+  // const [hoveredFacultyEngineering, setHoveredFacultyEngineering] =
+  //   useState(false);
+  // const [hoveredFacultyLanguages, setHoveredFacultyLanguages] = useState(false);
+
   return (
     <li className="faculties-hover-menu">
       <Link href="/faculties">{menuName}</Link>
@@ -119,7 +127,21 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                       <ul>
                         {facultyArtDesignMenuSec.map((item, index) => (
                           <li key={index}>
-                            <Link href={`/courses/${item.slug}`}>
+                            <Link
+                              href={`/courses/${item.slug}`}
+                              className="faculty-art-design-link"
+                              // onMouseEnter={() =>
+                              //   setHoveredFacultyArtDesign(true)
+                              // }
+                              // onMouseLeave={() =>
+                              //   setHoveredFacultyArtDesign(false)
+                              // }
+                              // style={{
+                              //   color: hoveredFacultyArtDesign
+                              //     ? "rgb(245, 131, 60)"
+                              //     : "#333",
+                              // }}
+                            >
                               {item.title}
                             </Link>
                           </li>
@@ -141,7 +163,22 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                       <ul>
                         {facultyLifeScienceMenuSec.map((item, index) => (
                           <li key={index}>
-                            <Link href={`/courses/${item.slug}`}>
+                            <Link
+                              href={`/courses/${item.slug}`}
+                              className="faculty-life-science-link"
+
+                              // onMouseEnter={() =>
+                              //   setHoveredFacultyLifeScience(true)
+                              // }
+                              // onMouseLeave={() =>
+                              //   setHoveredFacultyLifeScience(false)
+                              // }
+                              // style={{
+                              //   color: hoveredFacultyLifeScience
+                              //     ? "rgb(191, 215, 48)"
+                              //     : "#333",
+                              // }}
+                            >
                               {item.title}
                             </Link>
                           </li>
@@ -166,7 +203,21 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                       <ul>
                         {facultyComputingMenuSec.map((item, index) => (
                           <li key={index}>
-                            <Link href={`/courses/${item.slug}`}>
+                            <Link
+                              href={`/courses/${item.slug}`}
+                              className="faculty-computing-link"
+                              // onMouseEnter={() =>
+                              //   setHoveredFacultyComputing(true)
+                              // }
+                              // onMouseLeave={() =>
+                              //   setHoveredFacultyComputing(false)
+                              // }
+                              // style={{
+                              //   color: hoveredFacultyComputing
+                              //     ? "rgb(0, 174, 205)"
+                              //     : "#333",
+                              // }}
+                            >
                               {item.title}
                             </Link>
                           </li>
@@ -186,7 +237,21 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                       <ul>
                         {facultyEngineeringMenuSec.map((item, index) => (
                           <li key={index}>
-                            <Link href={`/courses/${item.slug}`}>
+                            <Link
+                              href={`/courses/${item.slug}`}
+                              className="faculty-engineering-link"
+                              // onMouseEnter={() =>
+                              //   setHoveredFacultyEngineering(true)
+                              // }
+                              // onMouseLeave={() =>
+                              //   setHoveredFacultyEngineering(false)
+                              // }
+                              // style={{
+                              //   color: hoveredFacultyEngineering
+                              //     ? "rgb(0, 80, 160)"
+                              //     : "#333",
+                              // }}
+                            >
                               {item.title}
                             </Link>
                           </li>
@@ -211,7 +276,21 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                       <ul>
                         {facultyBusinessLawMenuSec.map((item, index) => (
                           <li key={index}>
-                            <Link href={`/courses/${item.slug}`}>
+                            <Link
+                              href={`/courses/${item.slug}`}
+                              className="faculty-business-law-link"
+                              // onMouseEnter={() =>
+                              //   setHoveredFacultyLanguages(true)
+                              // }
+                              // onMouseLeave={() =>
+                              //   setHoveredFacultyLanguages(false)
+                              // }
+                              // style={{
+                              //   color: hoveredFacultyLanguages
+                              //     ? "rgb(210, 35, 50)"
+                              //     : "#333",
+                              // }}
+                            >
                               {item.title}
                             </Link>
                           </li>
@@ -232,7 +311,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         {facultyLanguagesEducationSociologyMenuSec.map(
                           (item, index) => (
                             <li key={index}>
-                              <Link href={`/courses/${item.slug}`}>
+                              <Link
+                                href={`/courses/${item.slug}`}
+                                className="faculty-languages-education-link"
+                                // onMouseEnter={() => setHovered(true)}
+                                // onMouseLeave={() => setHovered(false)}
+                                // style={{
+                                //   color: hovered ? "rgb(255, 203, 5)" : "#333",
+                                // }}
+                              >
                                 {item.title}
                               </Link>
                             </li>
