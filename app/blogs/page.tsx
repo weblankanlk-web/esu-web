@@ -125,21 +125,27 @@ const Blogs = () => {
                     </span>
                   </Link>
                   <div className="paragraph paragraph--black">
-                   <div
+                    <div
                       dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        const tempDiv = document.createElement("div");
-                        tempDiv.innerHTML = news.content.replace(/&nbsp;/g, " ");
-                        const textContent =
-                        tempDiv.textContent || tempDiv.innerText || "";
-                        return textContent.length > 180
-                        ? textContent.substring(0, 180) + "..."
-                        : textContent;
-                      })(),
+                        __html: (() => {
+                          const tempDiv = document.createElement("div");
+                          tempDiv.innerHTML = news.content.replace(
+                            /&nbsp;/g,
+                            " "
+                          );
+                          const textContent =
+                            tempDiv.textContent || tempDiv.innerText || "";
+                          return textContent.length > 180
+                            ? textContent.substring(0, 180) + "..."
+                            : textContent;
+                        })(),
                       }}
                     />
                   </div>
-                  <Link className="d-flex align-items-center justify-content-between"  href={`/blogs/${news.slug}`}>
+                  <Link
+                    className="d-flex align-items-center justify-content-between"
+                    href={`/blogs/${news.slug}`}
+                  >
                     <span
                       className="campus-arrow"
                       style={{
@@ -149,26 +155,27 @@ const Blogs = () => {
                       ➜
                     </span>{" "}
                   </Link>
-                  
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="pagination-div justify-content-center">
-          {[...Array(currentPage + (hasNextPage ? 1 : 0))].map((_, i) => (
-            <button
-              key={i}
-              className={`page-numbers ${
-                currentPage === i + 1 ? "current" : ""
-              }`}
-              onClick={() => handlePageChange(i + 1)}
-            >
-              {i + 1}
-            </button>
-          ))}
-        </div>
+        {newsEvents.length > 0 && (
+          <div className="pagination-div justify-content-center">
+            {[...Array(currentPage + (hasNextPage ? 1 : 0))].map((_, i) => (
+              <button
+                key={i}
+                className={`page-numbers ${
+                  currentPage === i + 1 ? "current" : ""
+                }`}
+                onClick={() => handlePageChange(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+        )}
       </section>
     </>
   );
