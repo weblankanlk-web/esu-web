@@ -154,27 +154,6 @@ const Header = () => {
                         <div className="mega-title-content">
                           <div className="mega-menu-panel">
                             <div className="mega-column">
-                              <Link href="/faculties/faculty-of-art-design">
-                                <h4 style={{ color: "rgb(245, 131, 60)" }}>
-                                  Faculty of Art & Design{" "}
-                                  <FaArrowRight
-                                    className="arrow"
-                                    style={{ color: "rgb(245, 131, 60)" }}
-                                  />
-                                </h4>
-                              </Link>
-
-                              <Link href="/faculties/faculty-of-life-science">
-                                <h4 style={{ color: "rgb(191, 215, 48)" }}>
-                                  Faculty of Life Science{" "}
-                                  <FaArrowRight
-                                    className="arrow"
-                                    style={{ color: "rgb(191, 215, 48)" }}
-                                  />
-                                </h4>
-                              </Link>
-                            </div>
-                            <div className="mega-column">
                               <Link href="/faculties/faculty-of-computing">
                                 <h4 style={{ color: "rgb(0, 174, 205)" }}>
                                   Faculty of Computing{" "}
@@ -202,6 +181,27 @@ const Header = () => {
                                   <FaArrowRight
                                     className="arrow"
                                     style={{ color: "rgb(210, 35, 50)" }}
+                                  />
+                                </h4>
+                              </Link>
+
+                              <Link href="/faculties/faculty-of-art-design">
+                                <h4 style={{ color: "rgb(245, 131, 60)" }}>
+                                  Faculty of Art & Design{" "}
+                                  <FaArrowRight
+                                    className="arrow"
+                                    style={{ color: "rgb(245, 131, 60)" }}
+                                  />
+                                </h4>
+                              </Link>
+                            </div>
+                            <div className="mega-column">
+                              <Link href="/faculties/faculty-of-life-science">
+                                <h4 style={{ color: "rgb(191, 215, 48)" }}>
+                                  Faculty of Life Science{" "}
+                                  <FaArrowRight
+                                    className="arrow"
+                                    style={{ color: "rgb(191, 215, 48)" }}
                                   />
                                 </h4>
                               </Link>

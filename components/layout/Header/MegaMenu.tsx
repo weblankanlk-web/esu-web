@@ -105,75 +105,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           facultyBusinessLawMenuSec.length > 0 ||
           facultyLanguagesEducationSociologyMenuSec.length > 0 ? (
             <div className="mega-menu-panel">
-              {(facultyArtDesignMenuSec.length > 0 ||
-                facultyLifeScienceMenuSec.length > 0) && (
-                <div className="mega-column">
-                  {facultyArtDesignMenuSec.length > 0 && (
-                    <>
-                      <Link href="/faculties/faculty-of-art-design">
-                        <h4 style={{ color: "rgb(245, 131, 60)" }}>
-                          Faculty of Art & Design{" "}
-                          <FaArrowRight
-                            className="arrow"
-                            style={{ color: "rgb(245, 131, 60)" }}
-                          />
-                        </h4>
-                      </Link>
-                      <ul>
-                        {facultyArtDesignMenuSec.map((item, index) => (
-                          <li key={index}>
-                            <Link
-                              href={{
-                                pathname: `/courses/${item.slug}`,
-                                query: {
-                                  id: item.courses.courseId,
-                                  courseId: item.id,
-                                },
-                              }}
-                              className="faculty-art-design-link"
-                            >
-                              {item.title}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-
-                  {facultyLifeScienceMenuSec.length > 0 && (
-                    <>
-                      <Link href="/faculties/faculty-of-life-science">
-                        <h4 style={{ color: "rgb(191, 215, 48)" }}>
-                          Faculty of Life Science{" "}
-                          <FaArrowRight
-                            className="arrow"
-                            style={{ color: "rgb(191, 215, 48)" }}
-                          />
-                        </h4>
-                      </Link>
-                      <ul>
-                        {facultyLifeScienceMenuSec.map((item, index) => (
-                          <li key={index}>
-                            <Link
-                              href={{
-                                pathname: `/courses/${item.slug}`,
-                                query: {
-                                  id: item.courses.courseId,
-                                  courseId: item.id,
-                                },
-                              }}
-                              className="faculty-life-science-link"
-                            >
-                              {item.title}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                </div>
-              )}
-
               {(facultyComputingMenuSec.length > 0 ||
                 facultyEngineeringMenuSec.length > 0) && (
                 <div className="mega-column">
@@ -244,7 +175,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
               )}
 
               {(facultyBusinessLawMenuSec.length > 0 ||
-                facultyLanguagesEducationSociologyMenuSec.length > 0) && (
+                facultyArtDesignMenuSec.length > 0) && (
                 <div className="mega-column">
                   {facultyBusinessLawMenuSec.length > 0 && (
                     <>
@@ -269,6 +200,75 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                 },
                               }}
                               className="faculty-business-law-link"
+                            >
+                              {item.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+
+                  {facultyArtDesignMenuSec.length > 0 && (
+                    <>
+                      <Link href="/faculties/faculty-of-art-design">
+                        <h4 style={{ color: "rgb(245, 131, 60)" }}>
+                          Faculty of Art & Design{" "}
+                          <FaArrowRight
+                            className="arrow"
+                            style={{ color: "rgb(245, 131, 60)" }}
+                          />
+                        </h4>
+                      </Link>
+                      <ul>
+                        {facultyArtDesignMenuSec.map((item, index) => (
+                          <li key={index}>
+                            <Link
+                              href={{
+                                pathname: `/courses/${item.slug}`,
+                                query: {
+                                  id: item.courses.courseId,
+                                  courseId: item.id,
+                                },
+                              }}
+                              className="faculty-art-design-link"
+                            >
+                              {item.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </div>
+              )}
+
+              {(facultyLifeScienceMenuSec.length > 0 ||
+                facultyLanguagesEducationSociologyMenuSec.length > 0) && (
+                <div className="mega-column">
+                  {facultyLifeScienceMenuSec.length > 0 && (
+                    <>
+                      <Link href="/faculties/faculty-of-life-science">
+                        <h4 style={{ color: "rgb(191, 215, 48)" }}>
+                          Faculty of Life Science{" "}
+                          <FaArrowRight
+                            className="arrow"
+                            style={{ color: "rgb(191, 215, 48)" }}
+                          />
+                        </h4>
+                      </Link>
+                      <ul>
+                        {facultyLifeScienceMenuSec.map((item, index) => (
+                          <li key={index}>
+                            <Link
+                              href={{
+                                pathname: `/courses/${item.slug}`,
+                                query: {
+                                  id: item.courses.courseId,
+                                  courseId: item.id,
+                                },
+                              }}
+                              className="faculty-life-science-link"
                             >
                               {item.title}
                             </Link>
