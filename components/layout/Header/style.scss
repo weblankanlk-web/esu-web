@@ -266,6 +266,10 @@ ul#primary {
       gap: 40px;
       flex-wrap: wrap;
       row-gap: 0;
+
+      .coming-soon {
+        margin-bottom: 20px;
+      }
     }
 
     .mega-column {
@@ -416,6 +420,7 @@ ul#top-menu a {
 }
 
 @media (min-width: 991px) {
+
   .desktop-only-view,
   .desktop-esu-logo {
     display: block;

@@ -48,10 +48,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   useEffect(() => {
     const filterCourses = (courses: CourseNode[]) =>
-      courses.filter((course) =>
-        course?.courseTypes?.nodes.every(
-          (type: any) => type.slug === courseMenuSlug
-        )
+      courses.filter(
+        (course) =>
+          course?.courseTypes?.nodes.length > 0 &&
+          course.courseTypes.nodes.every(
+            (type: any) => type.slug && type.slug === courseMenuSlug
+          )
       );
 
     // console.log(filterCourses(facultyArtDesignMenu));
@@ -313,7 +315,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
               )}
             </div>
           ) : (
-            <div className="mega-menu-panel">Coming Soon!!!</div>
+            <div className="mega-menu-panel">
+              <p className="coming-soon">Coming Soon!!!</p>
+            </div>
           )}
         </div>
       </div>
