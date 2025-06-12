@@ -961,7 +961,7 @@ query($slug: ID!) {
   schoolType(id: $slug, idType: SLUG) {
     name
     id
-    courses {
+    courses(first: 1000) {
       nodes {
         title
         slug

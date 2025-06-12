@@ -63,8 +63,8 @@ const Header = () => {
         (course) => course.courses.enableCourseInTheMenu === true
       );
 
-      // console.log("Course Menu Data:", data);
-      // console.log("Filtered Courses:", enableCourse);
+      console.log("Course Menu Data:", data);
+      console.log("Filtered Courses:", enableCourse);
 
       switch (slug) {
         case "faculty-of-art-design":

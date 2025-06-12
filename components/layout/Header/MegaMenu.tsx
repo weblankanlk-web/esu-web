@@ -93,11 +93,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       <div className="mega-menu">
         <div className="transperent-bacground"></div>
         <div className="mega-title-content">
-          {courseMenuName && (
+          {/* {courseMenuName && (
             <div className="mega-menu-course-title">
               <h2>{courseMenuName}</h2>
             </div>
-          )}
+          )} */}
           {facultyArtDesignMenuSec.length > 0 ||
           facultyLifeScienceMenuSec.length > 0 ||
           facultyComputingMenuSec.length > 0 ||

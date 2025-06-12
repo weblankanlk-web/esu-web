@@ -58,7 +58,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isMobileMenuOpen }) => {
                 href="/news"
                 onClick={() => (window.location.href = "/news")}
               >
-                news & events
+                News & Events
               </Link>
             </li>
             <li>
