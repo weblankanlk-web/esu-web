@@ -75,22 +75,6 @@ export default function CoursesPage() {
     };
   }, []);
 
-  // const coursesPerPage = 12;
-
-  // const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
-
-  // const handleClearFilters = () => {
-  //   setSelectedSchools([]);
-  //   setSelectedPrograms([]);
-  //   setSelectedModes([]);
-  //   setSelectedBranches([]);
-  //   setSearch("");
-  // };
-
-  // useEffect(() => {
-  //   setColor("rgb(0, 174, 205)");
-  // }, [setColor]);
-
   useEffect(() => {
     let results = [...allCourses];
 

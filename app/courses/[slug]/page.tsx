@@ -21,6 +21,7 @@ import { FeePlanInterface } from "@/common/interfaces/interface";
 import Modal from "@/components/common/Modal/Modal";
 import InquireForm from "@/components/sections/InquireForm/InquireForm";
 import Image from "next/image";
+import Preloader from "@/components/common/Preloader/Preloader";
 
 type SubCourseFee = {
   id: number;
@@ -59,14 +60,16 @@ const page = () => {
 
   const [selectedSubCourse, setSelectedSubCourse] = useState(null);
 
+  const [isCourseLoading, setIsCourseLoading] = useState(true);
+  const [isCourseDetailsLoading, setIsCourseDetailsLoading] = useState(true);
+  const [isFeeLoading, setIsFeeLoading] = useState(true);
+  const [isScheduleLoading, setIsScheduleLoading] = useState(true);
+  const [isRelatedLoading, setIsRelatedLoading] = useState(true);
+
   useEffect(() => {
     const school = courseDetails?.schoolTypes?.nodes?.[0];
     const font = school?.schoolTypesColorFontFields?.courseFontFamily;
     const color = school?.schoolTypesColorFontFields?.color;
-
-    // if (font) {
-    //   document.body.style.fontFamily = font;
-    // }
 
     if (color) {
       setColor(color); // this updates your ThemeContext and CSS variable
@@ -104,6 +107,8 @@ const page = () => {
       }
     } catch (error) {
       console.error("Error fetching course data:", error);
+    } finally {
+      setIsCourseLoading(false);
     }
   };
 
@@ -129,21 +134,7 @@ const page = () => {
 
       if (main_course) {
         setCourseFees({ fee_plans: feePlans });
-
-        // if (Array.isArray(response.data.data)) {
-        //   setCourseFees({ fee_plans: response.data.data });
-        //   console.log("main course fees", courseId, response.data.data);
-        // } else {
-        //   setCourseFees(response.data.data);
-        //   console.log(
-        //     "main course fees (object)",
-        //     courseId,
-        //     response.data.data
-        //   );
-        // }
       } else {
-        // console.log("sub course fees", courseId, response.data.data);
-
         setSubCourseFees((prev) => {
           const alreadyExists = prev.some((item) => item.id === courseId);
           if (alreadyExists) return prev;
@@ -158,6 +149,8 @@ const page = () => {
       }
     } catch (error) {
       console.error("Error fetching course fees:", error);
+    } finally {
+      setIsFeeLoading(false);
     }
   };
 
@@ -175,6 +168,8 @@ const page = () => {
         setCourseDetails(response.course);
       } catch (error) {
         console.error("Error fetching course details:", error);
+      } finally {
+        setIsCourseDetailsLoading(false);
       }
     };
 
@@ -197,6 +192,8 @@ const page = () => {
         setSchedule(response.data);
       } catch (error) {
         console.error("Error fetching course schedule:", error);
+      } finally {
+        setIsScheduleLoading(false);
       }
     };
 
@@ -213,6 +210,8 @@ const page = () => {
         setRelatedCourses(filteredCourses);
       } catch (error) {
         console.error("❌ Error fetching related courses:", error);
+      } finally {
+        setIsRelatedLoading(false);
       }
     };
 
@@ -222,8 +221,6 @@ const page = () => {
     fetchSchedule();
     fetchRelatedCourses();
   }, [courseId]);
-
-  // console.log("fetchCourse", course);
 
   useEffect(() => {
     const fetchedIds = new Set();
@@ -249,20 +246,20 @@ const page = () => {
     }
   }, [subCourses]);
 
-  // console.log("Main course:", course);
-  // console.log("Bundle sub-courses:", subCourses);
-
   const selectCourse = subCourses.find((sc) => sc.name === selectedSubCourse);
-
-  // console.log("subCourses", subCourses);
-
-  // console.log("selectCourse insaf", selectCourse);
-
-  // console.log("fees course fees", subCourseFees);
 
   const selectedSubCourseFees = subCourseFees.find(
     (fee) => fee.id === selectCourse?.id
   )?.fee_plans;
+
+  const isLoading =
+    isCourseLoading ||
+    isCourseDetailsLoading ||
+    isFeeLoading ||
+    isScheduleLoading ||
+    isRelatedLoading;
+
+  if (isLoading) return <Preloader />;
 
   return (
     <>
