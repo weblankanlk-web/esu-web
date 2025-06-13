@@ -208,7 +208,7 @@ const Header = () => {
 
                               <Link href="/faculties/faculty-of-languages-education-sociology">
                                 <h4 style={{ color: "rgb(255, 203, 5)" }}>
-                                  Faculty of Education, Languages and Sociology{" "}
+                                  Faculty of Education,<br /> Languages and Sociology{" "}
                                   <FaArrowRight
                                     className="arrow"
                                     style={{ color: "rgb(255, 203, 5)" }}
