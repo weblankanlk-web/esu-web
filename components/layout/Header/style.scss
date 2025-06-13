@@ -228,9 +228,6 @@ ul#primary {
     width: 100%;
     background: transparent;
     z-index: 1000;
-    // padding: 40px 60px;
-    // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    // display: none;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -242,10 +239,9 @@ ul#primary {
 
     .mega-title-content {
       background: #fff;
-      // padding: 40px 20px;
       width: 100%;
       padding: 20px 50px;
-      border-top: 1px solid #d8d8d8;
+      border-top: 1px solid #f0f0f0;
     }
 
     .mega-menu-course-title {
@@ -262,10 +258,11 @@ ul#primary {
       max-width: 100%;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 40px;
       flex-wrap: wrap;
       row-gap: 0;
+      align-items: flex-start;
 
       .coming-soon {
         margin-bottom: 20px;
@@ -273,7 +270,8 @@ ul#primary {
     }
 
     .mega-column {
-      flex: 1 1 30%;
+      padding: 0;
+      width: 30%;
 
       h4 {
         font-size: 16px;
@@ -284,6 +282,8 @@ ul#primary {
         gap: 20px;
         align-items: center;
         color: #000;
+        margin-left: 0;
+        padding-left: 0;
 
         .arrow {
           display: inline-block;
@@ -320,6 +320,7 @@ ul#primary {
             font-weight: 400 !important;
             color: #333;
             text-transform: capitalize !important;
+            margin-left: 0;
 
             // &:hover {
             //   color: #0e52a5 !important;
@@ -425,7 +426,6 @@ ul#top-menu a {
 }
 
 @media (min-width: 991px) {
-
   .desktop-only-view,
   .desktop-esu-logo {
     display: block;
@@ -470,36 +470,6 @@ ul#top-menu a {
 
     .navbar ul li {
       padding-bottom: 15px;
-    }
-  }
-}
-
-.mega-column {
-  flex: 1 1 30%;
-  padding: 0; // Remove default padding
-
-  h4 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    margin-left: 0; // Ensure no indentation
-    padding-left: 0;
-    color: #000;
-  }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-      margin-bottom: 6px;
-      padding-left: 0; // Fixes indentation
-
-      a {
-        padding-left: 0; // If you had internal spacing
-        margin-left: 0;
-      }
     }
   }
 }
