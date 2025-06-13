@@ -231,7 +231,6 @@ ul#primary {
     // padding: 40px 60px;
     // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     // display: none;
-
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -246,6 +245,7 @@ ul#primary {
       // padding: 40px 20px;
       width: 100%;
       padding: 20px 50px;
+      border-top: 1px solid #d8d8d8;
     }
 
     .mega-menu-course-title {
@@ -312,6 +312,7 @@ ul#primary {
 
         li {
           margin-bottom: 6px;
+          padding: 0px !important;
 
           a {
             text-decoration: none;
@@ -370,6 +371,10 @@ ul#primary {
     opacity: 1;
     pointer-events: auto;
     transition: opacity 0.3s ease;
+  }
+
+  &:hover .faculties-menuname {
+    color: var(--main-title-color, #00aecd) !important;
   }
 }
 

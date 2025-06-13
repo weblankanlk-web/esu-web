@@ -89,7 +89,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   return (
     <li className="faculties-hover-menu">
-      <Link href="/faculties">{menuName}</Link>
+      <Link href="/faculties" className="faculties-menuname">
+        {menuName}
+      </Link>
       <div className="mega-menu">
         <div className="transperent-bacground"></div>
         <div className="mega-title-content">
@@ -282,7 +284,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     <>
                       <Link href="/faculties/faculty-of-languages-education-sociology">
                         <h4 style={{ color: "rgb(255, 203, 5)" }}>
-                          Faculty of Languages, Education & Sociology{" "}
+                          Faculty of Education, Languages and Sociology{" "}
                           <FaArrowRight
                             className="arrow"
                             style={{ color: "rgb(255, 203, 5)" }}
