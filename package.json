@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
-    "@insafinhaam732/component-library": "^1.0.9",
     "aos": "^2.3.4",
     "axios": "^1.9.0",
     "bootstrap": "^5.3.5",
