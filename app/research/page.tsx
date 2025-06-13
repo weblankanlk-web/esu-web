@@ -68,8 +68,8 @@ const page = () => {
   return (
     <>
       <InnerBanner
-        innerPageTitlePrimary={"Research"}
-        innerPageTitleSecondary={"Publications"}
+        innerPageTitlePrimary={"ESU"}
+        innerPageTitleSecondary={"Research"}
         innerPageDescription="At ESU, research is at the heart of what we do. We’re driven by curiosity and a passion for solving real-world problems, whether it's in sustainability, robotics, global affairs, or social issues. Our collaborative, hands-on approach brings together diverse fields to create meaningful impact. Join us in shaping a better future through bold ideas and innovative research."
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
