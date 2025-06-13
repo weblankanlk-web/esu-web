@@ -148,13 +148,21 @@ const Header = () => {
                       courseMenuSlug=""
                     /> */}
                     <li className="faculties-hover-menu">
-                      <Link href="/faculties" className="faculties-menuname">Faculties</Link>
+                      <Link href="/faculties" className="faculties-menuname">
+                        Faculties
+                      </Link>
                       <div className="mega-menu">
                         <div className="transperent-bacground"></div>
                         <div className="mega-title-content">
                           <div className="mega-menu-panel">
                             <div className="mega-column">
-                              <Link href="/faculties/faculty-of-computing">
+                              <Link
+                                onClick={() => {
+                                  window.location.href =
+                                    "/faculties/faculty-of-computing";
+                                }}
+                                href="#"
+                              >
                                 <h4 style={{ color: "rgb(0, 174, 205)" }}>
                                   Faculty of Computing{" "}
                                   <FaArrowRight
@@ -164,7 +172,13 @@ const Header = () => {
                                 </h4>
                               </Link>
 
-                              <Link href="/faculties/faculty-of-engineering">
+                              <Link
+                                onClick={() => {
+                                  window.location.href =
+                                    "/faculties/faculty-of-engineering";
+                                }}
+                                href="#"
+                              >
                                 <h4 style={{ color: "rgb(0, 80, 160)" }}>
                                   Faculty of Engineering{" "}
                                   <FaArrowRight
@@ -175,7 +189,13 @@ const Header = () => {
                               </Link>
                             </div>
                             <div className="mega-column">
-                              <Link href="/faculties/faculty-of-business-law">
+                              <Link
+                                onClick={() => {
+                                  window.location.href =
+                                    "/faculties/faculty-of-business-law";
+                                }}
+                                href="#"
+                              >
                                 <h4 style={{ color: "rgb(210, 35, 50)" }}>
                                   Faculty of Business & Law{" "}
                                   <FaArrowRight
@@ -196,7 +216,13 @@ const Header = () => {
                               </Link>
                             </div>
                             <div className="mega-column">
-                              <Link href="/faculties/faculty-of-life-science">
+                              <Link
+                                onClick={() => {
+                                  window.location.href =
+                                    "/faculties/faculty-of-life-science";
+                                }}
+                                href="#"
+                              >
                                 <h4 style={{ color: "rgb(191, 215, 48)" }}>
                                   Faculty of Life Science{" "}
                                   <FaArrowRight
@@ -206,9 +232,16 @@ const Header = () => {
                                 </h4>
                               </Link>
 
-                              <Link href="/faculties/faculty-of-languages-education-sociology">
+                              <Link
+                                onClick={() => {
+                                  window.location.href =
+                                    "/faculties/faculty-of-languages-education-sociology";
+                                }}
+                                href="#"
+                              >
                                 <h4 style={{ color: "rgb(255, 203, 5)" }}>
-                                  Faculty of Education,<br /> Languages and Sociology{" "}
+                                  Faculty of Education,
+                                  <br /> Languages and Sociology{" "}
                                   <FaArrowRight
                                     className="arrow"
                                     style={{ color: "rgb(255, 203, 5)" }}
