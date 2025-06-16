@@ -486,13 +486,13 @@ const page = () => {
               <CourseSchedule schedule={schedule} />
               {/* ------------------------------------------------ */}
 
-              {/* <CourseFees fees={courseFees} /> */}
+              <CourseFees fees={courseFees} />
 
-              {course?.is_bundle_course !== 1 ? (
+              {/* {course?.is_bundle_course !== 1 ? (
                 <CourseFees fees={courseFees} />
               ) : (
                 <CourseFees fees={{ fee_plans: selectedSubCourseFees || [] }} />
-              )}
+              )} */}
               {/* ------------------------------------------------ */}
 
               {courseDetails?.courses?.lecturePanelDescription && (

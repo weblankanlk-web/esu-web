@@ -15,7 +15,7 @@ import "../styles/global.scss";
 import "./globals.css";
 import RootLayoutClient from "./RootLayoutClient";
 import Script from "next/script";
-import 'placeholder-loading/dist/css/placeholder-loading.min.css';
+import "placeholder-loading/dist/css/placeholder-loading.min.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
