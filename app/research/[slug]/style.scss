@@ -1,5 +1,31 @@
 @import "@/styles/global.scss";
 
+.research-inner-page {
+    .small-middle-wrap {
+        .the-content-div {
+            ul>li {
+                display: list-item !important;
+                list-style: inside;
+                padding-left: 40px;
+            }
+
+            ul {
+                li::before {
+                    display: none;
+                }
+            }
+        }
+
+        .date-archive {
+            li::before {
+                display: none;
+            }
+        }
+    }
+}
+
+
+
 // .research-inner-page {
 //     padding: 30px 15px;
 //     background-color: #fff;
