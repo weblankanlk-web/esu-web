@@ -1,5 +1,6 @@
 import { CourseNode } from "@/common/interfaces/interface";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
@@ -56,8 +57,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           )
       );
 
-    // console.log(filterCourses(facultyArtDesignMenu));
-
     if (courseMenuSlug) {
       setFacultyArtDesignMenuSec(filterCourses(facultyArtDesignMenu));
       setFacultyComputingMenuSec(filterCourses(facultyComputingMenu));
@@ -89,17 +88,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   return (
     <li className="faculties-hover-menu">
-      <Link href="/faculties" className="faculties-menuname">
+      <Link
+        href={`/courses?programs=${courseMenuSlug}`}
+        className="faculties-menuname"
+      >
         {menuName}
       </Link>
       <div className="mega-menu">
         <div className="transperent-bacground"></div>
         <div className="mega-title-content">
-          {/* {courseMenuName && (
-            <div className="mega-menu-course-title">
-              <h2>{courseMenuName}</h2>
-            </div>
-          )} */}
           {facultyArtDesignMenuSec.length > 0 ||
           facultyLifeScienceMenuSec.length > 0 ||
           facultyComputingMenuSec.length > 0 ||
@@ -107,12 +104,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           facultyBusinessLawMenuSec.length > 0 ||
           facultyLanguagesEducationSociologyMenuSec.length > 0 ? (
             <div className="mega-menu-panel">
-              {/* {(facultyComputingMenuSec.length > 0 ||
-                facultyEngineeringMenuSec.length > 0) && ( */}
-              {/* <div className="mega-column"> */}
               {facultyComputingMenuSec.length > 0 && (
                 <div className="mega-column">
-                  <Link href="/faculties/faculty-of-computing">
+                  <Link
+                    onClick={() => {
+                      window.location.href = `/courses?faculty=faculty-of-computing&programs=${courseMenuSlug}`;
+                    }}
+                    href="#"
+                  >
                     <h4 style={{ color: "rgb(0, 174, 205)" }}>
                       Faculty of Computing{" "}
                       <FaArrowRight
@@ -141,7 +140,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
               {facultyBusinessLawMenuSec.length > 0 && (
                 <div className="mega-column">
-                  <Link href="/faculties/faculty-of-business-law">
+                  <Link
+                    onClick={() => {
+                      window.location.href = `/courses?faculty=faculty-of-business-law&programs=${courseMenuSlug}`;
+                    }}
+                    href="#"
+                  >
                     <h4 style={{ color: "rgb(210, 35, 50)" }}>
                       Faculty of Business & Law{" "}
                       <FaArrowRight
@@ -170,7 +174,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
               {facultyEngineeringMenuSec.length > 0 && (
                 <div className="mega-column">
-                  <Link href="/faculties/faculty-of-engineering">
+                  <Link
+                    onClick={() => {
+                      window.location.href = `/courses?faculty=faculty-of-engineering&programs=${courseMenuSlug}`;
+                    }}
+                    href="#"
+                  >
                     <h4 style={{ color: "rgb(0, 80, 160)" }}>
                       Faculty of Engineering{" "}
                       <FaArrowRight
@@ -196,16 +205,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                   </ul>
                 </div>
               )}
-              {/* </div> */}
-              {/* )} */}
-
-              {/* {(facultyBusinessLawMenuSec.length > 0 ||
-                facultyArtDesignMenuSec.length > 0) && ( */}
-              {/* <div className="mega-column"> */}
 
               {facultyArtDesignMenuSec.length > 0 && (
                 <div className="mega-column">
-                  <Link href="/faculties/faculty-of-art-design">
+                  <Link
+                    onClick={() => {
+                      window.location.href = `/courses?faculty=faculty-of-art-design&programs=${courseMenuSlug}`;
+                    }}
+                    href="#"
+                  >
                     <h4 style={{ color: "rgb(245, 131, 60)" }}>
                       Faculty of Art & Design{" "}
                       <FaArrowRight
@@ -231,15 +239,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                   </ul>
                 </div>
               )}
-              {/* </div> */}
-              {/* )} */}
 
-              {/* {(facultyLifeScienceMenuSec.length > 0 ||
-                facultyLanguagesEducationSociologyMenuSec.length > 0) && ( */}
-              {/* <div className="mega-column"> */}
               {facultyLifeScienceMenuSec.length > 0 && (
                 <div className="mega-column">
-                  <Link href="/faculties/faculty-of-life-science">
+                  <Link
+                    onClick={() => {
+                      window.location.href = `/courses?faculty=faculty-of-life-science&programs=${courseMenuSlug}`;
+                    }}
+                    href="#"
+                  >
                     <h4 style={{ color: "rgb(191, 215, 48)" }}>
                       Faculty of Life Science{" "}
                       <FaArrowRight
@@ -268,7 +276,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
               {facultyLanguagesEducationSociologyMenuSec.length > 0 && (
                 <div className="mega-column">
-                  <Link href="/faculties/faculty-of-languages-education-sociology">
+                  <Link
+                    onClick={() => {
+                      window.location.href = `/courses?faculty=faculty-of-languages-education-sociology&programs=${courseMenuSlug}`;
+                    }}
+                    href="#"
+                  >
                     <h4 style={{ color: "rgb(255, 203, 5)" }}>
                       Faculty of Education,
                       <br /> Languages and Sociology{" "}
@@ -297,8 +310,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                   </ul>
                 </div>
               )}
-              {/* </div> */}
-              {/* )} */}
             </div>
           ) : (
             <div className="mega-menu-panel">

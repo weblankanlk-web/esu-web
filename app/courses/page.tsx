@@ -30,6 +30,7 @@ import TitleText from "../../components/common/TextColorChange/TextColorChange";
 import BannerTitleWithOutImage from "@/components/common/BannerTitleWithOutImage/BannerTitleWithOutImage";
 import Filter from "@/components/pages/Courses/Filter/Filter";
 import Preloader from "@/components/common/Preloader/Preloader";
+import { useSearchParams } from "next/navigation";
 
 export default function CoursesPage() {
   const { setColor } = useTheme();
@@ -217,15 +218,75 @@ export default function CoursesPage() {
     fetchDeliveryModeTypes();
   }, []);
 
-  // const { color } = useTheme();
-
-  // const toggleMobileFilter = () => {
-  //   setMobileFilterOpen((prev) => !prev);
-  // };
-
   const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
 
-  //console.log("selectedBranches", branchTypes);
+  const searchParams = useSearchParams();
+  const faculty = searchParams.get("faculty");
+  const programs = searchParams.get("programs");
+
+  const [filtersReady, setFiltersReady] = useState(false);
+
+  useEffect(() => {
+    async function fetchAllFilters() {
+      try {
+        const [
+          courseTypeData,
+          branchTypeData,
+          schoolTypeData,
+          deliveryModeData,
+        ] = await Promise.all([
+          graphQLClient.request<{ courseTypes: { nodes: CourseType[] } }>(
+            COURSE_TYPES_QUERY
+          ),
+          graphQLClient.request<{ branchTypes: { nodes: BranchType[] } }>(
+            BRANCH_TYPES_QUERY
+          ),
+          graphQLClient.request<{ schoolTypes: { nodes: SchoolType[] } }>(
+            SCHOOL_TYPES_QUERY
+          ),
+          graphQLClient.request<{
+            deliveryModeTypes: { nodes: DeliveryModeTypes[] };
+          }>(DELIVERY_MODE_QUERY),
+        ]);
+
+        const excludedNames = [
+          "Certificate Level",
+          "Diploma Level",
+          "Higher National Certificate",
+          "Higher National Diploma Level",
+        ];
+
+        setCourseTypes(
+          courseTypeData.courseTypes.nodes.filter(
+            (type) => !excludedNames.includes(type.name)
+          )
+        );
+
+        setBranchTypes(branchTypeData.branchTypes.nodes);
+        setSchoolTypes(schoolTypeData.schoolTypes.nodes);
+        setDeliveryModeTypes(deliveryModeData.deliveryModeTypes.nodes);
+
+        setFiltersReady(true);
+      } catch (error) {
+        console.error("Error fetching filters:", error);
+      }
+    }
+
+    fetchAllFilters();
+  });
+
+  useEffect(() => {
+    if (!filtersReady) return;
+
+    if (faculty) {
+      setSelectedSchools([faculty]);
+    }
+    if (programs) {
+      setSelectedPrograms([programs]);
+    }
+  }, [filtersReady, faculty, programs]);
+
+  console.log(selectedSchools);
 
   if (isLoading) return <Preloader />;
 
