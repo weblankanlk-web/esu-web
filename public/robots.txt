@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://esu.lk
+
+# Sitemaps
+Sitemap: https://esu.lk/sitemap.xml
