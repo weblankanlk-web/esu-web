@@ -38,6 +38,7 @@ const HomeAbout: React.FC<HomeAboutProps> = ({
               width={900}
               height={850}
               alt="About ESU University"
+              priority
             />
           </div>
           <div className="right" data-aos="fade-up">
