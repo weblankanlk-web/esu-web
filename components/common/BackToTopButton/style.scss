@@ -1,0 +1,42 @@
+@import "@/styles/global.scss";
+
+.back-to-top {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    background: var(--main-title-color, #00aecd);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        font-weight: 800;
+    }
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: var(--main-title-color, #00aecd);
+}
+
+@media only screen and (min-width: 1200px) {
+    .back-to-top {
+        border-radius: get-vw(15px);
+    }
+}

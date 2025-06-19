@@ -9,6 +9,7 @@ import Chatbot from "@/components/sections/Chatbot/Chatbot";
 import InquireForm from "@/components/sections/InquireForm/InquireForm";
 import Modal from "@/components/common/Modal/Modal";
 import { usePathname } from "next/navigation";
+import BackToTopButton from "@/components/common/BackToTopButton/BackToTopButton";
 // import AOS from 'aos';
 // import 'aos/dist/aos.css';
 
@@ -49,6 +50,7 @@ export default function RootLayoutClient({
       {children}
       {!isAdmin && <Footer />}
       {/* <Chatbot /> */}
+      <BackToTopButton />
     </ThemeProvider>
   );
 }

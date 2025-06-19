@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 
@@ -101,38 +101,46 @@ const sitemapData = [
   },
 ];
 
-function TreeNode({ node }: any) {
-  const [open, setOpen] = useState(false);
+function TreeNode({ node, globalOpen }: any) {
+  const [open, setOpen] = useState(globalOpen || false);
   const hasChildren = node.children && node.children.length > 0;
 
+  useEffect(() => {
+    setOpen(globalOpen);
+  }, [globalOpen]);
+
   return (
-    <li className="sitemap__node">
-      <div className="sitemap__label">
-        {hasChildren && (
-          <button className="sitemap__toggle" onClick={() => setOpen(!open)}>
-            {open ? "−" : "+"}
-          </button>
+    <>
+      <li className="sitemap__node">
+        <div className="sitemap__label">
+          {hasChildren && (
+            <button className="sitemap__toggle" onClick={() => setOpen(!open)}>
+              {open ? "−" : "+"}
+            </button>
+          )}
+          {node.href ? (
+            <Link href={node.href} className="sitemap__link">
+              {node.label}
+            </Link>
+          ) : (
+            <span className="sitemap__text">{node.label}</span>
+          )}
+        </div>
+        {hasChildren && open && (
+          <ul className="sitemap__children">
+            {node.children.map((child: any, idx: number) => (
+              <TreeNode key={idx} node={child} />
+            ))}
+          </ul>
         )}
-        {node.href ? (
-          <Link href={node.href} className="sitemap__link">
-            {node.label}
-          </Link>
-        ) : (
-          <span className="sitemap__text">{node.label}</span>
-        )}
-      </div>
-      {hasChildren && open && (
-        <ul className="sitemap__children">
-          {node.children.map((child: any, idx: number) => (
-            <TreeNode key={idx} node={child} />
-          ))}
-        </ul>
-      )}
-    </li>
+      </li>
+    </>
   );
 }
 
 const page = () => {
+  const [expandAll, setExpandAll] = useState(false);
+
   return (
     <>
       <InnerBanner
@@ -144,9 +152,16 @@ const page = () => {
       />
 
       <main className="sitemap__wrapper">
+        <button
+          onClick={() => setExpandAll(!expandAll)}
+          className="sitemap__toggle-mobile"
+          aria-label="Toggle"
+        >
+          {expandAll ? "Collapse All" : "Expand All"}
+        </button>
         <ul className="sitemap__list">
           {sitemapData.map((node, idx) => (
-            <TreeNode key={idx} node={node} />
+            <TreeNode key={idx} node={node} globalOpen={expandAll} />
           ))}
         </ul>
       </main>
