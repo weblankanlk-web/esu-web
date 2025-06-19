@@ -28,6 +28,7 @@ const Footer = () => {
                 <Link
                   href="https://www.facebook.com/p/ESULK-61576131141044/"
                   target="_blank"
+                  aria-label="Facebook"
                 >
                   <FaFacebookF />
                 </Link>
@@ -36,6 +37,7 @@ const Footer = () => {
                 <Link
                   href="https://www.instagram.com/esu.lk?igsh=em96N3kwZ3Uxc2xk"
                   target="_blank"
+                  aria-label="Instagram"
                 >
                   <FaInstagram />
                 </Link>
@@ -44,6 +46,7 @@ const Footer = () => {
                 <Link
                   href="https://www.linkedin.com/company/esu-lk/"
                   target="_blank"
+                  aria-label="LinkedIn"
                 >
                   <FaLinkedinIn />
                 </Link>
@@ -52,11 +55,12 @@ const Footer = () => {
                 <Link
                   href="https://www.tiktok.com/@esu.lk?_t=ZS-8wXBCM65Bn5&_r=1"
                   target="_blank"
+                  aria-label="TikTok"
                 >
                   <FaTiktok />
                 </Link>
               </div>
-              {/*               <div className="icon">
+              {/* <div className="icon">
                 <Link
                   href="https://www.youtube.com/channel/UCrVBMxBtZy7iVHecsUUycew"
                   target="_blank"

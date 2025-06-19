@@ -44,7 +44,7 @@ const TestimonialItem: React.FC<Props> = ({ testimonialData }) => {
   const shouldTruncate = text.length > MAX_CHARACTERS;
   const visibleText = expanded ? text : text.slice(0, MAX_CHARACTERS);
 
-    const getYouTubeId = (url?: string) => {
+  const getYouTubeId = (url?: string) => {
     if (!url) return "";
     const match = url.match(
       /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
@@ -70,47 +70,53 @@ const TestimonialItem: React.FC<Props> = ({ testimonialData }) => {
             </div>
           )}
           <div className="detail-contain">
-            <h6 className="person-name">{title}</h6>
+            <span className="person-name">{title}</span>
           </div>
         </div>
 
         {/* Text Testimonial */}
         {isText && text && (
-            <div className="testimonial-content message">
+          <div className="testimonial-content message">
             {text.split(/\r?\n/).map((line, i) => (
               <p key={i}>{line.trim()}</p>
             ))}
-            </div>
+          </div>
         )}
 
         {/* Video Testimonial */}
         {isVideo && imageUrl && (
-          <div className="testimonial-content-parent " >
-          <div className="testimonial-content video" style={{ position: "relative" }}>
-            <Image
-              src={imageUrl}
-              alt={`Testimonial Video Thumbnail - ${title}`}
-              width={300}
-              height={200}
-              layout="responsive"
-            />
-           <img
-              src="/images/play-button.png"
-              alt="Play Video"
-              className="video-play-btn"
-              width={40}
-              height={40}
-            
-              onClick={() => setShowModal(true)}
-            />
-          </div>
+          <div className="testimonial-content-parent ">
+            <div
+              className="testimonial-content video"
+              style={{ position: "relative" }}
+            >
+              <Image
+                src={imageUrl}
+                alt={`Testimonial Video Thumbnail - ${title}`}
+                width={300}
+                height={200}
+                layout="responsive"
+              />
+              <img
+                src="/images/play-button.png"
+                alt="Play Video"
+                className="video-play-btn"
+                width={40}
+                height={40}
+                onClick={() => setShowModal(true)}
+              />
+            </div>
           </div>
         )}
-        {showModal && youtubeId &&
+        {showModal &&
+          youtubeId &&
           typeof window !== "undefined" &&
           createPortal(
             <div className="video-modal" onClick={() => setShowModal(false)}>
-              <div className="video-modal-content" onClick={e => e.stopPropagation()}>
+              <div
+                className="video-modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <button
                   className="video-modal-close"
                   onClick={() => setShowModal(false)}
@@ -128,8 +134,7 @@ const TestimonialItem: React.FC<Props> = ({ testimonialData }) => {
               </div>
             </div>,
             document.body
-          )
-        }
+          )}
       </div>
     </div>
   );
