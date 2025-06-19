@@ -10,6 +10,7 @@
       position: relative;
       width: 100%;
       height: 100%;
+      min-height: 400px;
 
       picture {
         display: block;
@@ -22,6 +23,7 @@
           object-fit: cover;
           object-position: center; // or "top" if preferred
           display: block;
+          min-height: 400px;
         }
       }
 
@@ -32,11 +34,9 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-          0deg,
-          #0a0a0c -5.45%,
-          rgba(10, 10, 12, 0) 69.54%
-        );
+        background: linear-gradient(0deg,
+            #0a0a0c -5.45%,
+            rgba(10, 10, 12, 0) 69.54%);
         z-index: 1;
       }
     }
@@ -57,6 +57,23 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+  .inner-banner {
+    .full-wrap {
+      .inner-banner-image {
+        min-height: auto;
+
+        picture {
+          img {
+            min-height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+
 @media screen and (min-width: 1200px) {
   .inner-banner {
     .full-wrap {
@@ -64,6 +81,7 @@
         &::after {
           content: "";
         }
+
         picture {
           img {
             height: get-vw(617px);
@@ -72,6 +90,7 @@
           }
         }
       }
+
       .inner-banner-content {
         h1 {
           color: #fff;
@@ -79,6 +98,7 @@
           line-height: get-vw(90px);
           letter-spacing: get-vw(-9.6px);
         }
+
         div {
           padding-top: get-vw(30px);
           width: get-vw(909px);
@@ -94,8 +114,6 @@
 }
 
 .highlighted-text {
-  color: var(
-    --main-title-color,
-    #00aecd
-  ) !important; // adjust this color as needed
+  color: var(--main-title-color,
+      #00aecd) !important; // adjust this color as needed
 }

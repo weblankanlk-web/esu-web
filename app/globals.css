@@ -742,7 +742,6 @@ select:focus {
   overflow: hidden;
 }
 
-
 .branch-dropdown {
   padding: 0;
   border: 0 !important;
@@ -1025,7 +1024,6 @@ body.single-esoft-jobs {
   margin: 0 -10px;
 }
 
-
 #selected-checks {
   list-style: none;
   padding: 0;
@@ -1183,10 +1181,8 @@ body.single-esoft-jobs {
   width: 33.3%;
 }
 
-
 /**********************************************************************************/
 @media (min-width: 991px) and (max-width: 1600px) {
-
   .braedcumb-section {
     padding-bottom: 10px;
   }
@@ -1220,15 +1216,13 @@ body.single-esoft-jobs {
     height: 100px;
     padding: 5px;
   }
-
 }
 @media (min-width: 991px) and (max-width: 1200px) {
   .small-wrap {
     width: 90%;
   }
-
 }
-@media only screen and (min-width: 991px) {
+@media only screen and (min-width: 992px) {
   .mobile-div,
   .navmobile-offcanvas {
     display: none !important;
@@ -1302,7 +1296,7 @@ body.single-esoft-jobs {
   #banner-carousel img {
     height: 90vh;
   }
- 
+
   .top-bar-menu img {
     filter: invert(0%) sepia(147%) saturate(110%) hue-rotate(228deg)
       brightness(0) contrast(100%);
@@ -1501,7 +1495,7 @@ body.single-esoft-jobs {
   .section-heading--underline {
     align-items: center;
   }
- 
+
   .vision-section::after {
     top: 0;
   }
@@ -1713,7 +1707,6 @@ body.single-esoft-jobs {
     line-height: 35px;
   }
 
-
   .banner-con h2 {
     width: 90%;
     margin-left: auto;
@@ -1733,7 +1726,7 @@ body.single-esoft-jobs {
     font-size: 25px;
     line-height: 35px;
   }
- 
+
   .related-coures-div {
     padding: 10px 0;
   }
@@ -1833,7 +1826,6 @@ body.single-esoft-jobs {
   .schedule-table-wrap {
     width: 100%;
     overflow: auto;
-
   }
   .fee-box {
     width: 100%;
@@ -1969,7 +1961,6 @@ body.single-esoft-jobs {
     width: 50%;
     padding: 10px;
   }
-
 }
 @media only screen and (max-width: 600px) {
   .banner-search-bar {
@@ -2035,7 +2026,7 @@ body.single-esoft-jobs {
   .course-box-wrap {
     padding: 0 0 15px;
   }
- 
+
   .category-wrap-box {
     width: 100%;
     padding: 10px;
@@ -2065,12 +2056,12 @@ body.single-esoft-jobs {
   .the-content-div li p {
     text-align: left !important;
   }
- 
+
   .banner-image-only {
     padding-bottom: 0;
     min-height: unset;
   }
- 
+
   .staff-box-img {
     width: 120px;
     height: 120px;
@@ -2079,7 +2070,7 @@ body.single-esoft-jobs {
   #inquiryModal .form-wrap {
     padding: 10px;
   }
- 
+
   .batch-table thead {
     display: none;
   }
@@ -2184,4 +2175,3 @@ body.single-esoft-jobs {
     width: 90%;
   }
 }
-
