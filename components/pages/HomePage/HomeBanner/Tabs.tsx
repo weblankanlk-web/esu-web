@@ -51,26 +51,29 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
             <div key={tab.id} className="tab-pane fade show active">
               <div className="banner-item">
                 <div className="image-container">
-                  <picture>
+                  {/* <picture>
                     <source srcSet={tab?.ImgDesk} media="(min-width: 992px)" />
-                    <source srcSet={tab?.ImgMob} media="(max-width: 991px)" />
+                    <source srcSet={tab?.ImgMob} media="(max-width: 991px)" /> */}
                     <Image
                       src={tab?.ImgDesk || tab?.ImgMob}
                       className="d-block w-100"
-                      alt={tab?.text}
+                      alt={tab?.text || "Faculty banner"}
                       width={1920}
                       height={1080}
+                      quality={75}
                       layout="responsive"
+                      priority={tab.id === tabData[0]?.id} // Load first tab image with priority
                     />
-                  </picture>
+                  {/* </picture> */}
                 </div>
                 <div className="detail-container">
                   <div className="detail-wrap">
                     <Image
                       src={tab?.ImgLogo}
-                      width={900}
-                      height={850}
-                      alt={tab?.text}
+                      alt={tab?.text || "Faculty logo"}
+                      width={200}
+                      height={100}
+                      objectFit="contain"
                     />
                     <div className="home-content">
                       <p>{tab?.text}</p>
@@ -88,6 +91,7 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
             <li className="nav-item" key={tab.id}>
               <button
                 className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
+                aria-label={`Select ${tab.buttonName} tab`}
                 onClick={() => {
                   if (activeTab === tab.id && clickedTab === tab.id) {
                     // Second click on same active tab: redirect
