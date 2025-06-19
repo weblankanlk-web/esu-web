@@ -56,12 +56,12 @@ const HomeUniversities = () => {
   return (
     <section className="home-universities">
       <div className="home-uni-wrap">
-        <div className="uni-content-wrap" data-aos="fade-up"  >
+        <div className="uni-content-wrap" data-aos="fade-up">
           <TitleLarge title="Academic" subtitle=" Partnerships" />
-          <div className="uni-content"  >{universityContent}</div>
+          <div className="uni-content">{universityContent}</div>
         </div>
 
-        <div className="uni-slider-wrap" data-aos="fade-up" >
+        <div className="uni-slider-wrap" data-aos="fade-up">
           <Slider
             ref={sliderRef}
             {...sliderSettings}
@@ -82,6 +82,8 @@ const HomeUniversities = () => {
                         width={800}
                         height={450}
                         className="uni-main-image"
+                        priority
+                        quality={75}
                       />
                     </a>
                   ) : (
@@ -91,6 +93,8 @@ const HomeUniversities = () => {
                       width={800}
                       height={450}
                       className="uni-main-image"
+                      priority
+                      quality={75}
                     />
                   )}
                   <div className="uni-logo">
@@ -102,6 +106,8 @@ const HomeUniversities = () => {
                         width={80}
                         height={80}
                         className="uni-logo-image"
+                        priority
+                        quality={75}
                       />
                     ))}
                   </div>

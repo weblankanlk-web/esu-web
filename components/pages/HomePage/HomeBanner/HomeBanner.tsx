@@ -86,7 +86,7 @@ const HomeBanner = () => {
     fetchHomeBanners();
   }, []);
 
-  if (isLoading) return <Preloader />;
+  // if (isLoading) return <Preloader />;
 
   return (
     <section className="home-banner">

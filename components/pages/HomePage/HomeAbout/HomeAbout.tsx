@@ -4,6 +4,7 @@ import "./style.scss";
 import TitleLarge from "../../../common/TitleLarge/TitleLarge";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import AdaptiveImage from "@/components/common/AdaptiveImage/AdaptiveImage";
 
 interface HomeAboutProps {
   title: string;
@@ -12,34 +13,48 @@ interface HomeAboutProps {
   image: string;
 }
 
-const HomeAbout: React.FC<HomeAboutProps> = ({ title, subtitle, content, image }) => {
+const HomeAbout: React.FC<HomeAboutProps> = ({
+  title,
+  subtitle,
+  content,
+  image,
+}) => {
   return (
-      <section className="home-about about-intro-section"  >
-        <div className="full-wrap">
-          <div className="image-detail-wrap">
-            <div className="left" data-aos="fade-up" >
-              <Image
-                src={image}
-                width={900}
-                height={850}
-                alt=""
-              />
+    <section className="home-about about-intro-section">
+      <div className="full-wrap">
+        <div className="image-detail-wrap">
+          <div className="left" data-aos="fade-up">
+            {/* <Image
+              src={image}
+              width={900}
+              height={850}
+              priority
+              alt="About ESU University"
+              placeholder="blur"
+              blurDataURL="/images/placeholder-blur.jpg"
+            /> */}
+            <AdaptiveImage
+              src={image}
+              width={900}
+              height={850}
+              alt="About ESU University"
+            />
+          </div>
+          <div className="right" data-aos="fade-up">
+            <div className="title-wrap">
+              <TitleLarge title={title} subtitle={subtitle} />
             </div>
-            <div className="right" data-aos="fade-up" >
-              <div className="title-wrap">
-                <TitleLarge title={title} subtitle={subtitle} />
-              </div>
-              <div className="button-wrap">
-                {/* <Button buttonName="About Us" buttonUrl="#" /> */}
-              </div>
-              <div
-                className="the-content-div-about"
-                dangerouslySetInnerHTML={{ __html: content }}
-              />
+            <div className="button-wrap">
+              {/* <Button buttonName="About Us" buttonUrl="#" /> */}
             </div>
+            <div
+              className="the-content-div-about"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   );
 };
 

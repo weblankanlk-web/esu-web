@@ -27,7 +27,6 @@ interface Course {
 }
 
 const CourseItem: React.FC<{ course: Course }> = ({ course }) => {
-
   return (
     <div className="course-box-wrap" key={course.id} data-aos="zoom-in">
       <Link
@@ -40,9 +39,12 @@ const CourseItem: React.FC<{ course: Course }> = ({ course }) => {
         <div className="course-box-img">
           {course.tag && <span className="course-tag">{course.tag}</span>}
           {course.featuredImage?.node?.mediaItemUrl && (
-            <img
+            <Image
               src={course.featuredImage.node.mediaItemUrl}
               alt={course.title}
+              priority
+              width={472}
+              height={736}
             />
           )}
           <div className="course-box-img-content">
@@ -51,9 +53,7 @@ const CourseItem: React.FC<{ course: Course }> = ({ course }) => {
               <p>
                 {course.courseTypes?.nodes?.[0]?.name}
                 {course.courseTypes?.nodes?.[0]?.name &&
-                  course.schoolTypes?.nodes?.[0]?.name && (
-                  <>&nbsp;|&nbsp;</>
-                  )}
+                  course.schoolTypes?.nodes?.[0]?.name && <>&nbsp;|&nbsp;</>}
                 {course.schoolTypes?.nodes?.[0]?.name}
               </p>
             </div>

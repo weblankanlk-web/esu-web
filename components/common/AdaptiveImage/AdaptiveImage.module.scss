@@ -1,0 +1,21 @@
+.adaptiveImageWrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+
+    .phitem {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    background: #f2f2f2;
+}
+
+.imageError {
+    filter: grayscale(100%);
+}

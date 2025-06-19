@@ -23,10 +23,16 @@ const HomeDifferenceMobile: React.FC = () => {
     <section className="home-difference-section HomeDifferenceMobile">
       <div className="home-difference-wrap">
         <Slider {...settings} className="home-difference-slider">
-          <div className="single-difference single-slider-item" data-aos="fade-up">
+          <div
+            className="single-difference single-slider-item"
+            data-aos="fade-up"
+          >
             <div className="difference-text">
               <div className="title-wrap">
-                <TitleExtraSmall title="A Space To " subtitle=" &nbsp; Grow, Lead, and Belong" />
+                <TitleExtraSmall
+                  title="A Space To "
+                  subtitle=" &nbsp; Grow, Lead, and Belong"
+                />
               </div>
               <p>
                 From meaningful friendships to memorable moments, our
@@ -42,6 +48,8 @@ const HomeDifferenceMobile: React.FC = () => {
                 width={360}
                 height={250}
                 className="difference-img"
+                priority
+                quality={75}
               />
             </div>
           </div>
@@ -53,7 +61,10 @@ const HomeDifferenceMobile: React.FC = () => {
           >
             <div className="difference-text">
               <div className="title-wrap">
-                <TitleExtraSmall title="Turning " subtitle="&nbsp; Ambition Into Direction" />
+                <TitleExtraSmall
+                  title="Turning "
+                  subtitle="&nbsp; Ambition Into Direction"
+                />
               </div>
               <p>
                 We don’t just talk about goals; we help shape them. With
@@ -76,7 +87,10 @@ const HomeDifferenceMobile: React.FC = () => {
           <div className="single-difference" data-aos="fade-up">
             <div className="difference-text">
               <div className="title-wrap">
-                <TitleExtraSmall title="Learning  " subtitle="&nbsp; Beyond The Classroom" />
+                <TitleExtraSmall
+                  title="Learning  "
+                  subtitle="&nbsp; Beyond The Classroom"
+                />
               </div>
               <p>
                 We bring the real world to our students through collaboration
