@@ -42,19 +42,9 @@ export default function RootLayoutClient({
     // });
   }, []);
 
-  // return isLoading ? (
-  //   <Preloader />
-  // ) : (
-  //   <ThemeProvider>
-  //     {!isAdmin && <Header />}
-  //     {children}
-  //     {!isAdmin && <Footer />}
-  //     {/* <Chatbot /> */}
-  //     <BackToTopButton />
-  //   </ThemeProvider>
-  // );
-
-  return (
+  return isLoading ? (
+    <Preloader />
+  ) : (
     <ThemeProvider>
       {!isAdmin && <Header />}
       {children}
