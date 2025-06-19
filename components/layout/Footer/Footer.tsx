@@ -93,7 +93,7 @@ const Footer = () => {
               <br />
               Colombo 4, Sri Lanka.
             </p>
-            <div className="awards">
+            {/* <div className="awards">
               <h4>OUR AWARDS</h4>
               <Image
                 src={"/images/best-web-logo.png"}
@@ -102,7 +102,7 @@ const Footer = () => {
                 height={100}
                 style={{ objectFit: "contain" }}
               />
-            </div>
+            </div> */}
             <div className="copyright">
               <p>Copyright © 2025 ESOFT UNI</p>
               <p>
