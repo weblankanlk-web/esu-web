@@ -82,7 +82,7 @@ const Header = () => {
         case "faculty-of-business-law":
           setFacultyBusinessLawMenu(enableCourse);
           break;
-        case "faculty-of-languages-education-sociology":
+        case "faculty-of-education-languages-sociology":
           setFacultyLanguagesEducationSociologyMenu(enableCourse);
           break;
         default:
@@ -235,7 +235,7 @@ const Header = () => {
                               <Link
                                 onClick={() => {
                                   window.location.href =
-                                    "/faculties/faculty-of-languages-education-sociology";
+                                    "/faculties/faculty-of-education-languages-sociology";
                                 }}
                                 href="#"
                               >

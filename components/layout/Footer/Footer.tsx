@@ -109,7 +109,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          
+
           <div className="column links quick-links">
             <h4>QUICK LINKS</h4>
             <ul>
@@ -167,6 +167,9 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/quality-policy/">Quality Policy</Link>
+              </li>
+              <li>
+                <Link href="/sitemap/">Sitemap</Link>
               </li>
               {/* <li>
                 <Link href="https://referrals.esoft.lk/referrer/login">

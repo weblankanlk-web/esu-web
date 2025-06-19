@@ -288,7 +288,7 @@ export default function CoursesPage() {
 
   console.log(selectedSchools);
 
-  if (isLoading) return <Preloader />;
+  // if (isLoading) return <Preloader />;
 
   return (
     <>

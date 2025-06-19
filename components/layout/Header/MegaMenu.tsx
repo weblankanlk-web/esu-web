@@ -278,7 +278,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                 <div className="mega-column">
                   <Link
                     onClick={() => {
-                      window.location.href = `/courses?faculty=faculty-of-languages-education-sociology&programs=${courseMenuSlug}`;
+                      window.location.href = `/courses?faculty=faculty-of-education-languages-sociology&programs=${courseMenuSlug}`;
                     }}
                     href="#"
                   >

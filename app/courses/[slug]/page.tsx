@@ -259,7 +259,7 @@ const page = () => {
     isScheduleLoading ||
     isRelatedLoading;
 
-  if (isLoading) return <Preloader />;
+  // if (isLoading) return <Preloader />;
 
   return (
     <>
