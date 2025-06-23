@@ -10,6 +10,7 @@ import InquireForm from "@/components/sections/InquireForm/InquireForm";
 import Modal from "@/components/common/Modal/Modal";
 import { usePathname } from "next/navigation";
 import BackToTopButton from "@/components/common/BackToTopButton/BackToTopButton";
+import ScrollToTop from "@/components/common/ScrollToTop/ScrollToTop";
 // import AOS from 'aos';
 // import 'aos/dist/aos.css';
 
@@ -46,6 +47,7 @@ export default function RootLayoutClient({
     <Preloader />
   ) : (
     <ThemeProvider>
+      <ScrollToTop />
       {!isAdmin && <Header />}
       {children}
       {!isAdmin && <Footer />}
