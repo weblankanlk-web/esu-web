@@ -14,7 +14,7 @@ import { useTheme } from "@/lib/ThemeContext";
 import BannerTitleWithOutImage from "@/components/common/BannerTitleWithOutImage/BannerTitleWithOutImage";
 import Preloader from "@/components/common/Preloader/Preloader";
 
-export default function CoursesPage() {
+export default function AcademicsPage() {
   const [search, setSearch] = useState("");
 
   const [allAcademics, setAllAcademics] = useState<Staffs[]>([]);
@@ -23,9 +23,30 @@ export default function CoursesPage() {
   const [selectedSchools, setSelectedSchools] = useState<string[]>([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const coursesPerPage = 12;
+
+  // const coursesPerPage = 12;
+
+  const [academicsPerPage, setAcademicsPerPage] = useState(12);
 
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const updatedAcademicsPerPage = () => {
+      if (window.innerWidth <= 768) {
+        setAcademicsPerPage(6);
+      } else {
+        setAcademicsPerPage(12);
+      }
+    };
+
+    updatedAcademicsPerPage();
+
+    window.addEventListener("resize", updatedAcademicsPerPage);
+
+    return () => {
+      window.removeEventListener("resize", updatedAcademicsPerPage);
+    };
+  }, []);
 
   useEffect(() => {
     let results = [...allAcademics];
@@ -72,7 +93,7 @@ export default function CoursesPage() {
     fetchAcademics();
   }, []);
 
-  const totalPages = Math.ceil(filteredAcademics.length / coursesPerPage);
+  const totalPages = Math.ceil(filteredAcademics.length / academicsPerPage);
 
   if (isLoading) return <Preloader />;
 
@@ -114,8 +135,8 @@ export default function CoursesPage() {
                 {filteredAcademics.length > 0 &&
                   filteredAcademics
                     .slice(
-                      (currentPage - 1) * coursesPerPage,
-                      currentPage * coursesPerPage
+                      (currentPage - 1) * academicsPerPage,
+                      currentPage * academicsPerPage
                     )
                     .map((academicsItem, index) => (
                       <MemberCardItem
