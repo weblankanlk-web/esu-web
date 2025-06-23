@@ -273,7 +273,7 @@ export default function CoursesPage() {
     }
 
     fetchAllFilters();
-  });
+  }, []);
 
   useEffect(() => {
     if (!filtersReady) return;
@@ -300,17 +300,35 @@ export default function CoursesPage() {
 
           <div className="landing-wrap-top" data-aos="fade-up">
             <div className="landing-results landing-results-top">
-              <SearchBar search={search} setSearch={setSearch} />
+              <SearchBar
+                search={search}
+                setSearch={(searchTerm) => {
+                  setSearch(searchTerm);
+                  setCurrentPage(1);
+                }}
+              />
             </div>
           </div>
 
           <div className="landing-wrap">
             {/* Filter Section */}
             <Filter
-              setSelectedSchools={setSelectedSchools}
-              setSelectedPrograms={setSelectedPrograms}
-              setSelectedModes={setSelectedModes}
-              setSelectedBranches={setSelectedBranches}
+              setSelectedSchools={(schools: string[]) => {
+                setSelectedSchools(schools);
+                setCurrentPage(1);
+              }}
+              setSelectedPrograms={(programs: string[]) => {
+                setSelectedPrograms(programs);
+                setCurrentPage(1);
+              }}
+              setSelectedModes={(modes: string[]) => {
+                setSelectedModes(modes);
+                setCurrentPage(1);
+              }}
+              setSelectedBranches={(branches: string[]) => {
+                setSelectedBranches(branches);
+                setCurrentPage(1);
+              }}
               setSearch={setSearch}
               search={search}
               selectedSchools={selectedSchools}

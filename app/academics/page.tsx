@@ -93,7 +93,10 @@ export default function CoursesPage() {
           <div className="landing-wrap">
             {/* Filter Section */}
             <Filter
-              setSelectedSchools={setSelectedSchools}
+              setSelectedSchools={(schools: string[]) => {
+                setSelectedSchools(schools);
+                setCurrentPage(1);
+              }}
               setSelectedPrograms={null}
               setSelectedModes={null}
               setSelectedBranches={null}
