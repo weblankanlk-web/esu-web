@@ -69,15 +69,26 @@ const Page = () => {
   let innerBgDesk = "/images/inner-banner.gif";
   let innerBgMobi = "/images/inner-banner.gif";
 
+  let address = "No 03, De Fonseka Place, Colombo 4, Sri Lanka.";
+  let phone = "+94 769 000 400";
+  let phonenumber = "+94769000400";
+  let email = "info@esu.lk";
+
   if (pathname.includes("colombo")) {
     innerBgDesk = "/images/about/colombo-banner.jpg";
     innerBgMobi = "/images/about/colombo-banner.jpg";
+    address = "No 03, De Fonseka Place, Colombo 4, Sri Lanka.";
+    phone = "+94 769 000 400";
+    phonenumber = "+94769000400";
   } else if (pathname.includes("jaffna")) {
     innerBgDesk = "/images/about/jaffna-banner.jpg";
     innerBgMobi = "/images/about/jaffna-banner.jpg";
   } else if (pathname.includes("kandy")) {
     innerBgDesk = "/images/about/kandy-banner.jpg";
     innerBgMobi = "/images/about/kandy-banner.jpg";
+    address = "No 479, William Gopallawa Mawatha, Kandy, Sri Lanka.";
+    phone = "+94 768 800 400";
+    phonenumber = "+94768800400";
   }
 
   return (
@@ -114,7 +125,12 @@ const Page = () => {
         )}
 
         <CampusFacilities />
-        <ContactHeadOffice />
+        <ContactHeadOffice
+          address={address}
+          phone={phone}
+          phonenumber={phonenumber}
+          email={email}
+        />
       </div>
     </>
   );

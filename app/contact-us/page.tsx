@@ -22,7 +22,12 @@ const page = () => {
         innerBgDesk="/images/contact-inner-banner.gif"
         innerBgMobi="/images/contact-inner-banner.gif"
       />
-      <ContactHeadOffice />
+      <ContactHeadOffice
+        address={`No 03, De Fonseka Place, Colombo 4, Sri Lanka.`}
+        phone={`+94 769 000 400`}
+        phonenumber={`+94769000400`}
+        email={`info@esu.lk`}
+      />
       <ContactCards about={false} />
       <ContactForm />
     </>
