@@ -9,6 +9,8 @@ import { useTheme } from "@/lib/ThemeContext";
 import { NewsEvents } from "@/common/interfaces/interface";
 import { graphQLClient } from "@/lib/graphql-client";
 import { HOME_LATEST_NEWS } from "@/common/queries/query";
+import NewItem from "../../News/NewItem/NewItem";
+import Slider from "react-slick";
 
 const HomeNews = () => {
   const [news, setNews] = useState<NewsEvents[]>([]);
@@ -31,10 +33,33 @@ const HomeNews = () => {
 
   const mainNews = news[activeIndex];
 
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3, // default for desktop
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024, // tablets and below
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768, // mobile devices
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <section className="home-news-section">
       <div className="home-news-section-wrap">
-        <div className="title-wrap" >
+        <div className="title-wrap">
           <TitleLarge title="Latest" subtitle="&nbsp;News" />
           {/* <div className="all-news-wrap">
             <Link href="/news">
@@ -43,8 +68,11 @@ const HomeNews = () => {
           </div> */}
         </div>
 
-        <div className="news-container" data-aos="fade-up">
-          {mainNews && (
+        <Slider {...settings} className="news-container" data-aos="fade-up">
+          {news.map((news, index) => (
+            <NewItem news={news} key={index} />
+          ))}
+          {/* {mainNews && (
             <div className="news-main">
               <div className="image-wrap">
                 <Image
@@ -84,9 +112,9 @@ const HomeNews = () => {
                 )}
               </div>
             </div>
-          )}
+          )} */}
 
-          <div className="news-sidebar">
+          {/* <div className="news-sidebar">
             {news.map((item, idx) => (
               <div
                 className={`news-sidebar-item${idx === activeIndex ? " active" : ""}`}
@@ -106,8 +134,8 @@ const HomeNews = () => {
                 
               </div>
             ))}
-          </div>
-        </div>
+          </div> */}
+        </Slider>
       </div>
     </section>
   );

@@ -146,7 +146,7 @@ const page = () => {
       <InnerBanner
         innerPageTitlePrimary={""}
         innerPageTitleSecondary={"Sitemap"}
-        innerPageDescription="Discover the latest at ESU on our dynamic News & Events page featuring updates on graduation ceremonies, new campus openings, programme launches, and new partnerships. This is where you will find all the highlights. Stay informed, celebrate success and follow our journey as we continue to advance academic excellence and innovation."
+        innerPageDescription="Explore the full structure of the ESU website in one place. Quickly navigate to key sections including faculties, courses, academics, news, policies, and contact information. Our sitemap helps you find what you're looking for with ease."
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />

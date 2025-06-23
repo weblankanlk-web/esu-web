@@ -33,6 +33,11 @@
     flex-direction: column;
     gap: 20px;
 
+    .school-box-single {
+      width: auto !important;
+      margin: 0 10px;
+    }
+
     .news-main {
       display: flex;
       flex-direction: column;
@@ -186,7 +191,7 @@
     }
 
     .news-container {
-      flex-direction: row;
+      // flex-direction: row;
       gap: 20px;
 
       .news-main {
@@ -235,7 +240,7 @@
     padding: 0 get-vw(120px) get-vw(50px);
 
     .news-container {
-      flex-direction: row;
+      // flex-direction: row;
       gap: 20px;
 
       .news-main {
