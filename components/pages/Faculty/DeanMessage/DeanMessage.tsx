@@ -4,6 +4,7 @@ import React from "react";
 import "./style.scss";
 import Image from "next/image";
 import Link from "next/link";
+import TitleLarge from "@/components/common/TitleLarge/TitleLarge";
 
 interface DeanMessageProps {
   title: string;
@@ -30,49 +31,56 @@ const DeanMessage: React.FC<DeanMessageProps> = ({
   fontColor,
 }) => {
   return (
-    <section className="dean-massage">
-      <div className="dean-massage-wrap">
-        <div className="massage-wrap">
-          <div className="single-massage-card d-flex">
-            <div className="single-image-wrap" data-aos="fade-up">
-              <div className="member-details">
-                <h3 className="name">{DeanName}</h3>
-                <h4 className="position">{designation}</h4>
+    <>
+      <div className="dean-message-title-mobile-view">
+        <TitleLarge title={title} subtitle=" Message" />
+      </div>
+      <section className="dean-massage">
+        <div className="dean-massage-wrap">
+          <div className="massage-wrap">
+            <div className="single-massage-card d-flex">
+              <div className="single-image-wrap" data-aos="fade-up">
+                <div className="member-details">
+                  <h3 className="name">{DeanName}</h3>
+                  <h4 className="position">{designation}</h4>
+                </div>
+                <div className="member-image">
+                  <Image
+                    src={featuredImage.sourceUrl}
+                    alt={featuredImage.altText}
+                    width={500}
+                    height={500}
+                  />
+                </div>
               </div>
-              <div className="member-image">
-                <Image
-                  src={featuredImage.sourceUrl}
-                  alt={featuredImage.altText}
-                  width={500}
-                  height={500}
-                />
-              </div>
-            </div>
 
-            <div className="single-massage" data-aos="fade-up">
-              <h2 className="dean-message-title" style={{ fontFamily }}>
-                {title}
-                <span style={{ color: fontColor }}>
-                  <br />
-                  Message
+              <div className="single-massage" data-aos="fade-up">
+                <h2 className="dean-message-title" style={{ fontFamily }}>
+                  {title}
+                  <span style={{ color: fontColor }}>
+                    <br />
+                    Message
+                  </span>
+                </h2>
+                <div dangerouslySetInnerHTML={{ __html: message }}></div>
+              </div>
+              <Link href={`/academics/${slugUrl}`}>
+                <span
+                  className="campus-arrow"
+                  style={
+                    {
+                      // background: color,
+                    }
+                  }
+                >
+                  ➜
                 </span>
-              </h2>
-              <div dangerouslySetInnerHTML={{ __html: message }}></div>
+              </Link>
             </div>
-            <Link href={`/academics/${slugUrl}`}>
-              <span
-                className="campus-arrow"
-                style={{
-                  // background: color,
-                }}
-              >
-                ➜
-              </span>
-            </Link>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

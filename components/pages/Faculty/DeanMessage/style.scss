@@ -1,5 +1,9 @@
 @import "@/styles/global.scss";
 
+.dean-message-title-mobile-view {
+  padding: 40px 20px 0;
+}
+
 .dean-massage {
   background-color: #f4f4f6;
   padding: 40px 0;
@@ -19,7 +23,7 @@
       .single-massage-card {
         flex-wrap: wrap;
         justify-content: space-between;
-        position: relative; // Add this to enable absolute positioning for children
+        position: relative;
         background: #fff;
         margin: 0 20px;
         //  margin: 0 get-vw(160px);
@@ -86,6 +90,10 @@
           font-weight: 400;
           text-align: justify;
           padding: get-vw(170px) get-vw(120px);
+
+          .dean-message-title {
+            display: none;
+          }
         }
       }
     }
@@ -109,7 +117,6 @@
           }
 
           .single-massage {
-
             padding: get-vw(90px) get-vw(90px);
           }
         }
@@ -135,6 +142,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .dean-message-title-mobile-view {
+    display: none;
+  }
+
   .dean-massage {
     padding: get-vw(75px) 0;
 
@@ -216,6 +227,9 @@
             // padding: get-vw(90px) get-vw(151px);
             padding: get-vw(50px) get-vw(50px);
 
+            .dean-message-title {
+              display: block;
+            }
           }
         }
       }

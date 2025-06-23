@@ -9,7 +9,10 @@ const OurVision = () => {
       <div className="ourvision-section-wrap">
         <div className="ourvision-title-wrap">
           <TitleLarge title="Our" subtitle=" Vision" />
-          <div className="d-flex align-items-center justify-content-between ourvision-image-content" data-aos="fade-up">
+          <div
+            className="d-flex align-items-center justify-content-between ourvision-image-content"
+            data-aos="fade-up"
+          >
             <Image
               src="/images/contact-head-office.png"
               alt="Head Office"
@@ -19,15 +22,15 @@ const OurVision = () => {
 
             <div className="our-vision-content" data-aos="fade-up">
               <p>
-  <span className="right-comma">&#10077; </span>
-  To be a nationally leading, globally benchmarked private university that fosters academic excellence, drives research and
-  innovation, and prepares students for meaningful careers through strong industry integration, contributing to a knowledgeable,
-  future-ready society.
-  <span className="left-comma"> &#10078;</span>
-</p>
-
+                <span className="right-comma">&#10077; </span>
+                To be a nationally leading, globally benchmarked private
+                university that fosters academic excellence, drives research and
+                innovation, and prepares students for meaningful careers through
+                strong industry integration, contributing to a knowledgeable,
+                future-ready society.
+                <span className="left-comma"> &#10078;</span>
+              </p>
             </div>
-
           </div>
         </div>
       </div>
