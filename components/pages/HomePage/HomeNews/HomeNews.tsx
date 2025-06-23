@@ -42,16 +42,20 @@ const HomeNews = () => {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 1024, // tablets and below
-        settings: {
-          slidesToShow: 2,
-        },
+        breakpoint: 1200,
+        settings: { slidesToShow: 3 },
       },
       {
-        breakpoint: 768, // mobile devices
-        settings: {
-          slidesToShow: 1,
-        },
+        breakpoint: 992,
+        settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1 },
       },
     ],
   };

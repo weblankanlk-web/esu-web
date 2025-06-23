@@ -41,6 +41,7 @@
                             left: 0;
                             top: 90px;
                             z-index: 2;
+                            width: 100%;
 
                             .detail-wrap {
                                 display: flex;
@@ -152,8 +153,12 @@
             }
         }
     }
+}
 
-    @media only screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
+    .home-banner {
+        min-height: 515px;
+
         .full-wrap {
             .tab-section {
                 .tab-content {
@@ -206,8 +211,10 @@
                 .button-sec {
                     width: 100%;
                     border-bottom: get-vw(1px) solid rgba(255, 255, 255, 0.30);
+
                     .nav-tabs {
                         padding: get-vw(60px) get-vw(20px);
+
                         .nav-item {
                             .nav-link {
                                 padding: get-vw(17px) get-vw(25px);
@@ -219,14 +226,5 @@
                 }
             }
         }
-    }
-}
-
-
-
-
-@media screen and (min-width: 1200px) {
-    .home-banner {
-        min-height: 515px;
     }
 }

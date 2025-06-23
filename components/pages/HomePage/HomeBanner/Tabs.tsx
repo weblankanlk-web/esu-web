@@ -54,16 +54,16 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
                   {/* <picture>
                     <source srcSet={tab?.ImgDesk} media="(min-width: 992px)" />
                     <source srcSet={tab?.ImgMob} media="(max-width: 991px)" /> */}
-                    <Image
-                      src={tab?.ImgDesk || tab?.ImgMob}
-                      className="d-block w-100"
-                      alt={tab?.text || "Faculty banner"}
-                      width={1920}
-                      height={1080}
-                      quality={75}
-                      layout="responsive"
-                      priority={tab.id === tabData[0]?.id} // Load first tab image with priority
-                    />
+                  <Image
+                    src={tab?.ImgDesk || tab?.ImgMob}
+                    className="d-block w-100"
+                    alt={tab?.text || "Faculty banner"}
+                    width={1920}
+                    height={1080}
+                    quality={75}
+                    layout="responsive"
+                    priority={tab.id === tabData[0]?.id} // Load first tab image with priority
+                  />
                   {/* </picture> */}
                 </div>
                 <div className="detail-container">
@@ -111,9 +111,11 @@ const TabsWithImages: React.FC<TabsWithImagesProps> = ({ tabData }) => {
                 }}
               >
                 {tab.buttonName}
-                &nbsp; &nbsp;
                 {activeTab === tab.id && clickedTab === tab.id && (
-                  <FaArrowUpRightFromSquare />
+                  <>
+                    &nbsp; &nbsp;
+                    <FaArrowUpRightFromSquare />
+                  </>
                 )}
               </button>
             </li>

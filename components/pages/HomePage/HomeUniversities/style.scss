@@ -75,7 +75,7 @@
             &::before {
               content: "";
               display: block;
-              height: 8px;
+              height: 5px;
               background-color: var(--main-title-color, red);
               opacity: 0.3;
               border-radius: 4px;
@@ -235,7 +235,7 @@
               &::before {
                 content: "";
                 display: block;
-                height: 8px;
+                height: 5px;
                 background-color: var(--main-title-color, red);
                 opacity: 0.3;
                 border-radius: 4px;
