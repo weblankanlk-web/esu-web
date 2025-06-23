@@ -11,6 +11,7 @@ import Modal from "@/components/common/Modal/Modal";
 import { usePathname } from "next/navigation";
 import BackToTopButton from "@/components/common/BackToTopButton/BackToTopButton";
 import ScrollToTop from "@/components/common/ScrollToTop/ScrollToTop";
+import BestWebLogo from "@/components/common/BestWebLogo/BestWebLogo";
 // import AOS from 'aos';
 // import 'aos/dist/aos.css';
 
@@ -53,6 +54,7 @@ export default function RootLayoutClient({
       {!isAdmin && <Footer />}
       {/* <Chatbot /> */}
       <BackToTopButton />
+      <BestWebLogo />
     </ThemeProvider>
   );
 }

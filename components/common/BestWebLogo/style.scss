@@ -1,0 +1,29 @@
+.best-web {
+    position: fixed;
+    top: 15%;
+    right: 10px;
+    z-index: 9;
+}
+
+@media only screen and (max-width:600px) {
+    .best-web {
+        left: 10px;
+        bottom: 10%;
+        z-index: 999;
+        top: auto;
+
+        img {
+            width: 100px !important;
+            height: auto !important;
+            object-fit: contain;
+        }
+    }
+}
+
+@media (min-width:600px) and (max-width:991px) {
+    .best-web img {
+        width: 120px !important;
+        height: auto !important;
+        object-fit: contain;
+    }
+}

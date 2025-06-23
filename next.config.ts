@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       "esoft.local",
       "cms.esu.lk",
       "emc.sgp1.digitaloceanspaces.com",
+      "ebadge.bestweb.lk",
     ],
   },
 };
