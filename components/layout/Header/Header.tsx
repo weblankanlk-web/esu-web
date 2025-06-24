@@ -109,8 +109,8 @@ const Header = () => {
                 <Link href="/">
                   <Image
                     src="/images/logo/esu-header.png"
-                    width={150}
-                    height={50}
+                    width={200}
+                    height={70}
                     alt="Logo"
                     style={{
                       width: "100%",

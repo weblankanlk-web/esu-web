@@ -156,6 +156,23 @@
               padding-right: 5px;
               max-height: 200px;
               min-height: 200px;
+              scrollbar-width: thin;
+              scrollbar-width: 2px;
+
+              &::-webkit-scrollbar {
+                width: 2px;
+                height: 2px;
+              }
+
+              &::-webkit-scrollbar-track {
+                background: transparent;
+              }
+
+              &::-webkit-scrollbar-thumb {
+                background-color: var(--main-title-color, #00aecd);
+                border-radius: 6px;
+                border: none;
+              }
 
               p {
                 margin: 0 0 4px;
@@ -285,13 +302,14 @@
   @media only screen and (min-width: 1200px) {
     margin-bottom: get-vw(140px);
 
-.testimonial-slider {
-    .slick-arrow::before {
+    .testimonial-slider {
+      .slick-arrow::before {
         font-size: get-vw(60px) !important;
         z-index: 999;
-        
+
       }
-}
+    }
+
     .title-wrap {
       padding: 0 get-vw(110px) get-vw(40px);
     }

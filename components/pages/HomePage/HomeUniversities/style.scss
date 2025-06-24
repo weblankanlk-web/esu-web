@@ -144,20 +144,20 @@
           padding-top: get-vw(40px);
           padding-bottom: 0;
           font-size: get-vw(18px);
-        font-style: normal;
-        font-weight: 600;
-        line-height: get-vw(26px);
+          font-style: normal;
+          font-weight: 600;
+          line-height: get-vw(26px);
         }
       }
 
       .uni-slider-wrap {
         width: 38%;
-        padding-bottom: 40px;
-        margin-top: 40px;
+        padding-bottom: 0px;
+        margin-top: 0px;
 
         .slick-dots {
           width: 80%;
-          height: 8px;
+          height: get-vw(8px);
 
         }
 

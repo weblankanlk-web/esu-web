@@ -29,7 +29,6 @@
                                 top: 0 !important;
                                 background: linear-gradient(250deg, #00000000 0%, #0000002e 42.62%, #000000d4 100%) !important;
                                 display: block;
-                                /* z-index: 99999; */
                                 right: 0;
                                 left: 0;
                                 height: 100%;
@@ -62,9 +61,7 @@
                                     font-style: normal;
                                     font-weight: 700;
                                     line-height: 45px;
-                                    /* 122.222% */
                                     letter-spacing: -0.45px;
-                                    /* text-transform: capitalize; */
                                     padding-top: 15px;
                                     padding-bottom: 30px;
                                     text-align: center;
@@ -98,9 +95,6 @@
 
             .button-sec {
                 border-bottom: 1px solid rgba(255, 255, 255, 0.30);
-                // border-top: 1px solid rgba(255, 255, 255, 0.30);
-                // background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.83) 42.62%, rgba(0, 0, 0, 0.83) 100%);
-                // backdrop-filter: blur(6.599999904632568px);
                 padding: 0 12px;
                 position: absolute;
                 left: 0;
@@ -112,8 +106,6 @@
                     flex-wrap: wrap;
                     justify-content: center;
                     padding: 30px 5px;
-                    // border-left: 1px solid rgba(255, 255, 255, 0.30);
-                    // border-right: 1px solid rgba(255, 255, 255, 0.30);
                     border-bottom: 0;
 
                     .nav-item {
@@ -124,7 +116,6 @@
                             border-radius: 5px;
                             background: rgba(186, 186, 186, 0.65);
                             padding: 10px 15px;
-                            // width: fit-content;
                             color: #fff;
                             font-family: var(--font-manrope);
                             font-size: 12px;
@@ -133,8 +124,6 @@
                             line-height: normal;
                             text-transform: capitalize;
                             text-decoration: none;
-                            // border: 2px solid #000;
-                            // margin-right: 5px;
                             border: none;
                             width: 100%;
                             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
@@ -225,7 +214,6 @@
                                     .home-content {
                                         font-size: get-vw(45px);
                                         line-height: get-vw(55px);
-                                        /* 122.222% */
                                         letter-spacing: get-vw(-0.9px);
                                         padding-top: get-vw(15px);
                                         padding-bottom: get-vw(52px);
@@ -250,22 +238,18 @@
                 .button-sec {
                     width: 100%;
                     border-bottom: get-vw(1px) solid rgba(255, 255, 255, 0.30);
-
-                    // border-top: get-vw(1px) solid rgba(255, 255, 255, 0.30);
-                    // padding: 0 get-vw(80px);
+                    padding: 0;
+                    
                     .nav-tabs {
-                        padding: get-vw(60px) get-vw(20px);
-
-                        // border-left: get-vw(1px) solid rgba(255, 255, 255, 0.30);
-                        // border-right: get-vw(1px) solid rgba(255, 255, 255, 0.30);
+                        padding: get-vw(60px) get-vw(100px);
+                        justify-content: flex-start;
+                        
                         .nav-item {
                             width: auto;
 
                             .nav-link {
-                                // border-radius: get-vw(15px);
-                                padding: get-vw(17px) get-vw(25px);
-                                font-size: get-vw(14px);
-                                // border: get-vw(2px) solid #000;
+                                padding: get-vw(25px) get-vw(20px);
+                                font-size: get-vw(17px);
                                 margin-right: get-vw(5px);
                             }
                         }

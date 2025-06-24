@@ -84,10 +84,7 @@ const page = () => {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
-            Authorization: `Bearer ${
-              process.env.NEXT_PUBLIC_API_KEY ||
-              "1100626|VPJcv2Y6wFiHPw4i60xdc1WQ2NMPUQgerXlYhOyI3a07cd1c"
-            }`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY || ""}`,
           },
         }
       );
@@ -120,10 +117,7 @@ const page = () => {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
-            Authorization: `Bearer ${
-              process.env.NEXT_PUBLIC_API_KEY ||
-              "1100626|VPJcv2Y6wFiHPw4i60xdc1WQ2NMPUQgerXlYhOyI3a07cd1c"
-            }`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY || ""}`,
           },
         }
       );
@@ -181,10 +175,7 @@ const page = () => {
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",
-              Authorization: `Bearer ${
-                process.env.NEXT_PUBLIC_API_KEY ||
-                "1100626|VPJcv2Y6wFiHPw4i60xdc1WQ2NMPUQgerXlYhOyI3a07cd1c"
-              }`,
+              Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY || ""}`,
             },
           }
         );
