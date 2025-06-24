@@ -9,7 +9,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isMobileMenuOpen }) => {
   return (
     <nav
       id="navbar_main_nav"
-      className={`navmobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary ${
+      className={`navmobile-offcanvas navbar navbar-expand-lg navbar-dark  ${
         isMobileMenuOpen ? "show-mobile-menu" : "hide-mobile-menu"
       }`}
     >

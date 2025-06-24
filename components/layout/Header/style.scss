@@ -425,7 +425,8 @@ ul#top-menu a {
   text-decoration: none;
 }
 
-@media (min-width: 992px) {
+@media only screen and (min-width: 992px) {
+
   .desktop-only-view,
   .desktop-esu-logo {
     display: block;
@@ -445,7 +446,16 @@ ul#top-menu a {
   }
 }
 
-@media (max-width: 991px) {
+@media only screen and (min-width: 1200px) {
+  ul#top-menu {
+    a {
+      font-size: get-vw(16px);
+      line-height: get-vw(26px);
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
   .main-menu-inner-wrap {
     background: var(--light-black) !important;
   }
@@ -457,9 +467,7 @@ ul#top-menu a {
       text-align: center;
     }
   }
-}
 
-@media (max-width: 991px) {
   header#header {
     position: sticky;
     top: 0;
@@ -474,11 +482,3 @@ ul#top-menu a {
   }
 }
 
-@media only screen and (min-width: 1200px) {
-  ul#top-menu {
-    a {
-      font-size: get-vw(16px);
-      line-height: get-vw(26px);
-    }
-  }
-}
