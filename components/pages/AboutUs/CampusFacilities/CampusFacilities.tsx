@@ -96,7 +96,6 @@ const CampusFacilities = () => {
     <section className="campus-facilities" data-aos="fade-up"  >
       <TitleLarge title="Our" subtitle=" Facilities" />
       <br />
-      <br />
       <div className="facility-grid">
         {facilities.map((facility, index) => (
           <div

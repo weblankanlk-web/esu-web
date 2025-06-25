@@ -11,6 +11,7 @@ import { useTheme } from "@/lib/ThemeContext";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import "./style.scss";
+import OurHighlights from "@/components/pages/AboutUs/OurHighlights/OurHighlights";
 
 const Page = () => {
   const [viceChancellor, setViceChancellor] = useState<ViceChancellor | null>(
@@ -125,6 +126,9 @@ const Page = () => {
         )}
 
         <CampusFacilities />
+
+        <OurHighlights pageSlug={slug} />
+
         <ContactHeadOffice
           address={address}
           phone={phone}

@@ -1,16 +1,21 @@
+.faculty-inner-page {
+  .inner-banner-title {
+    color: var(--faculty-color);
+    font-family: var(--faculty-font);
+    font-weight: bold;
+  }
 
-.inner-banner-title {
-  color: var(--faculty-color);
-  font-family: var(--faculty-font);
-  font-weight: bold;
+  .faculty-overview-title {
+    font-family: var(--faculty-font);
+    background: linear-gradient(90deg, var(--faculty-color) 0%, rgba(124, 124, 124, 0.7) 100%);
+    font-weight: bold;
+  }
 }
 
-.faculty-overview-title {
-  font-family: var(--faculty-font);
-  background: linear-gradient(
-    90deg,
-    var(--faculty-color) 0%,
-    rgba(124, 124, 124, 0.7) 100%
-  );
-  font-weight: bold;
+@media screen and (min-width: 1200px) {
+  .faculty-inner-page {
+    .dean-massage {
+      padding: get-vw(75px) 0 get-vw(140px);
+    }
+  }
 }

@@ -1023,3 +1023,20 @@ query {
   }
 }
 `;
+
+export const GET_OUR_HIGHLIGHTS_BY_SLUG = `
+query($slug: ID!) {
+  page(id: $slug, idType: URI) {
+    ourHighlights {
+      ourHighlights {
+        ourHighlightsImage {
+          node {
+            altText
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+}
+`;
