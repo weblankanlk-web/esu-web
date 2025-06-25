@@ -34,7 +34,7 @@ interface HighlightItem {
 const OurHighlights = ({ pageSlug }: any) => {
   const settings = {
     dots: false,
-    arrows: false,
+    arrows: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
