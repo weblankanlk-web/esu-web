@@ -9,6 +9,45 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: #fff;
 
+    .slick-arrow {
+      display: flex !important;
+      opacity: 1 !important;
+      z-index: 5;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      top: 50% !important;
+    }
+
+    .slick-prev {
+      left: 3% !important;
+
+      &:hover {
+        &::before {
+          color: var(--main-title-color, #00aecd);
+          opacity: 0.9;
+        }
+      }
+    }
+
+    .slick-next {
+      right: 3% !important;
+
+      &:hover {
+        &::before {
+          color: var(--main-title-color, #00aecd);
+          opacity: 0.9;
+        }
+      }
+    }
+
+    .slick-arrow::before {
+      font-size: 35px !important;
+      color: rgba(173, 173, 173, 0.7);
+    }
+
     .single-difference {
       padding-bottom: 0px;
 

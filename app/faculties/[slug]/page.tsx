@@ -13,6 +13,7 @@ import "./style.scss";
 import FacultyCourses from "@/components/pages/Faculty/FacultyCourses/FacultyCourses";
 import HomeTestimonials from "@/components/pages/HomePage/HomeTestimonials/HomeTestimonials";
 import { useTheme } from "@/lib/ThemeContext";
+import OurHighlights from "@/components/pages/AboutUs/OurHighlights/OurHighlights";
 
 const FacultyInnerPage = () => {
   const pathname = usePathname();
@@ -65,13 +66,12 @@ const FacultyInnerPage = () => {
     hod.schoolTypes?.nodes?.some((node: { slug: string }) => node.slug === slug)
   );
 
-
   useEffect(() => {
     if (faculty?.schoolTypesColorFontFields.color) {
       setColor(faculty.schoolTypesColorFontFields.color);
     }
   }, [faculty, setColor]);
-  
+
   return (
     <div className="faculty-inner-page">
       {faculty && (
@@ -128,7 +128,7 @@ const FacultyInnerPage = () => {
                 )?.schoolTypesColorFontFields?.courseFontFamily ??
                 faculty.schoolTypesColorFontFields.courseFontFamily
               }
-               slugUrl={matchingDean?.slug}
+              slugUrl={matchingDean?.slug}
               fontColor={
                 matchingDean.schoolTypes?.nodes?.find(
                   (node: { slug: string }) => node.slug === slug
@@ -166,6 +166,8 @@ const FacultyInnerPage = () => {
             fontFamily={faculty.schoolTypesColorFontFields.courseFontFamily}
             fontColor={faculty.schoolTypesColorFontFields.color}
           />
+
+          <OurHighlights pageSlug={slug}/>
           <HomeTestimonials />
         </>
       )}

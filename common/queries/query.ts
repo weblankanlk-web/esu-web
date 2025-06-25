@@ -1040,3 +1040,20 @@ query($slug: ID!) {
   }
 }
 `;
+
+export const GET_OUR_HIGHLIGHTS_BY_FACULTY_SLUG = `
+query($slug: ID!) {
+  schoolType(id: $slug, idType: SLUG) {
+    ourHighlights {
+      ourHighlights {
+        ourHighlightsImage {
+          node {
+            altText
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+}
+`;

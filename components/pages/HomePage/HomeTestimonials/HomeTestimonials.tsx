@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Slider from "react-slick";
 import TitleLarge from "../../../common/TitleLarge/TitleLarge";
 import "slick-carousel/slick/slick.css";
@@ -13,7 +13,7 @@ import { Testimonial } from "@/common/types/type";
 
 const HomeTestimonials: React.FC = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
- const sliderRef = useRef<Slider>(null);
+  const sliderRef = useRef<Slider>(null);
 
   const handlePrev = () => sliderRef.current?.slickPrev();
   const handleNext = () => sliderRef.current?.slickNext();
@@ -59,7 +59,6 @@ const HomeTestimonials: React.FC = () => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
-         
         },
       },
       {
@@ -67,7 +66,6 @@ const HomeTestimonials: React.FC = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-      
         },
       },
       {
@@ -75,8 +73,8 @@ const HomeTestimonials: React.FC = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false,
-            adaptiveHeight: true,
+          // arrows: false,
+          adaptiveHeight: true,
         },
       },
     ],
@@ -84,13 +82,15 @@ const HomeTestimonials: React.FC = () => {
 
   return (
     <section className="home-testimonials" data-aos="fade-up">
-      <div className="title-wrap" >
+      <div className="title-wrap">
         <TitleLarge title="Student" subtitle="&nbsp; Testimonials" />
-        
       </div>
       <div className="slider-wrap ">
-        
-        <Slider {...settings} className="testimonial-slider pb-0"  ref={sliderRef}  >
+        <Slider
+          {...settings}
+          className="testimonial-slider pb-0"
+          ref={sliderRef}
+        >
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="item">
               <TestimonialItem testimonialData={testimonial} />

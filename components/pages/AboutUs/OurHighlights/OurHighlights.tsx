@@ -8,7 +8,10 @@ import Image from "next/image";
 import TitleLarge from "@/components/common/TitleLarge/TitleLarge";
 import "./style.scss";
 import { graphQLClient } from "@/lib/graphql-client";
-import { GET_OUR_HIGHLIGHTS_BY_SLUG } from "@/common/queries/query";
+import {
+  GET_OUR_HIGHLIGHTS_BY_FACULTY_SLUG,
+  GET_OUR_HIGHLIGHTS_BY_SLUG,
+} from "@/common/queries/query";
 
 const images = [
   "/images/1.png",
@@ -46,20 +49,40 @@ const OurHighlights = ({ pageSlug }: any) => {
         ourHighlights?: HighlightItem[];
       };
     };
+
+    schoolType?: {
+      ourHighlights?: {
+        ourHighlights?: HighlightItem[];
+      };
+    };
   }
 
   useEffect(() => {
     const fetchOurHighlights = async () => {
       try {
-        const response: OurHighlightsResponse = await graphQLClient.request(
-          GET_OUR_HIGHLIGHTS_BY_SLUG,
-          {
-            slug: pageSlug,
-          }
-        );
-
-        const highlights = response?.page?.ourHighlights?.ourHighlights || [];
-        setOurHighlights(highlights);
+        if (
+          pageSlug == "faculty-of-art-design" ||
+          pageSlug == "faculty-of-life-science" ||
+          pageSlug == "faculty-of-computing" ||
+          pageSlug == "faculty-of-engineering" ||
+          pageSlug == "faculty-of-business-law" ||
+          pageSlug == "faculty-of-education-languages-sociology"
+        ) {
+          const response: OurHighlightsResponse = await graphQLClient.request(
+            GET_OUR_HIGHLIGHTS_BY_FACULTY_SLUG,
+            { slug: pageSlug }
+          );
+          const highlights =
+            response?.schoolType?.ourHighlights?.ourHighlights || [];
+          setOurHighlights(highlights);
+        } else {
+          const response: OurHighlightsResponse = await graphQLClient.request(
+            GET_OUR_HIGHLIGHTS_BY_SLUG,
+            { slug: pageSlug }
+          );
+          const highlights = response?.page?.ourHighlights?.ourHighlights || [];
+          setOurHighlights(highlights);
+        }
       } catch (error) {
         console.error("Error fetching our highlights:", error);
       }

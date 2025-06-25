@@ -17,6 +17,52 @@
 
   .slider-wrap {
     .courses-slider {
+      &.slick-slider {
+        .slick-arrow {
+          display: flex;
+          opacity: 1;
+          z-index: 5;
+          align-items: center;
+          justify-content: center;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          top: 50%;
+
+          &.slick-prev {
+            left: 3%;
+
+            &::before {
+              font-size: 35px;
+              color: rgba(173, 173, 173, 0.7);
+            }
+
+            &:hover {
+              &::before {
+                color: var(--main-title-color, #00aecd);
+                opacity: 0.9;
+              }
+            }
+          }
+
+          &.slick-next {
+            right: 3%;
+
+            &::before {
+              font-size: 35px;
+              color: rgba(173, 173, 173, 0.7);
+            }
+
+            &:hover {
+              &::before {
+                color: var(--main-title-color, #00aecd);
+                opacity: 0.9;
+              }
+            }
+          }
+        }
+      }
+
       .slick-slide {
         padding: 0 5px;
 

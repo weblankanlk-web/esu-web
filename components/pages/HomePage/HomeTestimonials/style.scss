@@ -58,27 +58,35 @@
     justify-content: center;
     width: 36px;
     height: 36px;
-    // background: #fff;
     border-radius: 50%;
-    // box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    // border: 1px solid #eee;
-    top: 50% !important; // Place arrows above the slider
+    top: 50% !important;
   }
 
   .slick-prev {
-    left: 1% !important;
+    left: 3% !important;
 
+    &:hover {
+      &::before {
+        color: var(--main-title-color, #00aecd);
+        opacity: 0.9;
+      }
+    }
   }
 
   .slick-next {
-    right: 1% !important;
+    right: 3% !important;
 
+    &:hover {
+      &::before {
+        color: var(--main-title-color, #00aecd);
+        opacity: 0.9;
+      }
+    }
   }
 
   .slick-arrow::before {
     font-size: 35px !important;
-    color: rgba(173, 173, 173, 0.7) !important;
-
+    color: rgba(173, 173, 173, 0.7);
   }
 }
 
@@ -86,7 +94,6 @@
   margin-top: 50px;
   margin-bottom: 30px;
 
-  // Global Title Styling
   .title-wrap {
     padding: 0 20px 20px;
   }
@@ -208,7 +215,6 @@
     }
   }
 
-  // iPhone Styles (up to 767px)
   @media only screen and (max-width: 767px) {
     .slider-wrap {
       .testimonial-slider {
@@ -216,11 +222,7 @@
           #testimonial-item {
             .t-item-inner {
               .testimonial-content-parent {
-
-                // min-height: 300px;
-                // max-height: 300px;
                 .testimonial-content.video {
-
                   .video-play-btn {
                     right: 5%;
                     bottom: 5%;
@@ -257,7 +259,6 @@
     }
   }
 
-  // iPad Styles (768px to 1023px)
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
     .slider-wrap {
       .testimonial-slider {
@@ -298,7 +299,6 @@
     }
   }
 
-  // Desktop Styles (min-width: 1200px)
   @media only screen and (min-width: 1200px) {
     margin-bottom: get-vw(140px);
 
@@ -336,15 +336,11 @@
         }
       }
 
-
-
       &.slick-next,
       &.slick-prev {
-        // right: get-vw(60px) !important;
         top: get-vw(300px);
 
         &::before {
-          // font-size: get-vw(60px) !important;
           color: rgba(173, 173, 173, 0.45);
           opacity: 0.9;
 
@@ -355,18 +351,11 @@
             color: var(--main-title-color, #00aecd) !important;
             opacity: 0.9;
           }
-
         }
-
       }
     }
 
-
-
-    // Responsive: adjust arrow size and position for mobile
     @media only screen and (max-width: 767px) {
-
-
       .slick-arrow {
         width: 28px;
         height: 28px;
@@ -381,14 +370,12 @@
 
     .slider-wrap {
       .testimonial-slider {
-
         .item {
           margin: 0 get-vw(5px);
 
           #testimonial-item {
             .t-item-inner {
               padding: get-vw(50px) get-vw(36px);
-              // min-height: get-vw(455px);
 
               .detail-wrapper {
                 flex-direction: row;
@@ -406,7 +393,6 @@
 
                 .detail-contain {
                   padding-left: get-vw(10px) !important;
-
                 }
               }
 
@@ -426,8 +412,6 @@
               }
             }
           }
-
-
         }
       }
     }
@@ -443,17 +427,12 @@
 
 @media screen and (max-width: 767px) {
   .video-modal {
-
     width: 100% !important;
     height: 100% !important;
 
-
     .video-modal-content {
-
       width: 100% !important;
-      ;
       height: 100% !important;
-      ;
     }
 
     iframe {
@@ -461,27 +440,4 @@
       height: 100% !important;
     }
   }
-
 }
-
-// // Read More content
-// .testimonial-content {
-//   font-size: 12px;
-// }
-
-// // Read More button
-// button.read-more-btn {
-//   background: transparent;
-//   border: none;
-//   color: #007bff;
-//   cursor: pointer;
-//   padding: 0;
-//   font-size: 14px;
-//   text-decoration: underline;
-// }
-
-
-/***/
-// section.home-news-section {
-//     display: none;
-// }
