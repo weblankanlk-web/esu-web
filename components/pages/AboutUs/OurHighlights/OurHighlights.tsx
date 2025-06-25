@@ -98,9 +98,35 @@ const OurHighlights = ({ pageSlug }: any) => {
       <TitleLarge title="Our" subtitle=" Highlights" />
       <br />
       {/* MOBILE SLIDER */}
-      {ourHighlights && (
-        <div className="our-highlights-slider mobile-only">
-          <Slider {...settings}>
+
+      {/* DESKTOP GRID */}
+
+      {ourHighlights.length === 0 ? (
+        <div className="no-highlights">
+          <p>No highlights available at the moment.</p>
+        </div>
+      ) : (
+        <>
+          <div className="our-highlights-slider mobile-only">
+            <Slider {...settings}>
+              {ourHighlights.map((highlights, index) => (
+                <div key={index} className="our-highlights-item">
+                  <Image
+                    src={highlights.ourHighlightsImage.node.sourceUrl}
+                    alt={
+                      highlights.ourHighlightsImage.node.altText ||
+                      `highlight-${index}`
+                    }
+                    width={300}
+                    height={300}
+                    layout="responsive"
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
+
+          <div className="our-highlights-grid desktop-only">
             {ourHighlights.map((highlights, index) => (
               <div key={index} className="our-highlights-item">
                 <Image
@@ -115,34 +141,8 @@ const OurHighlights = ({ pageSlug }: any) => {
                 />
               </div>
             ))}
-          </Slider>
-        </div>
-      )}
-
-      {/* DESKTOP GRID */}
-      {ourHighlights && (
-        <div className="our-highlights-grid desktop-only">
-          {ourHighlights.map((highlights, index) => (
-            <div key={index} className="our-highlights-item">
-              <Image
-                src={highlights.ourHighlightsImage.node.sourceUrl}
-                alt={
-                  highlights.ourHighlightsImage.node.altText ||
-                  `highlight-${index}`
-                }
-                width={300}
-                height={300}
-                layout="responsive"
-              />
-            </div>
-          ))}
-        </div>
-      )}
-
-      {ourHighlights.length === 0 && (
-        <div className="no-highlights">
-          <p>No highlights available at the moment.</p>
-        </div>
+          </div>
+        </>
       )}
     </section>
   );
