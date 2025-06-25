@@ -13,6 +13,12 @@
 
   .course-description-wrapper {
     padding: 50px;
+
+    .the-content-div {
+      p {
+        text-align: left !important;
+      }
+    }
   }
 
   .course-title-hr {
