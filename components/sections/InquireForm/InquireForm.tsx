@@ -11,9 +11,11 @@ import { usePathname } from "next/navigation";
 import nationalities from "../../../data/nationalities.json";
 import CustomSelect from "@/components/common/Checkbox/Checkbox";
 
-interface InquireFormProps {}
+interface InquireFormProps {
+  inquire_image: boolean;
+}
 
-const InquireForm: React.FC<InquireFormProps> = () => {
+const InquireForm: React.FC<InquireFormProps> = ({ inquire_image }) => {
   const { color } = useTheme();
   const [courses, setCourses] = useState<CoursesInquire[]>([]);
 
@@ -111,6 +113,11 @@ const InquireForm: React.FC<InquireFormProps> = () => {
     value: string;
   } | null>(null);
 
+  const [selectedFaculty, setSelectedFaculty] = useState<{
+    label: string;
+    value: string;
+  } | null>(null);
+
   const [status, setStatus] = useState("");
 
   const didAutoSelect = useRef(false);
@@ -183,9 +190,11 @@ const InquireForm: React.FC<InquireFormProps> = () => {
 
   return (
     <div className="inquire">
-      <div className="inquire__image-section">
-        <Image src="/images/home-main.png" width={900} height={850} alt="" />
-      </div>
+      {inquire_image && (
+        <div className="inquire__image-section">
+          <Image src="/images/home-main.png" width={900} height={850} alt="" />
+        </div>
+      )}
 
       <div className="inquire__form-section">
         <h2 className="inquire__title">Inquire</h2>
@@ -262,6 +271,7 @@ const InquireForm: React.FC<InquireFormProps> = () => {
               required
             />
           </div>
+
           <div className="inquire__field">
             <label>NIC/Passport:</label>
             <input
@@ -287,12 +297,60 @@ const InquireForm: React.FC<InquireFormProps> = () => {
           />
 
           <CustomSelect
+            label="Faculty:"
+            placeholder="Select Faculty"
+            options={[
+              {
+                label: "Faculty of Art & Design",
+                value: "faculty-of-art-design",
+              },
+              {
+                label: "Faculty of Life Science",
+                value: "faculty-of-life-science",
+              },
+              {
+                label: "Faculty of Business & Law",
+                value: "faculty-of-business-law",
+              },
+              {
+                label: "Faculty of Computing",
+                value: "faculty-of-computing",
+              },
+              {
+                label: "Faculty of Engineering",
+                value: "faculty-of-engineering",
+              },
+              {
+                label: "Faculty of Education, Languages & Sociology",
+                value: "faculty-of-education-languages-sociology",
+              },
+            ]}
+            value={selectedFaculty}
+            onChange={setSelectedFaculty}
+            required
+          />
+
+          <CustomSelect
             label="Course:"
             placeholder="Select Course"
-            options={courses.map((course) => ({
-              label: course.title,
-              value: course.courses?.courseCode || "",
-            }))}
+            options={
+              selectedFaculty
+                ? courses
+                    .filter((course) =>
+                      course.schoolTypes?.nodes.some(
+                        (type: { slug: string }) =>
+                          type.slug === selectedFaculty?.value
+                      )
+                    )
+                    .map((course) => ({
+                      label: course.title,
+                      value: course.courses?.courseCode || "",
+                    }))
+                : courses.map((course) => ({
+                    label: course.title,
+                    value: course.courses?.courseCode || "",
+                  }))
+            }
             value={selectedCourse}
             onChange={setSelectedCourse}
             required

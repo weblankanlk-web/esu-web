@@ -712,15 +712,21 @@ export const COURSE_GET_BY_FACULTY_TYPES = `
 
 export const GET_COURSES_FOR_INQUIRE_FORM = `
 query {
-  branchTypes {
+    branchTypes {
     nodes {
       name
-      courses(first: 100) {
+      courses(first: 300) {
         nodes {
           title
           slug
           courses {
             courseCode
+          }
+          schoolTypes {
+            nodes {
+              name
+              slug
+            }
           }
         }
       }
@@ -1051,6 +1057,29 @@ query($slug: ID!) {
             altText
             sourceUrl
           }
+        }
+      }
+    }
+  }
+}
+`;
+
+export const GET_FACULTY_DETAILS_BY_SLUG = `
+query($slug: ID!) {
+  facultyTemplate(id: $slug, idType: SLUG) {
+    facultyTemplateFields {
+      facultyName
+      facultyDescription
+      universityLogo {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      facultyBackgroundImage {
+        node {
+          altText
+          sourceUrl
         }
       }
     }

@@ -43,7 +43,7 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
 
         const allMembers = data.schoolType?.staffs?.nodes || [];
 
-        console.log("All members", allMembers);
+        // console.log("All members", allMembers);
 
         const filteredMembers = allMembers.filter((member) => {
           const slugs = member.staffTypes?.nodes?.map((node: any) =>
@@ -60,7 +60,7 @@ const MembersLanding: React.FC<MembersLandingProps> = ({
           return !isDean && !isHead;
         });
 
-        console.log("Filtered Member", filteredMembers);
+        // console.log("Filtered Member", filteredMembers);
 
         setFacultyMembers(filteredMembers);
       } catch (err) {

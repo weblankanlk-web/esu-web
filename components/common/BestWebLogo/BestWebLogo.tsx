@@ -15,8 +15,8 @@ const BestWebLogo = () => {
       <Image
         src="https://ebadge.bestweb.lk/eBadgeSystem/domainNames/esu.lk/BestWeb/2025/Rate_Us/image.png"
         alt="logo"
-        width={150}
-        height={150}
+        width={120}
+        height={120}
         style={{ marginTop: "20px" }}
       />
     </Link>

@@ -46,7 +46,7 @@ const page = () => {
       classifications?: [];
     };
   } | null>(null);
-  // const [courseFees, setCourseFees] = useState([]);0
+  // const [courseFees, setCourseFees] = useState([]);
   const [courseFees, setCourseFees] = useState<{
     fee_plans?: FeePlanInterface[];
   }>({});
@@ -57,8 +57,10 @@ const page = () => {
 
   const [subCourses, setSubCourses] = useState<any[]>([]);
   const [subCourseFees, setSubCourseFees] = useState<SubCourseFee[]>([]);
+  const [subSchedule, setSubSchedule] = useState<any[]>([]);
 
   const [selectedSubCourse, setSelectedSubCourse] = useState(null);
+  const [selectedSubCourseID, setSelectedSubCourseID] = useState(null);
 
   const [isCourseLoading, setIsCourseLoading] = useState(true);
   const [isCourseDetailsLoading, setIsCourseDetailsLoading] = useState(true);
@@ -148,6 +150,42 @@ const page = () => {
     }
   };
 
+  const fetchSchedule = async (courseId: any, main_course: boolean) => {
+    try {
+      const response = await axios.get(
+        `https://publicapi.esoft.lk/api/v1/courses/${courseId}/batches?branch_id=`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY || ""}`,
+          },
+        }
+      );
+
+      const data = response.data;
+
+      if (main_course) {
+        setSchedule(data);
+      } else {
+        setSubSchedule((prev: any[]) => {
+          // Check if this item_id already exists to avoid duplicates
+          const alreadyExists = prev.some(
+            (item) => item.item_id === data[0]?.item_id
+          );
+          if (alreadyExists) return prev;
+          return [...prev, ...data]; // merge additional bundles
+        });
+      }
+
+      // setSchedule(response.data);
+    } catch (error) {
+      console.error("Error fetching course schedule:", error);
+    } finally {
+      setIsScheduleLoading(false);
+    }
+  };
+
   useEffect(() => {
     if (!courseId) return;
 
@@ -164,27 +202,6 @@ const page = () => {
         console.error("Error fetching course details:", error);
       } finally {
         setIsCourseDetailsLoading(false);
-      }
-    };
-
-    const fetchSchedule = async () => {
-      try {
-        const response = await axios.get(
-          `https://publicapi.esoft.lk/api/v1/courses/${courseId}/batches?branch_id=`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY || ""}`,
-            },
-          }
-        );
-
-        setSchedule(response.data);
-      } catch (error) {
-        console.error("Error fetching course schedule:", error);
-      } finally {
-        setIsScheduleLoading(false);
       }
     };
 
@@ -209,7 +226,7 @@ const page = () => {
     fetchCourse(courseId, true);
     fetchCourseDetails();
     fetchCourseFees(courseId, true);
-    fetchSchedule();
+    fetchSchedule(courseId, true);
     fetchRelatedCourses();
   }, [courseId]);
 
@@ -224,6 +241,7 @@ const page = () => {
           fetchedIds.add(item.course_id);
           fetchCourse(item.course_id, false);
           fetchCourseFees(item.course_id, false);
+          fetchSchedule(item.course_id, false);
         }
       });
     };
@@ -239,6 +257,22 @@ const page = () => {
 
   const selectCourse = subCourses.find((sc) => sc.name === selectedSubCourse);
 
+  useEffect(() => {
+  if (subCourses.length > 0 && !selectedSubCourse) {
+    // Try to find "TOP UP" first
+    const topUpCourse = subCourses.find((course) =>
+      course.name.toLowerCase().includes("top up") ||
+      course.name.toLowerCase().includes("top-up")
+    );
+
+    const defaultCourse = topUpCourse || subCourses[0]; // fallback to first if no TOP UP
+
+    setSelectedSubCourse(defaultCourse.name);
+    setSelectedSubCourseID(defaultCourse.id);
+  }
+}, [subCourses]);
+
+
   const selectedSubCourseFees = subCourseFees.find(
     (fee) => fee.id === selectCourse?.id
   )?.fee_plans;
@@ -251,6 +285,10 @@ const page = () => {
     isRelatedLoading;
 
   // if (isLoading) return <Preloader />;
+
+  // console.log("schedule", schedule);
+  // console.log("subSchedule", subSchedule);
+  // console.log("selectedSubCourseID", selectedSubCourseID);
 
   return (
     <>
@@ -279,7 +317,7 @@ const page = () => {
             <div className="left-course-details">
               <div className="d-flex justify-content-center course-btn-wrap">
                 <Modal>
-                  <InquireForm />
+                  <InquireForm inquire_image={true} />
                 </Modal>
               </div>
             </div>
@@ -349,21 +387,6 @@ const page = () => {
               </div>
             </div>
             <div className="course-inner-details-box">
-              {/*<ul className="course-nav">
-                <li>
-                  <button className="active-btn nav-btn-in">overview</button>
-                </li>
-                <li>
-                  <button className="nav-btn-in">course outline</button>
-                </li>
-                <li>
-                  <button className="nav-btn-in">Schedule</button>
-                </li>
-                <li>
-                  <button className="nav-btn-in">Fees</button>
-                </li>
-              </ul> */}
-
               {course?.is_bundle_course === 1 && (
                 <div className="hnd-top-up-toogle">
                   <div className="toggle-buttons mb-3">
@@ -394,7 +417,10 @@ const page = () => {
                                 ? "active"
                                 : ""
                             }
-                            onClick={() => setSelectedSubCourse(subCourse.name)}
+                            onClick={() => {
+                              setSelectedSubCourse(subCourse.name);
+                              setSelectedSubCourseID(subCourse.id);
+                            }}
                           >
                             {label}
                           </button>
@@ -423,10 +449,6 @@ const page = () => {
                   }}
                 />
               </div>
-
-              {/* {selectCourse && (
-                <CourseOverview course={selectCourse || undefined} />
-              )} */}
 
               {course?.is_bundle_course !== 1 ? (
                 course?.course_content?.classifications ? (
@@ -474,16 +496,22 @@ const page = () => {
                 />
               )}
 
-              <CourseSchedule schedule={schedule} />
+              {(course?.is_bundle_course !== 1 || selectedSubCourseID) && (
+                <CourseSchedule
+                  schedule={
+                    course?.is_bundle_course !== 1
+                      ? schedule
+                      : subSchedule.filter(
+                          (item) => item?.item_id === selectedSubCourseID
+                        )
+                  }
+                />
+              )}
+
               {/* ------------------------------------------------ */}
 
               <CourseFees fees={courseFees} />
 
-              {/* {course?.is_bundle_course !== 1 ? (
-                <CourseFees fees={courseFees} />
-              ) : (
-                <CourseFees fees={{ fee_plans: selectedSubCourseFees || [] }} />
-              )} */}
               {/* ------------------------------------------------ */}
 
               {courseDetails?.courses?.lecturePanelDescription && (

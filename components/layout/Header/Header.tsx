@@ -63,8 +63,8 @@ const Header = () => {
         (course) => course.courses.enableCourseInTheMenu === true
       );
 
-      console.log("Course Menu Data:", data);
-      console.log("Filtered Courses:", enableCourse);
+      // console.log("Course Menu Data:", data);
+      // console.log("Filtered Courses:", enableCourse);
 
       switch (slug) {
         case "faculty-of-art-design":
@@ -315,7 +315,7 @@ const Header = () => {
               {/* desktop */}
               <div className="apply-now-wrap desktop-only-view">
                 <Modal>
-                  <InquireForm />
+                  <InquireForm inquire_image={true}/>
                 </Modal>
               </div>
             </div>
@@ -323,7 +323,7 @@ const Header = () => {
           {/* mobile */}
           <div className="apply-now-wrap mobile-only-view">
             <Modal>
-              <InquireForm />
+              <InquireForm inquire_image={true}/>
             </Modal>
           </div>
         </div>

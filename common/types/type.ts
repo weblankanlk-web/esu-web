@@ -391,6 +391,7 @@ export type AcademicStaff = {
 };
 
 export type CoursesInquire = {
+  schoolTypes: any;
   courses: any;
   title: any;
   slug: any;
@@ -403,6 +404,12 @@ export type CoursesInquire = {
           slug: string;
           courses: {
             courseCode: string;
+          };
+          schoolTypes: {
+            nodes: {
+              name: string;
+              slug: string;
+            };
           };
         };
       };

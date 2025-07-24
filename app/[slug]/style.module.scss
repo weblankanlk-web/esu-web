@@ -1,0 +1,328 @@
+@use "sass:math";
+
+@function get-vw($target) {
+    $vw-context: 1920 * 0.01 * 1px;
+    $res: math.div($target, $vw-context) * 1vw;
+    @return $res;
+}
+
+.facultyTemplate {
+    padding: 60px 20px;
+
+    .facultyContainer {
+        display: flex;
+        flex-direction: column;
+
+        .imageContainer {
+            width: 100%;
+            height: 550px;
+            position: relative;
+
+            .imageBackground {
+                border-radius: 30px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .imageOverlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 30px;
+            }
+
+            .imageLogo {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                // transform: translate(-50%, -50%);
+                width: 100px;
+                height: auto;
+                z-index: 1;
+                object-fit: contain;
+            }
+
+            .contentWrapper {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 0 20px 40px;
+
+                .contentTitle {
+                    color: #fff;
+                    font-family: var(--font-manrope);
+                    font-size: 36px;
+                    font-weight: 800;
+                    line-height: 40px;
+                    letter-spacing: -1.5px;
+                    padding-bottom: 20px;
+                    margin: 0;
+
+                    span {
+                        color: #02AEC9;
+                    }
+                }
+
+                .contentDescription {
+                    color: #fff;
+                    font-size: 16px;
+                    line-height: 24px;
+                    margin: 0;
+                }
+            }
+        }
+
+        .contentContainer {
+            width: 100%;
+            padding-top: 40px;
+
+            :global(.inquire) {
+                height: 100% !important;
+
+                :global(.inquire__form-section) {
+                    height: 100% !important;
+                }
+            }
+        }
+    }
+}
+
+.facultyGrids {
+    padding: 0 20px 60px;
+
+    .facultyGridContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .facultyGridItem {
+            position: relative;
+            width: 100%;
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            .facultyGridOverlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .facultyGridContent {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                padding: 0 20px 20px;
+
+                h3 {
+                    color: #FFF;
+                    text-align: center;
+                    font-family: var(--font-poppins);
+                    font-size: 24px;
+                    font-weight: 700;
+                    line-height: 28px;
+                    letter-spacing: -1px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .facultyTemplate {
+        .facultyContainer {
+            .imageContainer {
+                height: auto;
+            }
+        }
+    }
+
+    .facultyGrids {
+        .facultyGridContainer {
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            .facultyGridItem {
+                width: 48%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .facultyTemplate {
+        padding: 60px 30px;
+
+        .facultyContainer {
+            flex-direction: row;
+
+            .imageContainer {
+                height: auto;
+
+                .imageBackground {
+                    height: 100%;
+                }
+
+                .imageOverlay {
+                    height: 100%;
+                }
+            }
+
+            .contentContainer {
+                padding-left: 25px;
+                padding-top: 0px;
+
+                :global(.inquire) {
+                    :global(.inquire__form-section) {
+                        height: 600px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .facultyTemplate {
+        padding: get-vw(100px) get-vw(160px) get-vw(140px);
+
+        .facultyContainer {
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+
+            .imageContainer {
+                width: get-vw(790px);
+                height: get-vw(1027px);
+
+                .imageBackground {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: get-vw(30px);
+                }
+
+                .imageOverlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .imageLogo {
+                    position: absolute;
+                    top: get-vw(60px);
+                    left: get-vw(60px);
+                    // transform: translate(-50%, -50%);
+                    width: get-vw(150px);
+                    height: auto;
+                    z-index: 1;
+                    object-fit: contain;
+                }
+
+                .contentWrapper {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    padding: 0 60px 60px;
+
+                    .contentTitle {
+                        color: #fff;
+                        font-family: var(--font-manrope);
+                        font-size: get-vw(100px);
+                        font-style: normal;
+                        font-weight: 800;
+                        line-height: get-vw(80px);
+                        letter-spacing: get-vw(-6px);
+                        padding-bottom: get-vw(60px);
+                        margin: 0;
+
+                        span {
+                            color: #02AEC9;
+                        }
+                    }
+
+                    .contentDescription {
+                        color: #fff;
+                        margin: 0;
+                    }
+                }
+            }
+
+            .contentContainer {
+                width: get-vw(775px);
+                height: get-vw(1027px);
+                padding-left: get-vw(35px);
+                padding-top: get-vw(0px);
+
+                :global(.inquire) {
+                    :global(.inquire__form-section) {
+                        height: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .facultyGrids {
+        padding: get-vw(0px) get-vw(160px) get-vw(140px);
+
+        .facultyGridContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: get-vw(10px);
+            flex-direction: row;
+
+            .facultyGridItem {
+                position: relative;
+                width: 32%;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+
+                .facultyGridOverlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .facultyGridContent {
+                    position: absolute;
+                    bottom: 0;
+                    padding: 0 get-vw(30px) get-vw(30px);
+
+                    h3 {
+                        color: #FFF;
+                        text-align: center;
+                        font-family: var(--font-poppins);
+                        font-size: get-vw(40px);
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: get-vw(35px);
+                        letter-spacing: get-vw(-2.4px);
+                    }
+                }
+            }
+        }
+    }
+}

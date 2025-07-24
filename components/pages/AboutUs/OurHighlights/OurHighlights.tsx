@@ -91,7 +91,7 @@ const OurHighlights = ({ pageSlug }: any) => {
     fetchOurHighlights();
   }, [pageSlug]);
 
-  console.log("Our Highlights:", ourHighlights);
+  // console.log("Our Highlights:", ourHighlights);
 
   return (
     <section className="our-campus-highlights" data-aos="fade-up">

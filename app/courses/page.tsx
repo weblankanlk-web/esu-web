@@ -286,7 +286,7 @@ export default function CoursesPage() {
     }
   }, [filtersReady, faculty, programs]);
 
-  console.log(selectedSchools);
+  // console.log(selectedSchools);
 
   // if (isLoading) return <Preloader />;
 
