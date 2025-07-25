@@ -285,8 +285,8 @@ const InquireForm: React.FC<InquireFormProps> = ({ inquire_image }) => {
           </div>
 
           <CustomSelect
-            label="Branch:"
-            placeholder="Select Branch"
+            label="Campus:"
+            placeholder="Select Campus"
             options={[
               { label: "ESU Colombo", value: "Colombo" },
               { label: "ESU Kandy", value: "ESU-Kandy" },
@@ -296,7 +296,7 @@ const InquireForm: React.FC<InquireFormProps> = ({ inquire_image }) => {
             required
           />
 
-          <CustomSelect
+          {/* <CustomSelect
             label="Faculty:"
             placeholder="Select Faculty"
             options={[
@@ -328,7 +328,7 @@ const InquireForm: React.FC<InquireFormProps> = ({ inquire_image }) => {
             value={selectedFaculty}
             onChange={setSelectedFaculty}
             required
-          />
+          /> */}
 
           <CustomSelect
             label="Course:"

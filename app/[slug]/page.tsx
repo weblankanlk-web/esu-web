@@ -132,12 +132,15 @@ const page = () => {
               )}
 
               <div className={styles.contentWrapper}>
-                <h2 className={styles.contentTitle}>
-                  School Of <br />{" "}
-                  <span>
-                    {facultyDetails?.facultyTemplateFields?.facultyName}
-                  </span>
-                </h2>
+                {/* <h2 className={styles.contentTitle}>
+                  {facultyDetails?.facultyTemplateFields?.facultyName}
+                </h2> */}
+                <div
+                  className={styles.contentTitle}
+                  dangerouslySetInnerHTML={{
+                    __html: facultyDetails?.facultyTemplateFields?.facultyName,
+                  }}
+                />
 
                 <p className={styles.contentDescription}>
                   {facultyDetails?.facultyTemplateFields?.facultyDescription}
