@@ -72,7 +72,8 @@
                     line-height: 24px;
                     margin: 0;
                     height: 200px;
-                    overflow: scroll;
+                    overflow-y: scroll;
+                    text-align: justify;
                 }
             }
         }
@@ -144,7 +145,7 @@
     .facultyTemplate {
         .facultyContainer {
             .imageContainer {
-                height: auto;
+                // height: auto;
             }
         }
     }
@@ -260,6 +261,8 @@
                     .contentDescription {
                         color: #fff;
                         margin: 0;
+                        height: auto;
+                        overflow-y: hidden;
                     }
                 }
             }
