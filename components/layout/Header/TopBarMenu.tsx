@@ -43,7 +43,7 @@ const TopBarMenu = () => {
                 target="_blank"
                 className="d-flex align-items-center justify-content-center gap-2"
               >
-                <FaShoppingBag size={20} />
+                <FaShoppingBag size={12} />
                 merch store
               </Link>
             </li>

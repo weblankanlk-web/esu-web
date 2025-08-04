@@ -93,7 +93,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isMobileMenuOpen }) => {
                 onClick={() => (window.location.href = "/contact-us")}
                 className="d-flex align-items-center justify-content-center gap-2"
               >
-                <FaShoppingBag size={30} />
+                <FaShoppingBag size={14} />
                 Merch Store
               </Link>
             </li>
