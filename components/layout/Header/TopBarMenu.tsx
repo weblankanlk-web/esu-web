@@ -1,12 +1,12 @@
 import Link from "next/link";
 import React from "react";
+import { FaTshirt, FaGift, FaTags } from "react-icons/fa";
 
 const TopBarMenu = () => {
   return (
     <div className="top-bar">
       <div className="max-wrap">
         <nav className="navbar navbar-expand-lg nav-menu">
-          {/* Replace with dynamic menu data */}
           <ul className="navbar-nav navbardropdown" id="top-menu">
             <li>
               <Link href="/">Home</Link>
@@ -31,6 +31,21 @@ const TopBarMenu = () => {
             </li>
             <li>
               <Link href="/contact-us">Contact Us</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <nav className="navbar navbar-expand-lg nav-menu">
+          <ul className="navbar-nav navbardropdown" id="top-menu">
+            <li>
+              <Link
+                href="https://store.esu.lk/"
+                target="_blank"
+                className="d-flex align-items-center justify-content-center gap-2"
+              >
+                <FaTshirt size={20} />
+                merch store
+              </Link>
             </li>
           </ul>
         </nav>
