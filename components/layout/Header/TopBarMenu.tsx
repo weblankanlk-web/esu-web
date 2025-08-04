@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { FaTshirt, FaGift, FaTags } from "react-icons/fa";
+import { FaShoppingBag } from "react-icons/fa";
 
 const TopBarMenu = () => {
   return (
@@ -43,7 +43,7 @@ const TopBarMenu = () => {
                 target="_blank"
                 className="d-flex align-items-center justify-content-center gap-2"
               >
-                <FaTshirt size={20} />
+                <FaShoppingBag size={20} />
                 merch store
               </Link>
             </li>
