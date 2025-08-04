@@ -68,6 +68,13 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "ESU - Sri Lanka's Premier Uni for Higher Education Excellence!",
   description: "ESU - Sri Lanka's Premier Uni for Higher Education Excellence!",
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/apple-touch-icon.png", rel: "apple-touch-icon" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -103,7 +110,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        <link rel="icon" href="/favicon-32x32.png" />
+        {/* <link rel="icon" href="/favicon-32x32.png" />
 
         <link
           rel="icon"
@@ -117,7 +124,7 @@ export default function RootLayout({
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
       </head>
       <body
         className={`
