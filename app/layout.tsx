@@ -102,6 +102,7 @@ export default function RootLayout({
             });
           `}
         </Script>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
         className={`
