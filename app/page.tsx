@@ -28,6 +28,7 @@ export default function Home() {
       window.removeEventListener("resize", checkScreenSize);
     };
   }, []);
+  console.log('🕵️‍♀️ Tetsing favicon is code changes working !!')
 
   return (
     <Fragment>
