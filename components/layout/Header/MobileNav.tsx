@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { FaTshirt } from "react-icons/fa";
 
 interface MobileNavProps {
   isMobileMenuOpen: boolean;
@@ -83,6 +84,17 @@ const MobileNav: React.FC<MobileNavProps> = ({ isMobileMenuOpen }) => {
                 onClick={() => (window.location.href = "/contact-us")}
               >
                 Contact Us
+              </Link>
+            </li>
+            <li className="">
+              <Link
+                href="https://store.esu.lk/"
+                target="_blank"
+                onClick={() => (window.location.href = "/contact-us")}
+                className="d-flex align-items-center justify-content-center gap-2"
+              >
+                <FaTshirt size={30} />
+                Merch Store
               </Link>
             </li>
           </ul>
