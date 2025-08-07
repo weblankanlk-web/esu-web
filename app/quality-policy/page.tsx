@@ -260,117 +260,120 @@ export default function QualityPolicyPage() {
               </li>
             </ul>
             <h2>Details of Conducted Workshops</h2>
-            <table className="conducted-workshops">
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Workshop Theme</th>
-                  <th>Date</th>
-                  <th>Resource Person</th>
-                  <th>Remarks</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>
-                    Awareness Session on Preparing Self Evaluation Report for
-                    the Institutional Review
-                  </td>
-                  <td>24-Apr-24</td>
-                  <td>Dr. Samanthi Priyasadini</td>
-                  <td>
-                    Only for the Kandy, Kurunegala, Jaffna, Gampaha, Galle,
-                    Matara
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Internal Quality Assurance Process</td>
-                  <td>17-Jul-24</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Sri Lanka Qualification Framework (SLQF)</td>
-                  <td>26-Aug-24</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>
-                    Importance of Peer Observation in Teaching Learning Process
-                  </td>
-                  <td>9-Oct-24</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Procedures for Conducting Examination</td>
-                  <td>29 &amp; 30 Oct 2024</td>
-                  <td>-</td>
-                  <td>Only for the staff at Colombo Branch</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>
-                    Enhancing Research and Publication Competencies of Academic
-                    Staff
-                  </td>
-                  <td>23-Jan-25</td>
-                  <td>
-                    Prof. Jayantha N. Dewasiri, Sabaragamuwa University of SL
-                  </td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>Workshop on Strengthening QA Cells</td>
-                  <td>6-Feb-25</td>
-                  <td>Dr. Samanthi Priyasadini – Manager, QA</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>
-                    Enhancing Library Services: Leveraging Technology & Best
-                    Practices for an Efficient Learning Hub
-                  </td>
-                  <td>27-Mar-25</td>
-                  <td>
-                    Dr. Namali Suraweera, Victoria University of Wellington
-                  </td>
-                  <td>Library Staff</td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>Workshop on Strengthening QA Cells</td>
-                  <td>4-Apr-25</td>
-                  <td>Dr. Samanthi Priyasadini – Manager, QA</td>
-                  <td>Academic Staff and Students of Jaffna Branch</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>Workshop on Research Initiation - QA Cell - Negombo</td>
-                  <td>30-Apr-25</td>
-                  <td>Dr. Samanthi Priyasadini – Manager, QA</td>
-                  <td>Academic Staff of Negombo Branch</td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>
-                    Awareness Session on Preparation for the PR – Kurunegala
-                    Branch
-                  </td>
-                  <td>8-Jul-25</td>
-                  <td>Dr. Samanthi Priyasadini – Manager, QA</td>
-                  <td>Staff of Kurunegala Branch</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="conducted-workshops-container">
+              <table className="conducted-workshops">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Workshop Theme</th>
+                    <th>Date</th>
+                    <th>Resource Person</th>
+                    <th>Remarks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      Awareness Session on Preparing Self Evaluation Report for
+                      the Institutional Review
+                    </td>
+                    <td>24-Apr-24</td>
+                    <td>Dr. Samanthi Priyasadini</td>
+                    <td>
+                      Only for the Kandy, Kurunegala, Jaffna, Gampaha, Galle,
+                      Matara
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Internal Quality Assurance Process</td>
+                    <td>17-Jul-24</td>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Sri Lanka Qualification Framework (SLQF)</td>
+                    <td>26-Aug-24</td>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>
+                      Importance of Peer Observation in Teaching Learning
+                      Process
+                    </td>
+                    <td>9-Oct-24</td>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Procedures for Conducting Examination</td>
+                    <td>29 &amp; 30 Oct 2024</td>
+                    <td>-</td>
+                    <td>Only for the staff at Colombo Branch</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>
+                      Enhancing Research and Publication Competencies of
+                      Academic Staff
+                    </td>
+                    <td>23-Jan-25</td>
+                    <td>
+                      Prof. Jayantha N. Dewasiri, Sabaragamuwa University of SL
+                    </td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Workshop on Strengthening QA Cells</td>
+                    <td>6-Feb-25</td>
+                    <td>Dr. Samanthi Priyasadini – Manager, QA</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>
+                      Enhancing Library Services: Leveraging Technology & Best
+                      Practices for an Efficient Learning Hub
+                    </td>
+                    <td>27-Mar-25</td>
+                    <td>
+                      Dr. Namali Suraweera, Victoria University of Wellington
+                    </td>
+                    <td>Library Staff</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Workshop on Strengthening QA Cells</td>
+                    <td>4-Apr-25</td>
+                    <td>Dr. Samanthi Priyasadini – Manager, QA</td>
+                    <td>Academic Staff and Students of Jaffna Branch</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Workshop on Research Initiation - QA Cell - Negombo</td>
+                    <td>30-Apr-25</td>
+                    <td>Dr. Samanthi Priyasadini – Manager, QA</td>
+                    <td>Academic Staff of Negombo Branch</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>
+                      Awareness Session on Preparation for the PR – Kurunegala
+                      Branch
+                    </td>
+                    <td>8-Jul-25</td>
+                    <td>Dr. Samanthi Priyasadini – Manager, QA</td>
+                    <td>Staff of Kurunegala Branch</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <h2>CQA Staff</h2>
             <div className="contact-table">
               {/* Dr. Samanthi Priyasadini */}
@@ -395,11 +398,11 @@ export default function QualityPolicyPage() {
                   </p>
                   <p>Mobile: 0742885814</p>
                   <p>
-                    Email:
+                    Email: <br />
                     <a href="mailto:samanthi.priyasadini@esoft.lk">
                       samanthi.priyasadini@esoft.lk
                     </a>
-                    ,<a href="mailto:cqa@esoft.lk">cqa@esoft.lk</a>
+                    , <a href="mailto:cqa@esoft.lk">cqa@esoft.lk</a>
                   </p>
                 </div>
               </div>
@@ -416,7 +419,7 @@ export default function QualityPolicyPage() {
                   <p>BIT (UoM), SCCL (NAITA), CIE (UOM), CIIT (IBM)</p>
                   <p>Mobile: 779518732</p>
                   <p>
-                    Email:
+                    Email: <br />
                     <a href="mailto:kavindi.kaushalya@esoft.lk">
                       kavindi.kaushalya@esoft.lk
                     </a>
