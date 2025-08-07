@@ -18,7 +18,7 @@ export default function QualityPolicyPage() {
       <Breadrumb />
       <BannerTitleWithOutImage title="Quality Policy" subtitle="" />
 
-      <section className="simple-padding-bottom impornent-pages">
+      <section className="simple-padding-bottom impornent-pages quality-policy-page">
         <div className="small-middle-wrap">
           <div className="content simple-padding-top">
             <h2>Introduction</h2>
