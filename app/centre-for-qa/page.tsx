@@ -16,7 +16,10 @@ export default function QualityPolicyPage() {
   return (
     <>
       <Breadrumb />
-      <BannerTitleWithOutImage title="Quality Policy" subtitle="" />
+      <BannerTitleWithOutImage
+        title="Centre for Quality Assurance (CQA)"
+        subtitle=""
+      />
 
       <section className="simple-padding-bottom impornent-pages quality-policy-page">
         <div className="small-middle-wrap">
@@ -91,7 +94,7 @@ export default function QualityPolicyPage() {
               </li>
               <li>
                 Ms. Hiranthi Rathnayake - HOD-Undergraduate Programmes, School
-                of Business{" "}
+                of Business
               </li>
               <li>Ms. Yasitha De Silva - HOD, Fashion Design </li>
               <li>Ms. Lahiruni Ekanayake – Lecturer, Law </li>
@@ -100,12 +103,16 @@ export default function QualityPolicyPage() {
               <li>Ms. Shanika Kalpani – Assistant Librarian </li>
               <li>
                 Ms. Samadi Bandara-Faculty Academic Manager, Faculty of
-                Computing{" "}
+                Computing
               </li>
               <li>Mr. Sinan Muhamed-Chief Financial Officer </li>
               <li>Ms. S. D. N. Ama Panchali - Assistant Manager, SRU </li>
               <li>Mr. E. M. B. S Perera – Chief People Officer</li>
               <li>Dr. Samanthi Priyasadini - Manager QA </li>
+              <li>
+                Ms. Kavindi Kaushalya - Executive CQA (Convener/ Secretary to
+                the CQA)
+              </li>
             </ul>
             <div className="table-container">
               <table>
@@ -126,7 +133,11 @@ export default function QualityPolicyPage() {
                     <td>
                       Degree Awarding Institute of Ministry of Education since
                       2019.
-                      <a href="#" className="link">
+                      <a
+                        href="https://www.mohe.gov.lk/index.php?option=com_content&view=article&id=352&Itemid=336&lang=en#recognized-degrees"
+                        className="link"
+                        target="_blank"
+                      >
                         (Link to NSHE Division Web)
                       </a>
                     </td>
@@ -145,7 +156,11 @@ export default function QualityPolicyPage() {
                     <td>
                       Member University - Association of Commonwealth
                       Universities.
-                      <a href="#" className="link">
+                      <a
+                        href="https://www.acu.ac.uk/our-members/?region=Asia&country=Sri+Lanka"
+                        className="link"
+                        target="_blank"
+                      >
                         (Link to ACU Website)
                       </a>
                     </td>
@@ -161,7 +176,11 @@ export default function QualityPolicyPage() {
                     <td>
                       Institutional Member of Asia Pacific Quality Network
                       (APQN) - 2024.
-                      <a href="#" className="link">
+                      <a
+                        href="https://apqn.org/index.php/apqn-members/list/alpha/e"
+                        className="link"
+                        target="_blank"
+                      >
                         (Link to APQN Website)
                       </a>
                     </td>
@@ -169,10 +188,7 @@ export default function QualityPolicyPage() {
                 </tbody>
               </table>
             </div>
-            <p>
-              Ms. Kavindi Kaushalya - Executive CQA (Convener/ Secretary to the
-              CQA)
-            </p>
+
             <h2>National and Recognition</h2>
             <h2>Functions of the CQA</h2>
             <ul>
@@ -183,7 +199,7 @@ export default function QualityPolicyPage() {
               <li>
                 Support the departments, faculties and campus in preparation for
                 external quality assurance, assessment (EQA), and accreditation
-                requirements.{" "}
+                requirements.
               </li>
               <li>
                 Offer guidance and assistance to programme offering entities in
@@ -195,18 +211,18 @@ export default function QualityPolicyPage() {
               <li>
                 Support establishment and effective functioning of Entity (i.e,
                 Faculty, Colleges, Schools, Departments) Quality Assurance Cells
-                (QACs){" "}
+                (QACs)
               </li>
               <li>
                 Promote and coordinate QA activities within the campus through
                 conduct of workshops, seminars, development of manuals and other
-                appropriate capacity building activities.{" "}
+                appropriate capacity building activities.
               </li>
               <li>
                 Liaise with the Non state Higher Education Division (NSHED) of
                 the Ministry of Education (MoE) and other external quality
                 assurance agencies as well as relevant international agencies
-                (i.e APQN and INQAAHE).{" "}
+                (i.e APQN and INQAAHE).
               </li>
               <li>
                 Develop, review, and revise by-laws and standard operational

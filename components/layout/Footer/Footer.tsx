@@ -170,7 +170,7 @@ const Footer = () => {
                 <Link href="/refund-policy/">Refund Policy</Link>
               </li>
               <li>
-                <Link href="/quality-policy/">Quality Policy</Link>
+                <Link href="/centre-for-qa/">Centre for QA</Link>
               </li>
               <li>
                 <Link href="/sitemap/">Sitemap</Link>
