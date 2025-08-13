@@ -12,15 +12,18 @@ const BannerTitleWithOutImage: React.FC<TitleInterface> = ({
   const { color } = useTheme();
 
   return (
-    <h2
-      className="section-heading--black banner-text-without-image"
-      data-aos="flip-down"
-    >
-      {title
-        ?.split(" ")
-        .map((word, idx) =>
-          idx === 1 ? <span key={idx}>{word} </span> : `${word} `
-        )}
+    <h2 className="section-heading--black banner-text-without-image" data-aos="flip-down">
+      {!subtitle ? (
+        title
+          ?.split(" ")
+          .map((word, idx) =>
+            idx === 1 ? <span key={idx}>{word} </span> : `${word} `
+          )
+      ) : (
+        <>
+          {title} <span>{subtitle}</span>
+        </>
+      )}
     </h2>
   );
 };

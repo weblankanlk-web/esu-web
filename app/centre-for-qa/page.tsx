@@ -17,8 +17,8 @@ export default function QualityPolicyPage() {
     <>
       <Breadrumb />
       <BannerTitleWithOutImage
-        title="Centre for Quality Assurance (CQA)"
-        subtitle=""
+        title="Centre for "
+        subtitle="Quality Assurance (CQA)"
       />
 
       <section className="simple-padding-bottom impornent-pages quality-policy-page">
