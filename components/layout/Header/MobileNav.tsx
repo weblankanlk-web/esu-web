@@ -80,6 +80,14 @@ const MobileNav: React.FC<MobileNavProps> = ({ isMobileMenuOpen }) => {
             </li>
             <li>
               <Link
+                href="/centre-for-qa"
+                onClick={() => (window.location.href = "/centre-for-qa")}
+              >
+                Centre for QA
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/contact-us"
                 onClick={() => (window.location.href = "/contact-us")}
               >
