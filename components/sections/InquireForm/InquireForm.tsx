@@ -157,7 +157,7 @@ const InquireForm: React.FC<InquireFormProps> = ({ inquire_image }) => {
     };
 
     try {
-      const response = await fetch("/api/inquiry", {
+      const response = await fetch("/api/inquire", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
