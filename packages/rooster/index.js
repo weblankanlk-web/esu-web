@@ -535,7 +535,7 @@ export class Rooster {
       i = e ? e.label : "";
     let o = `<div class="rooster-job" data-job-department="${s.department}" data-job-employment-type="${s.jobType}" data-job-class="${s.class}" data-job-subclass="${s.subclass}">`;
     if (
-      ((o += `<a href="${this.getBaseURL()}jobs/${s.id}">`),
+      ((o += `<a href="${this.getBaseURL()}jobs/${s.id}?source=esu_website">`),
       (o += `<h3>${s.title}</h3>`),
       (o += "</a>"),
       (o += '<div class="data-row">'),
