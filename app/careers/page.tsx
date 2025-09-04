@@ -18,7 +18,7 @@ const page = () => {
       <InnerBanner
         innerPageTitlePrimary={"Careers"}
         innerPageTitleSecondary={"Us"}
-        innerPageDescription="At ESU, we believe our people are the driving force behind our success. As Sri Lanka’s premier university for higher education excellence, we are committed to building a workplace that values innovation, collaboration, and professional growth. Since our establishment in 2000, ESU has expanded into a dynamic network of institutions, creating opportunities for talented individuals to contribute to world-class education while advancing their own careers. Join us and be part of a community that empowers both students and staff to reach their fullest potential."
+        innerPageDescription="Join Sri Lanka’s premier university for higher education excellence. At ESU, we value innovation, collaboration, and growth—offering you the chance to shape world-class education while building a rewarding career."
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />
