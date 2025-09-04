@@ -1,3 +1,13 @@
 .careers-sec {
-    padding: 60px 30px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 0;
+}
+
+@media screen and (min-width: 1200px) {
+    .careers-sec {
+        width: 85%;
+        padding: 100px 0;
+    }
 }

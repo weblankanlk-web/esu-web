@@ -54,7 +54,7 @@ export default function RootLayoutClient({
       {!isAdmin && <Footer />}
       {/* <Chatbot /> */}
       <BackToTopButton />
-      <BestWebLogo />
+      {/* <BestWebLogo /> */}
     </ThemeProvider>
   );
 }
