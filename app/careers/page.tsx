@@ -8,7 +8,7 @@ import InnerBanner from "@/components/layout/InnerBanner/InnerBanner";
 const page = () => {
   useEffect(() => {
     const rooster = new Rooster("#rooster", 155337, {
-      defaultSubsidiary: 24,
+      defaultSubsidiary: 23,
     });
     rooster.setup();
   }, []);
@@ -17,8 +17,8 @@ const page = () => {
     <>
       <InnerBanner
         innerPageTitlePrimary={"Careers"}
-        innerPageTitleSecondary={"With Us"}
-        innerPageDescription="Join Sri Lanka’s premier university for higher education excellence. At ESU, we value innovation, collaboration, and growth—offering you the chance to shape world-class education while building a rewarding career."
+        innerPageTitleSecondary={"at ESU"}
+        innerPageDescription="Join ESU and take your career forward with Sri Lanka’s premier university. We offer a supportive and innovative work environment, opportunities for professional growth, and the chance to contribute to world-class education. Be part of a team that values collaboration, learning, and making a lasting impact."
         innerBgDesk="/images/inner-banner.gif"
         innerBgMobi="/images/inner-banner.gif"
       />

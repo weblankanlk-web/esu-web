@@ -35,6 +35,9 @@ const TopBarMenu = () => {
             <li>
               <Link href="/contact-us">Contact Us</Link>
             </li>
+            <li>
+              <Link href="/careers">Careers</Link>
+            </li>
           </ul>
         </nav>
 

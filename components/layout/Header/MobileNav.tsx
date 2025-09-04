@@ -94,6 +94,14 @@ const MobileNav: React.FC<MobileNavProps> = ({ isMobileMenuOpen }) => {
                 Contact Us
               </Link>
             </li>
+            <li>
+              <Link
+                href="/careers"
+                onClick={() => (window.location.href = "/careers")}
+              >
+                Careers
+              </Link>
+            </li>
             <li className="">
               <Link
                 href="https://store.esu.lk/"
