@@ -1,0 +1,18 @@
+{
+  "name": "rooster-jobs",
+  "version": "1.0.6",
+  "description": "A lightweight JavaScript package to easily integrate Rooster Jobs boards into your website. Includes all necessary CSS and scripts to display job listings, filters, and load more functionality without additional setup.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 'No build needed for JS version'"
+  },
+  "files": [
+    "index.js",
+    "rooster.css"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

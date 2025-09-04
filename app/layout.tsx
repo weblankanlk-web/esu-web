@@ -110,21 +110,18 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* <link rel="icon" href="/favicon-32x32.png" />
-
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
+        {/* <Script
+          src="https://integration.rooster.jobs/v5/rooster.min.js"
+          strategy="afterInteractive"
         />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
+        <Script>
+          {`
+     const rooster = new Rooster('#rooster', 155337, {
+        defaultSubsidiary: 23,
+    });
+    rooster.setup();
+    `}
+        </Script> */}
       </head>
       <body
         className={`
