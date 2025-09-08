@@ -64,17 +64,17 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
-export const metadata: Metadata = {
-  title: "ESU - Sri Lanka's Premier Uni for Higher Education Excellence!",
-  description: "ESU - Sri Lanka's Premier Uni for Higher Education Excellence!",
-  icons: {
-    icon: [
-      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-      { url: "/apple-touch-icon.png", rel: "apple-touch-icon" },
-    ],
-  },
-};
+// export const metadata: Metadata = {
+//   title: "ESU - Sri Lanka's Premier Uni for Higher Education Excellence!",
+//   description: "ESU - Sri Lanka's Premier Uni for Higher Education Excellence!",
+//   icons: {
+//     icon: [
+//       { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+//       { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+//       { url: "/apple-touch-icon.png", rel: "apple-touch-icon" },
+//     ],
+//   },
+// };
 
 export default function RootLayout({
   children,
@@ -83,21 +83,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`
-          ${spaceGrotesk.variable}
-          ${nunito.variable}
-          ${merriweather.variable}
-          ${lobster.variable}
-          ${orbitron.variable}
-          ${felipa.variable}
-          ${poppins.variable}
-          ${manrope.variable}
-        `}
-      >
-        <RootLayoutClient>{children}</RootLayoutClient>
+      <head>
+        {/* Required <title> tag */}
+        <title>
+          ESU - Sri Lanka&apos;s Premier Uni for Higher Education Excellence!
+        </title>
+        <meta
+          name="description"
+          content="ESU - Sri Lanka's Premier Uni for Higher Education Excellence!"
+        />
 
-        {/* GTM script (loads after hydration, won't block metadata) */}
+        {/* Favicons */}
+        <link
+          rel="icon"
+          href="/favicon-32x32.png"
+          type="image/png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          href="/favicon-16x16.png"
+          type="image/png"
+          sizes="16x16"
+        />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        {/* GTM script inside <head> */}
         <Script id="defer-gtm-loader" strategy="afterInteractive">
           {`
             function loadGTM() {
@@ -119,6 +130,44 @@ export default function RootLayout({
             });
           `}
         </Script>
+      </head>
+
+      <body
+        className={`
+          ${spaceGrotesk.variable}
+          ${nunito.variable}
+          ${merriweather.variable}
+          ${lobster.variable}
+          ${orbitron.variable}
+          ${felipa.variable}
+          ${poppins.variable}
+          ${manrope.variable}
+        `}
+      >
+        <RootLayoutClient>{children}</RootLayoutClient>
+
+        {/* GTM script (loads after hydration, won't block metadata) */}
+        {/* <Script id="defer-gtm-loader" strategy="afterInteractive">
+          {`
+            function loadGTM() {
+              if (window.gtmDidInit) return;
+              window.gtmDidInit = true;
+              (function(w,d,s,l,i){
+                w[l]=w[l]||[];
+                w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),
+                    dl=l!='dataLayer'?'&l='+l:'';
+                j.async=true;
+                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-KLC9HT5X');
+            }
+            ['scroll', 'mousemove', 'touchstart'].forEach(event => {
+              window.addEventListener(event, loadGTM, { once: true, passive: true });
+            });
+          `}
+        </Script> */}
 
         {/* GTM noscript */}
         <noscript>
