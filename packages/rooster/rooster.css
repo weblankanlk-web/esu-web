@@ -1,65 +1,121 @@
 .rooster-search {
-    padding: 0.6rem 1rem;
-    width: 100%;
-    border: 1 px solid #fff;
-    outline: 0;
+  padding: 0.6rem 1rem;
+  width: 100%;
+  border: 1 px solid #fff;
+  outline: 0;
 }
 
 .rooster-job {
-    padding: 1.4rem 0rem;
+  padding: 1.4rem 0rem;
 }
 .rooster-job:not(:last-child) {
-    border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
 }
 .rooster-job a {
-    color: rgb(10, 10, 10);
-    text-decoration: none;
+  color: rgb(10, 10, 10);
+  text-decoration: none;
 }
 .rooster-job h3 {
-    padding: 0;
-    margin: 0 0 0.4rem 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-decoration: none;
+  padding: 0;
+  margin: 0 0 0.4rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 .rooster-job h4 {
-    padding: 0;
-    margin: 0;
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
+  padding: 0;
+  margin: 0;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 .rooster-department-header {
-    font-size: 1.4rem;
-    margin: 0px;
-    padding: 2rem 0rem 0rem;
-    color: rgb(21, 178, 211);
+  font-size: 1.4rem;
+  margin: 0px;
+  padding: 2rem 0rem 0rem;
+  color: rgb(21, 178, 211);
 }
 .rooster-department-header h3 {
-    margin-bottom: 0px;
-    font-weight: 700;
+  margin-bottom: 0px;
+  font-weight: 700;
 }
 .rooster-job .data-row {
-    padding: 0rem 0rem 0.4rem 0rem;
-    font-size: 0.924rem;
+  padding: 0rem 0rem 0.4rem 0rem;
+  font-size: 0.924rem;
 }
 .rooster-job .inline-value {
-    padding-right: 0.6rem;
-    margin-right: 0.6rem;
-    color: rgba(10, 10, 10, 1);
+  padding-right: 0.6rem;
+  margin-right: 0.6rem;
+  color: rgba(10, 10, 10, 1);
 }
 .rooster-job .inline-value:not(:last-child) {
-    border-right: 1px solid rgba(10, 10, 10, 0.1);
+  border-right: 1px solid rgba(10, 10, 10, 0.1);
 }
 
 .rooster-job .chip {
-    margin-right: 10px;
-    font-size: 0.8em;
-    color: #5e6062;
-    border: none !important;
-    padding: 5px 10px;
-    display: inline-block;
-    margin-bottom: 5px;
-    line-height: 1em;
-    background: #f9f9f9;
+  margin-right: 10px;
+  font-size: 0.8em;
+  color: #5e6062;
+  border: none !important;
+  padding: 5px 10px;
+  display: inline-block;
+  margin-bottom: 5px;
+  line-height: 1em;
+  background: #f9f9f9;
+}
+
+.rooster-btn-apply {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #15b2d3; /* matches .rooster-department-header */
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.rooster-btn-apply:hover {
+  background-color: #1192ad;
+  transform: translateY(-1px);
+}
+
+.rooster-btn-apply:active {
+  background-color: #0f7c92;
+  transform: translateY(0);
+}
+
+.load-more-button {
+  display: inline-block;
+  margin: 1.5rem auto 0;
+  padding: 0.7rem 1.5rem;
+  background-color: #15b2d3; /* same brand color */
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.load-more-button:hover {
+  background-color: #1192ad;
+  transform: translateY(-1px);
+}
+
+.load-more-button:active {
+  background-color: #0f7c92;
+  transform: translateY(0);
+}
+
+.load-more-button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
 }
