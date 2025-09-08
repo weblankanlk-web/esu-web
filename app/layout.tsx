@@ -9,7 +9,6 @@ import {
   Poppins,
   Manrope,
 } from "next/font/google";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.scss";
 import "./globals.css";
@@ -84,7 +83,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
+      <body
+        className={`
+          ${spaceGrotesk.variable}
+          ${nunito.variable}
+          ${merriweather.variable}
+          ${lobster.variable}
+          ${orbitron.variable}
+          ${felipa.variable}
+          ${poppins.variable}
+          ${manrope.variable}
+        `}
+      >
         {/* GTM script for head */}
         <Script id="defer-gtm-loader" strategy="afterInteractive">
           {`
@@ -109,32 +119,6 @@ export default function RootLayout({
             });
           `}
         </Script>
-
-        {/* <Script
-          src="https://integration.rooster.jobs/v5/rooster.min.js"
-          strategy="afterInteractive"
-        />
-        <Script>
-          {`
-     const rooster = new Rooster('#rooster', 155337, {
-        defaultSubsidiary: 23,
-    });
-    rooster.setup();
-    `}
-        </Script> */}
-      </head>
-      <body
-        className={`
-          ${spaceGrotesk.variable}
-          ${nunito.variable}
-          ${merriweather.variable}
-          ${lobster.variable}
-          ${orbitron.variable}
-          ${felipa.variable}
-          ${poppins.variable}
-          ${manrope.variable}
-        `}
-      >
         <RootLayoutClient>{children}</RootLayoutClient>
         {/* GTM noscript for body */}
         <noscript>
