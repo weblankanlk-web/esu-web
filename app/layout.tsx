@@ -95,7 +95,9 @@ export default function RootLayout({
           ${manrope.variable}
         `}
       >
-        {/* GTM script for head */}
+        <RootLayoutClient>{children}</RootLayoutClient>
+
+        {/* GTM script (loads after hydration, won't block metadata) */}
         <Script id="defer-gtm-loader" strategy="afterInteractive">
           {`
             function loadGTM() {
@@ -112,15 +114,13 @@ export default function RootLayout({
                 f.parentNode.insertBefore(j,f);
               })(window,document,'script','dataLayer','GTM-KLC9HT5X');
             }
-
-            // Defer loading until interaction
             ['scroll', 'mousemove', 'touchstart'].forEach(event => {
               window.addEventListener(event, loadGTM, { once: true, passive: true });
             });
           `}
         </Script>
-        <RootLayoutClient>{children}</RootLayoutClient>
-        {/* GTM noscript for body */}
+
+        {/* GTM noscript */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-KLC9HT5X"
