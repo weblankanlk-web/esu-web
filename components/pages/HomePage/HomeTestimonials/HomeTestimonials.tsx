@@ -85,7 +85,7 @@ const HomeTestimonials: React.FC = () => {
       <div className="title-wrap">
         <TitleLarge title="Student" subtitle="&nbsp; Testimonials" />
       </div>
-      <div className="slider-wrap ">
+      <div className="slider-wrap">
         <Slider
           {...settings}
           className="testimonial-slider pb-0"

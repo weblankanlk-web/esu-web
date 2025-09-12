@@ -1086,3 +1086,134 @@ query($slug: ID!) {
   }
 }
 `;
+
+export const GET_INTERNSHIP_PROGRAM = `
+query($slug: ID!) {
+  page(id: $slug, idType: URI) {
+    innerBanner {
+      innerPageDescription
+      innerPageTitlePrimary
+      innerPageTitleSecondary
+      innerBgDesk {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      innerBgMobi {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+    }
+  }
+}
+`;
+
+export const GET_FACULTY_OVERVIEW_SLUG = `
+query($slug: ID!) {
+  page(id: $slug, idType: URI) {
+    faculityOverview {
+      overview
+      schoolOverviewTitle
+      overviewImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+    }
+  }
+}
+`;
+
+export const GET_OUR_PATNERS_SLUG = `
+query($slug: ID!) {
+  page(id: $slug, idType: URI) {
+    ourPartners {
+      ourPartnersGallery {
+        ourPartnersImage {
+          node {
+            altText
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+export const GET_ALL_INTERNSHIP_PROGRAM = `
+query {
+  internshipPrograms {
+    nodes {
+      title
+      date
+      slug
+      internshipProgramFeilds {
+        companyLogo {
+          node {
+            altText
+            sourceUrl
+          }
+        }
+        companyName
+        descriptionOfTheJobExcerpt
+        descriptionOfTheJob
+        jobTitle
+        jobType
+        location
+        jobArea {
+          nodes {
+            name
+            ... on JobArea {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
+
+export const GET_INTERNSHIP_PROGRAM_SLUG = `
+query($slug: ID!) {
+  internshipProgram(id: $slug, idType: SLUG) {
+    internshipProgramFeilds {
+      companyLogo {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      companyName
+      descriptionOfTheJob
+      descriptionOfTheJobExcerpt
+      jobArea {
+        nodes {
+            name
+            ... on JobArea {
+              id
+              name
+            }
+          }
+      }
+      jobTitle
+      jobType
+      location
+    }
+  }
+}`;
+
+export const GET_JOB_AREA = `
+query {
+  jobAreas {
+    nodes {
+      name
+      slug
+    }
+  }
+}`;

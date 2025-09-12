@@ -1,0 +1,127 @@
+@import "@/styles/global.scss";
+
+.logoSection {
+    padding: 40px 20px;
+
+    .logoSecTitle {
+        padding-bottom: 50px;
+
+        .main-title-large {
+            justify-content: center;
+        }
+    }
+
+    .logoGrid,
+    .logoSlider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .slick-arrow {
+            display: flex !important;
+            opacity: 1 !important;
+            z-index: 5;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            top: 50% !important;
+        }
+
+        .slick-prev {
+            left: 3% !important;
+
+            &:hover {
+                &::before {
+                    color: var(--main-title-color, #00aecd);
+                    opacity: 0.9;
+                }
+            }
+        }
+
+        .slick-next {
+            right: 3% !important;
+
+            &:hover {
+                &::before {
+                    color: var(--main-title-color, #00aecd);
+                    opacity: 0.9;
+                }
+            }
+        }
+
+        .slick-arrow::before {
+            font-size: 35px !important;
+            color: rgba(173, 173, 173, 0.7);
+        }
+    }
+
+    .logoGrid {
+        flex-wrap: wrap;
+        // gap: 20px;
+    }
+
+    .logoCard {
+        border-radius: 10px;
+        border: 1.017px solid rgba(56, 54, 54, 0.15);
+        background: #fff;
+        display: flex !important; // needed for slick
+        align-items: center;
+        justify-content: center;
+        padding: 41px 72px;
+        // margin: 0 10px;
+
+        &:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .logoImg {
+            max-height: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}
+
+/* Desktop vs Mobile visibility */
+.desktopOnly {
+    display: flex !important;
+}
+
+.mobileOnly {
+    display: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .desktopOnly {
+        display: none !important;
+    }
+
+    .mobileOnly {
+        display: block !important;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .logoSection {
+        padding: get-vw(150px) get-vw(280px) get-vw(150px);
+
+        .logoSecTitle {
+            padding-bottom: get-vw(50px);
+        }
+
+        .logoGrid {
+            .logoCard {
+                width: get-vw(270px);
+                height: get-vw(146px);
+
+                .logoImg {
+                    max-height: max-content;
+                    width: get-vw(140px);
+                }
+            }
+        }
+    }
+}

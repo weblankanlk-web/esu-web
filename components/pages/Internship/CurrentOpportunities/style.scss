@@ -1,0 +1,307 @@
+@import "@/styles/global.scss";
+
+.currentOpportunities {
+    padding: 40px 20px;
+
+    .currentOpportunitiesTitle {
+        padding-bottom: 50px;
+
+        .main-title-large {
+            justify-content: center;
+        }
+    }
+
+    .jobOpportunities {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+// 🔹 Desktop version (min-width: 1200px)
+@media only screen and (min-width: 1200px) {
+    .currentOpportunities {
+        padding: get-vw(0px) get-vw(160px) get-vw(150px);
+
+        .currentOpportunitiesTitle {
+            padding-bottom: 50px;
+        }
+
+        .jobOpportunities {
+            gap: get-vw(0px);
+            justify-content: space-between;
+            row-gap: get-vw(30px);
+        }
+    }
+}
+
+
+
+.jobSearch {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    padding: 0 10px;
+    max-width: 100%;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+
+    &__top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        flex-wrap: wrap; // 🔹 On mobile inputs stack
+
+        .jobSearch__input {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid #ddd;
+            padding-right: 8px;
+
+            &:last-of-type {
+                border-right: none;
+            }
+
+            .icon {
+                font-size: 16px;
+                color: #777;
+                margin-right: 6px;
+            }
+
+            input {
+                border: none;
+                outline: none;
+                flex: 1;
+                font-size: 14px;
+                color: #444;
+
+                &::placeholder {
+                    color: #aaa;
+                }
+            }
+        }
+
+        .jobSearch__btn {
+            background: #0c0a23;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.3s ease;
+
+            &:hover {
+                background: #1a1733;
+            }
+        }
+    }
+
+    &__filters {
+        display: flex;
+        gap: 10px;
+        padding: 10px 0;
+        flex-wrap: wrap;
+
+        select {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 14px;
+            color: #444;
+            background: #fff;
+            cursor: pointer;
+            width: 100%;
+
+            &:focus {
+                outline: none;
+                border-color: #0c0a23;
+            }
+        }
+    }
+}
+
+// 🔹 Desktop version (min-width: 1200px)
+@media only screen and (min-width: 1200px) {
+    .jobSearch {
+        padding: get-vw(0px) get-vw(20px);
+        margin-bottom: get-vw(60px);
+
+        &__top {
+            gap: get-vw(16px);
+            padding: get-vw(0px) get-vw(20px);
+
+            .jobSearch__input {
+                padding-right: get-vw(12px);
+
+                .icon {
+                    font-size: get-vw(20px);
+                    margin-right: get-vw(10px);
+                }
+
+                input {
+                    font-size: get-vw(16px);
+                }
+            }
+
+            .jobSearch__btn {
+                padding: get-vw(12px) get-vw(24px);
+                font-size: get-vw(16px);
+            }
+        }
+
+        &__filters {
+            gap: get-vw(16px);
+            padding: get-vw(20px);
+
+            select {
+                padding: get-vw(10px) get-vw(14px);
+                font-size: get-vw(15px);
+                width: auto;
+            }
+        }
+    }
+}
+
+
+
+.jobCard {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: box-shadow 0.3s ease;
+    width: 100%; // 🔹 Mobile full width
+    margin-bottom: 16px;
+
+    &:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    &__logo {
+        margin-bottom: 6px;
+
+        img {
+            max-height: 40px;
+            object-fit: contain;
+            object-position: left;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+
+        .company {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .time {
+            color: #777;
+            font-size: 12px;
+        }
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #111;
+    }
+
+    &__tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        text-transform: capitalize;
+
+        .tag {
+            background: #f1f1f1;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #444;
+        }
+    }
+
+    &__roles {
+        font-weight: 600;
+        color: #222;
+        font-size: 14px;
+    }
+
+    &__desc {
+        font-size: 13px;
+        line-height: 1.5;
+        color: #555;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
+
+        .btn {
+            flex: 1;
+            padding: 8px 0;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s ease;
+
+            &.primary {
+                background: #0c0a23;
+                color: #fff;
+                border: none;
+
+                &:hover {
+                    background: #1a1733;
+                }
+            }
+
+            &.secondary {
+                background: #e0e0e0;
+                color: #333;
+                border: none;
+
+                &:hover {
+                    background: #cfcfcf;
+                }
+            }
+        }
+    }
+}
+
+// 🔹 Desktop (min-width: 1200px)
+@media only screen and (min-width: 1200px) {
+    .jobCard {
+        width: 32%; // 3 per row
+        height: get-vw(430px); // use your custom vw scaling
+        padding: get-vw(20px);
+        margin-bottom: get-vw(0px);
+
+        &__title {
+            font-size: get-vw(20px);
+        }
+
+        &__desc {
+            font-size: get-vw(14px);
+            height: get-vw(130px);
+            overflow: hidden;
+        }
+
+        &__tags .tag {
+            font-size: get-vw(13px);
+        }
+    }
+}
